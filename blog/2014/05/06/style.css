@@ -1,0 +1,12 @@
+code, samp, tt, pre {
+    background-color: inherit;
+    padding: 0;
+}
+
+pre {
+    padding: 0 1.5em 0 1.5em;
+}
+
+.author {
+    display: none;
+}

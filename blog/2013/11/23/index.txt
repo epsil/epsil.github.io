@@ -1,0 +1,156 @@
+title: Importere spillelister inn i Spotify
+abstract: Hvordan konvertere fra Last.fm, M3U og extended M3U.
+date: 2013-11-23
+image: spotify.png
+image-width: 100
+---
+
+**Oppdatering:** Denne oppskriften er utdatert. Bruk [Spotify Playlist Generator](https://epsil.github.io/spotify/) i stedet.
+
+* * * * *
+
+Med nettstedet [Playlist Converter](http://www.playlist-converter.net/) kan man enkelt importere spillelister inn i Spotify. Spillelisten må være på formatet `Track - Artist`:
+
+    Walk in the Park - Beach House
+    Irene - Beach House
+    Other People - Beach House
+    Troublemaker - Beach House
+    Wishes - Beach House
+
+[Playlist Converter](http://www.playlist-converter.net/) konverterer dette til en liste med Spotify-adresser:
+
+    spotify:track:4oNXgGnumnu5oIXXyP8StH
+    spotify:track:7rAjeWkQM6cLqbPjZtXxl2
+    spotify:track:2Nt4Uw91pQLXSJ28SttDdF
+    spotify:track:4qbCRlvE5Bb9XNBjxARjoP
+    spotify:track:7x4tFmih1JBITx0e2ucGrT
+
+Man kopierer dette til utklippstavlen, oppretter en ny spilleliste i Spotify, og limer inn. (*Ikke* bruk auto-importen, den skaper problemer.)[^1]
+
+Last.fm
+-------
+
+Spillelister på nettstedet [Last.fm](http://last.fm/) kan konverteres ved hjelp av regnearkprogrammet Excel og teksteditoren Emacs:
+
+1.  Åpne Last.fm-spillelisten i nettleseren, merk teksten og kopier den inn i Excel. Fjern overflødige kolonner.
+2.  Bruk formelen `= B1 & " - " & A1` til å opprette en ekstra kolonne på formatet `Track - Artist`, som kan kopieres til utklippstavlen. (Alternativt: kopier regnearket inn i Emacs. Gjør en søk-og-erstatt-operasjon slik at linjene er på formatet `Track - Artist`.)
+3.  Konverter spillelisten med [Playlist Converter](http://www.playlist-converter.net/).
+
+En brukers «Most Played Tracks» kan være et interessant utgangspunkt når Last.fm oppgir høy kompatibilitet.[^2]
+
+M3U
+---
+
+Hvis man har spillelister i *M3U*-format, kan man bruke Emacs til å konvertere dem til tekstformatet som [Playlist Converter](http://www.playlist-converter.net/) bruker. Det regulære uttrykket[^3]
+
+    %s/\(^[^\/]+\).*\/[-0-9]*[-. ]*\(.*\)\..*/\2 - \1/g
+
+forvandler en spilleliste på formen
+
+    Beach House/Teen Dream/04 Walk in the Park.mp3
+    Beach House/Bloom/10 Irene.mp3
+    Beach House/Bloom/04 Other People.mp3
+    Beach House/Bloom/06 Troublemaker.mp3
+    Beach House/Bloom/08 Wishes.mp3
+
+til det kompatible formatet
+
+    Walk in the Park - Beach House
+    Irene - Beach House
+    Other People - Beach House
+    Troublemaker - Beach House
+    Wishes - Beach House
+
+Som [Playlist Converter](http://www.playlist-converter.net/) så konverterer til:
+
+    spotify:track:4oNXgGnumnu5oIXXyP8StH
+    spotify:track:7rAjeWkQM6cLqbPjZtXxl2
+    spotify:track:2Nt4Uw91pQLXSJ28SttDdF
+    spotify:track:4qbCRlvE5Bb9XNBjxARjoP
+    spotify:track:7x4tFmih1JBITx0e2ucGrT
+
+Extended M3U
+------------
+
+Man kan også konvertere *extended M3U*-spillelister med Emacs. Det regulære uttrykket
+
+    %s/^#EXTM3U\n\|^#EXTINF:[0-9]+,\|^[^#].*\n?//g
+
+forvandler en spilleliste på formen
+
+    #EXTM3U
+    #EXTINF:404,Desire Lines - Deerhunter
+    Deerhunter/Halcyon Digest/06 Desire Lines.mp3
+    #EXTINF:230,Saved By Old Times - Deerhunter
+    Deerhunter/Microcastle/10 Saved By Old Times.mp3
+    #EXTINF:202,Agoraphobia - Deerhunter
+    Deerhunter/Microcastle/02 Agoraphobia.mp3
+    #EXTINF:133,Revival - Deerhunter
+    Deerhunter/Halcyon Digest/03 Revival.mp3
+    #EXTINF:264,Twilight at Carbon Lake - Deerhunter
+    Deerhunter/Microcastle/12 Twilight at Carbon Lake.mp3
+
+til det kompatible formatet
+
+    Desire Lines - Deerhunter
+    Saved By Old Times - Deerhunter
+    Agoraphobia - Deerhunter
+    Revival - Deerhunter
+    Twilight at Carbon Lake - Deerhunter
+
+Som [Playlist Converter](http://www.playlist-converter.net/) så konverterer til:
+
+    spotify:track:3jZ0GKAZiDMya0dZPrw8zq
+    spotify:track:20DDHYR4vZqDwHyNFLwkXI
+    spotify:track:2SpHd4lGMrJMIQDf92V6VP
+    spotify:track:30wvVTkqA4Fp5ZCG0xGof7
+    spotify:track:6vtwbm7YGkTwTINdrcXV5I
+
+Alternativer
+------------
+
+For å eksportere spillelister *fra* Spotify, kan man bruke verktøyet [Exportify](https://github.com/watsonbox/exportify).[^4] Spotify har dessverre ingen innebygd funksjonalitet for å sikkerhetskopiere spillelister.
+
+[^1]: Fra en [reddit-tråd](https://www.reddit.com/r/spotify/comments/49uztj/how_to_import_text_file_playlist_to_spotify/):
+
+    > > > So I have an excel sheet with 1000+ songs but no way to import a txt/csv file. No webservices that work to do the conversion.
+    > >
+    > > Trying out <http://www.playlist-converter.net/#/> to see if there might be a workaround this way.
+    >
+    > Ya that worked. Though don't try the auto import, it hangs. Have to select text from the converted spotify song codes and paste into a new spotify playlist inside the application.
+
+[^2]: Denne oppskriften gjorde opprinnelig bruk av [SpotMySongs](http://spotmysongs.com/), som dessverre er nedlagt. Fra nettsiden:
+
+    > SpotMySongs is no longer available, but there are some other tools that can help you convert your playlists from other services to Spotify.
+    >
+    > 1.  [Ivy](http://www.ivyishere.org/): Import your existing playlists from iTunes and other applications and services into Spotify so you can listen to your favourite music anywhere with Ivy!
+    > 2.  [Unify](http://www.getunify.com/): Transfer music from iTunes to Spotify. Unify lets you drag and drop your playlists and albums into Spotify. Unify is built for speed. Transfer hundreds of playlists and albums in seconds.
+    >
+    > Other Useful Websites and Apps: 1) [Spotify Web Player](https://play.spotify.com/), 2) [Pandora for iPhone](https://itunes.apple.com/us/app/pandora-radio/id284035177?mt=8&ign-mpt=uo%3D2), 3) [SpyBubble for iPhone and Android](http://www.prospybubble.com/), 4) [Highster Mobile for Android](http://www.bestphonespy.com/highster-mobile-review/)
+
+    I stedet for [Playlist Converter](http://www.playlist-converter.net/) kan man godt bruke [Yet Another Spotify Playlist Converter](http://michaeldick.me/YetAnotherSpotifyPlaylistConverter/), eller dette [skriptet](https://github.com/epsil/spotify-js) som jeg selv har skrevet.
+
+[^3]: Andre nyttige uttrykk:
+
+    -   `%s/ - /\//g` bytter ut `-` med `/`.
+    -   `%s/^[-0-9]*[ ]*//g` fjerner spornummer.
+    -   `%s/^[. ]*//g` fjerner overflødige tegn.
+    -   `%s/\.[^.]*$//g` fjerner filendelsen.
+    -   `%s/\(.*\) - .* - .* - \(.*\)\.[^.]*$/\2 - \1/g` konverterer filnavn på formen `Artist - Album - Track - Title`.
+
+    Da jeg hadde mange spillelister å konvertere, gikk jeg til og med til det steget å skrive en Lisp-funksjon:
+
+    ```lisp
+    (defun playlist ()
+      (interactive)
+      (evil-ex "%s/ - /\\//g")
+      (evil-ex "%s/_/ /g")
+      (evil-ex "%s|^/Users/vegard/")
+      (evil-ex "%s|^\\(Music\\|Musikk\\)/")
+      (evil-ex "%s|^inbox/\\([0-9]+/\\)?")
+      (evil-ex "%s|^todo/\\([0-9]+/\\)?")
+      (evil-ex "%s|^\\(\\(soundtracks\\|classical\\|classics\\|new\\|pop\\|Favoritter\\|rock\\|vocal\\|unsorted\\|mu\\|hiphop\\|lyrics\\|metal\\|compilations\\|alternative\\|compilations\\|various\\|trance\\|wav\\|mp3\\)/\\)*")
+      (evil-ex "%s/\\(^[^\\/]+\\).*\\/[-0-9]*[-. ]*\\(.*\\)\\..*/\\2 - \\1/g"))
+    ```
+
+[^4]: Referert i denne artikkelen om [Spotify og Apple Music](https://www.verschoren.com/2015/07/migrating-spotify-to-apple-music/).

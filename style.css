@@ -1,0 +1,75 @@
+a, a:hover {
+    color: #fff !important;
+}
+
+a:after {
+    content: normal !important;
+}
+
+body {
+    color: #fff !important;
+    background: url("background.jpg") #01505f;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    text-shadow: 0px 0px 1px #000, 1px 1px 0px #000, 1px 1px 1px #000;
+}
+
+nav {
+    display: none;
+}
+
+li:before {
+    content: normal !important;
+}
+
+header {
+    color: inherit;
+    position: relative;
+    top: 8em;
+}
+
+#links, #contact {
+    position: absolute;
+    text-align: center;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+#links {
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.15);
+    padding: 1em 0 1em 0;
+    top: 0;
+}
+
+#links h2, #contact h2 {
+    display: none;
+}
+
+#links ul, #contact ul {
+    margin: 0;
+    padding: 0;
+}
+
+#links li, #contact li {
+    display: inline;
+    padding-left: 1em;
+    padding: 0 1em 0 1em;
+}
+
+#contact {
+    background-color: rgba(0, 0, 0, 0.6);
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);
+    bottom: 0;
+    padding: 1em 0 1em 0;
+}
+
+.h-entry > header, .e-content > * {
+    max-width: 100%;
+}
+
+.p-author {
+    display: none;
+}
