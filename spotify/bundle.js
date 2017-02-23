@@ -80992,9 +80992,9 @@ module.exports = function (key) {
    * Perform a Last.fm request.
    * @param {string} url - The URL to look up.
    */
-  lastfm.request = function (url) {
-    var performRequest = function (url, timeout) {
-      timeout = timeout || 100
+  lastfm.request = function (url, delay) {
+    delay = delay || 100
+    var performRequest = function (url, delay) {
       return new Promise(function (resolve, reject) {
         setTimeout(function () {
           console.log(url.replace('&api_key=' + key, ''))
@@ -81016,15 +81016,16 @@ module.exports = function (key) {
               }
             }
           })
-        }, timeout)
+        }, delay)
       })
     }
-    return performRequest(url).catch(function (err) {
+    return performRequest(url, delay).catch(function (err) {
+      console.log('err: ' + err)
       if (typeof err === 'string' &&
           err.match(/XHR error/i) &&
-          url.match(/^http:/)) {
-        url = url.replace(/^http:/, 'https:')
-        return performRequest(url)
+          url.match(/^http:/i)) {
+        url = url.replace(/^http:/i, 'https:')
+        return performRequest(url, delay)
       }
     })
   }
