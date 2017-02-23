@@ -80967,37 +80967,25 @@ module.exports = function (key) {
    * @return {Promise | JSON} The track info.
    */
   lastfm.getInfo = function (artist, title, correct) {
-    console.log('lastfm.getInfo(' + artist + ', ' + title + ', ' + correct + ')')
-    // var url = 'http://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=803d3cbea0bbe50c61ab81c4fe5fe20f&artist=Beach%20House&track=Wildflower&format=json'
-    var url = 'https://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=803d3cbea0bbe50c61ab81c4fe5fe20f&artist=Beach%20House&track=Wildflower&format=json'
-    // url = 'https://api.spotify.com/v1/search?type=track&amp;limit=50&amp;q=Wildflower%20-%20Beach%20House'
-    console.log(url)
-    request(url, function (error, response, body) {
-      console.log(error)
-      console.log(response)
-      console.log(body)
+    correct = (correct !== false)
+    artist = encodeURIComponent(artist)
+    title = encodeURIComponent(title)
+    key = encodeURIComponent(key)
+
+    // http://www.last.fm/api/show/track.getInfo
+    var url = 'http://ws.audioscrobbler.com/2.0/?method=track.getInfo'
+    url += '&api_key=' + key
+    url += '&artist=' + artist
+    url += '&track=' + title
+    url += '&format=json'
+
+    return lastfm.request(url).then(function (result) {
+      if (result && !result.error && result.track) {
+        return Promise.resolve(result)
+      } else {
+        return Promise.reject(result)
+      }
     })
-    return Promise.resolve(null)
-
-    // correct = (correct !== false)
-    // artist = encodeURIComponent(artist)
-    // title = encodeURIComponent(title)
-    // key = encodeURIComponent(key)
-
-    // // http://www.last.fm/api/show/track.getInfo
-    // var url = 'http://ws.audioscrobbler.com/2.0/?method=track.getInfo'
-    // url += '&api_key=' + key
-    // url += '&artist=' + artist
-    // url += '&track=' + title
-    // url += '&format=json'
-
-    // return lastfm.request(url).then(function (result) {
-    //   if (result && !result.error && result.track) {
-    //     return Promise.resolve(result)
-    //   } else {
-    //     return Promise.reject(result)
-    //   }
-    // })
   }
 
   /**
@@ -81005,28 +80993,39 @@ module.exports = function (key) {
    * @param {string} url - The URL to look up.
    */
   lastfm.request = function (url) {
-    return new Promise(function (resolve, reject) {
-      setTimeout(function () {
-        console.log(url)
-        request(url, function (err, response, body) {
-          if (err) {
-            reject(err)
-          } else if (response.statusCode !== 200) {
-            reject(response.statusCode)
-          } else {
-            try {
-              body = JSON.parse(body)
-            } catch (e) {
-              reject(e)
-            }
-            if (body.error) {
-              reject(body)
+    var performRequest = function (url, timeout) {
+      timeout = timeout || 100
+      return new Promise(function (resolve, reject) {
+        setTimeout(function () {
+          console.log(url.replace('&api_key=' + key, ''))
+          request(url, function (err, response, body) {
+            if (err) {
+              reject(err)
+            } else if (response.statusCode !== 200) {
+              reject(response.statusCode)
             } else {
-              resolve(body)
+              try {
+                body = JSON.parse(body)
+              } catch (e) {
+                reject(e)
+              }
+              if (body.error) {
+                reject(body)
+              } else {
+                resolve(body)
+              }
             }
-          }
-        })
-      }, 100) // 10
+          })
+        }, timeout)
+      })
+    }
+    return performRequest(url).catch(function (err) {
+      if (typeof err === 'string' &&
+          err.match(/XHR error/i) &&
+          url.match(/^http:/)) {
+        url = url.replace(/^http:/, 'https:')
+        return performRequest(url)
+      }
     })
   }
 
