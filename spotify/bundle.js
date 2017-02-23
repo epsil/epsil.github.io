@@ -81000,6 +81000,8 @@ module.exports = function (key) {
           console.log(url.replace('&api_key=' + key, ''))
           request(url, function (err, response, body) {
             if (err) {
+              console.log('There was an error: ' + err)
+              console.log('Rejecting ...')
               reject(err)
             } else if (response.statusCode !== 200) {
               reject(response.statusCode)
