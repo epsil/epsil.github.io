@@ -75782,7 +75782,7 @@ Queue.prototype.slice = function (start, end) {
  * @return {Queue} - Itself.
  */
 Queue.prototype.sort = function (fn) {
-  this.queue = sort.stableSort(this.queue, fn)
+  this.queue = sort(this.queue, fn)
   return this
 }
 
@@ -75944,8 +75944,6 @@ module.exports = Similar
 },{"./artist":558,"./queue":564,"./spotify":567,"./top":568}],566:[function(require,module,exports){
 var stringSimilarity = require('string-similarity')
 
-var sort = {}
-
 /**
  * Stable sort, preserving original order.
  * @param {Array} arr - The array to sort.
@@ -75955,7 +75953,7 @@ var sort = {}
  * and `0` if the scores are equal.
  * @return {Array} - A new array that is sorted.
  */
-sort.stableSort = function (arr, fn) {
+function sort (arr, fn) {
   fn = fn || sort.ascending()
   var i = 0
   var pair = function (x) {
@@ -76194,7 +76192,7 @@ spotify.getAlbumsByArtist = function (id) {
   // sort albums by type
   var sortAlbums = function (response) {
     if (response && response.items) {
-      response.items = sort.stableSort(response.items, sort.album)
+      response.items = sort(response.items, sort.album)
     }
     return response
   }
@@ -76216,7 +76214,7 @@ spotify.getTopTracks = function (id) {
   return spotify.request(url).then(function (response) {
     if (response &&
         response.tracks) {
-      response.tracks = sort.stableSort(response.tracks, sort.popularity)
+      response.tracks = sort(response.tracks, sort.popularity)
       return Promise.resolve(response)
     } else {
       return Promise.reject(response)
@@ -76333,8 +76331,8 @@ spotify.searchForTrack = function (track) {
       // Sort results by string similarity. This takes care of some
       // odd cases where a random track from an album of the same name
       // is returned as the first hit.
-      response.tracks.items = sort.stableSort(response.tracks.items,
-                                              sort.track(track))
+      response.tracks.items = sort(response.tracks.items,
+                                   sort.track(track))
       return Promise.resolve(response)
     } else {
       return Promise.reject(response)
@@ -76876,39 +76874,41 @@ describe('Spotify Playlist Generator', function () {
 
   describe('Sorting', function () {
     it('should handle empty lists', function () {
-      sort.stableSort([], function (a, b) {
+      sort([], function (a, b) {
         return (a < b) ? -1 : ((a > b) ? 1 : 0)
       }).should.eql([])
     })
 
     it('should handle singleton lists', function () {
-      sort.stableSort([1], function (a, b) {
+      sort([1], function (a, b) {
         return (a < b) ? -1 : ((a > b) ? 1 : 0)
       }).should.eql([1])
     })
 
     it('should stably sort the list', function () {
-      sort.stableSort([1, 4, 2, 8], function (a, b) {
+      sort([1, 4, 2, 8], function (a, b) {
         return (a < b) ? -1 : ((a > b) ? 1 : 0)
       }).should.eql([1, 2, 4, 8])
     })
 
     it('should work with a generated comparison function', function () {
-      sort.stableSort([1, 4, 2, 8], sort.ascending(function (x) {
+      sort([1, 4, 2, 8], sort.ascending(function (x) {
         return x
       })).should.eql([1, 2, 4, 8])
     })
 
     it('should work with a generated comparison function', function () {
-      sort.stableSort([1, 4, 2, 8], sort.descending(function (x) {
+      sort([1, 4, 2, 8], sort.descending(function (x) {
         return x
       })).should.eql([8, 4, 2, 1])
     })
 
     it('should preserve the order of duplicate elements', function () {
-      sort.stableSort([1, 4, 2, 4, 8], function (a, b) {
-        return (a < b) ? -1 : ((a > b) ? 1 : 0)
-      }).should.eql([1, 2, 4, 4, 8])
+      sort([[1, 0], [4, 1], [2, 2], [4, 3], [8, 4]], function (a, b) {
+        var x = a[0]
+        var y = b[0]
+        return (x < y) ? -1 : ((x > y) ? 1 : 0)
+      }).should.eql([[1, 0], [2, 2], [4, 1], [4, 3], [8, 4]])
     })
   })
 
