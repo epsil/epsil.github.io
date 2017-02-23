@@ -7,7 +7,7 @@ require('bootstrap')
 
 console.log = function (message) {
   if (typeof message === 'string') {
-    // message = $('.log').text() + message + '\n'
+    message = $('.log').text() + message + '\n'
     $('.log').text(message)
   }
 }
