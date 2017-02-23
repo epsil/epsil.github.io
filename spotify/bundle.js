@@ -81023,6 +81023,11 @@ module.exports = function (key) {
     }
     return performRequest(url, delay).catch(function (err) {
       console.log('err: ' + err)
+      console.log('typeof err = ' + typeof err)
+      err = err + ''
+      console.log('typeof err 2: = ' + typeof err)
+      console.log('match: ' + err.match(/XHR error/i))
+      console.log('url match: ' + url.match(/^http:/i))
       if (typeof err === 'string' &&
           err.match(/XHR error/i) &&
           url.match(/^http:/i)) {
