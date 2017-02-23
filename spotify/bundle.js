@@ -80967,6 +80967,7 @@ module.exports = function (key) {
    * @return {Promise | JSON} The track info.
    */
   lastfm.getInfo = function (artist, title, correct) {
+    console.log('lastfm.getInfo(' + artist + ', ' + title + ', ' + correct + ')')
     var url = 'http://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=803d3cbea0bbe50c61ab81c4fe5fe20f&artist=Beach%20House&track=Wildflower&format=json'
     request(url, function (error, response, body) {
       console.log(error)
