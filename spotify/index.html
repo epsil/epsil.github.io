@@ -10,69 +10,163 @@
     <meta content="Spotify Playlist Generator" property="og:title">
     <meta content="A tool for generating Spotify playlists." property="og:description">
     <meta content="https://epsil.github.io/spotify/" property="og:url">
-    <meta content="https://epsil.github.io/spotify/apple-touch-icon.png" property="og:image">
     <meta content="en" name="og:locale">
     <link href="bootstrap.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
     <link href="favicon.ico" rel="icon" type="image/x-icon">
-    <link href="apple-touch-icon.png" rel="apple-touch-icon">
-    <script src="bundle.js"></script>
+    <style type="text/css">
+      <!--
+        a, a:hover {
+            color: inherit;
+        }
+        body, html {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        ::selection {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        ::-moz-selection {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        .playlists {
+            padding-top: 2.5em;
+        }
+        .generator, .instructions {
+            color: #ddd;
+            margin: 0;
+            padding: 1em 0 0.25em 0;
+            background-color: #242930;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .thumbnail {
+            box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+            max-width: 150px;
+         }
+        .thumbnail p {
+            margin: 0;
+            padding: 0;
+        }
+        .generator > *, .instructions > * {
+            max-width: 500px;
+            padding: 0 20px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Avenir, "Avenir Next", Georgia, Charter, "Iowan Old Style", Iowan, "Iowan Web", "Hoefler Text", Cambria, Constantia, Utopia, Marion, Cochin, "Palatino Linotype", Palatino, Baskerville, serif;
+            /* margin-bottom: 5em; */
+            margin: 0;
+            padding: 0;
+        }
+        button {
+            background-color: rgba(0, 0, 0, 0.1) !important;
+            border: 2px solid rgba(255, 255, 255, 0.1) !important;
+            color: inherit !important;
+        }
+        h1 {
+            margin: 0.5em 0 0.5em 0;
+        }
+        h1 a, h1 a:hover {
+            color: inherit;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 200;
+        }
+        code {
+            background-color: #f5f5f5;
+            color: inherit;
+        }
+        code, pre {
+            color: inherit;
+            font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+            background-color: rgba(0, 0, 0, 0.1) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+        kbd {
+            /* background-color: #fcfcfc; */
+            background-color: rgba(0, 0, 0, 0.1) !important;
+            /* border-color: #ccc #ccc #bbb; */
+            border-color: rgba(255, 255, 255, 0.1) !important;
+            border-image: none;
+            border-radius: 3px;
+            border-style: solid;
+            border-width: 1px;
+            /* box-shadow: 0 -1px 0 #bbb inset; */
+            box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+            /* color: #555; */
+            display: inline-block;
+            font-family: inherit !important;
+            /* font-size: 0.5em !important; */
+            font-variant-numeric: normal;
+            line-height: 1em;
+            padding: 3px 5px;
+            vertical-align: middle;
+            -moz-border-bottom-colors: none;
+            -moz-border-left-colors: none;
+            -moz-border-right-colors: none;
+            -moz-border-top-colors: none;
+        }
+        textarea, textarea:focus {
+            border: 2px solid rgba(255, 255, 255, 0.1) !important;
+            box-shadow: none !important;
+            color: inherit !important;
+            background-color: rgba(0, 0, 0, 0.1) !important;
+            font-family: Consolas, "Consolas Web", Menlo, Monaco, "Liberation Mono", Courier, monospace;
+            min-height: 15em;
+            margin-bottom: 2em !important;
+        }
+        .log {
+            color: #999;
+            margin-top: 0.5em;
+            min-height: 3em;
+            height: 3em;
+            overflow: hidden;
+        }
+      -->
+    </style>
+    <script src="spotify.js"></script>
   </head>
   <body>
-    <a href="https://github.com/epsil/spotify-js" target="_blank"><img height="100" width="100" style="position: absolute; top: 0; right: 0; border: 0; user-select: none; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none;" src="forkme.png" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+    <a href="https://github.com/epsil/spotify-js"><img style="position: absolute; top: 0; right: 0; border: 0; user-select: none; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none;" src="forkme.png" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
     <div class="generator">
       <h1><a href="https://epsil.github.io/spotify/" rel="bookmark">Spotify Playlist Generator</a></h1>
       <form id="form">
         <div class="form-group">
-          <textarea class="form-control" placeholder="## Specify playlist (or try the examples below) ..."></textarea>
+          <textarea class="form-control"></textarea>
         </div>
-        <button type="submit" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Click on the button to create the playlist!">Create Playlist</button>
+        <button type="submit" class="btn btn-default">Create Playlist</button>
         <p class="log"></p>
       </form>
     </div>
     <div class="playlists">
       <div class="container">
-        <h2>Examples</h2>
         <div class="row">
           <div class="col-xs-4">
             <div class="thumbnail">
-              <a href="#" id="beachhouse" title="Try Beach House playlist">
+              <a href="#" id="aphextwin">
+                <img src="aphextwin.jpg" alt="" style="width: 100%">
+                <div class="caption">
+                  <p>Top tracks by <strong>Aphex Twin</strong></p>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="col-xs-4">
+            <div class="thumbnail">
+              <a href="#" id="deerhunter">
+                <img src="deerhunter.jpg" alt="" style="width: 100%">
+                <div class="caption">
+                  <p>Similar artists to <strong>Deerhunter</strong></p>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="col-xs-4">
+            <div class="thumbnail">
+              <a href="#" id="beachhouse">
                 <img src="beachhouse.jpg" alt="" style="width: 100%">
                 <div class="caption">
-                  <p>Five hand-picked <strong>Beach House</strong> tracks</p>
-                  <pre style="display: none">## Five hand-picked Beach House tracks
-
-Wildflower - Beach House
-Walk in the Park - Beach House
-Irene - Beach House
-Levitation - Beach House
-Elegy to the Void - Beach House</pre>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="col-xs-4">
-            <div class="thumbnail">
-              <a href="#" id="m83" title="Try M83 playlist">
-                <img src="m83.jpg" alt="" style="width: 100%">
-                <div class="caption">
-                  <p>Most popular <strong>M83</strong> tracks</p>
-                  <pre style="display: none">## Most popular M83 tracks
-
-#top M83</pre>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="col-xs-4">
-            <div class="thumbnail">
-              <a href="#" id="moby" title="Try Moby playlist">
-                <img src="moby.jpg" alt="" style="width: 100%">
-                <div class="caption">
-                  <p>Various artists similar to <strong>Moby</strong></p>
-                  <pre style="display: none">## Various artists similar to Moby
-
-#similar Moby</pre>
+                  <p><strong>Beach House</strong> tracks ordered by Last.fm</p>
                 </div>
               </a>
             </div>
@@ -81,50 +175,30 @@ Elegy to the Void - Beach House</pre>
         <div class="row">
           <div class="col-xs-4">
             <div class="thumbnail">
-              <a href="#" id="ambient" title="Try ambient playlist">
+              <a href="#" id="ambient">
                 <img src="biosphere.jpg" alt="" style="width: 100%">
                 <div class="caption">
-                  <p>Five hand-picked <strong>ambient</strong> albums</p>
-                  <pre style="display: none">## Five hand-picked ambient albums
-
-#album Substrata - Biosphere
-#album Selected Ambient Works Volume II - Aphex Twin
-#album ( ) - Sigur Rós
-#album A I A: Alien Observer - Grouper
-#album The Magic Place - Julianna Barwick</pre>
+                  <p>Top 10 <strong>ambient</strong> albums</p>
                 </div>
               </a>
             </div>
           </div>
           <div class="col-xs-4">
             <div class="thumbnail">
-              <a href="#" id="deerhunter" title="Try Deerhunter playlist">
-                <img src="deerhunter.jpg" alt="" style="width: 100%">
+              <a href="#" id="djshadow">
+                <img src="djshadow.jpg" alt="" style="width: 100%">
                 <div class="caption">
-                  <p>All <strong>Deerhunter</strong> tracks, ordered by Last.fm rating</p>
-                  <pre style="display: none">## All Deerhunter tracks,
-## ordered by Last.fm rating
-
-#order by lastfm
-#artist Deerhunter</pre>
+                  <p>Similar artists to <strong>DJ Shadow,</strong> ordered by Last.fm</p>
                 </div>
               </a>
             </div>
           </div>
           <div class="col-xs-4">
             <div class="thumbnail">
-              <a href="#" id="spiritualized" title="Try Spiritualized playlist">
-                <img src="spiritualized.jpg" alt="" style="width: 100%">
+              <a href="#" id="tremblingbluestars">
+                <img src="tremblingbluestars.jpg" alt="" style="width: 100%">
                 <div class="caption">
-                  <p>Various artists similar to <strong>Spiritualized</strong> and <strong>The Rolling Stones</strong>, ordered by Spotify popularity</p>
-                  <pre style="display: none">## Various artists similar to Spiritualized
-## and The Rolling Stones,
-## ordered by Spotify popularity
-
-#order by popularity
-#alternate by artist
-#similar Spiritualized
-#similar The Rolling Stones</pre>
+                  <p>Similar artists to <strong>Trembling Blue Stars</strong></p>
                 </div>
               </a>
             </div>
@@ -134,111 +208,67 @@ Elegy to the Void - Beach House</pre>
     </div>
     <div class="instructions">
       <h2>Usage</h2>
-      <p>To import the playlist into Spotify:</p>
+      <p>Example input:</p>
+      <pre>Walk in the Park - Beach House
+Irene - Beach House
+Other People - Beach House
+Troublemaker - Beach House
+Wishes - Beach House</pre>
+      <p>Example output:</p>
+      <pre>spotify:track:4oNXgGnumnu5oIXXyP8StH
+spotify:track:7rAjeWkQM6cLqbPjZtXxl2
+spotify:track:2Nt4Uw91pQLXSJ28SttDdF
+spotify:track:4qbCRlvE5Bb9XNBjxARjoP
+spotify:track:7x4tFmih1JBITx0e2ucGrT</pre>
+      <p>To import the playlist:</p>
       <ol>
-        <li><strong>Copy the output of the generator:</strong><br>
-          Choose <em>Edit &rarr; Copy</em> (<kbd>Ctrl</kbd> + <kbd>C</kbd>).</li>
-        <li><strong>Create a new playlist in Spotify:</strong><br>
-          Choose <em>File &rarr; New Playlist</em> (<kbd>Ctrl</kbd> + <kbd>N</kbd>).</li>
-        <li><strong>Paste into the playlist:</strong><br>
-          Select the playlist and choose <em>Edit &rarr; Paste</em> (<kbd>Ctrl</kbd> + <kbd>V</kbd>).</li>
+        <li>Copy the output to the clipboard (with <em>Edit -&gt; Copy</em> or <kbd>Ctrl</kbd> + <kbd>C</kbd>).</li>
+        <li>Create a new playlist in Spotify (with <em>File -&gt; New Playlist</em> or <kbd>Ctrl</kbd> + <kbd>N</kbd>).</li>
+        <li>Paste into it (with <em>Edit -&gt; Paste</em> or <kbd>Ctrl</kbd> + <kbd>V</kbd>).</li>
       </ol>
-      <h3>Top tracks</h3>
-      <p>To add the top 10 tracks of an artist:</p>
-      <pre>#top Aphex Twin</pre>
-      <p>This will create a playlist consisting of ten most popular tracks of Aphex Twin. To add only the top 5 tracks, use <code>#top5</code>.</p>
-      <h3>Similar artists</h3>
-      <p>To add tracks from similar artists:</p>
-      <pre>#similar Aphex Twin</pre>
-      <p>This will create a playlist consisting of the most popular tracks from the most similar artists to Aphex Twin.</p>
-      <h3>Artists</h3>
-      <p>To add the entire discography of an artist:</p>
-      <pre>#artist Beach House</pre>
-      <p>Result:</p>
-      <pre>spotify:track:&lt;Beach House Track #1>
-spotify:track:&lt;Beach House Track #2>
-spotify:track:&lt;Beach House Track #3>
-...</pre>
       <h3>Albums</h3>
-      <p>To add an entire album to the playlist:</p>
+      <p>To add an entire album to the playlist, use the <code>#album</code> directive:</p>
       <pre>#album Substrata - Biosphere</pre>
       <p>Result:</p>
       <pre>spotify:track:&lt;Substrata Track #1>
 spotify:track:&lt;Substrata Track #2>
 spotify:track:&lt;Substrata Track #3>
 ...</pre>
+      <h3>Artists</h3>
+      <p>To add the entire discography of an artist, use the <code>#artist</code> directive:</p>
+      <pre>#artist Beach House</pre>
+      <p>Result:</p>
+      <pre>spotify:track:&lt;Beach House Track #1>
+spotify:track:&lt;Beach House Track #2>
+spotify:track:&lt;Beach House Track #3>
+...</pre>
+      <h3>Top tracks</h3>
+      <p>To add the top 10 tracks of an artist, use the <code>#top</code> directive:</p>
+      <pre>#top Aphex Twin</pre>
+      <p>To add only the top 5 tracks, use the <code>#top5</code> directive.</p>
+      <h3>Similar artists</h3>
+      <p>To add tracks from similar artists, use the <code>#similar</code> directive:</p>
+      <pre>#similar Aphex Twin</pre>
+      <p>This will create a playlist consisting of the most popular tracks from the most similar artists to Aphex Twin.</p>
       <h3>Order</h3>
-      <p>To order the tracks by Spotify popularity, use <code>#order by</code>:</p>
+      <p>To order the tracks by Spotify popularity, add the line <code>#order by popularity</code>:</p>
       <pre>#order by popularity
 #artist Beach House</pre>
       <p>To order the tracks by <a href="http://last.fm/">Last.fm</a> playcount, add the line <code>#order by lastfm</code>:</p>
       <pre>#order by lastfm
 #artist Beach House</pre>
       <h3>Group</h3>
-      <p>To sort the ordered tracks into groups, use <code>#group by</code>:</p>
+      <p>To sort the ordered tracks into groups, use the <code>#group by</code> directive:</p>
       <pre>#order by lastfm
 #group by artist
 #similar Beach House</pre>
       <p>This will create a Last.fm-ordered playlist of artists similar to Beach House, where tracks from the same artists are grouped together.</p>
       <h3>Alternate</h3>
-      <p>To group the tracks and then interleave them, use <code>#alternate by</code>:</p>
-      <pre>#order by popularity
+      <p>To group the tracks and then interleave them, use the <code>#alternate by</code> directive:</p>
+      <pre>#order by lastfm
 #alternate by artist
-#similar Beach House
-#similar Hooverphonic</pre>
-      <p>This will create a Last.fm-ordered playlist of artists similar to Beach House and Hooverphonic, with each track having a different artist from the previous track.</p>
-      <h3>Tracks</h3>
-      <p>To add a track to the playlist, add a line on the form <code>TITLE - ARTIST</code>:</p>
-      <pre>Walk in the Park - Beach House
-Irene - Beach House
-Other People - Beach House
-Troublemaker - Beach House
-Wishes - Beach House</pre>
-      <p>Result:</p>
-      <pre>spotify:track:4oNXgGnumnu5oIXXyP8StH
-spotify:track:7rAjeWkQM6cLqbPjZtXxl2
-spotify:track:2Nt4Uw91pQLXSJ28SttDdF
-spotify:track:4qbCRlvE5Bb9XNBjxARjoP
-spotify:track:7x4tFmih1JBITx0e2ucGrT</pre>
-      <h3>Import M3U playlists</h3>
-      <p>One can easily import <a href="https://en.wikipedia.org/wiki/M3U">M3U</a> playlists (with the file extension <code>.m3u</code> or <code>.m3u8</code>), provided they contain <code>EXTM3U</code> metadata. That is, the playlist should be on the form:</p>
-      <pre>#EXTM3U
-#EXTINF:404,Desire Lines - Deerhunter
-Deerhunter/Halcyon Digest/06 Desire Lines.mp3
-#EXTINF:230,Saved By Old Times - Deerhunter
-Deerhunter/Microcastle/10 Saved By Old Times.mp3
-#EXTINF:202,Agoraphobia - Deerhunter
-Deerhunter/Microcastle/02 Agoraphobia.mp3
-#EXTINF:133,Revival - Deerhunter
-Deerhunter/Halcyon Digest/03 Revival.mp3
-#EXTINF:264,Twilight at Carbon Lake - Deerhunter
-Deerhunter/Microcastle/12 Twilight at Carbon Lake.mp3</pre>
-      <p>The generator will automatically convert this to:</p>
-      <pre>Desire Lines - Deerhunter
-Saved By Old Times - Deerhunter
-Agoraphobia - Deerhunter
-Revival - Deerhunter
-Twilight at Carbon Lake - Deerhunter</pre>
-      <h3>Import existing Spotify playlists</h3>
-      <p>One can also work with existing Spotify playlists. By selecting the playlist&#8217;s tracks in Spotify, copying them, and then pasting them as text somewhere elsewhere, one obtains a list of links:</p>
-      <pre>https://open.spotify.com/track/4oNXgGnumnu5oIXXyP8StH
-https://open.spotify.com/track/7rAjeWkQM6cLqbPjZtXxl2
-https://open.spotify.com/track/2Nt4Uw91pQLXSJ28SttDdF
-https://open.spotify.com/track/4qbCRlvE5Bb9XNBjxARjoP
-https://open.spotify.com/track/7x4tFmih1JBITx0e2ucGrT</pre>
-      <p>The generator will automatically convert this to:</p>
-      <pre>spotify:track:4oNXgGnumnu5oIXXyP8StH
-spotify:track:7rAjeWkQM6cLqbPjZtXxl2
-spotify:track:2Nt4Uw91pQLXSJ28SttDdF
-spotify:track:4qbCRlvE5Bb9XNBjxARjoP
-spotify:track:7x4tFmih1JBITx0e2ucGrT</pre>
-      <h3>Command-line script</h3>
-      <p><a href="https://github.com/epsil/spotify-js" target="_blank" title="Command-line version">A command-line version is available from GitHub.</a></p>
-    </div>
-    <div class="footer">
-      <p>By <strong><a href="https://github.com/epsil" target="_blank" title="Contact me">Vegard Øye</a></strong></p>
-      <p><a href="LICENSE" target="_blank" title="MIT License"><img alt="MIT License" src="shield.svg"></a></p>
-      <p><a href="https://github.com/epsil/spotify-js/issues" target="_blank" title="Issue tracker">Feedback</a> &bull; <a href="https://epsil.github.io/spotify/doc/" target="_blank" title="Developer documentation">API</a> &bull; <a href="https://epsil.github.io/spotify/test/" target="_blank" title="Test suite">Tests</a> &bull; <a href="https://github.com/epsil/spotify-js" target="_blank" title="Source code">Code</a></p>
+#similar Beach House</pre>
+      <p>This will create a Last.fm-ordered playlist of artists similar to Beach House, with each track having a different artist from the previous track.</p>
     </div>
   </body>
 </html>
