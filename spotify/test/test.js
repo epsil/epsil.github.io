@@ -12,7 +12,7 @@ var Track = require('../src/track')
 var sort = require('../src/sort')
 
 describe('Spotify Playlist Generator', function () {
-  this.timeout(99999)
+  this.timeout(999999)
 
   describe('Sorting', function () {
     it('should handle empty lists', function () {
