@@ -1,14 +1,12 @@
 /* global jQuery:true */
 /* exported jQuery */
-var Playlist = require('../src/playlist')
+var Playlist = require('../lib/playlist')
 var $ = require('jquery')
 jQuery = $
 require('bootstrap')
 
 console.log = function (message) {
   if (typeof message === 'string') {
-    // $('.log').text(message)
-    message = $('.log').text() + message + '\n'
     $('.log').text(message)
   }
 }
