@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: src/album.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: src/album.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>var Queue = require('./queue')
+var Track = require('./track')
+var spotify = require('./spotify')
+
+/**
+ * Create album entry.
+ * @constructor
+ * @param {string} entry - The album to search for.
+ * @param {string} [response] - JSON album object.
+ */
+function Album (entry, limit) {
+  /**
+   * Album response.
+   *
+   * [Reference](https://developer.spotify.com/web-api/object-model/#album-object-full).
+   */
+  this.albumResponse = null
+
+  /**
+   * Entry string.
+   */
+  this.entry = entry.trim()
+
+  /**
+   * Number of albums to fetch.
+   */
+  this.limit = null
+
+  /**
+   * Search response.
+   *
+   * [Reference](https://developer.spotify.com/web-api/search-item/#example).
+   */
+  this.searchResponse = null
+
+  /**
+   * Whether to fetch tracks.
+   */
+  this.fetchTracks = true
+
+  this.setLimit(limit)
+}
+
+/**
+ * Create a queue of tracks.
+ * @param {JSON} response - A JSON response object.
+ * @return {Promise | Queue} A queue of tracks.
+ */
+Album.prototype.createQueue = function () {
+  var self = this
+  var tracks = this.albumResponse.tracks.items.map(function (item) {
+    var track = new Track(self.entry)
+    track.setResponse(item)
+    track.setAlbum(self.title())
+    return track
+  })
+  var queue = new Queue(tracks)
+  if (self.limit) {
+    queue = queue.slice(0, self.limit)
+  }
+  return queue
+}
+
+/**
+ * Dispatch entry.
+ * @return {Promise | Queue} A queue of tracks.
+ */
+Album.prototype.dispatch = function () {
+  if (this.fetchTracks) {
+    var self = this
+    return this.searchForAlbum().then(function () {
+      return self.fetchAlbum()
+    }).then(function () {
+      return self.createQueue()
+    })
+  } else {
+    return this.searchForAlbum()
+  }
+}
+
+/**
+ * Fetch album metadata.
+ * @return {Promise | JSON} A JSON response.
+ */
+Album.prototype.fetchAlbum = function () {
+  var self = this
+  return spotify.getAlbum(this.id()).then(function (response) {
+    self.albumResponse = response
+    return self
+  })
+}
+
+/**
+ * Spotify ID.
+ * @return {string} The Spotify ID of the album,
+ * or `-1` if not available.
+ */
+Album.prototype.id = function () {
+  if (this.albumResponse &amp;&amp;
+      this.albumResponse.id) {
+    return this.albumResponse.id
+  } else if (this.searchResponse &amp;&amp;
+             this.searchResponse.albums &amp;&amp;
+             this.searchResponse.albums.items &amp;&amp;
+             this.searchResponse.albums.items[0] &amp;&amp;
+             this.searchResponse.albums.items[0].id) {
+    return this.searchResponse.albums.items[0].id
+  } else {
+    return -1
+  }
+}
+
+/**
+ * The album popularity.
+ * @return {string} - The album popularity.
+ */
+Album.prototype.popularity = function () {
+  if (this.albumResponse &amp;&amp;
+      this.albumResponse.popularity) {
+    return this.albumResponse.popularity
+  } else if (this.searchResponse &amp;&amp;
+             this.searchResponse.albums &amp;&amp;
+             this.searchResponse.albums.items[0] &amp;&amp;
+             this.searchResponse.albums.items[0].popularity) {
+    return this.searchResponse.albums.items[0].popularity
+  } else {
+    return ''
+  }
+}
+
+/**
+ * Search for album if not known.
+ * @return {Promise | JSON} A JSON response, or `null` if not found.
+ */
+Album.prototype.searchForAlbum = function () {
+  var self = this
+  if (this.searchResponse) {
+    return Promise.resolve(this.searchResponse)
+  } else if (this.albumResponse) {
+    return Promise.resolve(this.albumResponse)
+  } else {
+    return spotify.searchForAlbum(this.entry).then(function (result) {
+      self.searchResponse = result
+      return self
+    }).catch(function () {
+      console.log('COULD NOT FIND ' + self.entry)
+      return Promise.reject(null)
+    })
+  }
+}
+
+/**
+ * Set the number of albums to fetch.
+ * @param {integer} limit - The maximum amount of albums.
+ */
+Album.prototype.setLimit = function (limit) {
+  if (Number.isInteger(limit)) {
+    this.limit = limit
+  }
+}
+
+/**
+ * Set the JSON response.
+ * @param {JSON} response - The response.
+ */
+Album.prototype.setResponse = function (response) {
+  if (response &amp;&amp;
+      response.albums &amp;&amp;
+      response.albums.items[0] &amp;&amp;
+      response.albums.items[0].id) {
+    this.searchResponse = response
+  } else if (response &amp;&amp;
+             response.id) {
+    this.albumResponse = response
+  }
+}
+
+/**
+ * The album title.
+ * @return {string} - The album title.
+ */
+Album.prototype.title = function () {
+  if (this.albumResponse &amp;&amp;
+      this.albumResponse.name) {
+    return this.albumResponse.name
+  } else if (this.searchResponse &amp;&amp;
+             this.searchResponse.albums &amp;&amp;
+             this.searchResponse.albums.items[0] &amp;&amp;
+             this.searchResponse.albums.items[0].name) {
+    return this.searchResponse.albums.items[0].name
+  } else {
+    return ''
+  }
+}
+
+/**
+ * The album type.
+ * @return {string} - The album type.
+ */
+Album.prototype.type = function () {
+  if (this.albumResponse &amp;&amp;
+      this.albumResponse.album_type) {
+    return this.albumResponse.album_type
+  } else if (this.searchResponse &amp;&amp;
+             this.searchResponse.albums &amp;&amp;
+             this.searchResponse.albums.items[0] &amp;&amp;
+             this.searchResponse.albums.items[0].album_type) {
+    return this.searchResponse.albums.items[0].album_type
+  } else {
+    return ''
+  }
+}
+
+/**
+ * Spotify URI.
+ * @return {string} The Spotify URI
+ * (a string on the form `spotify:album:xxxxxxxxxxxxxxxxxxxxxx`),
+ * or the empty string if not available.
+ */
+Album.prototype.uri = function () {
+  if (this.albumResponse &amp;&amp;
+      this.albumResponse.uri) {
+    return this.albumResponse.uri
+  } else if (this.searchResponse &amp;&amp;
+             this.searchResponse.albums &amp;&amp;
+             this.searchResponse.albums.items[0] &amp;&amp;
+             this.searchResponse.albums.items[0].uri) {
+    return this.searchResponse.albums.items[0].uri
+  } else {
+    return ''
+  }
+}
+
+module.exports = Album
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Album.html">Album</a></li><li><a href="Artist.html">Artist</a></li><li><a href="CSV.html">CSV</a></li><li><a href="Playlist.html">Playlist</a></li><li><a href="Queue.html">Queue</a></li><li><a href="Similar.html">Similar</a></li><li><a href="Top.html">Top</a></li><li><a href="Track.html">Track</a></li></ul><h3>Global</h3><ul><li><a href="global.html#main">main</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Thu Feb 23 2017 10:46:31 GMT+0100 (Vest-Europa (normaltid))
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
