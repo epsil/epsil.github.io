@@ -8,8 +8,6 @@ a:hover {
 }
 
 body {
-    font-family: "Source Sans Pro", "Segoe UI", Seravek, "League Spartan", "Open Sans", "Work Sans", Avenir, "Avenir Next", Optima, "Optima Web", "Linux Biolinum", Vegur, Karla, Candara, Futura, "Gill Sans", Calibri, Corbel, Helvetica, Arial, sans-serif !important;
-    font-size: 115% !important;
     margin-top: 3em;
 }
 
@@ -20,7 +18,7 @@ code, kbd, samp, tt, pre {
 }
 
 header {
-    text-align: left;
+    text-align: center;
 }
 
 h1 {
@@ -84,14 +82,6 @@ li li {
     color: #000000;
 }
 
-.p-name {
-    padding-right: 200px;
-}
-
-.p-summary {
-    display: none;
-}
-
 .collapse-button[aria-expanded="false"] {
     border: none;
 }
@@ -101,6 +91,6 @@ img {
 }
 
 header figure {
-    float: right;
-    margin-top: -140px;
+    /* float: right; */
+    /* margin-top: -140px; */
 }
