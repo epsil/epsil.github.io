@@ -4,8 +4,6 @@ abstract: The home page of Vegard Øye, software engineer and tech consultant.
 css: style.css
 ---
 
-test
-
 Artikler
 --------
 
