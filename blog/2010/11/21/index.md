@@ -1,3 +1,4 @@
+---
 title: Bruene i Königsberg
 date: 2010-11-21
 ---

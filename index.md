@@ -1,3 +1,4 @@
+---
 title: Vegard Øye
 abstract: Software engineer and tech consultant
 lang: en

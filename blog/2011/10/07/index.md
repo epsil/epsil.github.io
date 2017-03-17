@@ -1,3 +1,4 @@
+---
 title: Closures i Lisp
 date: 2011-10-07
 ---

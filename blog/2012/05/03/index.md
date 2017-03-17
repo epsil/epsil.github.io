@@ -1,3 +1,4 @@
+---
 title: Greasemonkey-skript for Last.fm
 date: 2012-05-03
 ---

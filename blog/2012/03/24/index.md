@@ -1,3 +1,4 @@
+---
 title: GUI-programmering med Qt
 date: 2012-03-24
 ---

@@ -1,3 +1,4 @@
+---
 title: Kjøre MPD lokalt
 date: 2011-09-22
 ---

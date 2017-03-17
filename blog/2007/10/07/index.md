@@ -1,3 +1,4 @@
+---
 title: Delbrøksoppspaltning
 date: 2007-10-07
 ---

@@ -1,3 +1,4 @@
+---
 title: About Vegard Øye
 css: style.css
 ---

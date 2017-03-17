@@ -1,3 +1,4 @@
+---
 title: Lineære differensialligninger med konstante koeffisienter
 date: 2010-03-24
 ---

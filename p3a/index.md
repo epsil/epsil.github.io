@@ -1,3 +1,4 @@
+---
 title: "Lydforsterker: *Project 3A*"
 abstract: Rapport for konstruksjon av den 60 W klasse AB-forsterkeren Project 3A.
 footnotes-title: Fotnoter

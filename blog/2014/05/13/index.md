@@ -1,3 +1,4 @@
+---
 title: Hvordan [skrive til en NTFS-disk på OS X](http://osxdaily.com/2013/10/02/enable-ntfs-write-support-mac-os-x/)
 date: 2014-05-13
 ---

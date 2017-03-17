@@ -1,5 +1,6 @@
-Ønsker 2016
-===========
+---
+title: Ønsker 2016
+---
 
 -   Drikkeglass, store
 -   Middagstallerkener, både dype og flate

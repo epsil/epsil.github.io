@@ -1,3 +1,4 @@
+---
 title: Installere GNOME 3 på Ubuntu
 date: 2011-05-29
 ---

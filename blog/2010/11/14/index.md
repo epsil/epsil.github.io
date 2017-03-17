@@ -1,3 +1,4 @@
+---
 title: Bruke `grep` og `find`
 date: 2010-11-14
 ---

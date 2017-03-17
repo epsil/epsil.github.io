@@ -1,3 +1,4 @@
+---
 title: Innføring i versjonskontroll
 date: 2010-04-20
 ---

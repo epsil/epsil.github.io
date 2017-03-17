@@ -1,3 +1,4 @@
+---
 title: Vegard Øye's Projects
 lang: en
 css: style.css

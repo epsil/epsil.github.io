@@ -1,3 +1,4 @@
+---
 title: Spesielle tall i matematikken
 date: 2002-06-03
 ---

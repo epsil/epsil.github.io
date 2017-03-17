@@ -1,3 +1,4 @@
+---
 title: Migrering av data til Advanced Format-harddisk
 date: 2011-09-14
 ---

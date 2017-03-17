@@ -1,3 +1,4 @@
+---
 title: Do You Want to Become an IEEE Author?
 date: 2007-08-08
 ---

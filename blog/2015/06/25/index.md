@@ -1,3 +1,4 @@
+---
 title: Dia på OS X
 date: 2015-06-25
 abstract: Noen notater om bruk av grafikkprogrammet [Dia](http://dia-installer.de/) på OS X.

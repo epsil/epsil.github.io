@@ -1,3 +1,4 @@
+---
 title: Why Functional Programming Matters
 date: 2012-04-16
 ---
