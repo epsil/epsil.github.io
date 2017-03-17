@@ -26491,7 +26491,7 @@ function amdefine(module, requireFn) {
 
 module.exports = amdefine;
 
-}).call(this,require('_process'),"/node_modules\\handlebars\\node_modules\\source-map\\node_modules\\amdefine\\amdefine.js")
+}).call(this,require('_process'),"/node_modules/handlebars/node_modules/source-map/node_modules/amdefine/amdefine.js")
 },{"_process":16,"path":15}],110:[function(require,module,exports){
 /*
 Syntax highlighting with language autodetection.
@@ -73613,7 +73613,7 @@ function dynamic (view, path) {
     bitbucket: social.bitbucket.url(path),
     facebook: social.facebook.url(path),
     github: social.github.url(path),
-    history: social.bitbucket.history.url(path),
+    history: social.github.history.url(path),
     linkedin: social.linkedin.url(path),
     twitter: social.twitter.url(path),
     mail: social.mail.url(path)
@@ -74225,9 +74225,8 @@ $.fn.addPunctuation = punctuation.addPunctuation
 module.exports = punctuation
 
 },{"jquery":274}],382:[function(require,module,exports){
-module.exports =
-  '[Descent WASD configuration]: /blog/2008/12/04/ "Descent WASD configuration"\n' +
-  '[Descent WASD configuration]: /blog/2008/12/04/wasd/ "Descent WASD configuration"\n'
+module.exports = ''
+
 },{}],383:[function(require,module,exports){
 // Semantic sections
 //

@@ -42,7 +42,7 @@ function dynamic (view, path) {
     bitbucket: social.bitbucket.url(path),
     facebook: social.facebook.url(path),
     github: social.github.url(path),
-    history: social.bitbucket.history.url(path),
+    history: social.github.history.url(path),
     linkedin: social.linkedin.url(path),
     twitter: social.twitter.url(path),
     mail: social.mail.url(path)
