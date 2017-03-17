@@ -5,16 +5,25 @@ var path = require('path')
 var jsdom = require('jsdom').jsdom
 document = jsdom()
 window = document.defaultView
-var compile = require('./compile')
+var matter = require('gray-matter')
 var tidy = require('tidy-html5').tidy_html5
 var glob = require('glob')
+var compile = require('./compile')
+var markdown = require('./markdown')
 
 var site = 'https://epsil.github.io/'
 
 // simple filename -> URL mapping
-function url (file) {
+function location (file) {
   file = file.substr(0, file.length - path.basename(file).length)
   file = file.replace(/\\/g, '/')
+  file = '/' + file
+  return file
+}
+
+function url (file) {
+  file = location(file)
+  file = file.replace(/^\//g, '')
   file = site + file
   return file
 }
@@ -76,36 +85,80 @@ function format (html) {
 }
 
 function convert (input, output) {
-  fs.readFile(input, function (err, data) {
-    if (err) { return }
+  return new Promise(function (resolve, reject) {
+    fs.readFile(input, function (err, data) {
+      if (err) {
+        reject(err)
+      } else {
+        data = data ? data.toString() : ''
+        var html = compile(data, url(input))
+        html = format(html)
+        fs.writeFile(output, html, function (err) {
+          if (err) {
+            reject(err)
+          } else {
+            console.log('Converted ' + input + ' to ' + output)
+            resolve(html)
+          }
+        })
+      }
+    })
+  })
+}
 
-    if (!data) {
-      data = ''
-    } else {
-      data = data.toString()
-    }
+function metadata (file) {
+  var str = fs.readFileSync(file).toString()
+  var view = matter(str)
+  var data = view.data
+  data.title = data.title || ''
+  data.path = location(file).trim()
+  return data
+}
 
-    var html = compile(data, url(input))
-    html = format(html)
-    fs.writeFile(output, html, function (err) {
-      if (err) { return }
+function convertFile (file) {
+  return convert(file, htmlfile(file))
+}
 
-      console.log('Converted ' + input + ' to ' + output)
+function references (files) {
+  var meta = files.map(metadata).filter(function (entry) {
+    return entry.title !== ''
+  })
+  var refs = meta.map(function (entry) {
+    var title = entry.title || ''
+    var summary = entry.subtitle || entry.abstract || title
+    var path = entry.path
+    // TODO: serialize to JSON instead
+    title = title.replace(/\\/g, '\\\\')
+    title = title.replace(/'/g, "\\'")
+    summary = markdown.toText(summary)
+    summary = summary.replace(/'/g, "\\'")
+    summary = summary.replace(/"/g, '\\\\"')
+    return '  \'[' + title + ']: ' + path +
+      (summary === '' ? '' : ' "' + summary + '"') + '\\n\''
+  })
+  return 'module.exports =\n' + refs.join(' +\n')
+}
+
+function writeReferences (files) {
+  return new Promise(function (resolve, reject) {
+    var refs = references(files)
+    fs.writeFile('resources/lib/references.js', refs, function (err) {
+      if (err) {
+        reject(err)
+      } else {
+        resolve(refs)
+      }
     })
   })
 }
 
 if (process.argv.length > 2) {
-  var input = process.argv[2] || 'index.txt'
+  var input = process.argv[2] || 'index.md'
   var output = process.argv[3] || htmlfile(input)
   convert(input, output)
 } else {
-  glob('**/index.txt', function (err, files) {
-    if (err) { return }
-
-    files.sort()
-    for (var i = 0; i < files.length; i++) {
-      convert(files[i], htmlfile(files[i]))
-    }
+  var files = glob.sync('**/index.md').sort()
+  Promise.all(files.map(convertFile)).then(function () {
+    writeReferences(files)
   })
 }

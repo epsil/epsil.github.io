@@ -12,7 +12,6 @@ h1:hover .header-anchor, h2:hover .header-anchor, h3:hover .header-anchor, h4:ho
     font-weight: normal;
     left: -1em;
     position: absolute;
-    text-shadow: none;
     transition: all 0.5s;
     user-select: none;           /* Non-prefixed version */
     -webkit-touch-callout: none; /* iOS Safari */
@@ -24,7 +23,6 @@ h1:hover .header-anchor, h2:hover .header-anchor, h3:hover .header-anchor, h4:ho
 
 .h-entry .header-anchor:hover {
     color: #999999 !important;
-    text-shadow: inherit;
 }
 
 .header-anchor:before {

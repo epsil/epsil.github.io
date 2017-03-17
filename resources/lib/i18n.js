@@ -7,6 +7,7 @@ module.exports = {
     'twitter-title': 'Del på Twitter',
     'linkedin-title': 'Del på LinkedIn',
     'mail-title': 'Del på e-post',
+    'bitbucket-title': 'Rediger på BitBucket',
     'github-title': 'Rediger på GitHub',
     'history-title': 'Vis historie',
     'markdown-title': 'Vis Markdown-kilde'
@@ -19,6 +20,7 @@ module.exports = {
     'twitter-title': 'Share on Twitter',
     'linkedin-title': 'Share on LinkedIn',
     'mail-title': 'Share by mail',
+    'bitbucket-title': 'Edit on BitBucket',
     'github-title': 'Edit on GitHub',
     'history-title': 'View history',
     'markdown-title': 'Get Markdown source'

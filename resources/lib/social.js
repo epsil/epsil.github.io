@@ -11,17 +11,9 @@ social.bitbucket.url = function (url) {
   if (URI(url).protocol() === 'file') {
     return url
   }
-
-  var bitbucket = 'https://bitbucket.org/epsil/wiki/wiki/'
-
-  var file = '/index'
-  var path = social.bitbucket.path(url)
-
-  if (path === '') {
-    return 'https://bitbucket.org/epsil/wiki/wiki/index'
-  }
-
-  return bitbucket + path + file
+  var bitbucket = 'https://bitbucket.org/epsil/wiki/src/HEAD'
+  var file = 'index.md'
+  return bitbucket + url + file
 }
 
 social.bitbucket.resource = function (url) {
@@ -34,6 +26,20 @@ social.bitbucket.path = function (url) {
            .replace(/#[^\/]*$/, '')
            .replace(/index\.html?$/, '')
            .replace(/\/?$/, '')
+}
+
+social.bitbucket.history = function () {
+  return social.bitbucket.history.url(window.location.href)
+}
+
+social.bitbucket.history.url = function (url) {
+  if (URI(url).protocol() === 'file') {
+    return url
+  }
+
+  var bitbucket = 'https://bitbucket.org/epsil/wiki/history-node/HEAD'
+  var file = 'index.md'
+  return bitbucket + url + file
 }
 
 social.github = function () {
@@ -50,7 +56,7 @@ social.github.history.url = function (url) {
   }
 
   var github = 'https://github.com/epsil/epsil.github.io/commits/master'
-  var file = '/index.txt'
+  var file = '/index.md'
   var path = social.github.path(url)
 
   return github + path + file
@@ -62,7 +68,7 @@ social.github.url = function (url) {
   }
 
   var github = 'https://github.com/epsil/epsil.github.io/edit/master'
-  var file = '/index.txt'
+  var file = '/index.md'
   var path = social.github.path(url)
 
   if (path === '') {

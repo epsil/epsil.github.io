@@ -1,7 +1,5 @@
 var Handlebars = require('handlebars')
-var $ = require('jquery')
 var moment = require('moment')
-var URI = require('urijs')
 var markdown = require('./markdown')
 var util = require('./util')
 require('./anchor')
@@ -11,6 +9,12 @@ require('./social')
 require('./figure')
 require('./punctuation')
 require('./toc')
+
+Handlebars.registerHelper('markdown', markdown.inline)
+Handlebars.registerHelper('text', markdown.toText)
+Handlebars.registerHelper('process', util.process)
+Handlebars.registerHelper('urlRelative', util.urlRelative)
+Handlebars.registerHelper('urlResolve', util.urlResolve)
 
 Handlebars.registerHelper('dateFormat', function (context, block) {
   if (moment) {
@@ -24,45 +28,6 @@ Handlebars.registerHelper('dateFormat', function (context, block) {
     return context
   }
 })
-
-Handlebars.registerHelper('urlRelative', function (base, href) {
-  if (base === undefined || href === undefined ||
-      base === '' || href === '') {
-    return ''
-  }
-
-  if (!href.match(/^\//) ||
-      (URI(base).is('relative') && !base.match(/^\//))) {
-    return href
-  }
-  base = URI(base).pathname()
-  var uri = new URI(href)
-  var relUri = uri.relativeTo(base)
-  var result = relUri.toString()
-  return result
-})
-
-Handlebars.registerHelper('urlResolve', function (base, href) {
-  if (base === undefined || href === undefined ||
-      base === '' || href === '') {
-    return ''
-  }
-
-  return URI(href).absoluteTo(base).toString()
-})
-
-Handlebars.registerHelper('markdown', function (str) {
-  return markdown(str, true)
-})
-
-Handlebars.registerHelper('text', function (str) {
-  var html = markdown(str, true)
-  var div = $('<div>')
-  div.html(html)
-  return div.text().trim()
-})
-
-Handlebars.registerHelper('process', util.process)
 
 var templates = {
   document:
@@ -144,7 +109,7 @@ var templates = {
     // '<li role="presentation"><a href="{{mail}}" title="{{text mail-title}}"><i class="fa fa-envelope"></i></a></li>\n' +
     '<li role="presentation"><a href="{{github}}" title="{{text github-title}}"><i class="fa fa-edit"></i></a></li>\n' +
     '<li role="presentation"><a href="{{history}}" title="{{text history-title}}"><i class="fa fa-history"></i></a></li>\n' +
-    '<li role="presentation"><a href="index.txt" title="{{text markdown-title}}"><i class="fa fa-download"></i></a></li>\n' +
+    '<li role="presentation"><a href="index.md" title="{{text markdown-title}}"><i class="fa fa-download"></i></a></li>\n' +
     '{{#if toc}}' +
     '<li role="presentation"><a name="toc-button" href="#toc" data-toggle="collapse" title="{{text toc-title}}"><i class="fa fa-list"></i></a></li>\n' +
     '{{/if}}' +

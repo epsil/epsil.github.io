@@ -9,7 +9,6 @@ var templates = require('./templates')
 var typogr = require('typogr')
 var util = require('./util')
 var URI = require('urijs')
-// var Handlebars = require('handlebars')
 
 var document = templates.document
 var body = templates.body
@@ -26,25 +25,9 @@ function parse (data) {
   var view = matter(data)
   var props = view.data
   $.extend(view, props)
-  // view.content = escape(view.content)
   view.content = markdown(view.content, false)
-  // view.content = unescape(view.content)
   return view
 }
-
-// function escape (str) {
-//   return str.replace(/{{{/g, '\u2222\u2222\u2222')
-//             .replace(/}}}/g, '\u3333\u3333\u3333')
-//             .replace(/{{/g, '\u2222\u2222')
-//             .replace(/}}/g, '\u3333\u3333')
-// }
-
-// function unescape (str) {
-//   return str.replace(/\u2222\u2222\u2222/g, '{{{')
-//             .replace(/\u3333\u3333\u3333/g, '}}}')
-//             .replace(/\u2222\u2222/g, '{{')
-//             .replace(/\u3333\u3333/g, '}}')
-// }
 
 function addI18n (view) {
   if (view.lang === undefined || view.lang === '' ||
@@ -56,9 +39,10 @@ function addI18n (view) {
 
 function dynamic (view, path) {
   view = $.extend({
+    bitbucket: social.bitbucket.url(path),
     facebook: social.facebook.url(path),
     github: social.github.url(path),
-    history: social.github.history.url(path),
+    history: social.bitbucket.history.url(path),
     linkedin: social.linkedin.url(path),
     twitter: social.twitter.url(path),
     mail: social.mail.url(path)
@@ -135,10 +119,17 @@ function typography (view) {
   return view
 }
 
+function links (view, path) {
+  view.content = util.dojQuery(view.content, function (body) {
+    body.addRelativeLinks(path)
+  })
+  return view
+}
+
 function compile (data, path) {
   var file = URI(path).filename()
   if (file === '') {
-    file = 'index.txt'
+    file = 'index.md'
   }
 
   data = data.trim()
@@ -164,9 +155,8 @@ function compile (data, path) {
 
   view = toc(view)
   view = typography(view)
+  view = links(view, path)
   view.content = document(view)
-  // view.body = Handlebars.compile(view.content)
-  // view.content = view.body(view)
   return view.content
 }
 

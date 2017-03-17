@@ -12,6 +12,33 @@ util.isExternalUrl = function (str) {
   return URI(str).host() !== ''
 }
 
+util.urlRelative = function (base, href) {
+  if (base === undefined || href === undefined ||
+      base === '' || href === '') {
+    return ''
+  }
+
+  if (!href.match(/^\//) ||
+      (URI(base).is('relative') && !base.match(/^\//))) {
+    return href
+  }
+
+  base = URI(base).pathname()
+  var uri = new URI(href)
+  var relUri = uri.relativeTo(base)
+  var result = relUri.toString()
+  return (result === '') ? './' : result
+}
+
+util.urlResolve = function (base, href) {
+  if (base === undefined || href === undefined ||
+      base === '' || href === '') {
+    return ''
+  }
+
+  return URI(href).absoluteTo(base).toString()
+}
+
 util.unique = function (fn) {
   var results = []
   return function (arg) {
@@ -142,6 +169,16 @@ util.addTeXLogos = function () {
   })
 }
 
+util.addRelativeLinks = function (path) {
+  return this.each(function () {
+    $(this).find('a[href]').each(function () {
+      var href = $(this).attr('href')
+      href = util.urlRelative(path, href)
+      $(this).attr('href', href)
+    })
+  })
+}
+
 util.fixBlockquotes = function () {
   return this.each(function () {
     $(this).find('blockquote > p:last-child').each(function () {
@@ -219,14 +256,17 @@ util.fixLinks = function () {
       }
       // set title attribute to summary of target
       target = target.first()
-      var text = target.removeAria().text().trim()
+      var text = target.removeAria().text() || ''
+      text = text.trim()
       link.attr('title', text)
     })
     // fix external links
     body.find('a').each(function () {
       var a = $(this)
-      var text = a.text().trim()
-      var href = a.attr('href').trim()
+      var text = a.text() || ''
+      text = text.trim()
+      var href = a.attr('href') || ''
+      href = href.trim()
       if (href === undefined || href === '') {
         // not a link: do nothing
         return
@@ -284,6 +324,12 @@ util.fixWidont = function () {
   })
 }
 
+util.htmlToText = function (html) {
+  var div = $('<div>')
+  div.html(html)
+  return div.text().trim()
+}
+
 util.process = function (html) {
   return util.dojQuery(html, function (body) {
     var content = body.find('.e-content')
@@ -327,6 +373,7 @@ $.fn.addHotkeys = util.addHotkeys
 $.fn.addPullQuotes = util.addPullQuotes
 $.fn.addSmallCaps = util.addSmallCaps
 $.fn.addTeXLogos = util.addTeXLogos
+$.fn.addRelativeLinks = util.addRelativeLinks
 $.fn.fixBlockquotes = util.fixBlockquotes
 $.fn.fixCenteredText = util.fixCenteredText
 $.fn.fixFootnotes = util.fixFootnotes
