@@ -44,6 +44,7 @@ function dynamic (view, path) {
     github: social.github.url(path),
     'github-edit': social.github.edit.url(path),
     'github-history': social.github.history.url(path),
+    'github-raw': social.github.raw.url(path),
     linkedin: social.linkedin.url(path),
     twitter: social.twitter.url(path),
     mail: social.mail.url(path)

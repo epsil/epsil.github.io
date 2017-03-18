@@ -17270,6 +17270,26 @@ social.github.edit.url = function (url) {
   return github + path + file
 }
 
+social.github.raw = function () {
+  return social.github.raw.url(window.location.href)
+}
+
+social.github.raw.url = function (url) {
+  if (URI(url).protocol() === 'file') {
+    return url
+  }
+
+  var github = 'https://github.com/epsil/epsil.github.io/raw/master'
+  var file = '/index.md'
+  var path = social.github.path(url)
+
+  if (path === '') {
+    return 'https://github.com/epsil/epsil.github.io/'
+  }
+
+  return github + path + file
+}
+
 social.github.url = function (url) {
   if (URI(url).protocol() === 'file') {
     return url

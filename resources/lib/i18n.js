@@ -10,7 +10,7 @@ module.exports = {
     'bitbucket-title': 'Rediger på BitBucket',
     'github-title': 'Vis på GitHub',
     'github-edit-title': 'Rediger på GitHub',
-    'github-history-title': 'Vis historie',
+    'github-history-title': 'Vis historie på GitHub',
     'markdown-title': 'Vis Markdown-kilde'
   },
   'en': {
@@ -24,7 +24,7 @@ module.exports = {
     'bitbucket-title': 'Edit on BitBucket',
     'github-title': 'View on GitHub',
     'github-edit-title': 'Edit on GitHub',
-    'github-history-title': 'View history',
+    'github-history-title': 'View history on GitHub',
     'markdown-title': 'Get Markdown source'
   }
 }
