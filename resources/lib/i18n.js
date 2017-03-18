@@ -8,8 +8,9 @@ module.exports = {
     'linkedin-title': 'Del på LinkedIn',
     'mail-title': 'Del på e-post',
     'bitbucket-title': 'Rediger på BitBucket',
-    'github-title': 'Rediger på GitHub',
-    'history-title': 'Vis historie',
+    'github-title': 'Vis på GitHub',
+    'github-edit-title': 'Rediger på GitHub',
+    'github-history-title': 'Vis historie',
     'markdown-title': 'Vis Markdown-kilde'
   },
   'en': {
@@ -21,8 +22,9 @@ module.exports = {
     'linkedin-title': 'Share on LinkedIn',
     'mail-title': 'Share by mail',
     'bitbucket-title': 'Edit on BitBucket',
-    'github-title': 'Edit on GitHub',
-    'history-title': 'View history',
+    'github-title': 'View on GitHub',
+    'github-edit-title': 'Edit on GitHub',
+    'github-history-title': 'View history',
     'markdown-title': 'Get Markdown source'
   }
 }

@@ -73613,7 +73613,8 @@ function dynamic (view, path) {
     bitbucket: social.bitbucket.url(path),
     facebook: social.facebook.url(path),
     github: social.github.url(path),
-    history: social.github.history.url(path),
+    'github-edit': social.github.edit.url(path),
+    'github-history': social.github.history.url(path),
     linkedin: social.linkedin.url(path),
     twitter: social.twitter.url(path),
     mail: social.mail.url(path)
@@ -73843,8 +73844,9 @@ module.exports = {
     'linkedin-title': 'Del på LinkedIn',
     'mail-title': 'Del på e-post',
     'bitbucket-title': 'Rediger på BitBucket',
-    'github-title': 'Rediger på GitHub',
-    'history-title': 'Vis historie',
+    'github-title': 'Vis på GitHub',
+    'github-edit-title': 'Rediger på GitHub',
+    'github-history-title': 'Vis historie',
     'markdown-title': 'Vis Markdown-kilde'
   },
   'en': {
@@ -73856,8 +73858,9 @@ module.exports = {
     'linkedin-title': 'Share on LinkedIn',
     'mail-title': 'Share by mail',
     'bitbucket-title': 'Edit on BitBucket',
-    'github-title': 'Edit on GitHub',
-    'history-title': 'View history',
+    'github-title': 'View on GitHub',
+    'github-edit-title': 'Edit on GitHub',
+    'github-history-title': 'View history',
     'markdown-title': 'Get Markdown source'
   }
 }
@@ -74354,12 +74357,32 @@ social.github.history.url = function (url) {
   return github + path + file
 }
 
-social.github.url = function (url) {
+social.github.edit = function () {
+  return social.github.edit.url(window.location.href)
+}
+
+social.github.edit.url = function (url) {
   if (URI(url).protocol() === 'file') {
     return url
   }
 
   var github = 'https://github.com/epsil/epsil.github.io/edit/master'
+  var file = '/index.md'
+  var path = social.github.path(url)
+
+  if (path === '') {
+    return 'https://github.com/epsil/epsil.github.io/'
+  }
+
+  return github + path + file
+}
+
+social.github.url = function (url) {
+  if (URI(url).protocol() === 'file') {
+    return url
+  }
+
+  var github = 'https://github.com/epsil/epsil.github.io/blob/master'
   var file = '/index.md'
   var path = social.github.path(url)
 
@@ -74556,8 +74579,9 @@ var templates = {
     '<li role="presentation"><a href="{{twitter}}" title="{{text twitter-title}}"><i class="fa fa-twitter-square"></i></a></li>\n' +
     // '<li role="presentation"><a href="{{linkedin}}" title="{{text linkedin-title}}"><i class="fa fa-linkedin-square"></i></a></li>\n' +
     // '<li role="presentation"><a href="{{mail}}" title="{{text mail-title}}"><i class="fa fa-envelope"></i></a></li>\n' +
-    '<li role="presentation"><a href="{{github}}" title="{{text github-title}}"><i class="fa fa-edit"></i></a></li>\n' +
-    '<li role="presentation"><a href="{{history}}" title="{{text history-title}}"><i class="fa fa-history"></i></a></li>\n' +
+    '<li role="presentation"><a href="{{github}}" title="{{text github-title}}"><i class="fa fa-github"></i></a></li>\n' +
+    '<li role="presentation"><a href="{{github-edit}}" title="{{text github-edit-title}}"><i class="fa fa-edit"></i></a></li>\n' +
+    '<li role="presentation"><a href="{{github-history}}" title="{{text github-history-title}}"><i class="fa fa-history"></i></a></li>\n' +
     '<li role="presentation"><a href="index.md" title="{{text markdown-title}}"><i class="fa fa-download"></i></a></li>\n' +
     '{{#if toc}}' +
     '<li role="presentation"><a name="toc-button" href="#toc" data-toggle="collapse" title="{{text toc-title}}"><i class="fa fa-list"></i></a></li>\n' +
