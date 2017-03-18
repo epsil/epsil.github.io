@@ -103,13 +103,13 @@ var templates = {
     '<li role="presentation"><a href="/" title="{{text home-title}}"><i class="fa fa-home"></i></a></li>\n' +
     '</ul>\n' +
     '<ul class="nav nav-pills navbar-right">\n' +
-    // '<li role="presentation"><a href="{{facebook}}" title="{{text facebook-title}}"><i class="fa fa-facebook-square"></i></a></li>\n' +
-    // '<li role="presentation"><a href="{{twitter}}" title="{{text twitter-title}}"><i class="fa fa-twitter-square"></i></a></li>\n' +
+    '<li role="presentation"><a href="{{facebook}}" title="{{text facebook-title}}"><i class="fa fa-facebook-square"></i></a></li>\n' +
+    '<li role="presentation"><a href="{{twitter}}" title="{{text twitter-title}}"><i class="fa fa-twitter-square"></i></a></li>\n' +
     // '<li role="presentation"><a href="{{linkedin}}" title="{{text linkedin-title}}"><i class="fa fa-linkedin-square"></i></a></li>\n' +
     // '<li role="presentation"><a href="{{mail}}" title="{{text mail-title}}"><i class="fa fa-envelope"></i></a></li>\n' +
     '<li role="presentation"><a href="{{github}}" title="{{text github-title}}"><i class="fa fa-github"></i></a></li>\n' +
     '<li role="presentation"><a href="{{github-edit}}" title="{{text github-edit-title}}"><i class="fa fa-edit"></i></a></li>\n' +
-    '<li role="presentation"><a href="{{github-history}}" title="{{text github-history-title}}"><i class="fa fa-history"></i></a></li>\n' +
+    // '<li role="presentation"><a href="{{github-history}}" title="{{text github-history-title}}"><i class="fa fa-history"></i></a></li>\n' +
     '<li role="presentation"><a href="{{github-raw}}" title="{{text markdown-title}}"><i class="fa fa-download"></i></a></li>\n' +
     '{{#if toc}}' +
     '<li role="presentation"><a name="toc-button" href="#toc" data-toggle="collapse" title="{{text toc-title}}"><i class="fa fa-list"></i></a></li>\n' +
