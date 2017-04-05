@@ -75151,7 +75151,7 @@ function Generator (str) {
         this.unique = false
       } else if (line.match(/^#(UNIQUE|DISTINCT)/i)) {
         this.unique = true
-      } else if (line.match(/^#[CSV]+/i)) {
+      } else if (line.match(/^#(CSV|CVS)/i)) {
         this.csv = true
       } else if (line.match(/^##/i) ||
                  line.match(/^#EXTM3U/i) ||
@@ -75892,7 +75892,7 @@ function Similar (entry) {
   this.artist = null
 
   /**
-   * Number of tracks to fetch per artist.
+   * Number of artists to fetch.
    */
   this.artistLimit = 20
 
