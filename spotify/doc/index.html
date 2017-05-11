@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Home</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Home</h1>
+
+    
+
+
+
+    
+
+
+    <h3> </h3>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <section>
+        <article><h1><a href="https://epsil.github.io/spotify/">Spotify Playlist Generator</a></h1><blockquote>
+<p>A tool for converting, processing and generating <a href="http://www.spotify.com/">Spotify</a> playlists, as well as leveraging <a href="http://last.fm/">Last.fm</a> user data.</p>
+<https://epsil.github.io/spotify/>
+
+</blockquote>
+<h2>Examples</h2><ul>
+<li><a href="examples/pitchfork-50-best-albums-of-2016.spotify.txt">Pitchfork's 50 Best Albums of 2016</a> (<a href="examples/pitchfork-50-best-albums-of-2016.txt">source</a>)</li>
+<li><a href="examples/pitchfork-honorable-mentions-of-2015.spotify.txt">Pitchfork's Honorable Mentions of 2015</a> (<a href="examples/pitchfork-honorable-mentions-of-2015.txt">source</a>)</li>
+<li><a href="examples/pitchfork-50-best-ambient-albums-of-all-time.spotify.txt">Pitchfork's 50 Best Ambient Albums of All Time</a> (<a href="examples/pitchfork-50-best-ambient-albums-of-all-time.txt">source</a>)</li>
+<li><a href="examples/rateyourmusic-top-albums-of-2016.spotify.txt">Rate Your Music's Top Albums of 2016</a> (<a href="examples/rateyourmusic-top-albums-of-2016.txt">source</a>)</li>
+<li><a href="examples/rateyourmusic-top-dreampop-albums.spotify.txt">Rate Your Music's Top Dream Pop Albums</a> (<a href="examples/rateyourmusic-top-dreampop-albums.txt">source</a>)</li>
+<li><a href="examples/rateyourmusic-top-shoegaze-albums.spotify.txt">Rate Your Music's Top Shoegaze Albums</a> (<a href="examples/rateyourmusic-top-shoegaze-albums.txt">source</a>)</li>
+<li><a href="examples/rollingstone-500-greatest-songs-of-all-time.spotify.txt">Rolling Stone's 500 Greatest Songs of All Time</a> (<a href="examples/rollingstone-500-greatest-songs-of-all-time.txt">source</a>)</li>
+</ul>
+<p><a href="Tips.md#recipes">More examples</a>.</p>
+<h2>Usage</h2><p>To import the playlist into Spotify:</p>
+<ol>
+<li><strong>Copy the output of the generator:</strong> Choose <em>Edit -&gt; Copy</em> (<kbd>Ctrl</kbd> + <kbd>C</kbd>).</li>
+<li><strong>Create a new playlist in Spotify:</strong> Choose <em>File -&gt; New Playlist</em> (<kbd>Ctrl</kbd> + <kbd>N</kbd>).</li>
+<li><strong>Paste into the playlist:</strong> Select the playlist and choose <em>Edit -&gt; Paste</em> (<kbd>Ctrl</kbd> + <kbd>V</kbd>).</li>
+</ol>
+<p>No login is necessary.</p>
+<h3>Top tracks</h3><p>To retrieve the top 10 tracks of an artist, pass the following to the generator:</p>
+<pre class="prettyprint source"><code>#top Aphex Twin</code></pre><p>The generator will output a playlist consisting of the ten most popular tracks of Aphex Twin, which can then be <a href="#usage">imported</a> into Spotify.</p>
+<p>All of the directives listed here can be used multiple times. For example:</p>
+<pre class="prettyprint source"><code>#top Aphex Twin
+#top Beach House</code></pre><p>This will create a playlist consisting of the top tracks of Aphex Twin, followed by the top tracks of Beach House.</p>
+<p>To retrieve only the top 5 tracks, use <code>#top5</code>.</p>
+<h3>Similar artists</h3><p>To find similar artists:</p>
+<pre class="prettyprint source"><code>#similar Aphex Twin</code></pre><p>This will generate a 100-track playlist consisting of the 5 most popular tracks from the 20 most similar artists to Aphex Twin.</p>
+<p>To retrieve more tracks, use <code>#similar10</code>.</p>
+<h3>Albums</h3><p>To add an album:</p>
+<pre class="prettyprint source"><code>#album Substrata - Biosphere</code></pre><h3>Artists</h3><p>To add all the albums of an artist:</p>
+<pre class="prettyprint source"><code>#artist Beach House</code></pre><h3>Tracks</h3><p>To add a single track to the playlist, add a line on the form <code>TITLE - ARTIST</code>:</p>
+<pre class="prettyprint source"><code>Walk in the Park - Beach House
+Irene - Beach House
+Other People - Beach House
+Troublemaker - Beach House
+Wishes - Beach House</code></pre><p><a href="Tips.md#miscellaneous">More on single tracks</a>.</p>
+<h3>Duplicates</h3><p>By default, the generator automatically removes duplicate tracks. To allow duplicates, add the line:</p>
+<pre class="prettyprint source"><code>#duplicates</code></pre><h3>Order</h3><p>To order the tracks by Spotify popularity, use <code>#order by</code>:</p>
+<pre class="prettyprint source"><code>#order by popularity
+#artist Beach House</code></pre><p>The generator also provides <a href="http://last.fm/">Last.fm</a> support. To order by Last.fm playcount, add the line <code>#order by lastfm</code>:</p>
+<pre class="prettyprint source"><code>#order by lastfm
+#artist Beach House</code></pre><p>To order by Last.fm user playcount, add the Last.fm username at the end:</p>
+<pre class="prettyprint source"><code>#order by lastfm username
+#artist Beach House</code></pre><h3>Group</h3><p>To sort the ordered tracks into groups, use <code>#group by</code>:</p>
+<pre class="prettyprint source"><code>#order by lastfm
+#group by artist
+#similar Beach House</code></pre><p>This will create a Last.fm-ordered playlist of artists similar to Beach House, where tracks from the same artists are grouped together.</p>
+<h3>Alternate</h3><p>To group the tracks and then interleave them, use <code>#alternate by</code>:</p>
+<pre class="prettyprint source"><code>#order by popularity
+#alternate by artist
+#similar Beach House
+#similar Hooverphonic</code></pre><p>This will create a Last.fm-ordered playlist of artists similar to Beach House and Hooverphonic, with each track having a different artist from the previous track.</p>
+<h2>Supported formats</h2><p>The generator can work with Spotify URIs, Spotify links, M3U playlists and CSV files. By default, the generator outputs a list of Spotify URIs.</p>
+<h3>Import existing Spotify playlists</h3><p>One can easily work with existing Spotify playlists. By selecting the playlist's tracks in Spotify, copying them and then pasting them as text somewhere else, one obtains a list of Spotify links:</p>
+<pre class="prettyprint source"><code>https://open.spotify.com/track/4oNXgGnumnu5oIXXyP8StH
+https://open.spotify.com/track/7rAjeWkQM6cLqbPjZtXxl2
+https://open.spotify.com/track/2Nt4Uw91pQLXSJ28SttDdF
+...</code></pre><p>One can easily apply <code>#order by popularity</code> to such a list:</p>
+<pre class="prettyprint source"><code>#order by popularity
+https://open.spotify.com/track/4oNXgGnumnu5oIXXyP8StH
+https://open.spotify.com/track/7rAjeWkQM6cLqbPjZtXxl2
+https://open.spotify.com/track/2Nt4Uw91pQLXSJ28SttDdF
+...</code></pre><p>Likewise, spotify URIs are handled as well:</p>
+<pre class="prettyprint source"><code>#order by popularity
+#alternate by album
+spotify:track:4oNXgGnumnu5oIXXyP8StH
+spotify:track:7rAjeWkQM6cLqbPjZtXxl2
+spotify:track:2Nt4Uw91pQLXSJ28SttDdF
+...</code></pre><h3>M3U playlists</h3><p>One can also import <a href="https://en.wikipedia.org/wiki/M3U">M3U</a> playlists (with the file extension <code>.m3u</code> or <code>.m3u8</code>), provided they contain <code>EXTM3U</code> metadata. That is, the playlist should be on the form:</p>
+<pre class="prettyprint source"><code>#EXTM3U
+#EXTINF:404,Desire Lines - Deerhunter
+Deerhunter/Halcyon Digest/06 Desire Lines.mp3
+#EXTINF:230,Saved By Old Times - Deerhunter
+Deerhunter/Microcastle/10 Saved By Old Times.mp3
+#EXTINF:202,Agoraphobia - Deerhunter
+Deerhunter/Microcastle/02 Agoraphobia.mp3
+#EXTINF:133,Revival - Deerhunter
+Deerhunter/Halcyon Digest/03 Revival.mp3
+#EXTINF:264,Twilight at Carbon Lake - Deerhunter
+Deerhunter/Microcastle/12 Twilight at Carbon Lake.mp3</code></pre><p>The generator translates this to:</p>
+<pre class="prettyprint source"><code>Desire Lines - Deerhunter
+Saved By Old Times - Deerhunter
+Agoraphobia - Deerhunter
+Revival - Deerhunter
+Twilight at Carbon Lake - Deerhunter</code></pre><p><a href="Tips.md#m3u-playlists">More on M3U playlists</a>.</p>
+<h3>Comma-separated values</h3><p>The generator can read and write the CSV format used by <a href="https://github.com/watsonbox/exportify">Exportify</a>:</p>
+<pre class="prettyprint source"><code>spotify:track:3jZ0GKAZiDMya0dZPrw8zq,Desire Lines,Deerhunter,Halcyon Digest,1,6,404413,,
+spotify:track:20DDHYR4vZqDwHyNFLwkXI,Saved By Old Times,Deerhunter,Microcastle,1,10,230226,,
+spotify:track:2SpHd4lGMrJMIQDf92V6VP,Agoraphobia,Deerhunter,Microcastle,1,2,202640,,
+spotify:track:30wvVTkqA4Fp5ZCG0xGof7,Revival,Deerhunter,Halcyon Digest,1,3,133666,,
+spotify:track:6vtwbm7YGkTwTINdrcXV5I,Twilight At Carbon Lake,Deerhunter,Microcastle,1,12,263986,,</code></pre><p>To output to this format, add the line <code>#csv</code>:</p>
+<pre class="prettyprint source"><code>#csv
+Desire Lines - Deerhunter
+Saved By Old Times - Deerhunter
+Agoraphobia - Deerhunter
+Revival - Deerhunter
+Twilight at Carbon Lake - Deerhunter</code></pre><p>CSV files have the advantage of being editable with a spreadsheet editor such as Microsoft Excel or LibreOffice Calc. They are also future-proof, as they contain additional info to the Spotify URIs (which might change).</p>
+<h2>Command-line script</h2><p>A command-line version is also available. It requires <a href="https://nodejs.org/">Node</a> to be installed.</p>
+<p>The source code is located at <a href="https://github.com/epsil/spotify-js">GitHub</a>. To clone the repository:</p>
+<pre class="prettyprint source"><code>$ git clone https://github.com/epsil/spotify-js.git</code></pre><p>Alternatively, download a <a href="https://github.com/epsil/spotify-js/archive/master.zip">ZIP file</a>.</p>
+<p>Run the script with <code>./index.js</code> or <code>node index</code>:</p>
+<pre class="prettyprint source"><code>$ ./index.js input.txt output.txt</code></pre><p><a href="Tips.md#multiple-playlists">More on the command-line version</a>.</p>
+<h2>Links</h2><ul>
+<li><a href="https://epsil.github.io/spotify/">Web interface</a></li>
+<li><a href="https://github.com/epsil/spotify-js">GitHub repository</a></li>
+<li><a href="https://epsil.github.io/spotify/doc/">Developer documentation</a></li>
+<li><a href="Tips.md">Additional tips</a></li>
+</ul>
+<h3>See also</h3><ul>
+<li><a href="http://spotlistr.herokuapp.com/">Spotlistr</a> (<a href="https://github.com/BobNisco/Spotlistr">source</a>), feature-rich AngularJS conversion app</li>
+<li><a href="https://github.com/watsonbox/exportify">Exportify</a>, for exporting Spotify playlists to CSV format</li>
+<li><a href="https://github.com/epsil/lastpy">last.py</a>, a Python script for sorting playlists by Last.fm rating</li>
+</ul>
+<h4>Recommendations</h4><ul>
+<li><a href="http://magicplaylist.co/">MagicPlaylist</a> (<a href="https://github.com/loverajoel/magicplaylist">source</a>)</li>
+<li><a href="http://20v.co/">20v</a> (<a href="https://github.com/fusenlabs/20v">source</a>)</li>
+<li><a href="https://www.spotibot.com/">Spotibot</a></li>
+</ul>
+<h4>Conversion</h4><ul>
+<li><a href="http://michaeldick.me/YetAnotherSpotifyPlaylistConverter/">Yet Another Spotify Playlist Converter</a> (<a href="https://github.com/bertique/YetAnotherSpotifyPlaylistConverter">source</a>)</li>
+<li><a href="http://www.playlist-converter.net/">Playlist Converter</a></li>
+</ul></article>
+    </section>
+
+
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Album.html">Album</a></li><li><a href="Artist.html">Artist</a></li><li><a href="CSV.html">CSV</a></li><li><a href="Generator.html">Generator</a></li><li><a href="Parser.html">Parser</a></li><li><a href="Queue.html">Queue</a></li><li><a href="Similar.html">Similar</a></li><li><a href="Top.html">Top</a></li><li><a href="Track.html">Track</a></li></ul><h3>Global</h3><ul><li><a href="global.html#http">http</a></li><li><a href="global.html#main">main</a></li><li><a href="global.html#sort">sort</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Thu May 11 2017 16:11:13 GMT+0200 (Vest-Europa (sommertid))
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
