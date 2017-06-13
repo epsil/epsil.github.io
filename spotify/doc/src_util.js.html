@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: src/csv.js</title>
+    <title>JSDoc: Source: src/util.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: src/csv.js</h1>
+    <h1 class="page-title">Source: src/util.js</h1>
 
     
 
@@ -26,53 +26,46 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>var stringify = require('csv-stringify/lib/sync')
+            <pre class="prettyprint source linenums"><code>var util = {}
 
 /**
- * Create CSV formatter.
- * @constructor
- * @param {track} track - A track with fetched metadata.
+ * Identity function.
+ * @param {Object} x - A value.
+ * @return {Object} - The same value.
  */
-function CSV (track) {
-  /**
-   * A track with fetched metadata.
-   */
-  this.track = track
+util.identity = function (x) {
+  return x
 }
 
 /**
- * Track data in CSV format, with the following fields:
- *
- * Spotify URI,
- * Track Name,
- * Artist Name,
- * Album Name,
- * Disc Number,
- * Track Number,
- * Track Duration,
- * Added By,
- * Added At
- *
- * @return {string} Track data in CSV format.
+ * Create a pair.
+ * @param {Object} x - The first value.
+ * @param {Object} y - The second value.
+ * @return {Object} - A pair of values.
  */
-CSV.prototype.toString = function () {
-  function numberToString (num) {
-    return (num &lt; 0) ? '' : num
-  }
-  return stringify([[
-    this.track.uri(),
-    this.track.title(),
-    this.track.artist(),
-    this.track.album(),
-    numberToString(this.track.discNumber()),
-    numberToString(this.track.trackNumber()),
-    numberToString(this.track.duration()),
-    numberToString(this.track.popularity()),
-    numberToString(this.track.lastfm())
-  ]]).trim()
+util.pair = function (x, y) {
+  return {first: x, second: y}
 }
 
-module.exports = CSV
+/**
+ * Get the first value of a pair.
+ * @param {Object} pair - A pair of values.
+ * @return {Object} - The first value.
+ */
+util.first = function (pair) {
+  return pair.first
+}
+
+/**
+ * Get the second value of a pair.
+ * @param {Object} pair - A pair of values.
+ * @return {Object} - The second value.
+ */
+util.second = function (pair) {
+  return pair.second
+}
+
+module.exports = util
 </code></pre>
         </article>
     </section>
