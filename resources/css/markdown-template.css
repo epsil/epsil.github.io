@@ -1,7 +1,8 @@
-@import url("font-awesome.css");
-@import url("crimson.css");
-@import url("source-sans-pro.css");
-@import url("flag-icon.css");
+@import url("fonts/font-awesome.css");
+@import url("fonts/lora.css");
+/* @import url("fonts/crimson.css"); */
+/* @import url("fonts/source-sans-pro.css"); */
+@import url("fonts/flag-icon.css");
 @import url("bootstrap.css");
 @import url("anchor.css");
 @import url("collapse.css");
