@@ -180,6 +180,7 @@ header {
 
 header h1, header h2 {
     font-style: normal;
+    padding: 0;
     text-align: center;
 }
 
