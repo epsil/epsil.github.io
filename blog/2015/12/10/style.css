@@ -8,6 +8,7 @@ a:hover {
 }
 
 body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Lato, "Open Sans", Avenir, "Avenir Next", "Myriad Set Pro", "Myriad Pro", Myriad, Ubuntu, "Bitstream Vera Sans", "DejaVu Sans", Helvetica, Arial, Tahoma, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
     margin-top: 3em;
 }
 

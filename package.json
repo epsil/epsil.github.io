@@ -29,6 +29,8 @@
     "spec": "npm run browser && open test/index.html",
     "standalone": "inliner index.html > standalone.html",
     "commit": "git --no-pager status && git --no-pager diff && git commit -a -m \"Updated `git status | sed -n '/modified:/ {s/^[[:space:]]*modified:[[:space:]]*//;s/\\.txt$//;s/\\.md$//;s/\\.html$//;s/\\/index$//;p;q;}'`\"",
+    "commit!": "git --no-pager status && git --no-pager diff && git commit -a -m \"index.md edited offline\"",
+    "commit!!": "npm run commit! && npm run push",
     "amend": "git --no-pager status && git --no-pager diff && git commit -a --amend --no-edit",
     "amend-html": "npm run build && npm run amend",
     "build-amend": "npm run rebuild && npm run amend",
