@@ -3,13 +3,11 @@ abbr, abbr[title], abbr[data-original-title] {
     text-decoration: none;
 }
 
-/*
 abbr.acronym, .caps {
     font-variant: oldstyle-nums small-caps;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.1em;
     text-transform: lowercase;
 }
-*/
 
 aside blockquote {
     border: none;
@@ -110,10 +108,12 @@ body {
     /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Lato, "Open Sans", Avenir, "Avenir Next", "Myriad Set Pro", "Myriad Pro", Myriad, Ubuntu, "Bitstream Vera Sans", "DejaVu Sans", Helvetica, Arial, Tahoma, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important; */
     /* font-size: 105% !important; */
     /* color: #333 !important; */
-    font-family: "Lora Web", Lora, "Crimson Text", Crimson, "PT Serif", "Iowan Old Style", Iowan, "Iowan Web", Georgia, Constantia, Cambria, Charter, "Hoefler Text", Utopia, Marion, Cochin, "Palatino Linotype", Palatino, Baskerville, serif !important;
-    font-size: 115% !important;
+    font-family: "STIX Two Web", "STIX Two Text", "Lora Web", Lora, "Crimson Text", Crimson, "PT Serif", "Iowan Old Style", Iowan, "Iowan Web", Georgia, Constantia, Cambria, Charter, "Hoefler Text", Utopia, Marion, Cochin, "Palatino Linotype", Palatino, Baskerville, serif !important;
+    font-size: 120% !important;
+    /* font-size: 115% !important; */
     font-variant: discretionary-ligatures oldstyle-nums;
-    line-height: 1.5;
+    line-height: 1.45;
+    /* line-height: 1.5; */
     margin-bottom: 2em;
     margin-top: 3em;
     text-rendering: optimizelegibility;
@@ -141,7 +141,8 @@ code, kbd, samp, tt, pre {
     border: none;
     color: inherit;
     font-family: Consolas, "Consolas Web", Menlo, Monaco, "Liberation Mono", Courier, monospace !important;
-    font-size: 0.83em !important;
+    font-size: 0.8em !important;
+    /* font-size: 0.83em !important; */
     font-variant: normal;
     -moz-osx-font-smoothing: auto;
 }
@@ -577,8 +578,8 @@ Bootstrap provides four classes (configurable with Less):
 
 @media (max-width: 550px) {
     body {
-        /* font-size: 100% !important; */
-        font-size: 105% !important;
+        font-size: 110% !important;
+        /* font-size: 105% !important; */
     }
 
     .h-entry > header, .e-content > * {
