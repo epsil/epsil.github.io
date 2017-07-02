@@ -88,7 +88,7 @@ var templates = {
     'TeX: { equationNumbers: { autoNumber: "all" } }\n' +
     '})\n' +
     '</script>\n' +
-    '<script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML" type="text/javascript"></script>\n' +
+    '<script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_HTMLorMML" type="text/javascript"></script>\n' +
     '{{/if}}' +
     '<script src="{{urlRelative url "/resources/js/markdown-template.js"}}"></script>\n' +
     '</head>\n' +
