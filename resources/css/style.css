@@ -16,6 +16,7 @@ aside blockquote {
 }
 
 .e-content a[target=_blank]:after {
+    color: #666;
     content: "\f08e"; /* fa-external-link */
     font-family: FontAwesome;
     font-size: 0.65em;
@@ -25,6 +26,7 @@ aside blockquote {
 }
 
 .e-content a[target=_blank].url:before {
+    color: #666;
     content: "\f08e"; /* fa-external-link */
     font-family: FontAwesome;
     font-size: 0.65em;
@@ -112,7 +114,7 @@ body {
     font-size: 120% !important;
     /* font-size: 115% !important; */
     font-variant: discretionary-ligatures oldstyle-nums;
-    line-height: 1.45;
+    line-height: 1.4;
     /* line-height: 1.5; */
     margin-bottom: 2em;
     margin-top: 3em;
@@ -171,9 +173,11 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
 }
 
 /* h2 em, h3 em, h4 em, h6 em, .p-summary em { */
+/*
 .p-summary em {
     font-style: normal;
 }
+*/
 
 header {
     color: #23527c;
