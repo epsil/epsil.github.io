@@ -4,7 +4,7 @@ lang: en
 css: style.css
 ---
 
-[Spotify Playlist Generator](../spotify/)
+[Spotify Playlist Generator](../spotgen/)
 
 * * * * *
 
