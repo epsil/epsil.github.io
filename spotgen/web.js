@@ -3,8 +3,8 @@
 var $ = require('jquery')
 jQuery = $
 require('bootstrap')
-var Parser = require('../src/parser')
-var SpotifyAuthenticator = require('../src/auth')
+var Generator = require('../lib/generator')
+var SpotifyAuthenticator = require('../lib/auth')
 
 console.log = function (message) {
   if (typeof message === 'string') {
@@ -59,14 +59,13 @@ function hasToken () {
 function generate () {
   var textarea = $('textarea')
   var button = $('a.btn')
-  var parser = new Parser(token())
-  var generator = parser.parse(textarea.val())
+  var generator = new Generator(textarea.val(), token())
   button.text('Creating Playlist \u2026')
   button.addClass('active')
   button.addClass('disabled')
   button.mouseleave()
   button.tooltip('disable')
-  generator.execute().then(function (result) {
+  generator.generate().then(function (result) {
     console.log('')
     button.removeClass('disabled')
     textarea.val(result)
