@@ -1,4 +1,5 @@
 a, a:hover {
+    border: none !important;
     color: #fff !important;
 }
 

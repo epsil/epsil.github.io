@@ -1,3 +1,7 @@
+a, a:focus {
+    border: none;
+}
+
 body {
     margin-bottom: 5em;
 }
