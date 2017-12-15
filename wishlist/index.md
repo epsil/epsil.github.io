@@ -1,9 +1,7 @@
 ---
-title: Ønsker 2016
+title: Vegards juleønsker 2017
 ---
 
--   Drikkeglass, store
--   Middagstallerkener, både dype og flate
--   Gryte
--   Toastjern
--   Sengetøy
+-   Sony WH 1000XM2 støyisolerende hodetelefoner
+-   Duftlys, duftoljer o.l.
+-   Luksus-toalettsaker
