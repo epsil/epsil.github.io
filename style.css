@@ -74,6 +74,11 @@ header {
     padding: 1em 0 1em 0;
 }
 
+#contact .caps {
+    font-variant: normal;
+    text-transform: none;
+}
+
 .h-entry > header, .e-content > * {
     max-width: 100%;
 }
