@@ -17,6 +17,6 @@ Links
 Contact
 -------
 
--   [LinkedIn](http://www.linkedin.com/profile/view?id=68450352) {#linkedin}
+-   [LinkedIn](https://www.linkedin.com/in/VegardOye/) {#linkedin}
 -   [GitHub](https://github.com/epsil/) {#github}
 -   [E-mail](mailto:vegard_oye@hotmail.com) ([PGP](pubkey.txt)) {#email}
