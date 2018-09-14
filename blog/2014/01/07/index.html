@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="no" prefix="og: http://ogp.me/ns#">
 <head>
-<title>Oppgradere Python p&#229; OS X &#8211; Vegards blogg</title>
+<title>Oppgradere Python p&#229; OS X</title>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="no-referrer" name="referrer">
+<meta content="noindex" name="robots">
 <meta content="Vegard &#216;ye" name="author">
 <meta content="2014-01-07" name="date">
 <meta content="3093b8536c9fddc45f8c27f9e1814a5b" name="md5">
@@ -23,87 +25,104 @@
 <meta content="Oppgradere Python p&#229; OS X" name="twitter:title">
 <link href="../../../../favicon.ico" rel="icon" type="image/x-icon">
 <link href="../../../../apple-touch-icon.png" rel="apple-touch-icon">
-<link href="../../../../resources/css/markdown-template.css" rel="stylesheet">
-<link href="https://epsil.github.io/blog/2014/01/07/" rel="canonical">
+<link href="../../../../_assets/css/wiki.css" rel="stylesheet">
 <link href="index.md" rel="alternate" title="Markdown" type="text/markdown">
-<script src="../../../../resources/js/markdown-template.js">
+<script src="../../../../_assets/js/wiki.js">
 </script>
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top">
-<div class="container-fluid">
+<div class="container-fluid topbar">
 <ul class="nav nav-pills navbar-left">
 <li role="presentation"><a href="../../../../" title="G&#229; hjem"><i class="fa fa-home"></i></a>
 </li>
 </ul>
 
 <ul class="nav nav-pills navbar-right">
-<li role="presentation"><a href="http://www.facebook.com/share.php?u=https%3A%2F%2Fepsil.github.io%2Fblog%2F2014%2F01%2F07%2F" target="_blank" title="Del p&#229; Facebook"><i class="fa fa-facebook-square"></i></a>
+<li role="presentation"><a href="../../../../tmp/clipboard/" target="_blank" title="Kopier til Markdown"><i class="fa fa-clipboard"></i></a>
 </li>
 
-<li role="presentation"><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fepsil.github.io%2Fblog%2F2014%2F01%2F07%2F" target="_blank" title="Del p&#229; Twitter"><i class="fa fa-twitter-square"></i></a>
+<li role="presentation"><a href="https://github.com/epsil/mdwiki/blob/master/blog/2014/01/07/index.md" target="_blank" title="Vis p&#229; GitHub"><i class="fa fa-github"></i></a>
 </li>
 
-<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/blob/master/blog/2014/01/07/index.md" target="_blank" title="Vis p&#229; GitHub"><i class="fa fa-github"></i></a>
+<li role="presentation"><a href="https://github.com/epsil/mdwiki/edit/master/blog/2014/01/07/index.md" target="_blank" title="Rediger p&#229; GitHub"><i class="fa fa-edit"></i></a>
 </li>
 
-<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/edit/master/blog/2014/01/07/index.md" target="_blank" title="Rediger p&#229; GitHub"><i class="fa fa-edit"></i></a>
+<li role="presentation"><a href="https://github.com/epsil/mdwiki/raw/master/blog/2014/01/07/index.md" target="_blank" title="Vis Markdown-kilde"><i class="fa fa-download"></i></a>
 </li>
 
-<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/raw/master/blog/2014/01/07/index.md" target="_blank" title="Vis Markdown-kilde"><i class="fa fa-download"></i></a>
-</li>
-
-<li role="presentation"><a data-toggle="collapse" href="#toc" id="toc-button" name="toc-button" title="Innhold"><i class="fa fa-list"></i></a>
+<li role="presentation"><a data-toggle="collapse" href="#toc" id="toc-button" title="Innhold"><i class="fa fa-list"></i></a>
 </li>
 </ul>
+
+<form action="https://www.google.com/search" class="navbar-form" method="get" target="_blank">
+<div class="form-group" style="display: inline;">
+<div class="input-group" style="display: table;"><span class="input-group-addon" style="width: 1%;"><span class="glyphicon glyphicon-search"></span></span> <input accesskey="." autocomplete="off" class="form-control" name="q" title="S&#248;k" type="text"></div>
+</div>
+</form>
 </div>
 
 <div id="toc-placeholder">
 </div>
 </nav>
 
-<article class="h-entry">
+<article class="h-entry" id="main">
 <header>
-<h1 class="p-name"><a class="u-uid u-url" href="https://epsil.github.io/blog/2014/01/07/" rel="bookmark" target="_blank" title="Permalink">Oppgradere Python p&#229; <abbr class="acronym" title="Operating System 10"><span class="caps">OS</span>&#160;X</abbr></a>
+<h1 class="p-name"><a class="u-uid u-url" href="https://epsil.github.io/blog/2014/01/07/" rel="bookmark" target="_blank" title="Permalink">Oppgradere Python p&#229; <abbr class="acronym" title="Operating System 10"><span class="caps">OS</span> X</abbr></a>
 </h1>
 
 <p class="author"><a class="p-author h-card" href="https://epsil.github.io/" target="_blank" title="Open epsil.github.io in a new window">Vegard &#216;ye</a> &#8226; <time class="dt-published" datetime="2014-01-07">2014-01-07</time></p>
 </header>
 
-<section class="e-content">
+<section class="e-content sidenotes">
 <section>
-<p>Pakkeh&#229;ndtering p&#229; <abbr class="acronym" title="Operating System 10"><span class="caps">OS</span> X</abbr> er et herk uten like. Her er det som skulle til for &#229; installere Python-biblioteket <a href="http://eyed3.nicfit.net/installation.html" target="_blank" title="Open eyed3.nicfit.net in a new window">eyeD3</a> med <code>pip</code>. F&#248;rst, <a href="http://www.pip-installer.org/en/latest/installing.html" target="_blank" title="Open pip-installer.org in a new window">installer pip</a> med <code>easy_install</code>:</p>
+<p>Pakkeh&#229;ndtering p&#229; <abbr class="acronym" title="Operating System 10"><span class="caps">OS</span> X</abbr> er et herk uten like. Her er det som skulle til for &#229; installere Python-biblioteket <a href="http://eyed3.nicfit.net/installation.html" target="_blank" title="Open eyed3.nicfit.net in a new window">eyeD3</a> med <span class="code"><code id="pip">pip</code><button class="btn clippy" data-clipboard-target="#pip" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>. F&#248;rst, <a href="http://www.pip-installer.org/en/latest/installing.html" target="_blank" title="Open pip-installer.org in a new window">installer pip</a> med <span class="code"><code id="easy-install">easy_install</code><button class="btn clippy" data-clipboard-target="#easy-install" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>:</p>
 
-<pre>
+<div class="pre"><button class="btn clippy" data-clipboard-target="#sudo-easy-install-pip" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
+
+<pre id="sudo-easy-install-pip">
 <code>$ sudo easy_install pip</code>
 </pre>
+</div>
 
-<p>Deretter kan det v&#230;re n&#248;dvendig &#229; oppgradere <code>setuptools</code>:</p>
+<p>Deretter kan det v&#230;re n&#248;dvendig &#229; oppgradere <span class="code"><code id="setuptools">setuptools</code><button class="btn clippy" data-clipboard-target="#setuptools" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>:</p>
 
-<pre>
+<div class="pre"><button class="btn clippy" data-clipboard-target="#pip-install-upgrade-setuptools" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
+
+<pre id="pip-install-upgrade-setuptools">
 <code>$ pip install --upgrade setuptools</code>
 </pre>
+</div>
 
-<p>Hvis dette ikke fungerer,&#160;pr&#248;v:</p>
+<p>Hvis dette ikke fungerer, pr&#248;v:</p>
 
-<pre>
+<div class="pre"><button class="btn clippy" data-clipboard-target="#sudo-pip-install-no-use-wheel-upgrade-setuptools" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
+
+<pre id="sudo-pip-install-no-use-wheel-upgrade-setuptools">
 <code>$ sudo pip install --no-use-wheel --upgrade setuptools</code>
 </pre>
+</div>
 
 <p>Alternativt, last ned og kj&#248;r det offisielle <a href="https://pypi.python.org/pypi/setuptools#unix-based-systems-including-mac-os-x" target="_blank" title="Open pypi.python.org in a new window">installasjonsskriptet</a>:</p>
 
-<pre>
+<div class="pre"><button class="btn clippy" data-clipboard-target="#wget-https-bitbucketorg-pypa-setuptools-raw-bootstrap-ez-setuppy-o-sudo-python" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
+
+<pre id="wget-https-bitbucketorg-pypa-setuptools-raw-bootstrap-ez-setuppy-o-sudo-python">
 <code>$ wget https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py -O - | sudo python</code>
 </pre>
+</div>
 
-<p>(Hvis <code>wget</code> ikke er installert enn&#229;, gj&#248;r <code>$ brew install wget</code>. Hvis <code>brew</code> krangler, kj&#248;r <code>$ brew doctor</code> og p&#229;se at filrettigheter er som de skal&#160;v&#230;re.)</p>
+<p>(Hvis <span class="code"><code id="wget">wget</code><button class="btn clippy" data-clipboard-target="#wget" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> ikke er installert enn&#229;, gj&#248;r <span class="code"><code id="brew-install-wget">$ brew install wget</code><button class="btn clippy" data-clipboard-target="#brew-install-wget" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>. Hvis <span class="code"><code id="brew">brew</code><button class="btn clippy" data-clipboard-target="#brew" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> krangler, kj&#248;r <span class="code"><code id="brew-doctor">$ brew doctor</code><button class="btn clippy" data-clipboard-target="#brew-doctor" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> og p&#229;se at filrettigheter er som de skal v&#230;re.)</p>
 
-<p>N&#229;r <code>pip</code> <em>og</em> <code>setuptools</code> er installert, kan <code>pip</code>-pakken for <code>eye3D</code> finnes med <code>pip search</code>:</p>
+<p>N&#229;r <span class="code"><code id="pip-2">pip</code><button class="btn clippy" data-clipboard-target="#pip-2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> <em>og</em> <span class="code"><code id="setuptools-2">setuptools</code><button class="btn clippy" data-clipboard-target="#setuptools-2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> er installert, kan <span class="code"><code id="pip-3">pip</code><button class="btn clippy" data-clipboard-target="#pip-3" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>-pakken for <span class="code"><code id="eye3d">eye3D</code><button class="btn clippy" data-clipboard-target="#eye3d" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> finnes med <span class="code"><code id="pip-search">pip search</code><button class="btn clippy" data-clipboard-target="#pip-search" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>:</p>
 
-<pre>
+<div class="pre"><button class="btn clippy" data-clipboard-target="#pip-search-eyed3-pip-install-eyed3-pip" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
+
+<pre id="pip-search-eyed3-pip-install-eyed3-pip">
 <code>$ pip search eyeD3
 $ pip install eyeD3-pip</code>
 </pre>
+</div>
 </section>
 </section>
 </article>

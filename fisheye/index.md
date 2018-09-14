@@ -1,9 +1,12 @@
----
 title: Accelerating nonlinear image transformations with OpenGL ES
 abstract: A study on fish-eye undistortion.
 lang: en
-footnotes-title: Notes
-css: style.css
+mathjax: true
+hard_line_breaks: false
+stylesheet:
+  - /_assets/css/book.css
+  - /_assets/css/palatino.css
+  - style.css
 ---
 
 A study on fish-eye undistortion. **[PDF version](thesis.pdf).**
@@ -463,13 +466,13 @@ scalar $k$:
 $$\begin{aligned}
   F(\mathbf{x} + \mathbf{y}) &= F(\mathbf{x}) + F(\mathbf{y})\\
   F(k\mathbf{x}) &= kF(\mathbf{x})
-\end{aligned}$$
+\end{aligned} $$
 
 Note that the transformation doesn't shift the coordinate system -- it
 maps the zero coordinate onto itself:
 
 $$\label{eq:zero}
-F(\mathbf{0}) = \mathbf{0}$$
+F(\mathbf{0}) = \mathbf{0} $$
 
 Linear transformations can be expressed as multiplication by a
 two-by-two matrix
@@ -951,7 +954,7 @@ $d$ be the displacement factor, expressed as the ratio of the
 distorted radius to the undistorted radius:
 
 $$\label{eq:displacement}
-d = \frac{r'}{r} = \frac{F(r)}{r}$$
+d = \frac{r'}{r} = \frac{F(r)}{r} $$
 
 Then the relationship between undistorted polar coordinates and
 distorted polar coordinates can be expressed in terms of this factor:
@@ -984,7 +987,7 @@ $$\label{eq:brown}
   &\phantom{{}={}} [(\rho_1(r^2 + 2(x_d - x_c)^2) + 2\rho_2(x_d - x_c)(y_d - y_c))(1 + \rho_3r^2 + \dotsb)]\\
   y_u &= y_d + (y_d - y_c)(\kappa_1r^2 + \kappa_2r^4 + \kappa_3r^6 + \dotsb) + {} \\
   &\phantom{{}={}} [(\rho_1(r^2 + 2(y_d - y_c)^2) + 2\rho_2(y_d - y_c)(y_d - y_c))(1 + \rho_3r^2 + \dotsb)]
-\end{split}$$
+\end{split} $$
 
 where $[x_u, y_u]$ is the undistorted image point, $[x_d, y_d]$ is the
 distorted image point, $[x_c, y_c]$ is the center of distortion (i.e.,
@@ -1001,7 +1004,7 @@ $$\label{eq:brownradial}
 \begin{split}
   x_u &= x_d(1 + \kappa_1r^2 + \kappa_2r^4 + \kappa_3r^6 + \dotsb)\\
   y_u &= y_d(\underbrace{1 + \kappa_1r^2 + \kappa_2r^4 + \kappa_3r^6 + \dotsb}_d)
-\end{split}$$
+\end{split} $$
 
 where $d$ is the displacement factor we defined in equation
 \eqref{eq:displacement}. Since the polynomial $d = f(r)$ must be
@@ -1061,7 +1064,7 @@ Another approach is to compute the inverse by an iterative method such
 as Newton--Raphson approximation:
 
 $$\label{eq:newton}
-x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}$$
+x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)} $$
 
 To approximate a value for $r$ corresponding to a displacement $d$, we
 rewrite equation \eqref{eq:taylorthree} on the form $f(r) = 0$:
@@ -1078,7 +1081,7 @@ Substituting equations (\ref{eq:rewrite}--\ref{eq:derivative}) into
 equation \eqref{eq:newton} gives us:
 
 $$\label{eq:approximation}
-r_{n+1} = r_n - \frac{1 + \kappa_1r^2 + \kappa_2r^4 + \kappa_3r^6 - d}{2\kappa_1r + 4\kappa_2r^3 + 6\kappa_3r^5}$$
+r_{n+1} = r_n - \frac{1 + \kappa_1r^2 + \kappa_2r^4 + \kappa_3r^6 - d}{2\kappa_1r + 4\kappa_2r^3 + 6\kappa_3r^5} $$
 
 This is an iterative equation for finding better and better estimates
 of $r$ such that $f(r) = d$. Since the equation is considerably more
@@ -1143,7 +1146,7 @@ $$\begin{aligned}
   \label{eq:devernay}
   r_u &= \tfrac{1}{\omega} \operatorname{atan}(2r_d\tan{\tfrac{\omega}{2}})\\
   r_d &= \frac{\tan(r_u\omega)}{2\tan{\tfrac{\omega}{2}}}
-\end{aligned}$$
+\end{aligned} $$
 
 where $\omega$ is the field-of-view of the corresponding ideal
 wide-angle lens.
@@ -1188,7 +1191,7 @@ $$\begin{aligned}
   r_u &= (\mathrm{e}^{r_d/0.76} - 1) / 3.8342\\
   \label{eq:logparam}
   r_d &= 0.76\ln(1 + 3.8342r_u)
-\end{aligned}$$
+\end{aligned} $$
 
 For the trigonometric model:
 
@@ -1196,7 +1199,7 @@ $$\begin{aligned}
   \label{eq:devernayparam}
   r_u &= \tfrac{1}{0.95617} \operatorname{atan}(2r_d\tan{\tfrac{0.95617}{2}})\\
   r_d &= \frac{\tan(0.95617r_u)}{2\tan{\tfrac{0.95617}{2}}}
-\end{aligned}$$
+\end{aligned} $$
 
 For the division model:
 
@@ -1421,7 +1424,7 @@ $$\label{eq:table}
   [1/2, 1/2] & \text{if $[x, y] = [0, 0]$}\\
   \dots & \\
   [x/2 + 1/2, y/2 + 1/2] &
-\end{cases}$$
+\end{cases} $$
 
 The inverse relationship is of course given by:
 
@@ -1524,7 +1527,7 @@ $$\begin{aligned}
   [x, y]_{ur} &= [x + \tfrac{1}{2}l, y + \tfrac{1}{2}l] \\
   [x, y]_{ll} &= [x - \tfrac{1}{2}l, y - \tfrac{1}{2}l] \\
   [x, y]_{lr} &= [x + \tfrac{1}{2}l, y - \tfrac{1}{2}l]
-\end{aligned}$$
+\end{aligned} $$
 
 These four coordinates plus the original coordinate can then be
 transformed to input coordinates that are sampled to compute an
@@ -1538,7 +1541,7 @@ $$\begin{aligned}
   [x, y]_{mr} &= [x + \tfrac{1}{2}l, y] \\
   \label{eq:lm}
   [x, y]_{lm} &= [x, y - \tfrac{1}{2}l]
-\end{aligned}$$
+\end{aligned} $$
 
 An unweighed average produces a smooth, if somewhat fuzzy result. We
 can achieve a different filtering effect by adjusting the coefficients
@@ -2689,7 +2692,7 @@ George Wolberg. *Digital Image Warping*. Columbia University, 1990.
     the "best compromise in terms of reduction of aliasing, sharpness,
     and minimal ringing".
 
-[^5]: "Mip" stands for "multum in parvo", at Latin phrase meaning
+[^5]: "Mip" stands for "multum in parvo", a Latin phrase meaning
     "many things in a small place".
 
 [^6]: This is provided as the `atan()` function in OpenGL ES.

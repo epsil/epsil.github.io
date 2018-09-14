@@ -2,9 +2,10 @@
 title: "Lydforsterker: *Project 3A*"
 abstract: Rapport for konstruksjon av den 60 W klasse AB-forsterkeren Project 3A.
 footnotes-title: Fotnoter
-css: css/style.css
-js: js/custom.js
-mathjax: js/mathjax.js
+stylesheet: css/style.css
+script: js/custom.js
+mathjax: true
+hard_line_breaks: false
 ---
 
 Rapport for konstruksjon av den 60 W klasse AB-forsterkeren
@@ -132,7 +133,7 @@ $$A = \frac{0,14\text{ V}}{0,008\text{ V}} = 17,5$$
 
 I desibel tilsvarer dette
 
-$$A_{\mathrm{dB}} = 20\lg{17,5} = 24,9\text{ dB}$$
+$$A_{\mathrm{dB}} = 20\lg{17,5} = 24,9\text{ dB} $$
 
 ### Utgangsimpedans
 
@@ -165,7 +166,7 @@ Her har vi følgende spenningsdeling over $R_o$ og $R_L$:
 $$\begin{split}
     v_{oL} &= Av_i\frac{R_L}{R_o + R_L}\\
     &= v_o\frac{R_L}{R_o + R_L}
-\end{split}$$
+\end{split} $$
 
 hvor vi utnytter at $v_o = Av_i$ for å få en sammenheng mellom
 $v_{oL}$ og $v_o$. Uttrykket kan så ordnes for $R_o$:
@@ -173,7 +174,7 @@ $v_{oL}$ og $v_o$. Uttrykket kan så ordnes for $R_o$:
 $$\begin{split}
     R_o &= R_L\left(\frac{v_o - v_{oL}}{v_{oL}}\right)\\
     &= \frac{v_o - v_{oL}}{v_{oL}}\quad\text{dersom }R_L = 1\text{ $\Omega$}
-\end{split}$$
+\end{split} $$
 
 Her ser vi verdien av å måle med en utgangslast på 1 Ω -- uttrykket
 blir enklere. Vi setter inn for gjennomsnittsverdiene og får en
@@ -182,7 +183,7 @@ utgangsimpedans på
 $$R_o = \frac{\overline{v_o} -
     \overline{v_{oL}}}{\overline{v_{oL}}}
   = \frac{834,03\text{ mV} -
-    831,49\text{ mV}}{831,49\text{ mV}} = 0,003\text{ $\Omega$}$$
+    831,49\text{ mV}}{831,49\text{ mV}} = 0,003\text{ $\Omega$} $$
 
 På grunn av forsterkerens negative [tilbakekobling](#tilbakekobling)
 blir utgangsimpedansen mindre enn den ellers ville ha vært.
@@ -220,7 +221,7 @@ prosentverdi.
 
 For å beregne klirr har man følgende formel:
 
-$$K = \sqrt{\frac{\hat{U}_2^2 + \hat{U}_3^2 + \hat{U}_4^2 + \dotsb}{\hat{U}_1^2}} \cdot 100\text{ %}$$
+$$K = \sqrt{\frac{\hat{U}_2^2 + \hat{U}_3^2 + \hat{U}_4^2 + \dotsb}{\hat{U}_1^2}} \cdot 100\text{ %} $$
 
 Vi målte klirr ved å koble opp og måle som vist på figuren:
 
@@ -242,11 +243,11 @@ Båndbredden er 20 Hz--20 kHz. Målinger ved 8 Ω og 1 W ga:
 
 Dermed har vi
 
-$$2,950\text{ mV} - 2,933\text{ mV} = 17\text{ mV}$$
+$$2,950\text{ mV} - 2,933\text{ mV} = 17\text{ mV} $$
 
 som gir
 
-$$20\lg\left(\frac{17\text{ mV}}{2,950\text{ mV}}\right) = 0,05\text{ dB}$$
+$$20\lg\left(\frac{17\text{ mV}}{2,950\text{ mV}}\right) = 0,05\text{ dB} $$
 
 ### Effekt
 
@@ -259,14 +260,14 @@ ved 1 m 1 W gi:
 $$I_{\mathrm{dB}_{\mathrm{maks}}} = I_{\mathrm{sens}} +
   10\lg\left(\frac{P_{\mathrm{maks}}}{1\text{ W}}\right) =
   96\text{ dB} +
-  10\lg\left(\frac{55\text{ W}}{1\text{ W}}\right) = 113,4\text{ dB}$$
+  10\lg\left(\frac{55\text{ W}}{1\text{ W}}\right) = 113,4\text{ dB} $$
 
 Dette vil ved en sitteavstand på 4 m gi:
 
 $$I_{\mathrm{dB}_{\mathrm{maks}}} = I_{\mathrm{sens}} -
   20\lg\left(\frac{4\text{ m}}{1\text{ m}}\right) =
   113,4\text{ dB} -
-  20\lg\left(\frac{4\text{ m}}{1\text{ m}}\right) = 101,36\text{ dB}$$
+  20\lg\left(\frac{4\text{ m}}{1\text{ m}}\right) = 101,36\text{ dB} $$
 
 hvor vi ser bort fra akustikk i vegger.
 
@@ -377,7 +378,7 @@ $$\begin{split}
     v_P &= \underbrace{v_P'(V_+) + v_P''(V_-)}_{\mathrm{DC}} +
     \underbrace{v_P'''(v_{\sim})}_{\mathrm{AC}}\\
     &= V_{PQ} + v_p
-  \end{split}$$
+  \end{split} $$
 
 hvor $V_{PQ} = v_P'(V_+) + v_P''(V_-)$ og $v_p = v_P'''(v_{\sim})$.
 Vi kan nå innføre følgende terminologi: $V_{PQ}$ er *arbeidspunktet
@@ -421,13 +422,13 @@ $r_\pi$, brukt i den hybride $\pi$-modellen, er inngangsmotstanden til
 base--emitter-overgangen *sett fra basen*. Den er definert som
 *småsignal*-base--emitter-spenningen delt på *småsignal*-basestrømmen:
 
-$$r_\pi = \frac{v_{be}}{i_b}$$
+$$r_\pi = \frac{v_{be}}{i_b} $$
 
 For å finne $r_\pi$ er det vanlig å gå veien om *transkonduktansen*,
 $g_m$, som er forholdet mellom *småsignal*-kollektorstrømmen og
 *småsignal*-base--emitter-spenningen:
 
-$$g_m = \frac{i_c}{v_{be}} = \frac{I_{CQ}}{nV_T} = \frac{I_{CQ}}{V_T}\quad\text{dersom $n = 1$}$$
+$$g_m = \frac{i_c}{v_{be}} = \frac{I_{CQ}}{nV_T} = \frac{I_{CQ}}{V_T}\quad\text{dersom $n = 1$} $$
 
 der $n = \text{1--2}$ (ofte settes $n = 1$ slik at den kan sløyfes)
 og $V_T = 25\text{ mV}$ ved en omgivelsestemperatur på 25 °C.
@@ -435,19 +436,19 @@ Dersom transistoren er i det aktive området, er forholdet nesten
 konstant, og transkonduktansen kan forstås som *stigningsgraden* til
 $i_C$--$v_{BE}$-kurven *i arbeidspunktet*:
 
-$$g_m \approx \left.\frac{\partial i_C}{\partial v_{BE}}\right|_{i_C = I_{CQ}}$$
+$$g_m \approx \left.\frac{\partial i_C}{\partial v_{BE}}\right|_{i_C = I_{CQ}} $$
 
 Ettersom $i_c = g_mv_{be}$, er basestrømmen gitt ved
 $i_b = i_c / \beta = g_mv_{be} / \beta$, og vi får for $r_\pi$:
 
 $$r_\pi = \frac{v_{be}}{i_b}
   = \frac{v_{be}}{g_mv_{be} / \beta}
-  = \frac{\beta}{g_m}$$
+  = \frac{\beta}{g_m} $$
 
 Tilsvarende er $r_e$, brukt i T-modellen,
 inngangsmotstanden til base--emitter-overgangen *sett fra emitteren*:
 
-$$r_e = \frac{v_{be}}{i_e}$$
+$$r_e = \frac{v_{be}}{i_e} $$
 
 Ettersom $i_e = i_b + i_c$ og $i_c = \beta i_b$, er
 $i_e = (\beta + 1)i_b$. Det gir for $r_e$:
@@ -457,7 +458,7 @@ $$r_e = \frac{v_{be}}{(\beta + 1)i_b}
   = \frac{\beta}{(\beta + 1)g_m}
   = \frac{\alpha}{g_m}
   \approx \frac{1}{g_m}
-  = \frac{V_T}{I_{CQ}}$$
+  = \frac{V_T}{I_{CQ}} $$
 
 der $\alpha$ er forholdet mellom emitterstrømmen og kollektorstrømmen
 ($i_c = \alpha i_e$) og er tilnærmet lik $1$. Da $v_{be} = i_br_\pi =
@@ -569,14 +570,14 @@ strømmen gjennom $R_{11}$, og da kan vi bruke strømdelingsprinsippet for
 
 $$i_{b7} =
   \frac{R_{11}}{R_{11} + r_{\pi7}}i_{c5} = \frac{R_{11}}{R_{11} +
-    r_{\pi7}}\beta_5i_{b5}$$
+    r_{\pi7}}\beta_5i_{b5} $$
 
 der vi bruker strømforsterkningen til $Q_5$, $\beta_5$, for å uttrykke
 $i_{c5}$ med $i_{b5}$. Tilsvarende er $i_{c7} = \beta_7i_{b7}$, og vi
 har
 
 $$i_{c7} =
-  \frac{R_{11}}{R_{11} + r_{\pi7}}\beta_5\beta_7i_{b5}$$
+  \frac{R_{11}}{R_{11} + r_{\pi7}}\beta_5\beta_7i_{b5} $$
 
 mens $i_{e5} = (\beta_5 + 1)i_{b5}$. Utgangsstrømmen, $i_o$, er nå
 gitt ved
@@ -587,7 +588,7 @@ $$\begin{split}
       r_{\pi7}}\beta_5\beta_7i_{b5}\\
     &= i_{b5}\Biggl(\underbrace{(\beta_5 + 1) + \frac{R_{11}}{R_{11} +
         r_{\pi7}}\beta_5\beta_7}_{\beta_{57}}\Biggr)
-  \end{split}$$
+  \end{split} $$
 
 der vi kan betrakte $\beta_{57}$ (uttrykket i parentesen) som den
 totale forsterkningen til Sziklai-koblingen av $Q_5$ og $Q_7$. Ved
@@ -603,7 +604,7 @@ $$\begin{split}
       $r_{\pi7} \ll R_{11}$}\\
     &\approx \beta_5\beta_7 + \beta_5 = \beta_5(\beta_7 + 1)\\
     &\approx \beta_5\beta_7
-  \end{split}$$
+  \end{split} $$
 
 Her har vi bekreftet det vi sa om Sziklai-koblingen innledningsvis --
 at den totale strømforsterkningen er (tilnærmet) lik produktet av
@@ -618,7 +619,7 @@ $$\begin{split}
     &= i_{b5}r_{\pi5} + i_{b5}\beta_{57}(R_{13} + R_L)\\
     &= i_{b5}(\underbrace{r_{\pi5} + \beta_{57}(R_{13} +
       R_L)}_{R_{iu}})
-  \end{split}$$
+  \end{split} $$
 
 der innholdet i parentesen, $R_{iu}$, er *inngangsimpedansen* til
 trinnet. *Forsterkningen*, som vi kan kalle $A_u$, blir
@@ -626,7 +627,7 @@ trinnet. *Forsterkningen*, som vi kan kalle $A_u$, blir
 $$A_u =
   \frac{v_o}{v_{b5}} = \frac{i_{b5}\beta_{57}R_L}{i_{b5}(r_{\pi5} +
     \beta_{57}(R_{13} + R_L))} = \frac{\beta_{57}R_L}{r_{\pi5} +
-    \beta_{57}(R_{13} + R_L)}$$
+    \beta_{57}(R_{13} + R_L)} $$
 
 Ettersom $\beta_{57} \approx \beta_5\beta_7$ og $r_{\pi5} \approx
 \beta_5r_{e5}$, kan uttrykket avrundes og forenkles:
@@ -640,7 +641,7 @@ $$\begin{equation}\label{eq:au}
       &\approx \frac{\beta_7R_L}{\beta_7(R_{13} + R_L)} =
       \frac{R_L}{R_{13} + R_L}
     \end{split}
-  \end{equation}$$
+  \end{equation} $$
 
 Ettersom telleren er mindre enn nevneren, er $A_u < 1$.
 
@@ -681,7 +682,7 @@ A_uv_{b5}$.
 Vi kan nå finne *strømmen* gjennom $R_9$-motstanden, som vi kaller
 $i_9$. Den er gitt ved spenningsfallet delt på resistansen:
 
-$$i_9 = \frac{v_{b5} - A_uv_{b5}}{R_9} = \frac{1 - A_u}{R_9}v_{b5}$$
+$$i_9 = \frac{v_{b5} - A_uv_{b5}}{R_9} = \frac{1 - A_u}{R_9}v_{b5} $$
 
 *Bootstrap-resistansen* til $R_9$, dvs. inngangsimpedansen til
 bootstrap-koblingen, er gitt ved spenningspotensialet ved inngangen (den
@@ -689,7 +690,7 @@ bootstrap-koblingen, er gitt ved spenningspotensialet ved inngangen (den
 kaller denne størrelsen for $R_9'$ og får
 
 $$R_9' = \frac{v_{b5}}{i_9} = \frac{v_{b5}}{v_{b5}(1 - A_u)/R_9} =
-  \frac{R_9}{1 - A_u}$$
+  \frac{R_9}{1 - A_u} $$
 
 Vi vet at $A_u < 1$, og det betyr at $R_9' > R_9$ (med en faktor på
 $\frac{1}{1 - A_u}$). Så er også dette selve formålet med
@@ -701,7 +702,7 @@ forsterkeren fungerer som en klasse B-forsterker, får vi
 inngangsimpedansen til $Q_5$ (eller $Q_6$), $R_{iu}$, i parallell med
 inngangsimpedansen til bootstrap-koblingen, $R_9'$:
 
-$$R_{La} = R_{iu} \parallel R_9' = \frac{R_{iu}R_9'}{R_{iu} + R_9'}$$
+$$R_{La} = R_{iu} \parallel R_9' = \frac{R_{iu}R_9'}{R_{iu} + R_9'} $$
 
 (Dersom forsterkeren fungerer som en klasse A-forsterker, er både
 $Q_5$ og $Q_6$ aktive, og vi får
@@ -715,7 +716,7 @@ Ettersom det eneste som står mellom basen til $Q_4$ og jord er
 basemotstanden $r_{\pi4}$ (som dermed er inngangsimpedansen), er
 inngangsspenningen, $v_{b4}$, gitt ved
 
-$$v_{b4} = i_{b4}r_{\pi4}$$
+$$v_{b4} = i_{b4}r_{\pi4} $$
 
 *Forsterkningen*, som vi kan kalle $A_a$, blir
 
@@ -723,7 +724,7 @@ $$\begin{equation}\label{eq:aa}
     A_a = \frac{v_{c4}}{v_{b4}} =
     \frac{\beta_4i_{b4}R_{La}}{i_{b4}r_{\pi4}}
     = \frac{\beta_4R_{La}}{r_{\pi4}}
-  \end{equation}$$
+  \end{equation} $$
 
 ### Differensialforsterkeren
 
@@ -765,7 +766,7 @@ analysen er koblet til jord, er spenningen over motstandene lik
 basespenningen til $Q_1$, $v_{b1}$. Dermed er emitterstrømmen til
 begge transistorene gitt ved
 
-$$i_{e1} = i_{e2} = \frac{v_{b1}}{2r_{e1}}$$
+$$i_{e1} = i_{e2} = \frac{v_{b1}}{2r_{e1}} $$
 
 Emitterstrømmen til $Q_1$ er relatert til kollektorstrømmen til $Q_1$
 med faktoren $\alpha$, som er tilnærmet lik $1$ ettersom disse
@@ -778,7 +779,7 @@ kollektoren til jord (dvs. signaljord, jord i småsignalskjemaet).
 [^6]: $\alpha$ kan uttrykkes med $\beta$ slik:
 
     $$\alpha = \frac{i_C}{i_E} = \frac{\beta i_B}{(\beta + 1)i_B}
-      = \frac{\beta}{\beta + 1}$$
+      = \frac{\beta}{\beta + 1} $$
 
     som er tilnærmet lik $1$ ettersom $\beta \gg 1$.
 
@@ -797,7 +798,7 @@ av $R_6$ og $r_{\pi4}$, som vi kaller $R_6'$ (dvs.
 $R_6' = R_6 \parallel r_{\pi4}$). Denne går til jord, og
 kollektorspenningen er dermed gitt ved
 
-$$v_{c1} = i_{c1}R_6' \approx i_{e1}R_6' = v_{b1}\frac{R_6'}{2r_{e1}}$$
+$$v_{c1} = i_{c1}R_6' \approx i_{e1}R_6' = v_{b1}\frac{R_6'}{2r_{e1}} $$
 
 Nå er $v_{b1}$ inngangsspenningen til differensialforsterkeren, og
 $v_{c1}$ er utgangsspenningen. *Forsterkningen* til
@@ -805,7 +806,7 @@ differensialforsterkeren, som vi kan kalle $A_d$, blir da
 
 $$\begin{equation}\label{eq:ad}
     A_d = \frac{v_{c1}}{v_{b1}} = \frac{R_6'}{2r_{e1}}
-  \end{equation}$$
+  \end{equation} $$
 
 ### Inngangen
 
@@ -828,19 +829,19 @@ $R_p = R_2 \parallel (R_3 + R_{Li})$. Spenningsdelingsprinsippet gir
 følgende sammenheng mellom inngangsspenningen, $v_i$, og spenningen
 over parallellkoblingen, $v_p$:
 
-$$v_p = v_i\frac{R_p}{R_1 + R_p}$$
+$$v_p = v_i\frac{R_p}{R_1 + R_p} $$
 
 Ettersom $v_p$ er spenningen over seriekoblingen av $R_3$ og $R_{Li}$,
 er også utgangsspenningen gitt ved spenningsdeling:
 
-$$v_{b1} = v_p\frac{R_{Li}}{R_3 + R_{Li}}$$
+$$v_{b1} = v_p\frac{R_{Li}}{R_3 + R_{Li}} $$
 
 De to uttrykkene kan settes sammen til ett stort uttrykk.
 Forsterkningen, som vi kan kalle $A_i$, blir dermed
 
 $$\begin{equation}\label{eq:ai}
     A_i = \frac{R_p}{R_1 + R_p} \cdot \frac{R_{Li}}{R_3 + R_{Li}}
-  \end{equation}$$
+  \end{equation} $$
 
 der $R_p = R_2(R_3 + R_{Li})/(R_2 + R_3 + R_{Li})$.
 
@@ -855,13 +856,13 @@ til forsterkeren, $v_o$, mens utgangsspenningen til tilbakekoblingen
 er basespenningen til $Q_2$, $v_{b2}$. Basestrømmen er neglisjerbar,
 og spenningsdeleren gir følgende sammenheng mellom spenningene:
 
-$$v_o\frac{R_4}{R_4 + R_5} = v_{b2}$$
+$$v_o\frac{R_4}{R_4 + R_5} = v_{b2} $$
 
 Tilbakekoblingsfaktoren, som vi kaller $\beta$, blir dermed
 
 $$\begin{equation}\label{eq:beta}
     \beta = \frac{v_{b2}}{v_o} = \frac{R_4}{R_4 + R_5}
-  \end{equation}$$
+  \end{equation} $$
 
 ### Arbeidspunktanalyse
 
@@ -881,7 +882,7 @@ V til jord (utgangen er DC-jord, ettersom den bare leverer
 signalspenning), og kollektoren til $Q_8$ leverer brorparten fra jord
 til $-35$ V, er
 
-$$I_{C7Q} = I_{C8Q} = I_Q = 75\text{ mA}$$
+$$I_{C7Q} = I_{C8Q} = I_Q = 75\text{ mA} $$
 
 Dersom $Q_7$ er av typen MJL1302A, er strømforsterkningen
 $\beta_7 = 100$. Ettersom kollektorstrømmen til $Q_5$ er tilnærmet lik
@@ -889,7 +890,7 @@ basestrømmen til $Q_7$ (strømmen gjennom $R_{11}$ er veldig liten),
 får vi at
 
 $$I_{C5Q} = \frac{I_{C7Q}}{\beta_7} = \frac{75\text{ mA}}{100} =
-  750\text{ $\mu$A}$$
+  750\text{ $\mu$A} $$
 
 $Q_5$ er av typen BD139, og har for denne strømmen forsterkning
 $\beta_5 = 25$. Dens småsignal-motstander blir
@@ -899,7 +900,7 @@ $$\begin{aligned}
   \frac{25\text{ mV}}{750\text{ $\mu$A}} =
   33,3\text{ $\Omega$}\\
   r_{\pi5} &= (\beta_5 + 1)r_{e5} = (25 + 1) \cdot 33,3\text{ $\Omega$} =
-  866\text{ $\Omega$}\end{aligned}$$
+  866\text{ $\Omega$}\end{aligned} $$
 
 Av ligning $\eqref{eq:au}$ blir utgangstransistorenes forsterkning
 dermed:
@@ -922,20 +923,20 @@ $$\begin{aligned}
   &= 866\text{ $\Omega$} + 25 \cdot 100 \cdot (0,33\text{ $\Omega$} +
   8\text{ $\Omega$})\quad\text{der $\beta_{57} \approx \beta_5\beta_7$}\\
   &= 21,7\text{ k$\Omega$}
-  \end{aligned}$$
+  \end{aligned} $$
 
 og
 
 $$R_9' = \frac{R_9}{1 - A_u}
   = \frac{3,3\text{ k$\Omega$}}{1 - 0,92}
-  = 41,3\text{ k$\Omega$}$$
+  = 41,3\text{ k$\Omega$} $$
 
 $R_{La}$ blir dermed
 
 $$R_{La} = R_{iu} \parallel R_9' = \frac{R_{iu}R_9'}{R_{iu} + R_9'} =
   \frac{21,7\text{ k$\Omega$} \cdot
     41,3\text{ k$\Omega$}}{21,7\text{ k$\Omega$} +
-    41,3\text{ k$\Omega$}} = 14,2\text{ k$\Omega$}$$
+    41,3\text{ k$\Omega$}} = 14,2\text{ k$\Omega$} $$
 
 Videre må vi finne kollektorstrømmen til $Q_4$, som er omtrent den
 samme strømmen som går gjennom $R_9$ og $R_{10}$. Spenningspotensialet
@@ -947,13 +948,13 @@ Strømmen blir dermed
 $$I_{C4Q} =
   \frac{-0,73\text{ V} - (-35\text{ V})}{R_9 + R_{10}} =
   \frac{34,27\text{ V}}{3,3\text{ k$\Omega$} +
-    3,3\text{ k$\Omega$}} = 5,19\text{ mA}$$
+    3,3\text{ k$\Omega$}} = 5,19\text{ mA} $$
 
 $Q_4$ er av typen BD140, som for denne strømmen har forsterkning
 $\beta_4 = 140$. Dens småsignal-basemotstand blir
 
 $$r_{\pi4} = (\beta_4 + 1)\frac{V_T}{I_{C4Q}} = (140 +
-  1)\frac{25\text{ mV}}{5,19\text{ mA}} = 680\text{ $\Omega$}$$
+  1)\frac{25\text{ mV}}{5,19\text{ mA}} = 680\text{ $\Omega$} $$
 
 Av $\eqref{eq:aa}$ blir klasse A-driverens forsterkning dermed:
 
@@ -968,13 +969,13 @@ hvilket gir
 
 $$I_{C1Q} = \frac{V_{EB4}}{R_6} =
   \frac{0,7\text{ V}}{560\text{ $\Omega$}} =
-  1,25\text{ mA}$$
+  1,25\text{ mA} $$
 
 $Q_1$, som er av typen BC546, har strømforsterkning $\beta_1 = 200$
 for denne kollektorstrømmen. Småsignal-emittermotstanden blir
 
 $$r_{e1} = \frac{V_T}{I_{C1Q}} =
-  \frac{25\text{ mV}}{1,25\text{ mA}} = 20\text{ $\Omega$}$$
+  \frac{25\text{ mV}}{1,25\text{ mA}} = 20\text{ $\Omega$} $$
 
 Videre trenger vi $R_6'$, som er parallellkoblingen av $R_6$ og
 $r_{\pi4}$:
@@ -982,7 +983,7 @@ $r_{\pi4}$:
 $$R_6' = R_6 \parallel r_{\pi4} =
   \frac{R_6r_{\pi4}}{R_6 + r_{\pi4}} = \frac{560\text{ $\Omega$} \cdot
     680\text{ $\Omega$}}{560\text{ $\Omega$} + 680\text{ $\Omega$}} =
-  307\text{ $\Omega$}$$
+  307\text{ $\Omega$} $$
 
 Av $\eqref{eq:ad}$ blir differensialforsterkerens forsterkning dermed:
 
@@ -992,7 +993,7 @@ $$A_d = \frac{R_6'}{2r_{e1}} = \frac{307\text{ $\Omega$}}{2 \cdot
 For å beregne forsterkningen til inngangen, $A_i$, må vi finne
 utgangslasten til trinnet, $R_{Li}$. Den er gitt ved
 
-$$R_{Li} = 2\beta_1r_{e1} = 2 \cdot 200 \cdot 20\text{ $\Omega$} = 8\text{ k$\Omega$}$$
+$$R_{Li} = 2\beta_1r_{e1} = 2 \cdot 200 \cdot 20\text{ $\Omega$} = 8\text{ k$\Omega$} $$
 
 Vi trenger også $R_p$, som er parallellkoblingen av $R_2$ og
 $R_3 + R_{Li}$:
@@ -1001,7 +1002,7 @@ $$R_p =
   R_2 \parallel (R_3 + R_{Li}) = \frac{R_2(R_3 + R_{Li})}{R_2 + R_3 +
     R_{Li}} = \frac{22\text{ k$\Omega$} \cdot (2,2\text{ k$\Omega$}
     + 8\text{ k$\Omega$})}{22\text{ k$\Omega$} +
-    2,2\text{ k$\Omega$} + 8\text{ k$\Omega$}} = 7\text{ k$\Omega$}$$
+    2,2\text{ k$\Omega$} + 8\text{ k$\Omega$}} = 7\text{ k$\Omega$} $$
 
 Av $\eqref{eq:ai}$ blir inngangens forsterkning dermed:
 
@@ -1046,7 +1047,7 @@ $$A = A_i \cdot A_f = 0,6 \cdot 23,2 = 14$$
 
 I desibel tilsvarer dette
 
-$$A_{\mathrm{dB}} = 20\lg{14} = 23\text{ dB}$$
+$$A_{\mathrm{dB}} = 20\lg{14} = 23\text{ dB} $$
 
 Strømforsyning {#stromforsyning}
 ==============
@@ -1068,7 +1069,7 @@ spenningsforsyning på
 
 $$U_{\mathrm{maks}} = \sqrt{2 \cdot
     P \cdot R_L} = \sqrt{2 \cdot 60\text{ W} \cdot
-    8\text{ $\Omega$}} \approx 31\text{ V}$$
+    8\text{ $\Omega$}} \approx 31\text{ V} $$
 
 $U_{CC}$ blir da:
 
@@ -1077,22 +1078,22 @@ $$\begin{split}
     \text{sikkerhetsmargin}\\
     &= 31\text{ V} + 1\text{ V} + 10\text{ %} \approx
     35\text{ V}
-  \end{split}$$
+  \end{split} $$
 
 Dette oppnår vi med en trafospenning på
 
-$$\frac{35\text{ V}}{\sqrt{2}} \approx 24,7\text{ V}$$
+$$\frac{35\text{ V}}{\sqrt{2}} \approx 24,7\text{ V} $$
 
 Maks strøm med en last på $8$ og $2$ tap:
 
 $$I_{\mathrm{maks}} = \frac{35\text{ V} -
-    2\text{ V}_{U_{CE\mathrm{sat}}}}{8\text{ $\Omega$}} = 4,125\text{ A}$$
+    2\text{ V}_{U_{CE\mathrm{sat}}}}{8\text{ $\Omega$}} = 4,125\text{ A} $$
 
 Vi trenger dermed en forsyning på
 
 $$2 \cdot I_{\mathrm{maks}} \cdot U_{CC} = 2 \cdot
   4,125\text{ A} \cdot 35\text{ V} = 2 \cdot
-  144,4\text{ VA} \approx 290\text{ VA}$$
+  144,4\text{ VA} \approx 290\text{ VA} $$
 
 Vi ser at en trafo på 300 VA oppfyller kravet.
 
@@ -1123,7 +1124,7 @@ $$\begin{aligned}
   P &= 2 \cdot ((8\text{ $\Omega$} \cdot 2,857\text{ A}) - 2 \cdot
   1\text{ V$_{\mathrm{sat}}$}) \cdot 2,857\text{ A}\\
   &= 119,2\text{ W} = 2 \cdot
-  59,6\text{ W}\quad(8\text{ $\Omega$})\end{aligned}$$
+  59,6\text{ W}\quad(8\text{ $\Omega$})\end{aligned} $$
 
 Konstruksjon
 ============

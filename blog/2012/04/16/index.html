@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="no" prefix="og: http://ogp.me/ns#">
 <head>
-<title>Why Functional Programming Matters &#8211; Vegards blogg</title>
+<title>Why Functional Programming Matters</title>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="no-referrer" name="referrer">
+<meta content="noindex" name="robots">
 <meta content="Vegard &#216;ye" name="author">
 <meta content="2012-04-16" name="date">
 <meta content="9942c65768a3e38cf6a12d20ca008c58" name="md5">
@@ -23,58 +25,60 @@
 <meta content="Why Functional Programming Matters" name="twitter:title">
 <link href="../../../../favicon.ico" rel="icon" type="image/x-icon">
 <link href="../../../../apple-touch-icon.png" rel="apple-touch-icon">
-<link href="../../../../resources/css/markdown-template.css" rel="stylesheet">
-<link href="https://epsil.github.io/blog/2012/04/16/" rel="canonical">
+<link href="../../../../_assets/css/wiki.css" rel="stylesheet">
 <link href="index.md" rel="alternate" title="Markdown" type="text/markdown">
-<script src="../../../../resources/js/markdown-template.js">
+<script src="../../../../_assets/js/wiki.js">
 </script>
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top">
-<div class="container-fluid">
+<div class="container-fluid topbar">
 <ul class="nav nav-pills navbar-left">
 <li role="presentation"><a href="../../../../" title="G&#229; hjem"><i class="fa fa-home"></i></a>
 </li>
 </ul>
 
 <ul class="nav nav-pills navbar-right">
-<li role="presentation"><a href="http://www.facebook.com/share.php?u=https%3A%2F%2Fepsil.github.io%2Fblog%2F2012%2F04%2F16%2F" target="_blank" title="Del p&#229; Facebook"><i class="fa fa-facebook-square"></i></a>
+<li role="presentation"><a href="../../../../tmp/clipboard/" target="_blank" title="Kopier til Markdown"><i class="fa fa-clipboard"></i></a>
 </li>
 
-<li role="presentation"><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fepsil.github.io%2Fblog%2F2012%2F04%2F16%2F" target="_blank" title="Del p&#229; Twitter"><i class="fa fa-twitter-square"></i></a>
+<li role="presentation"><a href="https://github.com/epsil/mdwiki/blob/master/blog/2012/04/16/index.md" target="_blank" title="Vis p&#229; GitHub"><i class="fa fa-github"></i></a>
 </li>
 
-<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/blob/master/blog/2012/04/16/index.md" target="_blank" title="Vis p&#229; GitHub"><i class="fa fa-github"></i></a>
+<li role="presentation"><a href="https://github.com/epsil/mdwiki/edit/master/blog/2012/04/16/index.md" target="_blank" title="Rediger p&#229; GitHub"><i class="fa fa-edit"></i></a>
 </li>
 
-<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/edit/master/blog/2012/04/16/index.md" target="_blank" title="Rediger p&#229; GitHub"><i class="fa fa-edit"></i></a>
+<li role="presentation"><a href="https://github.com/epsil/mdwiki/raw/master/blog/2012/04/16/index.md" target="_blank" title="Vis Markdown-kilde"><i class="fa fa-download"></i></a>
 </li>
 
-<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/raw/master/blog/2012/04/16/index.md" target="_blank" title="Vis Markdown-kilde"><i class="fa fa-download"></i></a>
-</li>
-
-<li role="presentation"><a data-toggle="collapse" href="#toc" id="toc-button" name="toc-button" title="Innhold"><i class="fa fa-list"></i></a>
+<li role="presentation"><a data-toggle="collapse" href="#toc" id="toc-button" title="Innhold"><i class="fa fa-list"></i></a>
 </li>
 </ul>
+
+<form action="https://www.google.com/search" class="navbar-form" method="get" target="_blank">
+<div class="form-group" style="display: inline;">
+<div class="input-group" style="display: table;"><span class="input-group-addon" style="width: 1%;"><span class="glyphicon glyphicon-search"></span></span> <input accesskey="." autocomplete="off" class="form-control" name="q" title="S&#248;k" type="text"></div>
+</div>
+</form>
 </div>
 
 <div id="toc-placeholder">
 </div>
 </nav>
 
-<article class="h-entry">
+<article class="h-entry" id="main">
 <header>
-<h1 class="p-name"><a class="u-uid u-url" href="https://epsil.github.io/blog/2012/04/16/" rel="bookmark" target="_blank" title="Permalink">Why Functional Programming&#160;Matters</a>
+<h1 class="p-name"><a class="u-uid u-url" href="https://epsil.github.io/blog/2012/04/16/" rel="bookmark" target="_blank" title="Permalink">Why Functional Programming Matters</a>
 </h1>
 
 <p class="author"><a class="p-author h-card" href="https://epsil.github.io/" target="_blank" title="Open epsil.github.io in a new window">Vegard &#216;ye</a> &#8226; <time class="dt-published" datetime="2012-04-16">2012-04-16</time></p>
 </header>
 
-<section class="e-content">
+<section class="e-content sidenotes">
 <section>
-<p>Jeg burde oversette koden i <em>Why Functional Programming Matters</em> til Haskell, for &#248;velsens skyld. Side 58 i <em>Real World Haskell</em> definerer <code>Cons</code> fra bunnen av og kan brukes som&#160;utgangspunkt.</p>
+<p>Jeg burde oversette koden i <em>Why Functional Programming Matters</em> til Haskell, for &#248;velsens skyld. Side 58 i <em>Real World Haskell</em> definerer <span class="code"><code id="cons-2">Cons</code><button class="btn clippy" data-clipboard-target="#cons-2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> fra bunnen av og kan brukes som utgangspunkt.</p>
 
-<p>Preprosessoren <a href="http://www.andres-loeh.de/lhs2tex/" target="_blank" title="Open andres-loeh.de in a new window"><abbr title="lhs2TeX">lhs2T<span class="tex-e">e</span>X</abbr></a> kan brukes dersom det blir aktuelt &#229; oversette hele&#160;artikkelen.</p>
+<p>Preprosessoren <a href="http://www.andres-loeh.de/lhs2tex/" target="_blank" title="Open andres-loeh.de in a new window"><abbr title="lhs2TeX">lhs2T<span class="tex-e">e</span>X</abbr></a> kan brukes dersom det blir aktuelt &#229; oversette hele artikkelen.</p>
 
 <hr>
 

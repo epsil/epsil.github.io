@@ -1,10 +1,10 @@
----
 title: Virtuell arm for funksjonshemmede
 abstract: Rapport om prototype til en tungestyrt musepeker for bevegelseshemmede.
 footnotes-title: Fotnoter
-css: css/style.css
-js: js/custom.js
-mathjax: js/mathjax.js
+hard_line_breaks: false
+stylesheet: css/style.css
+script: js/custom.js
+mathjax: true
 ---
 
 Rapport om prototype til en tungestyrt musepeker for bevegelseshemmede.
@@ -236,7 +236,7 @@ spenningsdeling mellom sensorresistansen, $R_S$, og $R$:
 
 $$\begin{equation}\label{eq:spenningsdeling}
     V_{IN} = V_{CC} \cdot \frac{R}{R_S + R}
-  \end{equation}$$
+  \end{equation} $$
 
 $V_{IN}$ sendes inn på analog-til-digital-omformeren på kortet
 (ADC-en), og er altså verdien som programmet på mikrokontrolleren
@@ -246,7 +246,7 @@ programkoden:
 
 $$\begin{equation}\label{eq:datablad}
     \text{ADC_VARIABEL} = \frac{V_{IN} \cdot 255}{V_{REF}}
-  \end{equation}$$
+  \end{equation} $$
 
 $V_{REF}$ er *referansespenningen* og er lik $V_{CC}$. Den maksimale
 verdien for `ADC_VARIABEL`, 255, svarer dermed til 3,3 V, og
@@ -404,7 +404,7 @@ sammenhengene
 
 $$\begin{aligned}
   R_S &= \frac{V_{CC} - V_R}{I_R}\label{eq:resistans}\\
-  I_R &= \frac{U_R}{R}\label{eq:strom}\end{aligned}$$
+  I_R &= \frac{U_R}{R}\label{eq:strom}\end{aligned} $$
 
 Målingene er foretatt med $V_{CC} = 4,5$ V og $R = 8,2$ kΩ. Valget av
 verdier er basert på utstyret som var tilgjengelig da målingene ble
@@ -1038,7 +1038,7 @@ viss margin -- *spranget* -- er sensoren aktiv:
 
 $$\begin{equation}\label{eq:sprang}
   \text{avlest verdi} > \text{nullnivå} + \text{sprang}
-  \end{equation}$$
+  \end{equation} $$
 
 Når dette er oppfylt, sier vi at vi «har et sprang». Marginen er
 fastsatt på forhånd, og er litt større for de store sensorene på

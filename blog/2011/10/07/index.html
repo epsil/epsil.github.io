@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="no" prefix="og: http://ogp.me/ns#">
 <head>
-<title>Closures i Lisp &#8211; Vegards blogg</title>
+<title>Closures i Lisp</title>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="no-referrer" name="referrer">
+<meta content="noindex" name="robots">
 <meta content="Vegard &#216;ye" name="author">
 <meta content="2011-10-07" name="date">
 <meta content="a56a3f958eb256763726f95a5b691189" name="md5">
@@ -23,46 +25,48 @@
 <meta content="Closures i Lisp" name="twitter:title">
 <link href="../../../../favicon.ico" rel="icon" type="image/x-icon">
 <link href="../../../../apple-touch-icon.png" rel="apple-touch-icon">
-<link href="../../../../resources/css/markdown-template.css" rel="stylesheet">
-<link href="https://epsil.github.io/blog/2011/10/07/" rel="canonical">
+<link href="../../../../_assets/css/wiki.css" rel="stylesheet">
 <link href="index.md" rel="alternate" title="Markdown" type="text/markdown">
-<script src="../../../../resources/js/markdown-template.js">
+<script src="../../../../_assets/js/wiki.js">
 </script>
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top">
-<div class="container-fluid">
+<div class="container-fluid topbar">
 <ul class="nav nav-pills navbar-left">
 <li role="presentation"><a href="../../../../" title="G&#229; hjem"><i class="fa fa-home"></i></a>
 </li>
 </ul>
 
 <ul class="nav nav-pills navbar-right">
-<li role="presentation"><a href="http://www.facebook.com/share.php?u=https%3A%2F%2Fepsil.github.io%2Fblog%2F2011%2F10%2F07%2F" target="_blank" title="Del p&#229; Facebook"><i class="fa fa-facebook-square"></i></a>
+<li role="presentation"><a href="../../../../tmp/clipboard/" target="_blank" title="Kopier til Markdown"><i class="fa fa-clipboard"></i></a>
 </li>
 
-<li role="presentation"><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fepsil.github.io%2Fblog%2F2011%2F10%2F07%2F" target="_blank" title="Del p&#229; Twitter"><i class="fa fa-twitter-square"></i></a>
+<li role="presentation"><a href="https://github.com/epsil/mdwiki/blob/master/blog/2011/10/07/index.md" target="_blank" title="Vis p&#229; GitHub"><i class="fa fa-github"></i></a>
 </li>
 
-<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/blob/master/blog/2011/10/07/index.md" target="_blank" title="Vis p&#229; GitHub"><i class="fa fa-github"></i></a>
+<li role="presentation"><a href="https://github.com/epsil/mdwiki/edit/master/blog/2011/10/07/index.md" target="_blank" title="Rediger p&#229; GitHub"><i class="fa fa-edit"></i></a>
 </li>
 
-<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/edit/master/blog/2011/10/07/index.md" target="_blank" title="Rediger p&#229; GitHub"><i class="fa fa-edit"></i></a>
+<li role="presentation"><a href="https://github.com/epsil/mdwiki/raw/master/blog/2011/10/07/index.md" target="_blank" title="Vis Markdown-kilde"><i class="fa fa-download"></i></a>
 </li>
 
-<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/raw/master/blog/2011/10/07/index.md" target="_blank" title="Vis Markdown-kilde"><i class="fa fa-download"></i></a>
-</li>
-
-<li role="presentation"><a data-toggle="collapse" href="#toc" id="toc-button" name="toc-button" title="Innhold"><i class="fa fa-list"></i></a>
+<li role="presentation"><a data-toggle="collapse" href="#toc" id="toc-button" title="Innhold"><i class="fa fa-list"></i></a>
 </li>
 </ul>
+
+<form action="https://www.google.com/search" class="navbar-form" method="get" target="_blank">
+<div class="form-group" style="display: inline;">
+<div class="input-group" style="display: table;"><span class="input-group-addon" style="width: 1%;"><span class="glyphicon glyphicon-search"></span></span> <input accesskey="." autocomplete="off" class="form-control" name="q" title="S&#248;k" type="text"></div>
+</div>
+</form>
 </div>
 
 <div id="toc-placeholder">
 </div>
 </nav>
 
-<article class="h-entry">
+<article class="h-entry" id="main">
 <header>
 <h1 class="p-name"><a class="u-uid u-url" href="https://epsil.github.io/blog/2011/10/07/" rel="bookmark" target="_blank" title="Permalink">Closures i Lisp</a>
 </h1>
@@ -70,17 +74,27 @@
 <p class="author"><a class="p-author h-card" href="https://epsil.github.io/" target="_blank" title="Open epsil.github.io in a new window">Vegard &#216;ye</a> &#8226; <time class="dt-published" datetime="2011-10-07">2011-10-07</time></p>
 </header>
 
-<section class="e-content">
+<section class="e-content sidenotes">
 <section>
 <blockquote>
-<p>In the remotest regions, beyond the Functional Kingdoms, lies a fabled realm called Lambda the Ultimate. In this place it is said that there are no nouns at all, only verbs! There are &#8220;things&#8221; there, but all things are created from verbs, even the very integers for counting lambs, which are the most popular form of trading currency there, if the rumors speak truth. The number zero is simply <code class="language-python"><span class="hljs-keyword">lambda</span>()</code>, and 1 is <code class="language-python"><span class="hljs-keyword">lambda</span>(<span class="hljs-keyword">lambda</span>())</code>, 2 is <code class="language-python"><span class="hljs-keyword">lambda</span>(<span class="hljs-keyword">lambda</span>(<span class="hljs-keyword">lambda</span>()))</code>, and so on. Every single Thing in this legendary region, be it noun, verb or otherwise, is constructed from the primal verb&#160;&#8220;lambda&#8221;.</p>
+<p>In the remotest regions, beyond the Functional Kingdoms, lies a fabled realm called Lambda the Ultimate. In this place it is said that there are no nouns at all, only verbs! There are &#8220;things&#8221; there, but all things are created from verbs, even the very integers for counting lambs, which are the most popular form of trading currency there, if the rumors speak truth. The number zero is simply <span class="code"><code class="language-python" id="lambda"><span class="hljs-keyword">lambda</span>()</code><button class="btn clippy" data-clipboard-target="#lambda" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button></span>, and 1 is <span class="code"><code class="language-python" id="lambdalambda"><span class="hljs-keyword">lambda</span>(<span class="hljs-keyword">lambda</span>())</code><button class="btn clippy" data-clipboard-target="#lambdalambda" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button></span>, 2 is <span class="code"><code class="language-python" id="lambdalambdalambda"><span class="hljs-keyword">lambda</span>(<span class="hljs-keyword">lambda</span>(<span class="hljs-keyword">lambda</span>()))</code><button class="btn clippy" data-clipboard-target="#lambdalambdalambda" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button></span>, and so on. Every single Thing in this legendary region, be it noun, verb or otherwise, is constructed from the primal verb &#8220;lambda&#8221;.</p>
 
-<footer>Steve Yegge: <cite>Execution in the Kingdom of Nouns</cite><sup class="footnote-ref"><a href="#fn1" id="fnref1" title="http://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html">[1]</a></sup></footer>
+<aside class="sidenote">
+<p><sup class="ref-mark"><a href="#fnref1" id="sidenote1" title="Steve Yegge: Execution in the Kingdom of Nouns[1]"><span class="left-bracket">[</span>1<span class="right-bracket">]</span></a></sup><a class="url" href="http://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html" target="_blank" title="Open steve-yegge.blogspot.com in a new window">http://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html</a> <a class="footnote-backref" href="#fnref1" title="Steve Yegge: Execution in the Kingdom of Nouns[1]">&#8617;&#65038;</a></p>
+</aside>
+
+<footer>Steve Yegge: <cite>Execution in the Kingdom of Nouns</cite><sup class="footnote-ref"><a href="#fn1" id="fnref1" title="http://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html"><span class="left-bracket">[</span>1<span class="right-bracket">]</span></a></sup></footer>
 </blockquote>
 
-<p>Det er i prinsippet mulig &#229; bruke lambdaer som et fundament for videre programmering. Det klassiske <a href="http://mitpress.mit.edu/sicp/full-text/book/book.html" target="_blank" title="Open mitpress.mit.edu in a new window"><em><abbr class="acronym" title="Structure and Interpretation of Computer Programs"><span class="caps">SICP</span></abbr></em></a>-eksemplet er &#229; definere <code class="language-scheme">cons</code>, <code class="language-scheme">car</code> og <code class="language-scheme">cdr</code> p&#229; denne m&#229;ten,<sup class="footnote-ref"><a href="#fn2" id="fnref2" title="http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-14.html#%_sec_2.1.3">[2]</a></sup> som vi kan tenke p&#229; som Lisp-sjargong for <code class="language-scheme">pair</code>, <code class="language-scheme">first</code> og <code class="language-scheme">second</code>. La <code class="language-scheme">pair</code> v&#230;re en funksjon som returnerer et par med verdier, <code class="language-scheme">first</code> returnere den f&#248;rste verdien til paret, og <code class="language-scheme">second</code> returnere den&#160;andre:</p>
+<aside class="sidenote">
+<p><sup class="ref-mark"><a href="#fnref2" id="sidenote2" title="Det er i prinsippet mulig &#229; bruke lambdaer som et fundament for videre programmering. Det klassiske SICP-eksemplet er &#229; definere cons, car og cdr p&#229; denne m&#229;ten,[2] som vi kan tenke p&#229; som Lisp-sjargong for pair, first og second. La pair v&#230;re en funksjon som returnerer et par med verdier, first returnere den f&#248;rste verdien til paret, og second returnere den andre:"><span class="left-bracket">[</span>2<span class="right-bracket">]</span></a></sup><a class="url" href="http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-14.html#%25_sec_2.1.3" target="_blank" title="Open mitpress.mit.edu in a new window">http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-14.html#%_sec_2.1.3</a> <a class="footnote-backref" href="#fnref2" title="Det er i prinsippet mulig &#229; bruke lambdaer som et fundament for videre programmering. Det klassiske SICP-eksemplet er &#229; definere cons, car og cdr p&#229; denne m&#229;ten,[2] som vi kan tenke p&#229; som Lisp-sjargong for pair, first og second. La pair v&#230;re en funksjon som returnerer et par med verdier, first returnere den f&#248;rste verdien til paret, og second returnere den andre:">&#8617;&#65038;</a></p>
+</aside>
 
-<pre>
+<p>Det er i prinsippet mulig &#229; bruke lambdaer som et fundament for videre programmering. Det klassiske <a href="http://mitpress.mit.edu/sicp/full-text/book/book.html" target="_blank" title="Open mitpress.mit.edu in a new window"><em><abbr class="acronym" title="Structure and Interpretation of Computer Programs"><span class="caps">SICP</span></abbr></em></a>-eksemplet er &#229; definere <span class="code"><code class="language-scheme" id="cons">cons</code><button class="btn clippy" data-clipboard-target="#cons" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>, <span class="code"><code class="language-scheme" id="car">car</code><button class="btn clippy" data-clipboard-target="#car" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> og <span class="code"><code class="language-scheme" id="cdr">cdr</code><button class="btn clippy" data-clipboard-target="#cdr" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> p&#229; denne m&#229;ten,<sup class="footnote-ref"><a href="#fn2" id="fnref2" title="http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-14.html#%_sec_2.1.3"><span class="left-bracket">[</span>2<span class="right-bracket">]</span></a></sup> som vi kan tenke p&#229; som Lisp-sjargong for <span class="code"><code class="language-scheme" id="pair">pair</code><button class="btn clippy" data-clipboard-target="#pair" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>, <span class="code"><code class="language-scheme" id="first">first</code><button class="btn clippy" data-clipboard-target="#first" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> og <span class="code"><code class="language-scheme" id="second">second</code><button class="btn clippy" data-clipboard-target="#second" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>. La <span class="code"><code class="language-scheme" id="pair-2">pair</code><button class="btn clippy" data-clipboard-target="#pair-2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> v&#230;re en funksjon som returnerer et par med verdier, <span class="code"><code class="language-scheme" id="first-2">first</code><button class="btn clippy" data-clipboard-target="#first-2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> returnere den f&#248;rste verdien til paret, og <span class="code"><code class="language-scheme" id="second-2">second</code><button class="btn clippy" data-clipboard-target="#second-2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> returnere den andre:</p>
+
+<div class="pre"><button class="btn clippy" data-clipboard-target="#pair-foo-bar-par-av-foo-og-bar-first-pair-foo-bar-foo-second-pair-foo-bar-bar" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
+
+<pre id="pair-foo-bar-par-av-foo-og-bar-first-pair-foo-bar-foo-second-pair-foo-bar-bar">
 <code class="language-scheme">&gt; (<span class="hljs-name">pair</span> <span class="hljs-string">"foo"</span> <span class="hljs-string">"bar"</span>)
 #&lt;par av <span class="hljs-string">"foo"</span> og <span class="hljs-string">"bar"</span>&gt;
 
@@ -90,10 +104,13 @@
 &gt; (<span class="hljs-name">second</span> (<span class="hljs-name">pair</span> <span class="hljs-string">"foo"</span> <span class="hljs-string">"bar"</span>))
 <span class="hljs-string">"bar"</span></code>
 </pre>
+</div>
 
-<p>Den vanlige m&#229;ten &#229; implementere dette p&#229; ville v&#230;re &#229; konstruere en listestruktur &#8211; et stykke data &#8211; med <code class="language-scheme">pair</code>, og s&#229; la <code class="language-scheme">first</code> og <code class="language-scheme">second</code> hente ut riktig element fra strukturen. <em><abbr class="acronym" title="Structure and Interpretation of Computer Programs"><span class="caps">SICP</span></abbr></em> sin fremgangsm&#229;te er derimot &#229; implementere paret som en <em>prosedyre</em>:</p>
+<p>Den vanlige m&#229;ten &#229; implementere dette p&#229; ville v&#230;re &#229; konstruere en listestruktur &#8211; et stykke data &#8211; med <span class="code"><code class="language-scheme" id="pair-3">pair</code><button class="btn clippy" data-clipboard-target="#pair-3" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>, og s&#229; la <span class="code"><code class="language-scheme" id="first-3">first</code><button class="btn clippy" data-clipboard-target="#first-3" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> og <span class="code"><code class="language-scheme" id="second-3">second</code><button class="btn clippy" data-clipboard-target="#second-3" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> hente ut riktig element fra strukturen. <em><abbr class="acronym" title="Structure and Interpretation of Computer Programs"><span class="caps">SICP</span></abbr></em> sin fremgangsm&#229;te er derimot &#229; implementere paret som en <em>prosedyre</em>:</p>
 
-<pre>
+<div class="pre"><button class="btn clippy" data-clipboard-target="#define-pair-x-y-lambda-m-cond-m-1-x-m-2-y-define-first-z-z-1-define-second-z-z-2" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
+
+<pre id="define-pair-x-y-lambda-m-cond-m-1-x-m-2-y-define-first-z-z-1-define-second-z-z-2">
 <code class="language-scheme">(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> (<span class="hljs-name">pair</span> x y)
   (<span class="hljs-name"><span class="hljs-builtin-name">lambda</span></span> (m)
     (<span class="hljs-name"><span class="hljs-builtin-name">cond</span></span>
@@ -106,38 +123,46 @@
 (<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> (<span class="hljs-name">second</span> z)
   (<span class="hljs-name">z</span> <span class="hljs-number">2</span>))</code>
 </pre>
+</div>
 
-<p>Her returnerer <code class="language-scheme">pair</code> en anonym funksjon (som lages med <code class="language-scheme">lambda</code> i Lisp). Denne funksjonen inneholder argumentene til <code class="language-scheme">pair</code>:</p>
+<p>Her returnerer <span class="code"><code class="language-scheme" id="pair-4">pair</code><button class="btn clippy" data-clipboard-target="#pair-4" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> en anonym funksjon (som lages med <span class="code"><code class="language-scheme" id="lambda-2">lambda</code><button class="btn clippy" data-clipboard-target="#lambda-2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> i Lisp). Denne funksjonen inneholder argumentene til <span class="code"><code class="language-scheme" id="pair-5">pair</code><button class="btn clippy" data-clipboard-target="#pair-5" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>:</p>
 
-<pre>
+<div class="pre"><button class="btn clippy" data-clipboard-target="#pair-foo-bar-prosedyre-som-inneholder-foo-og-bar" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
+
+<pre id="pair-foo-bar-prosedyre-som-inneholder-foo-og-bar">
 <code class="language-scheme">&gt; (<span class="hljs-name">pair</span> <span class="hljs-string">"foo"</span> <span class="hljs-string">"bar"</span>)
 #&lt;prosedyre som inneholder <span class="hljs-string">"foo"</span> og <span class="hljs-string">"bar"</span>&gt;</code>
 </pre>
+</div>
 
-<p>Det <code class="language-scheme">first</code> og <code class="language-scheme">second</code> s&#229; gj&#248;r, er &#229; kalle prosedyren med et bestemt argument slik at den f&#248;rste eller andre verdien returneres. Dermed vil <code class="language-scheme">(<span class="hljs-name">first</span> (<span class="hljs-name">pair</span> <span class="hljs-string">"foo"</span> <span class="hljs-string">"bar"</span>))</code> fortsatt gi <code class="language-scheme"><span class="hljs-string">"foo"</span></code>, og <code class="language-scheme">(<span class="hljs-name">second</span> (<span class="hljs-name">pair</span> <span class="hljs-string">"foo"</span> <span class="hljs-string">"bar"</span>))</code> gi <code class="language-scheme"><span class="hljs-string">"bar"</span></code>. P&#229; papiret en helt adekvat&#160;implementasjon.</p>
+<p>Det <span class="code"><code class="language-scheme" id="first-4">first</code><button class="btn clippy" data-clipboard-target="#first-4" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> og <span class="code"><code class="language-scheme" id="second-4">second</code><button class="btn clippy" data-clipboard-target="#second-4" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> s&#229; gj&#248;r, er &#229; kalle prosedyren med et bestemt argument slik at den f&#248;rste eller andre verdien returneres. Dermed vil <span class="code"><code class="language-scheme" id="first-pair-foo-bar">(<span class="hljs-name">first</span> (<span class="hljs-name">pair</span> <span class="hljs-string">"foo"</span> <span class="hljs-string">"bar"</span>))</code><button class="btn clippy" data-clipboard-target="#first-pair-foo-bar" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button></span> fortsatt gi <span class="code"><code class="language-scheme" id="foo"><span class="hljs-string">"foo"</span></code><button class="btn clippy" data-clipboard-target="#foo" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button></span>, og <span class="code"><code class="language-scheme" id="second-pair-foo-bar">(<span class="hljs-name">second</span> (<span class="hljs-name">pair</span> <span class="hljs-string">"foo"</span> <span class="hljs-string">"bar"</span>))</code><button class="btn clippy" data-clipboard-target="#second-pair-foo-bar" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button></span> gi <span class="code"><code class="language-scheme" id="bar"><span class="hljs-string">"bar"</span></code><button class="btn clippy" data-clipboard-target="#bar" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button></span>. P&#229; papiret en helt adekvat implementasjon.</p>
 
-<p>Koden over forutsetter <em>closures</em>, <abbr title="det vil si">dvs.</abbr> at prosedyren som <code class="language-scheme">pair</code> returnerer, er i stand til &#229; &#171;stikke av med&#187; argumentene til <code class="language-scheme">pair</code>.<sup class="footnote-ref"><a href="#fn3" id="fnref3" title="Hvis Lisp&#8217;en din mangler dette, kan du alltids &#171;jukse&#187; ved &#229; konstruere lambdaen som en liste og splice inn verdiene av x og y (forutsetter at x og y er immutable).">[3]</a></sup> Dermed kan man for s&#229; vidt tenke p&#229; prosedyren som et &#171;objekt&#187;, <abbr title="det vil si">dvs.</abbr> en bunt med data og instruksjoner. (I enkelte spr&#229;k, som JavaScript og Scala, <em>er</em> funksjoner&#160;objekter.)</p>
+<aside class="sidenote">
+<p><sup class="ref-mark"><a href="#fnref3" id="sidenote3" title="Koden over forutsetter closures, dvs. at prosedyren som pair returnerer, er i stand til &#229; &#171;stikke av med&#187; argumentene til pair.[3] Dermed kan man for s&#229; vidt tenke p&#229; prosedyren som et &#171;objekt&#187;, dvs. en bunt med data og instruksjoner. (I enkelte spr&#229;k, som JavaScript og Scala, er funksjoner objekter.)"><span class="left-bracket">[</span>3<span class="right-bracket">]</span></a></sup>Hvis Lisp&#8217;en din mangler dette, kan du alltids &#171;jukse&#187; ved &#229; konstruere lambdaen som en liste og splice inn verdiene av <span class="code"><code class="language-scheme" id="x">x</code><button class="btn clippy" data-clipboard-target="#x" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> og <span class="code"><code class="language-scheme" id="y">y</code><button class="btn clippy" data-clipboard-target="#y" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> (forutsetter at <span class="code"><code class="language-scheme" id="x-2">x</code><button class="btn clippy" data-clipboard-target="#x-2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> og <span class="code"><code class="language-scheme" id="y-2">y</code><button class="btn clippy" data-clipboard-target="#y-2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> er immutable). <a class="footnote-backref" href="#fnref3" title="Koden over forutsetter closures, dvs. at prosedyren som pair returnerer, er i stand til &#229; &#171;stikke av med&#187; argumentene til pair.[3] Dermed kan man for s&#229; vidt tenke p&#229; prosedyren som et &#171;objekt&#187;, dvs. en bunt med data og instruksjoner. (I enkelte spr&#229;k, som JavaScript og Scala, er funksjoner objekter.)">&#8617;&#65038;</a></p>
+</aside>
 
-<p>Denne litt alternative m&#229;ten &#229; konstruere &#171;objekter&#187; p&#229; &#8211; &#229; lage anomyme funksjoner som lukker om bindingene i et leksikalsk skop &#8211; er faktisk mye brukt i funksjonelle spr&#229;k. Google &#171;<a href="http://www.google.no/search?q=let+over+lambda" target="_blank" title="Open google.no in a new window">let over lambda</a>&#187; n&#229;r du har&#160;tid.</p>
+<p>Koden over forutsetter <em>closures</em>, <abbr title="det vil si">dvs.</abbr> at prosedyren som <span class="code"><code class="language-scheme" id="pair-6">pair</code><button class="btn clippy" data-clipboard-target="#pair-6" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> returnerer, er i stand til &#229; &#171;stikke av med&#187; argumentene til <span class="code"><code class="language-scheme" id="pair-7">pair</code><button class="btn clippy" data-clipboard-target="#pair-7" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>.<sup class="footnote-ref"><a href="#fn3" id="fnref3" title="Hvis Lisp&#8217;en din mangler dette, kan du alltids &#171;jukse&#187; ved &#229; konstruere lambdaen som en liste og splice inn verdiene av x og y (forutsetter at x og y er immutable)."><span class="left-bracket">[</span>3<span class="right-bracket">]</span></a></sup> Dermed kan man for s&#229; vidt tenke p&#229; prosedyren som et &#171;objekt&#187;, <abbr title="det vil si">dvs.</abbr> en bunt med data og instruksjoner. (I enkelte spr&#229;k, som JavaScript og Scala, <em>er</em> funksjoner objekter.)</p>
 
-<hr class="footnotes-sep">
+<p>Denne litt alternative m&#229;ten &#229; konstruere &#171;objekter&#187; p&#229; &#8211; &#229; lage anomyme funksjoner som lukker om bindingene i et leksikalsk skop &#8211; er faktisk mye brukt i funksjonelle spr&#229;k. Google &#171;<a href="http://www.google.no/search?q=let+over+lambda" target="_blank" title="Open google.no in a new window">let over lambda</a>&#187; n&#229;r du har tid.</p>
+
+<hr class="footnotes-sep endnotes">
 </section>
 <!--
 Se [GeirGrusoms innlegg](http://www.diskusjon.no/index.php?showtopic=800754&p=18412466&st=1420&#entry18412466) over.
 -->
 
 <section class="footnotes">
-<ol class="footnotes-list">
+<ol class="footnotes-list endnotes">
 <li class="footnote-item" id="fn1">
 <p><a class="url" href="http://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html" target="_blank" title="Open steve-yegge.blogspot.com in a new window">http://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html</a> <a class="footnote-backref" href="#fnref1" title="Steve Yegge: Execution in the Kingdom of Nouns[1]">&#8617;&#65038;</a></p>
 </li>
 
 <li class="footnote-item" id="fn2">
-<p><a class="url" href="http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-14.html#%25_sec_2.1.3" target="_blank" title="Open mitpress.mit.edu in a new window">http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-14.html#%_sec_2.1.3</a> <a class="footnote-backref" href="#fnref2" title="Det er i prinsippet mulig &#229; bruke lambdaer som et fundament for videre programmering. Det klassiske SICP-eksemplet er &#229; definere cons, car og cdr p&#229; denne m&#229;ten,[2] som vi kan tenke p&#229; som Lisp-sjargong for pair, first og second. La pair v&#230;re en funksjon som returnerer et par med verdier, first returnere den f&#248;rste verdien til paret, og second returnere den&#160;andre:">&#8617;&#65038;</a></p>
+<p><a class="url" href="http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-14.html#%25_sec_2.1.3" target="_blank" title="Open mitpress.mit.edu in a new window">http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-14.html#%_sec_2.1.3</a> <a class="footnote-backref" href="#fnref2" title="Det er i prinsippet mulig &#229; bruke lambdaer som et fundament for videre programmering. Det klassiske SICP-eksemplet er &#229; definere cons, car og cdr p&#229; denne m&#229;ten,[2] som vi kan tenke p&#229; som Lisp-sjargong for pair, first og second. La pair v&#230;re en funksjon som returnerer et par med verdier, first returnere den f&#248;rste verdien til paret, og second returnere den andre:">&#8617;&#65038;</a></p>
 </li>
 
 <li class="footnote-item" id="fn3">
-<p>Hvis Lisp&#8217;en din mangler dette, kan du alltids &#171;jukse&#187; ved &#229; konstruere lambdaen som en liste og splice inn verdiene av <code class="language-scheme">x</code> og <code class="language-scheme">y</code> (forutsetter at <code class="language-scheme">x</code> og <code class="language-scheme">y</code> er immutable). <a class="footnote-backref" href="#fnref3" title="Koden over forutsetter closures, dvs. at prosedyren som pair returnerer, er i stand til &#229; &#171;stikke av med&#187; argumentene til pair.[3] Dermed kan man for s&#229; vidt tenke p&#229; prosedyren som et &#171;objekt&#187;, dvs. en bunt med data og instruksjoner. (I enkelte spr&#229;k, som JavaScript og Scala, er funksjoner&#160;objekter.)">&#8617;&#65038;</a></p>
+<p>Hvis Lisp&#8217;en din mangler dette, kan du alltids &#171;jukse&#187; ved &#229; konstruere lambdaen som en liste og splice inn verdiene av <span class="code"><code class="language-scheme" id="x">x</code><button class="btn clippy" data-clipboard-target="#x" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> og <span class="code"><code class="language-scheme" id="y">y</code><button class="btn clippy" data-clipboard-target="#y" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> (forutsetter at <span class="code"><code class="language-scheme" id="x-2">x</code><button class="btn clippy" data-clipboard-target="#x-2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> og <span class="code"><code class="language-scheme" id="y-2">y</code><button class="btn clippy" data-clipboard-target="#y-2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> er immutable). <a class="footnote-backref" href="#fnref3" title="Koden over forutsetter closures, dvs. at prosedyren som pair returnerer, er i stand til &#229; &#171;stikke av med&#187; argumentene til pair.[3] Dermed kan man for s&#229; vidt tenke p&#229; prosedyren som et &#171;objekt&#187;, dvs. en bunt med data og instruksjoner. (I enkelte spr&#229;k, som JavaScript og Scala, er funksjoner objekter.)">&#8617;&#65038;</a></p>
 </li>
 </ol>
 </section>

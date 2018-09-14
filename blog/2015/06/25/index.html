@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="no" prefix="og: http://ogp.me/ns#">
 <head>
-<title>Dia p&#229; OS X &#8211; Vegards blogg</title>
+<title>Dia p&#229; OS X</title>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="no-referrer" name="referrer">
+<meta content="noindex" name="robots">
 <meta content="Vegard &#216;ye" name="author">
 <meta content="2015-06-25" name="date">
 <meta content="Noen notater om bruk av grafikkprogrammet Dia p&#229; OS X." name="description">
@@ -29,39 +31,41 @@
 <meta content="https://epsil.github.io/blog/2015/06/25/dia.svg" name="twitter:image">
 <link href="../../../../favicon.ico" rel="icon" type="image/x-icon">
 <link href="dia.svg" rel="apple-touch-icon">
-<link href="../../../../resources/css/markdown-template.css" rel="stylesheet">
-<link href="https://epsil.github.io/blog/2015/06/25/" rel="canonical">
+<link href="../../../../_assets/css/wiki.css" rel="stylesheet">
 <link href="index.md" rel="alternate" title="Markdown" type="text/markdown">
-<script src="../../../../resources/js/markdown-template.js">
+<script src="../../../../_assets/js/wiki.js">
 </script>
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top">
-<div class="container-fluid">
+<div class="container-fluid topbar">
 <ul class="nav nav-pills navbar-left">
 <li role="presentation"><a href="../../../../" title="G&#229; hjem"><i class="fa fa-home"></i></a>
 </li>
 </ul>
 
 <ul class="nav nav-pills navbar-right">
-<li role="presentation"><a href="http://www.facebook.com/share.php?u=https%3A%2F%2Fepsil.github.io%2Fblog%2F2015%2F06%2F25%2F" target="_blank" title="Del p&#229; Facebook"><i class="fa fa-facebook-square"></i></a>
+<li role="presentation"><a href="../../../../tmp/clipboard/" target="_blank" title="Kopier til Markdown"><i class="fa fa-clipboard"></i></a>
 </li>
 
-<li role="presentation"><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fepsil.github.io%2Fblog%2F2015%2F06%2F25%2F" target="_blank" title="Del p&#229; Twitter"><i class="fa fa-twitter-square"></i></a>
+<li role="presentation"><a href="https://github.com/epsil/mdwiki/blob/master/blog/2015/06/25/index.md" target="_blank" title="Vis p&#229; GitHub"><i class="fa fa-github"></i></a>
 </li>
 
-<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/blob/master/blog/2015/06/25/index.md" target="_blank" title="Vis p&#229; GitHub"><i class="fa fa-github"></i></a>
+<li role="presentation"><a href="https://github.com/epsil/mdwiki/edit/master/blog/2015/06/25/index.md" target="_blank" title="Rediger p&#229; GitHub"><i class="fa fa-edit"></i></a>
 </li>
 
-<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/edit/master/blog/2015/06/25/index.md" target="_blank" title="Rediger p&#229; GitHub"><i class="fa fa-edit"></i></a>
+<li role="presentation"><a href="https://github.com/epsil/mdwiki/raw/master/blog/2015/06/25/index.md" target="_blank" title="Vis Markdown-kilde"><i class="fa fa-download"></i></a>
 </li>
 
-<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/raw/master/blog/2015/06/25/index.md" target="_blank" title="Vis Markdown-kilde"><i class="fa fa-download"></i></a>
-</li>
-
-<li role="presentation"><a data-toggle="collapse" href="#toc" id="toc-button" name="toc-button" title="Innhold"><i class="fa fa-list"></i></a>
+<li role="presentation"><a data-toggle="collapse" href="#toc" id="toc-button" title="Innhold"><i class="fa fa-list"></i></a>
 </li>
 </ul>
+
+<form action="https://www.google.com/search" class="navbar-form" method="get" target="_blank">
+<div class="form-group" style="display: inline;">
+<div class="input-group" style="display: table;"><span class="input-group-addon" style="width: 1%;"><span class="glyphicon glyphicon-search"></span></span> <input accesskey="." autocomplete="off" class="form-control" name="q" title="S&#248;k" type="text"></div>
+</div>
+</form>
 </div>
 
 <div class="collapse" id="toc">
@@ -72,9 +76,9 @@
 <li><a href="#eksportere-til-pdf" title="Eksportere til PDF">Eksportere til <abbr class="acronym" title="Portable Document Format"><span class="caps">PDF</span></abbr></a>
 </li>
 
-<li><span class="" id="konvertere-pdf-til-svg-2"><a href="#konvertere-pdf-til-svg" title="Konvertere PDF til SVG">Konvertere <abbr class="acronym" title="Portable Document Format"><span class="caps">PDF</span></abbr> til <abbr class="acronym" title="Scalable Vector Graphics"><span class="caps">SVG</span></abbr></a><a aria-controls="konvertere-pdf-til-svg-2-section" aria-expanded="false" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#konvertere-pdf-til-svg-2-section" role="button"></a></span>
-<ul class="collapse" id="konvertere-pdf-til-svg-2-section">
-<li><a href="#med-pdf2svg" title="Med pdf2svg">Med <code>pdf2svg</code></a>
+<li><span class="" id="konvertere-pdf-til-svg-2"><a href="#konvertere-pdf-til-svg" title="Konvertere PDF til SVG">Konvertere <abbr class="acronym" title="Portable Document Format"><span class="caps">PDF</span></abbr> til <abbr class="acronym" title="Scalable Vector Graphics"><span class="caps">SVG</span></abbr></a><a aria-controls="konvertere-pdf-til-svg-2-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#konvertere-pdf-til-svg-2-section" role="button"></a></span>
+<ul class="collapse in" id="konvertere-pdf-til-svg-2-section">
+<li><a href="#med-pdf2svg" title="Med pdf2svg">Med <span class="code"><code id="pdf2svg-6">pdf2svg</code><button class="btn clippy" data-clipboard-target="#pdf2svg-6" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span></a>
 </li>
 
 <li><a href="#med-inkscape" title="Med Inkscape">Med Inkscape</a>
@@ -85,85 +89,97 @@
 </div>
 </nav>
 
-<article class="h-entry">
+<article class="h-entry" id="main">
 <header>
-<h1 class="p-name"><a class="u-uid u-url" href="https://epsil.github.io/blog/2015/06/25/" rel="bookmark" target="_blank" title="Permalink">Dia p&#229; <abbr class="acronym" title="Operating System 10"><span class="caps">OS</span>&#160;X</abbr></a>
+<h1 class="p-name"><a class="u-uid u-url" href="https://epsil.github.io/blog/2015/06/25/" rel="bookmark" target="_blank" title="Permalink">Dia p&#229; <abbr class="acronym" title="Operating System 10"><span class="caps">OS</span> X</abbr></a>
 </h1>
 
 <p class="author"><a class="p-author h-card" href="https://epsil.github.io/" target="_blank" title="Open epsil.github.io in a new window">Vegard &#216;ye</a> &#8226; <time class="dt-published" datetime="2015-06-25">2015-06-25</time></p>
 
-<p class="p-summary">Noen notater om bruk av grafikkprogrammet <a href="http://dia-installer.de/" target="_blank" title="Open dia-installer.de in a new window">Dia</a> p&#229; <abbr class="acronym" title="Operating System 10"><span class="caps">OS</span>&#160;X</abbr>.</p>
+<p class="p-summary">Noen notater om bruk av grafikkprogrammet <a href="http://dia-installer.de/" target="_blank" title="Open dia-installer.de in a new window">Dia</a> p&#229; <abbr class="acronym" title="Operating System 10"><span class="caps">OS</span> X</abbr>.</p>
 
-<figure><img alt="" class="u-photo" src="dia.svg" width="70">
+<figure class="u-photo" style="width: 79px;"><a class="image" href="dia.svg" title="View dia.svg in full screen"><img alt="" src="dia.svg" width="70"></a>
 </figure>
 </header>
 
-<section class="e-content">
+<section class="e-content sidenotes">
 <section id="hvis-dia-krasjer">
-<h2><a aria-hidden="true" class="header-anchor" href="#hvis-dia-krasjer" title="Hvis Dia krasjer"></a>Hvis Dia krasjer<a aria-controls="hvis-dia-krasjer-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#hvis-dia-krasjer-section" role="button"></a></h2>
+<h2><a aria-hidden="true" class="header-anchor" href="#hvis-dia-krasjer" title="Hvis Dia krasjer"></a>Hvis Dia krasjer<a aria-controls="hvis-dia-krasjer-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#hvis-dia-krasjer-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h2>
 
 <div class="collapse in" id="hvis-dia-krasjer-section">
-<p>Hvis <a href="http://dia-installer.de/" target="_blank" title="Open dia-installer.de in a new window">Dia</a> krasjer p&#229; <abbr class="acronym" title="Operating System 10"><span class="caps">OS</span> X</abbr> Yosemite <abbr title="p&#229; grunn av">pga.</abbr> en <abbr class="acronym" title="GIMP Toolkit"><span class="caps">GTK</span></abbr>-feil, retter f&#248;lgende <a href="http://navkirats.blogspot.no/2014/10/dia-diagram-mac-osx-yosemite-fix-i-use.html" target="_blank" title="Open navkirats.blogspot.no in a new window">l&#248;sning</a> opp&#160;problemet:</p>
+<p>Hvis <a href="http://dia-installer.de/" target="_blank" title="Open dia-installer.de in a new window">Dia</a> krasjer p&#229; <abbr class="acronym" title="Operating System 10"><span class="caps">OS</span> X</abbr> Yosemite <abbr title="p&#229; grunn av">pga.</abbr> en <abbr class="acronym" title="GIMP Toolkit"><span class="caps">GTK</span></abbr>-feil, retter f&#248;lgende <a href="http://navkirats.blogspot.no/2014/10/dia-diagram-mac-osx-yosemite-fix-i-use.html" target="_blank" title="Open navkirats.blogspot.no in a new window">l&#248;sning</a> opp problemet:</p>
 
 <ol>
-<li>&#197;pne filen <code>/Applications/Dia.app/Contents/Resources/bin/dia</code> i en&#160;teksteditor.</li>
+<li>&#197;pne filen <span class="code"><code id="applications-diaapp-contents-resources-bin-dia-2">/Applications/Dia.app/Contents/Resources/bin/dia</code><button class="btn clippy" data-clipboard-target="#applications-diaapp-contents-resources-bin-dia-2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> i en teksteditor.</li>
 
-<li>Legg til linjen <code>export DISPLAY=:0</code> etter linje&#160;39.</li>
+<li>Legg til linjen <span class="code"><code id="export-display0-3">export DISPLAY=:0</code><button class="btn clippy" data-clipboard-target="#export-display0-3" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> etter linje 39.</li>
 
-<li>Avslutt XQuartz hvis det kj&#248;rer og start Dia p&#229;&#160;nytt.</li>
+<li>Avslutt XQuartz hvis det kj&#248;rer og start Dia p&#229; nytt.</li>
 </ol>
 
-<p>(Hvis det ovenst&#229;ende ikke fungerer, kan man pr&#248;ve &#229; legge til <code>export DISPLAY=:0</code> i <code>~/.bash_profile</code>.)</p>
+<p>(Hvis det ovenst&#229;ende ikke fungerer, kan man pr&#248;ve &#229; legge til <span class="code"><code id="export-display0-4">export DISPLAY=:0</code><button class="btn clippy" data-clipboard-target="#export-display0-4" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> i <span class="code"><code id="bash-profile-2">~/.bash_profile</code><button class="btn clippy" data-clipboard-target="#bash-profile-2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>.)</p>
 </div>
 </section>
 
 <section id="eksportere-til-pdf">
-<h2><a aria-hidden="true" class="header-anchor" href="#eksportere-til-pdf" title="Eksportere til PDF"></a>Eksportere til <abbr class="acronym" title="Portable Document Format"><span class="caps">PDF</span></abbr><a aria-controls="eksportere-til-pdf-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#eksportere-til-pdf-section" role="button"></a></h2>
+<h2><a aria-hidden="true" class="header-anchor" href="#eksportere-til-pdf" title="Eksportere til PDF"></a>Eksportere til <abbr class="acronym" title="Portable Document Format"><span class="caps">PDF</span></abbr><a aria-controls="eksportere-til-pdf-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#eksportere-til-pdf-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h2>
 
 <div class="collapse in" id="eksportere-til-pdf-section">
 <p>For &#229; lage <abbr class="acronym" title="Portable Document Format"><span class="caps">PDF</span></abbr>, er det best &#229; eksportere til <abbr class="acronym" title="Encapsulated PostScript"><span class="caps">EPS</span></abbr> (med Pango-skrifter) og deretter <a href="http://www.dark.ca/2009/07/16/getting-dia-to-give-you-a-pdf/" target="_blank" title="Open dark.ca in a new window">konvertere til <abbr class="acronym" title="Portable Document Format"><span class="caps">PDF</span></abbr></a>:</p>
 
-<pre>
+<div class="pre"><button class="btn clippy" data-clipboard-target="#epstopdf-diagrameps-2" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
+
+<pre id="epstopdf-diagrameps-2">
 <code>$ epstopdf diagram.eps</code>
 </pre>
+</div>
 
-<p><code>epstopdf</code> er inkludert i <abbr title="TeX">T<span class="tex-e">e</span>X</abbr> Live (<a href="http://tug.org/mactex/" target="_blank" title="Open tug.org in a new window"><abbr title="MacTeX">MacT<span class="tex-e">e</span>X</abbr></a>).</p>
+<p><span class="code"><code id="epstopdf-2">epstopdf</code><button class="btn clippy" data-clipboard-target="#epstopdf-2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> er inkludert i <abbr title="TeX">T<span class="tex-e">e</span>X</abbr> Live (<a href="http://tug.org/mactex/" target="_blank" title="Open tug.org in a new window"><abbr title="MacTeX">MacT<span class="tex-e">e</span>X</abbr></a>).</p>
 </div>
 </section>
 
 <section id="konvertere-pdf-til-svg">
-<h2><a aria-hidden="true" class="header-anchor" href="#konvertere-pdf-til-svg" title="Konvertere PDF til SVG"></a>Konvertere <abbr class="acronym" title="Portable Document Format"><span class="caps">PDF</span></abbr> til <abbr class="acronym" title="Scalable Vector Graphics"><span class="caps">SVG</span></abbr><a aria-controls="konvertere-pdf-til-svg-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#konvertere-pdf-til-svg-section" role="button"></a></h2>
+<h2><a aria-hidden="true" class="header-anchor" href="#konvertere-pdf-til-svg" title="Konvertere PDF til SVG"></a>Konvertere <abbr class="acronym" title="Portable Document Format"><span class="caps">PDF</span></abbr> til <abbr class="acronym" title="Scalable Vector Graphics"><span class="caps">SVG</span></abbr><a aria-controls="konvertere-pdf-til-svg-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#konvertere-pdf-til-svg-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h2>
 
 <div class="collapse in" id="konvertere-pdf-til-svg-section">
 <section id="med-pdf2svg">
-<h3><a aria-hidden="true" class="header-anchor" href="#med-pdf2svg" title="Med pdf2svg"></a>Med <code>pdf2svg</code><a aria-controls="med-pdf2svg-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#med-pdf2svg-section" role="button"></a></h3>
+<h3><a aria-hidden="true" class="header-anchor" href="#med-pdf2svg" title="Med pdf2svg"></a>Med <span class="code"><code id="pdf2svg-7">pdf2svg</code><button class="btn clippy" data-clipboard-target="#pdf2svg-7" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span><a aria-controls="med-pdf2svg-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#med-pdf2svg-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h3>
 
 <div class="collapse in" id="med-pdf2svg-section">
-<p>For &#229; konvertere til <abbr class="acronym" title="Scalable Vector Graphics"><span class="caps">SVG</span></abbr>, fungerer det bedre &#229; g&#229; <a href="http://superuser.com/questions/198460/converting-from-eps-to-svg-format#answer-542987" target="_blank" title="Open superuser.com in a new window">omveien om <abbr class="acronym" title="Portable Document Format"><span class="caps">PDF</span></abbr></a> enn &#229; eksportere direkte eller konvertere fra <abbr class="acronym" title="Encapsulated PostScript"><span class="caps">EPS</span></abbr>. <abbr class="acronym" title="Portable Document Format"><span class="caps">PDF</span></abbr> kan konverteres til <abbr class="acronym" title="Scalable Vector Graphics"><span class="caps">SVG</span></abbr> med <a href="http://www.cityinthesky.co.uk/opensource/pdf2svg/" target="_blank" title="Open cityinthesky.co.uk in a new window"><code>pdf2svg</code></a> (kan installeres med <code>$ brew install pdf2svg</code>):</p>
+<p>For &#229; konvertere til <abbr class="acronym" title="Scalable Vector Graphics"><span class="caps">SVG</span></abbr>, fungerer det bedre &#229; g&#229; <a href="http://superuser.com/questions/198460/converting-from-eps-to-svg-format#answer-542987" target="_blank" title="Open superuser.com in a new window">omveien om <abbr class="acronym" title="Portable Document Format"><span class="caps">PDF</span></abbr></a> enn &#229; eksportere direkte eller konvertere fra <abbr class="acronym" title="Encapsulated PostScript"><span class="caps">EPS</span></abbr>. <abbr class="acronym" title="Portable Document Format"><span class="caps">PDF</span></abbr> kan konverteres til <abbr class="acronym" title="Scalable Vector Graphics"><span class="caps">SVG</span></abbr> med <a href="http://www.cityinthesky.co.uk/opensource/pdf2svg/" target="_blank" title="Open cityinthesky.co.uk in a new window"><span class="code"><code id="pdf2svg-8">pdf2svg</code><button class="btn clippy" data-clipboard-target="#pdf2svg-8" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span></a> (kan installeres med <span class="code"><code id="brew-install-pdf2svg-2">$ brew install pdf2svg</code><button class="btn clippy" data-clipboard-target="#brew-install-pdf2svg-2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>):</p>
 
-<pre>
+<div class="pre"><button class="btn clippy" data-clipboard-target="#pdf2svg-diagrampdf-diagramsvg-2" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
+
+<pre id="pdf2svg-diagrampdf-diagramsvg-2">
 <code>$ pdf2svg diagram.pdf diagram.svg</code>
 </pre>
+</div>
 
-<p>For &#229; konvertere en bestemt&#160;side:</p>
+<p>For &#229; konvertere en bestemt side:</p>
 
-<pre>
+<div class="pre"><button class="btn clippy" data-clipboard-target="#pdf2svg-diagrammerpdf-diagramsvg-20-2" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
+
+<pre id="pdf2svg-diagrammerpdf-diagramsvg-20-2">
 <code>$ pdf2svg diagrammer.pdf diagram.svg 20</code>
 </pre>
+</div>
 
-<p><code>pdf2svg</code> har dessverre ingen valg for beskj&#230;ring. For dette kan man benytte <a href="https://sites.google.com/site/pdfscissors/" target="_blank" title="Open sites.google.com in a new window"><abbr class="acronym" title="Portable Document Format"><span class="caps">PDF</span></abbr> Scissors</a> (grafisk) eller <a href="https://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/" target="_blank" title="Open pdflabs.com in a new window"><abbr title="PDF Toolkit">PDFtk</abbr></a>&#160;(kommandolinje).</p>
+<p><span class="code"><code id="pdf2svg-9">pdf2svg</code><button class="btn clippy" data-clipboard-target="#pdf2svg-9" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> har dessverre ingen valg for beskj&#230;ring. For dette kan man benytte <a href="https://sites.google.com/site/pdfscissors/" target="_blank" title="Open sites.google.com in a new window"><abbr class="acronym" title="Portable Document Format"><span class="caps">PDF</span></abbr> Scissors</a> (grafisk) eller <a href="https://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/" target="_blank" title="Open pdflabs.com in a new window"><abbr title="PDF Toolkit">PDFtk</abbr></a> (kommandolinje).</p>
 </div>
 </section>
 
 <section id="med-inkscape">
-<h3><a aria-hidden="true" class="header-anchor" href="#med-inkscape" title="Med Inkscape"></a>Med Inkscape<a aria-controls="med-inkscape-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#med-inkscape-section" role="button"></a></h3>
+<h3><a aria-hidden="true" class="header-anchor" href="#med-inkscape" title="Med Inkscape"></a>Med Inkscape<a aria-controls="med-inkscape-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#med-inkscape-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h3>
 
 <div class="collapse in" id="med-inkscape-section">
-<p>Det ser ut til at <code>pdf2svg</code> har problemer med &#229; konvertere enkelte <abbr class="acronym" title="Portable Document Format"><span class="caps">PDF</span></abbr>-er. Et alternativ er &#229; bruke <a href="http://inkscape.org/" target="_blank" title="Open inkscape.org in a new window">Inkscape</a>, som kan <a href="http://stackoverflow.com/questions/10288065/convert-pdf-to-clean-svg#answer-10290006" target="_blank" title="Open stackoverflow.com in a new window">kj&#248;res fra terminalen</a>:</p>
+<p>Det ser ut til at <span class="code"><code id="pdf2svg-10">pdf2svg</code><button class="btn clippy" data-clipboard-target="#pdf2svg-10" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> har problemer med &#229; konvertere enkelte <abbr class="acronym" title="Portable Document Format"><span class="caps">PDF</span></abbr>-er. Et alternativ er &#229; bruke <a href="http://inkscape.org/" target="_blank" title="Open inkscape.org in a new window">Inkscape</a>, som kan <a href="http://stackoverflow.com/questions/10288065/convert-pdf-to-clean-svg#answer-10290006" target="_blank" title="Open stackoverflow.com in a new window">kj&#248;res fra terminalen</a>:</p>
 
-<pre>
+<div class="pre"><button class="btn clippy" data-clipboard-target="#inkscape-without-gui-filediagrampdf-export-plain-svgdiagramsvg-2" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
+
+<pre id="inkscape-without-gui-filediagrampdf-export-plain-svgdiagramsvg-2">
 <code>$ inkscape --without-gui --file=diagram.pdf --export-plain-svg=diagram.svg</code>
 </pre>
+</div>
 
 <p>Dette er visstnok den foretrukne konverteringsmetoden til <a href="https://en.wikipedia.org/wiki/Wikipedia:Graphics_Lab/Resources/PDF_conversion_to_SVG#Conversion_with_Inkscape" target="_blank" title="Open en.wikipedia.org in a new window">Wikipedia</a>.</p>
 </div>

@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="no" prefix="og: http://ogp.me/ns#">
 <head>
-<title>Bruke grep og find &#8211; Vegards blogg</title>
+<title>Bruke grep og find</title>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="no-referrer" name="referrer">
+<meta content="noindex" name="robots">
 <meta content="Vegard &#216;ye" name="author">
 <meta content="2010-11-14" name="date">
 <meta content="20f74b9f101bae662aa4fa9216b08224" name="md5">
@@ -23,110 +25,128 @@
 <meta content="Bruke grep og find" name="twitter:title">
 <link href="../../../../favicon.ico" rel="icon" type="image/x-icon">
 <link href="../../../../apple-touch-icon.png" rel="apple-touch-icon">
-<link href="../../../../resources/css/markdown-template.css" rel="stylesheet">
-<link href="https://epsil.github.io/blog/2010/11/14/" rel="canonical">
+<link href="../../../../_assets/css/wiki.css" rel="stylesheet">
 <link href="index.md" rel="alternate" title="Markdown" type="text/markdown">
-<script src="../../../../resources/js/markdown-template.js">
+<script src="../../../../_assets/js/wiki.js">
 </script>
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top">
-<div class="container-fluid">
+<div class="container-fluid topbar">
 <ul class="nav nav-pills navbar-left">
 <li role="presentation"><a href="../../../../" title="G&#229; hjem"><i class="fa fa-home"></i></a>
 </li>
 </ul>
 
 <ul class="nav nav-pills navbar-right">
-<li role="presentation"><a href="http://www.facebook.com/share.php?u=https%3A%2F%2Fepsil.github.io%2Fblog%2F2010%2F11%2F14%2F" target="_blank" title="Del p&#229; Facebook"><i class="fa fa-facebook-square"></i></a>
+<li role="presentation"><a href="../../../../tmp/clipboard/" target="_blank" title="Kopier til Markdown"><i class="fa fa-clipboard"></i></a>
 </li>
 
-<li role="presentation"><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fepsil.github.io%2Fblog%2F2010%2F11%2F14%2F" target="_blank" title="Del p&#229; Twitter"><i class="fa fa-twitter-square"></i></a>
+<li role="presentation"><a href="https://github.com/epsil/mdwiki/blob/master/blog/2010/11/14/index.md" target="_blank" title="Vis p&#229; GitHub"><i class="fa fa-github"></i></a>
 </li>
 
-<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/blob/master/blog/2010/11/14/index.md" target="_blank" title="Vis p&#229; GitHub"><i class="fa fa-github"></i></a>
+<li role="presentation"><a href="https://github.com/epsil/mdwiki/edit/master/blog/2010/11/14/index.md" target="_blank" title="Rediger p&#229; GitHub"><i class="fa fa-edit"></i></a>
 </li>
 
-<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/edit/master/blog/2010/11/14/index.md" target="_blank" title="Rediger p&#229; GitHub"><i class="fa fa-edit"></i></a>
+<li role="presentation"><a href="https://github.com/epsil/mdwiki/raw/master/blog/2010/11/14/index.md" target="_blank" title="Vis Markdown-kilde"><i class="fa fa-download"></i></a>
 </li>
 
-<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/raw/master/blog/2010/11/14/index.md" target="_blank" title="Vis Markdown-kilde"><i class="fa fa-download"></i></a>
-</li>
-
-<li role="presentation"><a data-toggle="collapse" href="#toc" id="toc-button" name="toc-button" title="Innhold"><i class="fa fa-list"></i></a>
+<li role="presentation"><a data-toggle="collapse" href="#toc" id="toc-button" title="Innhold"><i class="fa fa-list"></i></a>
 </li>
 </ul>
+
+<form action="https://www.google.com/search" class="navbar-form" method="get" target="_blank">
+<div class="form-group" style="display: inline;">
+<div class="input-group" style="display: table;"><span class="input-group-addon" style="width: 1%;"><span class="glyphicon glyphicon-search"></span></span> <input accesskey="." autocomplete="off" class="form-control" name="q" title="S&#248;k" type="text"></div>
+</div>
+</form>
 </div>
 
 <div class="collapse" id="toc">
 <ul>
-<li><a href="#grep" title="grep"><code>grep</code></a>
+<li><a href="#grep" title="grep"><span class="code"><code id="grep-2">grep</code><button class="btn clippy" data-clipboard-target="#grep-2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span></a>
 </li>
 
-<li><a href="#find" title="find"><code>find</code></a>
+<li><a href="#find" title="find"><span class="code"><code id="find-2">find</code><button class="btn clippy" data-clipboard-target="#find-2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span></a>
 </li>
 </ul>
 </div>
 </nav>
 
-<article class="h-entry">
+<article class="h-entry" id="main">
 <header>
-<h1 class="p-name"><a class="u-uid u-url" href="https://epsil.github.io/blog/2010/11/14/" rel="bookmark" target="_blank" title="Permalink">Bruke <code>grep</code> og <code>find</code></a>
+<h1 class="p-name"><a class="u-uid u-url" href="https://epsil.github.io/blog/2010/11/14/" rel="bookmark" target="_blank" title="Permalink">Bruke <span class="code"><code id="grep-3">grep</code><button class="btn clippy" data-clipboard-target="#grep-3" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> og <span class="code"><code id="find-3">find</code><button class="btn clippy" data-clipboard-target="#find-3" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span></a>
 </h1>
 
 <p class="author"><a class="p-author h-card" href="https://epsil.github.io/" target="_blank" title="Open epsil.github.io in a new window">Vegard &#216;ye</a> &#8226; <time class="dt-published" datetime="2010-11-14">2010-11-14</time></p>
 </header>
 
-<section class="e-content">
+<section class="e-content sidenotes">
 <section id="grep">
-<h2><a aria-hidden="true" class="header-anchor" href="#grep" title="grep"></a><code>grep</code><a aria-controls="grep-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#grep-section" role="button"></a>
+<h2><a aria-hidden="true" class="header-anchor" href="#grep" title="grep"></a><span class="code"><code id="grep-4">grep</code><button class="btn clippy" data-clipboard-target="#grep-4" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span><a aria-controls="grep-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#grep-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a>
 </h2>
 
 <div class="collapse in" id="grep-section">
-<p>For &#229; s&#248;ke i filenes <em>innhold</em>, kan man bruke <code>grep</code>:</p>
+<p>For &#229; s&#248;ke i filenes <em>innhold</em>, kan man bruke <span class="code"><code id="grep-5">grep</code><button class="btn clippy" data-clipboard-target="#grep-5" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>:</p>
 
-<pre>
+<div class="pre"><button class="btn clippy" data-clipboard-target="#grep-ri-test" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
+
+<pre id="grep-ri-test">
 <code class="language-bash">$ grep -Ri <span class="hljs-string">"test"</span> .</code>
 </pre>
+</div>
 
-<p>Dette s&#248;ker rekursivt (<code>-R</code>) og case-insensitivt (<code>-i</code>) etter teksten <code>"test"</code> i den gjeldende mappen (<code>.</code>). Hvis man <em>bare</em> vil s&#248;ke i, si, <code>.txt</code>-filer, kan man bruke <code>--include</code>-opsjonen:</p>
+<p>Dette s&#248;ker rekursivt (<span class="code"><code id="r">-R</code><button class="btn clippy" data-clipboard-target="#r" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>) og case-insensitivt (<span class="code"><code id="i-3">-i</code><button class="btn clippy" data-clipboard-target="#i-3" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>) etter teksten <span class="code"><code id="test">"test"</code><button class="btn clippy" data-clipboard-target="#test" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> i den gjeldende mappen (<span class="code"><code id="n-6">.</code><button class="btn clippy" data-clipboard-target="#n-6" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>). Hvis man <em>bare</em> vil s&#248;ke i, si, <span class="code"><code id="txt">.txt</code><button class="btn clippy" data-clipboard-target="#txt" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>-filer, kan man bruke <span class="code"><code id="include">--include</code><button class="btn clippy" data-clipboard-target="#include" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>-opsjonen:</p>
 
-<pre>
+<div class="pre"><button class="btn clippy" data-clipboard-target="#grep-ri-includetxt-test" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
+
+<pre id="grep-ri-includetxt-test">
 <code class="language-bash">$ grep -Ri --include=<span class="hljs-string">"*.txt"</span> <span class="hljs-string">"test"</span> .</code>
 </pre>
+</div>
 
-<p>Det finnes ogs&#229; en <code>--exclude</code>-opsjon for &#229; ekskludere filer fra&#160;s&#248;ket.</p>
+<p>Det finnes ogs&#229; en <span class="code"><code id="exclude">--exclude</code><button class="btn clippy" data-clipboard-target="#exclude" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>-opsjon for &#229; ekskludere filer fra s&#248;ket.</p>
 </div>
 </section>
 
 <section id="find">
-<h2><a aria-hidden="true" class="header-anchor" href="#find" title="find"></a><code>find</code><a aria-controls="find-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#find-section" role="button"></a>
+<h2><a aria-hidden="true" class="header-anchor" href="#find" title="find"></a><span class="code"><code id="find-4">find</code><button class="btn clippy" data-clipboard-target="#find-4" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span><a aria-controls="find-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#find-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a>
 </h2>
 
 <div class="collapse in" id="find-section">
 <section>
-<p>For &#229; s&#248;ke i filenes <em>filnavn</em>, kan man bruke <code>find</code>. Merk at hvis man skal bruke <code>find</code> sammen med <abbr title="for eksempel">f.eks.</abbr> <code>rm</code> p&#229; filnavn som inneholder mellomrom, m&#229; man ta visse <a href="http://stackoverflow.com/questions/9612090/how-to-loop-through-file-names-returned-by-find#9612232" target="_blank" title="Open stackoverflow.com in a new window">forh&#229;ndsregler</a>. Den mest opplagte besvergelsen ville&#160;v&#230;re:</p>
+<p>For &#229; s&#248;ke i filenes <em>filnavn</em>, kan man bruke <span class="code"><code id="find-5">find</code><button class="btn clippy" data-clipboard-target="#find-5" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>. Merk at hvis man skal bruke <span class="code"><code id="find-6">find</code><button class="btn clippy" data-clipboard-target="#find-6" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> sammen med <abbr title="for eksempel">f.eks.</abbr> <span class="code"><code id="rm">rm</code><button class="btn clippy" data-clipboard-target="#rm" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> p&#229; filnavn som inneholder mellomrom, m&#229; man ta visse <a href="http://stackoverflow.com/questions/9612090/how-to-loop-through-file-names-returned-by-find#9612232" target="_blank" title="Open stackoverflow.com in a new window">forh&#229;ndsregler</a>. Den mest opplagte besvergelsen ville v&#230;re:</p>
 
-<pre>
+<div class="pre"><button class="btn clippy" data-clipboard-target="#find-name-pattern-xargs-rm" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
+
+<pre id="find-name-pattern-xargs-rm">
 <code class="language-bash">$ find . -name &lt;PATTERN&gt; | xargs rm</code>
 </pre>
+</div>
 
-<p>Men dette fungerer alts&#229; bare p&#229; filnavn uten mellomrom. For mer kronglete filer m&#229; man bruke en av&#160;disse:</p>
+<p>Men dette fungerer alts&#229; bare p&#229; filnavn uten mellomrom. For mer kronglete filer m&#229; man bruke en av disse:</p>
 
-<pre>
-<code class="language-bash">$ find . -name &lt;PATTERN&gt; -exec rm {} \;
-$ find . -name &lt;PATTERN&gt; -print0 | xargs -0 rm</code>
+<div class="pre"><button class="btn clippy" data-clipboard-target="#find-name-pattern-exec-rm-find-name-pattern-print0-xargs-0-rm" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
+
+<pre id="find-name-pattern-exec-rm-find-name-pattern-print0-xargs-0-rm">
+<code class="language-bash">$ find . -name &lt;PATTERN&gt; -<span class="hljs-built_in">exec</span> rm {} \;
+$ find . -name &lt;<span class="caps">PATTERN</span>&gt; -print0 | xargs -0 rm</code>
 </pre>
+</div>
 
-<p>Den f&#248;rste eksekverer <code>rm</code> via <code>find</code>. Den siste bruker opsjonen <code>-print0</code> for &#229; terminere filnavn med <code>\0</code> istedenfor linjeskift, og <code>rm</code> gj&#248;res oppmerksom p&#229; dette med opsjonen <code>-0</code>. Begge programmer m&#229; alts&#229; tilpasses for &#229; kunne samarbeide om spesielle filnavn.<sup class="footnote-ref"><a href="#fn1" id="fnref1" title="Fortrinnet med \0-metoden er at den h&#229;ndterer de mest outrerte filnavn, selv navn som inneholder linjeskift! Jeg visste ikke at det var mulig f&#248;r jeg leste man find, men touch 'some\ + &#8629; + file' vil lage en slik fil. (Bytt ut &#171;touch&#187; med &#171;rm&#187; for &#229; slette filen.)">[1]</a></sup></p>
+<aside class="sidenote">
+<p><sup class="ref-mark"><a href="#fnref1" id="sidenote1" title="Den f&#248;rste eksekverer rm via find. Den siste bruker opsjonen -print0 for &#229; terminere filnavn med \0 istedenfor linjeskift, og rm gj&#248;res oppmerksom p&#229; dette med opsjonen -0. Begge programmer m&#229; alts&#229; tilpasses for &#229; kunne samarbeide om spesielle filnavn.[1]"><span class="left-bracket">[</span>1<span class="right-bracket">]</span></a></sup>Fortrinnet med <span class="code"><code id="n0-3">\0</code><button class="btn clippy" data-clipboard-target="#n0-3" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>-metoden er at den h&#229;ndterer de mest <em>outrerte</em> filnavn, selv navn som inneholder linjeskift! Jeg visste ikke at det var mulig f&#248;r jeg leste <span class="code"><code id="man-find">man find</code><button class="btn clippy" data-clipboard-target="#man-find" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>, men <span class="code"><code id="touch-some">touch 'some\</code><button class="btn clippy" data-clipboard-target="#touch-some" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> + <kbd title="Enter">&#8629;</kbd> + <span class="code"><code id="file">file'</code><button class="btn clippy" data-clipboard-target="#file" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> vil lage en slik fil. (Bytt ut &#171;<span class="code"><code id="touch">touch</code><button class="btn clippy" data-clipboard-target="#touch" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>&#187; med &#171;<span class="code"><code id="rm-4">rm</code><button class="btn clippy" data-clipboard-target="#rm-4" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>&#187; for &#229; slette filen.) <a class="footnote-backref" href="#fnref1" title="Den f&#248;rste eksekverer rm via find. Den siste bruker opsjonen -print0 for &#229; terminere filnavn med \0 istedenfor linjeskift, og rm gj&#248;res oppmerksom p&#229; dette med opsjonen -0. Begge programmer m&#229; alts&#229; tilpasses for &#229; kunne samarbeide om spesielle filnavn.[1]">&#8617;&#65038;</a></p>
+</aside>
 
-<hr class="footnotes-sep">
+<p>Den f&#248;rste eksekverer <span class="code"><code id="rm-2">rm</code><button class="btn clippy" data-clipboard-target="#rm-2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> via <span class="code"><code id="find-7">find</code><button class="btn clippy" data-clipboard-target="#find-7" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>. Den siste bruker opsjonen <span class="code"><code id="print0">-print0</code><button class="btn clippy" data-clipboard-target="#print0" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> for &#229; terminere filnavn med <span class="code"><code id="n0">\0</code><button class="btn clippy" data-clipboard-target="#n0" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> istedenfor linjeskift, og <span class="code"><code id="rm-3">rm</code><button class="btn clippy" data-clipboard-target="#rm-3" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> gj&#248;res oppmerksom p&#229; dette med opsjonen <span class="code"><code id="n0-2">-0</code><button class="btn clippy" data-clipboard-target="#n0-2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>. Begge programmer m&#229; alts&#229; tilpasses for &#229; kunne samarbeide om spesielle filnavn.<sup class="footnote-ref"><a href="#fn1" id="fnref1" title="Fortrinnet med \0-metoden er at den h&#229;ndterer de mest outrerte filnavn, selv navn som inneholder linjeskift! Jeg visste ikke at det var mulig f&#248;r jeg leste man find, men touch 'some\ + &#8629; + file' vil lage en slik fil. (Bytt ut &#171;touch&#187; med &#171;rm&#187; for &#229; slette filen.)"><span class="left-bracket">[</span>1<span class="right-bracket">]</span></a></sup></p>
+
+<hr class="footnotes-sep endnotes">
 </section>
 
 <section class="footnotes">
-<ol class="footnotes-list">
+<ol class="footnotes-list endnotes">
 <li class="footnote-item" id="fn1">
-<p>Fortrinnet med <code>\0</code>-metoden er at den h&#229;ndterer de mest <em>outrerte</em> filnavn, selv navn som inneholder linjeskift! Jeg visste ikke at det var mulig f&#248;r jeg leste <code>man find</code>, men <code>touch 'some\</code> + <kbd title="Enter">&#8629;</kbd> + <code>file'</code> vil lage en slik fil. (Bytt ut &#171;<code>touch</code>&#187; med &#171;<code>rm</code>&#187; for &#229; slette filen.) <a class="footnote-backref" href="#fnref1" title="Den f&#248;rste eksekverer rm via find. Den siste bruker opsjonen -print0 for &#229; terminere filnavn med \0 istedenfor linjeskift, og rm gj&#248;res oppmerksom p&#229; dette med opsjonen -0. Begge programmer m&#229; alts&#229; tilpasses for &#229; kunne samarbeide om spesielle filnavn.[1]">&#8617;&#65038;</a></p>
+<p>Fortrinnet med <span class="code"><code id="n0-3">\0</code><button class="btn clippy" data-clipboard-target="#n0-3" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>-metoden er at den h&#229;ndterer de mest <em>outrerte</em> filnavn, selv navn som inneholder linjeskift! Jeg visste ikke at det var mulig f&#248;r jeg leste <span class="code"><code id="man-find">man find</code><button class="btn clippy" data-clipboard-target="#man-find" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>, men <span class="code"><code id="touch-some">touch 'some\</code><button class="btn clippy" data-clipboard-target="#touch-some" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> + <kbd title="Enter">&#8629;</kbd> + <span class="code"><code id="file">file'</code><button class="btn clippy" data-clipboard-target="#file" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> vil lage en slik fil. (Bytt ut &#171;<span class="code"><code id="touch">touch</code><button class="btn clippy" data-clipboard-target="#touch" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>&#187; med &#171;<span class="code"><code id="rm-4">rm</code><button class="btn clippy" data-clipboard-target="#rm-4" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>&#187; for &#229; slette filen.) <a class="footnote-backref" href="#fnref1" title="Den f&#248;rste eksekverer rm via find. Den siste bruker opsjonen -print0 for &#229; terminere filnavn med \0 istedenfor linjeskift, og rm gj&#248;res oppmerksom p&#229; dette med opsjonen -0. Begge programmer m&#229; alts&#229; tilpasses for &#229; kunne samarbeide om spesielle filnavn.[1]">&#8617;&#65038;</a></p>
 </li>
 </ol>
 </section>

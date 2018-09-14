@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="no" prefix="og: http://ogp.me/ns#">
 <head>
-<title>Fikse mkfs.ntfs p&#229; Ubuntu &#8211; Vegards blogg</title>
+<title>Fikse mkfs.ntfs p&#229; Ubuntu</title>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="no-referrer" name="referrer">
+<meta content="noindex" name="robots">
 <meta content="Vegard &#216;ye" name="author">
 <meta content="2013-12-06" name="date">
 <meta content="e8c69a4db2618a60e35a443eb3d5a9bd" name="md5">
@@ -23,61 +25,66 @@
 <meta content="Fikse mkfs.ntfs p&#229; Ubuntu" name="twitter:title">
 <link href="../../../../favicon.ico" rel="icon" type="image/x-icon">
 <link href="../../../../apple-touch-icon.png" rel="apple-touch-icon">
-<link href="../../../../resources/css/markdown-template.css" rel="stylesheet">
-<link href="https://epsil.github.io/blog/2013/12/06/" rel="canonical">
+<link href="../../../../_assets/css/wiki.css" rel="stylesheet">
 <link href="index.md" rel="alternate" title="Markdown" type="text/markdown">
-<script src="../../../../resources/js/markdown-template.js">
+<script src="../../../../_assets/js/wiki.js">
 </script>
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top">
-<div class="container-fluid">
+<div class="container-fluid topbar">
 <ul class="nav nav-pills navbar-left">
 <li role="presentation"><a href="../../../../" title="G&#229; hjem"><i class="fa fa-home"></i></a>
 </li>
 </ul>
 
 <ul class="nav nav-pills navbar-right">
-<li role="presentation"><a href="http://www.facebook.com/share.php?u=https%3A%2F%2Fepsil.github.io%2Fblog%2F2013%2F12%2F06%2F" target="_blank" title="Del p&#229; Facebook"><i class="fa fa-facebook-square"></i></a>
+<li role="presentation"><a href="../../../../tmp/clipboard/" target="_blank" title="Kopier til Markdown"><i class="fa fa-clipboard"></i></a>
 </li>
 
-<li role="presentation"><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fepsil.github.io%2Fblog%2F2013%2F12%2F06%2F" target="_blank" title="Del p&#229; Twitter"><i class="fa fa-twitter-square"></i></a>
+<li role="presentation"><a href="https://github.com/epsil/mdwiki/blob/master/blog/2013/12/06/index.md" target="_blank" title="Vis p&#229; GitHub"><i class="fa fa-github"></i></a>
 </li>
 
-<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/blob/master/blog/2013/12/06/index.md" target="_blank" title="Vis p&#229; GitHub"><i class="fa fa-github"></i></a>
+<li role="presentation"><a href="https://github.com/epsil/mdwiki/edit/master/blog/2013/12/06/index.md" target="_blank" title="Rediger p&#229; GitHub"><i class="fa fa-edit"></i></a>
 </li>
 
-<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/edit/master/blog/2013/12/06/index.md" target="_blank" title="Rediger p&#229; GitHub"><i class="fa fa-edit"></i></a>
+<li role="presentation"><a href="https://github.com/epsil/mdwiki/raw/master/blog/2013/12/06/index.md" target="_blank" title="Vis Markdown-kilde"><i class="fa fa-download"></i></a>
 </li>
 
-<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/raw/master/blog/2013/12/06/index.md" target="_blank" title="Vis Markdown-kilde"><i class="fa fa-download"></i></a>
-</li>
-
-<li role="presentation"><a data-toggle="collapse" href="#toc" id="toc-button" name="toc-button" title="Innhold"><i class="fa fa-list"></i></a>
+<li role="presentation"><a data-toggle="collapse" href="#toc" id="toc-button" title="Innhold"><i class="fa fa-list"></i></a>
 </li>
 </ul>
+
+<form action="https://www.google.com/search" class="navbar-form" method="get" target="_blank">
+<div class="form-group" style="display: inline;">
+<div class="input-group" style="display: table;"><span class="input-group-addon" style="width: 1%;"><span class="glyphicon glyphicon-search"></span></span> <input accesskey="." autocomplete="off" class="form-control" name="q" title="S&#248;k" type="text"></div>
+</div>
+</form>
 </div>
 
 <div id="toc-placeholder">
 </div>
 </nav>
 
-<article class="h-entry">
+<article class="h-entry" id="main">
 <header>
-<h1 class="p-name"><a class="u-uid u-url" href="https://epsil.github.io/blog/2013/12/06/" rel="bookmark" target="_blank" title="Permalink">Fikse <code>mkfs.ntfs</code> p&#229; Ubuntu</a>
+<h1 class="p-name"><a class="u-uid u-url" href="https://epsil.github.io/blog/2013/12/06/" rel="bookmark" target="_blank" title="Permalink">Fikse <span class="code"><code id="mkfsntfs">mkfs.ntfs</code><button class="btn clippy" data-clipboard-target="#mkfsntfs" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> p&#229; Ubuntu</a>
 </h1>
 
 <p class="author"><a class="p-author h-card" href="https://epsil.github.io/" target="_blank" title="Open epsil.github.io in a new window">Vegard &#216;ye</a> &#8226; <time class="dt-published" datetime="2013-12-06">2013-12-06</time></p>
 </header>
 
-<section class="e-content">
+<section class="e-content sidenotes">
 <section>
-<p>I Ubuntu 13.04 er <code>mkfs.ntfs</code> utilgjengelig (<code>mkntfs</code> fungerer). Dette skyldes en <a href="https://bugs.launchpad.net/ubuntu/+source/ntfs-3g/+bug/1148541" target="_blank" title="Open bugs.launchpad.net in a new window">manglende symlink</a> fra <code>/sbin/mkfs.ntfs</code> til <code>/sbin/mkntfs</code>. Det f&#248;lgende retter opp&#160;problemet:</p>
+<p>I Ubuntu 13.04 er <span class="code"><code id="mkfsntfs-2">mkfs.ntfs</code><button class="btn clippy" data-clipboard-target="#mkfsntfs-2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> utilgjengelig (<span class="code"><code id="mkntfs">mkntfs</code><button class="btn clippy" data-clipboard-target="#mkntfs" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> fungerer). Dette skyldes en <a href="https://bugs.launchpad.net/ubuntu/+source/ntfs-3g/+bug/1148541" target="_blank" title="Open bugs.launchpad.net in a new window">manglende symlink</a> fra <span class="code"><code id="sbin-mkfsntfs">/sbin/mkfs.ntfs</code><button class="btn clippy" data-clipboard-target="#sbin-mkfsntfs" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> til <span class="code"><code id="sbin-mkntfs">/sbin/mkntfs</code><button class="btn clippy" data-clipboard-target="#sbin-mkntfs" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>. Det f&#248;lgende retter opp problemet:</p>
 
-<pre>
+<div class="pre"><button class="btn clippy" data-clipboard-target="#sudo-unlink-sbin-mkfsntfs-sudo-ln-s-sbin-mkntfs-sbin-mkfsntfs" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
+
+<pre id="sudo-unlink-sbin-mkfsntfs-sudo-ln-s-sbin-mkntfs-sbin-mkfsntfs">
 <code>$ sudo unlink /sbin/mkfs.ntfs
 $ sudo ln -s /sbin/mkntfs /sbin/mkfs.ntfs</code>
 </pre>
+</div>
 </section>
 </section>
 </article>

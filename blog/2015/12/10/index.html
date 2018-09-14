@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="no" prefix="og: http://ogp.me/ns#">
 <head>
-<title>Testing med Selenium &#8211; Vegards blogg</title>
+<title>Testing med Selenium</title>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="no-referrer" name="referrer">
+<meta content="noindex" name="robots">
 <meta content="Vegard &#216;ye" name="author">
 <meta content="2015-12-10" name="date">
 <meta content="Hvordan kombinere Selenium, mocha og chai." name="description">
@@ -29,40 +31,42 @@
 <meta content="https://epsil.github.io/blog/2015/12/10/selenium.png" name="twitter:image">
 <link href="../../../../favicon.ico" rel="icon" type="image/x-icon">
 <link href="selenium.png" rel="apple-touch-icon">
-<link href="../../../../resources/css/markdown-template.css" rel="stylesheet">
-<link href="https://epsil.github.io/blog/2015/12/10/" rel="canonical">
+<link href="../../../../_assets/css/wiki.css" rel="stylesheet">
 <link href="index.md" rel="alternate" title="Markdown" type="text/markdown">
 <link href="style.css" rel="stylesheet" type="text/css">
-<script src="../../../../resources/js/markdown-template.js">
+<script src="../../../../_assets/js/wiki.js">
 </script>
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top">
-<div class="container-fluid">
+<div class="container-fluid topbar">
 <ul class="nav nav-pills navbar-left">
 <li role="presentation"><a href="../../../../" title="G&#229; hjem"><i class="fa fa-home"></i></a>
 </li>
 </ul>
 
 <ul class="nav nav-pills navbar-right">
-<li role="presentation"><a href="http://www.facebook.com/share.php?u=https%3A%2F%2Fepsil.github.io%2Fblog%2F2015%2F12%2F10%2F" target="_blank" title="Del p&#229; Facebook"><i class="fa fa-facebook-square"></i></a>
+<li role="presentation"><a href="../../../../tmp/clipboard/" target="_blank" title="Kopier til Markdown"><i class="fa fa-clipboard"></i></a>
 </li>
 
-<li role="presentation"><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fepsil.github.io%2Fblog%2F2015%2F12%2F10%2F" target="_blank" title="Del p&#229; Twitter"><i class="fa fa-twitter-square"></i></a>
+<li role="presentation"><a href="https://github.com/epsil/mdwiki/blob/master/blog/2015/12/10/index.md" target="_blank" title="Vis p&#229; GitHub"><i class="fa fa-github"></i></a>
 </li>
 
-<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/blob/master/blog/2015/12/10/index.md" target="_blank" title="Vis p&#229; GitHub"><i class="fa fa-github"></i></a>
+<li role="presentation"><a href="https://github.com/epsil/mdwiki/edit/master/blog/2015/12/10/index.md" target="_blank" title="Rediger p&#229; GitHub"><i class="fa fa-edit"></i></a>
 </li>
 
-<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/edit/master/blog/2015/12/10/index.md" target="_blank" title="Rediger p&#229; GitHub"><i class="fa fa-edit"></i></a>
+<li role="presentation"><a href="https://github.com/epsil/mdwiki/raw/master/blog/2015/12/10/index.md" target="_blank" title="Vis Markdown-kilde"><i class="fa fa-download"></i></a>
 </li>
 
-<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/raw/master/blog/2015/12/10/index.md" target="_blank" title="Vis Markdown-kilde"><i class="fa fa-download"></i></a>
-</li>
-
-<li role="presentation"><a data-toggle="collapse" href="#toc" id="toc-button" name="toc-button" title="Innhold"><i class="fa fa-list"></i></a>
+<li role="presentation"><a data-toggle="collapse" href="#toc" id="toc-button" title="Innhold"><i class="fa fa-list"></i></a>
 </li>
 </ul>
+
+<form action="https://www.google.com/search" class="navbar-form" method="get" target="_blank">
+<div class="form-group" style="display: inline;">
+<div class="input-group" style="display: table;"><span class="input-group-addon" style="width: 1%;"><span class="glyphicon glyphicon-search"></span></span> <input accesskey="." autocomplete="off" class="form-control" name="q" title="S&#248;k" type="text"></div>
+</div>
+</form>
 </div>
 
 <div class="collapse" id="toc">
@@ -97,139 +101,141 @@
 </div>
 </nav>
 
-<article class="h-entry">
-<header><img alt="" src="steria.svg" width="150">
+<article class="h-entry" id="main">
+<header>
+<figure style="width: 159px;"><a class="image" href="steria.svg" title="View steria.svg in full screen"><img alt="" src="steria.svg" width="150"></a>
+</figure>
+
 <h1 class="p-name"><a class="u-uid u-url" href="https://epsil.github.io/blog/2015/12/10/" rel="bookmark" target="_blank" title="Permalink">Testing med Selenium</a>
 </h1>
 
 <p class="author"><a class="p-author h-card" href="https://epsil.github.io/" target="_blank" title="Open epsil.github.io in a new window">Vegard &#216;ye</a> &#8226; <time class="dt-published" datetime="2015-12-10">2015-12-10</time></p>
 
-<p class="p-summary">Hvordan kombinere Selenium, mocha og&#160;chai.</p>
+<p class="p-summary">Hvordan kombinere Selenium, mocha og chai.</p>
 
-<figure><img alt="" class="u-photo" src="selenium.png" width="100">
+<figure class="u-photo" style="width: 109px;"><a class="image" href="selenium.png" title="View selenium.png in full screen"><img alt="" src="selenium.png" width="100"></a>
 </figure>
 </header>
 
-<section class="e-content">
+<section class="e-content sidenotes">
 <section id="selenium">
-<h2><a aria-hidden="true" class="header-anchor" href="#selenium" title="Selenium"></a>Selenium<a aria-controls="selenium-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#selenium-section" role="button"></a></h2>
+<h2><a aria-hidden="true" class="header-anchor" href="#selenium" title="Selenium"></a>Selenium<a aria-controls="selenium-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#selenium-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h2>
 
 <div class="collapse in" id="selenium-section">
-<ul>
-<li>Testrammeverk for webapplikasjoner</li>
+<ul class="collapse in">
+<li id="testrammeverk-for-webapplikasjoner-item"><a aria-controls="testrammeverk-for-webapplikasjoner-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#testrammeverk-for-webapplikasjoner-item-section" role="button"></a>Testrammeverk for webapplikasjoner<span class="collapse in" id="testrammeverk-for-webapplikasjoner-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
 
-<li>Skrevet i Java</li>
+<li id="skrevet-i-java-item"><a aria-controls="skrevet-i-java-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#skrevet-i-java-item-section" role="button"></a>Skrevet i Java<span class="collapse in" id="skrevet-i-java-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
 
-<li>Gj&#248;r det mulig &#229; lage makroer for en nettleser
+<li class="" id="gjor-det-mulig-a-lage-makroer-for-en-nettleser-item"><a aria-controls="gjor-det-mulig-a-lage-makroer-for-en-nettleser-list" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#gjor-det-mulig-a-lage-makroer-for-en-nettleser-list" role="button"></a>Gj&#248;r det mulig &#229; lage makroer for en nettleser
 
-<ul>
+<ul class="collapse in" id="gjor-det-mulig-a-lage-makroer-for-en-nettleser-list">
 <li>&#197;pne en adresse</li>
 
 <li>Finne et element</li>
 
 <li>Klikke p&#229; elementet</li>
 
-<li>&#8230;</li>
-</ul></li>
+<li>
+</li>
+</ul>
+<a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
 </ul>
 </div>
 </section>
 
 <section id="selenium-webdriver">
-<h2><a aria-hidden="true" class="header-anchor" href="#selenium-webdriver" title="selenium-webdriver"></a>selenium-webdriver<a aria-controls="selenium-webdriver-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#selenium-webdriver-section" role="button"></a></h2>
+<h2><a aria-hidden="true" class="header-anchor" href="#selenium-webdriver" title="selenium-webdriver"></a>selenium-webdriver<a aria-controls="selenium-webdriver-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#selenium-webdriver-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h2>
 
 <div class="collapse in" id="selenium-webdriver-section">
-<ul>
-<li>JavaScript-grensesnitt for Selenium</li>
+<ul class="collapse in">
+<li id="javascript-grensesnitt-for-selenium-item"><a aria-controls="javascript-grensesnitt-for-selenium-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#javascript-grensesnitt-for-selenium-item-section" role="button"></a>JavaScript-grensesnitt for Selenium<span class="collapse in" id="javascript-grensesnitt-for-selenium-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
 
-<li>Kan kombineres med andre JavaScript-biblioteker:
+<li id="kan-kombineres-med-andre-javascript-biblioteker-item"><a aria-controls="kan-kombineres-med-andre-javascript-biblioteker-list" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#kan-kombineres-med-andre-javascript-biblioteker-list" role="button"></a>Kan kombineres med andre JavaScript-biblioteker:
 
-<ul>
-<li>mocha</li>
+<ul class="collapse in" id="kan-kombineres-med-andre-javascript-biblioteker-list">
+<li id="mocha-item"><a aria-controls="mocha-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#mocha-item-section" role="button"></a>mocha<span class="collapse in" id="mocha-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
 
-<li>chai, chai-as-promised</li>
-</ul></li>
+<li id="chai-chai-as-promised-item"><a aria-controls="chai-chai-as-promised-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#chai-chai-as-promised-item-section" role="button"></a>chai, chai-as-promised<span class="collapse in" id="chai-chai-as-promised-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+</ul>
+<a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
 
-<li>Installeres med <abbr title="Node Package Manager">npm</abbr>:
+<li id="installeres-med-npm-item"><a aria-controls="installeres-med-npm-list" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#installeres-med-npm-list" role="button"></a>Installeres med <abbr title="Node Package Manager">npm</abbr>:
 
-<ul>
-<li><code>npm install selenium-webdriver</code>
-</li>
-</ul></li>
+<ul class="collapse in" id="installeres-med-npm-list">
+<li id="npm-install-selenium-webdriver-item"><a aria-controls="npm-install-selenium-webdriver-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#npm-install-selenium-webdriver-item-section" role="button"></a><span class="code"><code id="npm-install-selenium-webdriver">npm install selenium-webdriver</code><button class="btn clippy" data-clipboard-target="#npm-install-selenium-webdriver" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span><span class="collapse in" id="npm-install-selenium-webdriver-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+</ul>
+<a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
 </ul>
 </div>
 </section>
 
 <section id="chromedriver">
-<h2><a aria-hidden="true" class="header-anchor" href="#chromedriver" title="ChromeDriver"></a>ChromeDriver<a aria-controls="chromedriver-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#chromedriver-section" role="button"></a></h2>
+<h2><a aria-hidden="true" class="header-anchor" href="#chromedriver" title="ChromeDriver"></a>ChromeDriver<a aria-controls="chromedriver-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#chromedriver-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h2>
 
 <div class="collapse in" id="chromedriver-section">
-<ul>
-<li>Oppretter forbindelse til&#160;Chrome-instans</li>
+<ul class="collapse in">
+<li id="oppretter-forbindelse-til-chrome-instans-item"><a aria-controls="oppretter-forbindelse-til-chrome-instans-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#oppretter-forbindelse-til-chrome-instans-item-section" role="button"></a>Oppretter forbindelse til Chrome-instans<span class="collapse in" id="oppretter-forbindelse-til-chrome-instans-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
 
-<li>Kan installeres med <abbr title="Node Package Manager">npm</abbr> eller lastes ned separat:
+<li id="kan-installeres-med-npm-eller-lastes-ned-separat-item"><a aria-controls="kan-installeres-med-npm-eller-lastes-ned-separat-list" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#kan-installeres-med-npm-eller-lastes-ned-separat-list" role="button"></a>Kan installeres med <abbr title="Node Package Manager">npm</abbr> eller lastes ned separat:
 
-<ul>
-<li><a class="url" href="http://sites.google.com/a/chromium.org/chromedriver/" target="_blank" title="Open sites.google.com in a new window">http://sites.google.com/a/chromium.org/chromedriver/</a>
-</li>
+<ul class="collapse in" id="kan-installeres-med-npm-eller-lastes-ned-separat-list">
+<li id="httpsitesgooglecomachromiumorgchromedriver-item"><a aria-controls="httpsitesgooglecomachromiumorgchromedriver-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#httpsitesgooglecomachromiumorgchromedriver-item-section" role="button"></a><a class="url" href="http://sites.google.com/a/chromium.org/chromedriver/" target="_blank" title="Open sites.google.com in a new window">http://sites.google.com/a/chromium.org/chromedriver/</a><span class="collapse in" id="httpsitesgooglecomachromiumorgchromedriver-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
 
-<li><code>ChromeDriver.exe</code> m&#229; ligge i <code>PATH</code></li>
-</ul></li>
+<li id="chromedriverexe-ma-ligge-i-path-item"><a aria-controls="chromedriverexe-ma-ligge-i-path-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#chromedriverexe-ma-ligge-i-path-item-section" role="button"></a><span class="code"><code id="chromedriverexe">ChromeDriver.exe</code><button class="btn clippy" data-clipboard-target="#chromedriverexe" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> m&#229; ligge i <span class="code"><code id="path-2">PATH</code><button class="btn clippy" data-clipboard-target="#path-2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span><span class="collapse in" id="chromedriverexe-ma-ligge-i-path-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+</ul>
+<a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
 </ul>
 </div>
 </section>
 
 <section id="installasjon">
-<h2><a aria-hidden="true" class="header-anchor" href="#installasjon" title="Installasjon"></a>Installasjon<a aria-controls="installasjon-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#installasjon-section" role="button"></a></h2>
+<h2><a aria-hidden="true" class="header-anchor" href="#installasjon" title="Installasjon"></a>Installasjon<a aria-controls="installasjon-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#installasjon-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h2>
 
 <div class="collapse in" id="installasjon-section">
 <ol>
 <li><abbr title="Node Package Manager">npm</abbr>
-<ul>
-<li><a class="url" href="http://nodejs.org/" target="_blank" title="Open nodejs.org in a new window">http://nodejs.org/</a>
-</li>
+<ul class="collapse in">
+<li id="httpnodejsorg-item"><a aria-controls="httpnodejsorg-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#httpnodejsorg-item-section" role="button"></a><a class="url" href="http://nodejs.org/" target="_blank" title="Open nodejs.org in a new window">http://nodejs.org/</a><span class="collapse in" id="httpnodejsorg-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
 </ul>
 </li>
 
 <li>ChromeDriver
 
-<ul>
-<li><a class="url" href="http://sites.google.com/a/chromium.org/chromedriver/" target="_blank" title="Open sites.google.com in a new window">http://sites.google.com/a/chromium.org/chromedriver/</a>
-</li>
+<ul class="collapse in">
+<li id="httpsitesgooglecomachromiumorgchromedriver-2-item"><a aria-controls="httpsitesgooglecomachromiumorgchromedriver-2-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#httpsitesgooglecomachromiumorgchromedriver-2-item-section" role="button"></a><a class="url" href="http://sites.google.com/a/chromium.org/chromedriver/" target="_blank" title="Open sites.google.com in a new window">http://sites.google.com/a/chromium.org/chromedriver/</a><span class="collapse in" id="httpsitesgooglecomachromiumorgchromedriver-2-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
 </ul></li>
 
 <li>selenium-webdriver
 
-<ul>
-<li><code>npm install selenium-webdriver</code>
-</li>
+<ul class="collapse in">
+<li id="npm-install-selenium-webdriver-2-item"><a aria-controls="npm-install-selenium-webdriver-2-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#npm-install-selenium-webdriver-2-item-section" role="button"></a><span class="code"><code id="npm-install-selenium-webdriver-2">npm install selenium-webdriver</code><button class="btn clippy" data-clipboard-target="#npm-install-selenium-webdriver-2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span><span class="collapse in" id="npm-install-selenium-webdriver-2-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
 </ul></li>
 
 <li>Mocha
 
-<ul>
-<li><code>npm install -g mocha</code>
-</li>
+<ul class="collapse in">
+<li id="npm-install-g-mocha-item"><a aria-controls="npm-install-g-mocha-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#npm-install-g-mocha-item-section" role="button"></a><span class="code"><code id="npm-install-g-mocha">npm install -g mocha</code><button class="btn clippy" data-clipboard-target="#npm-install-g-mocha" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span><span class="collapse in" id="npm-install-g-mocha-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
 </ul></li>
 
 <li>Chai
 
-<ul>
-<li><code>npm install chai</code>
-</li>
+<ul class="collapse in">
+<li id="npm-install-chai-item"><a aria-controls="npm-install-chai-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#npm-install-chai-item-section" role="button"></a><span class="code"><code id="npm-install-chai">npm install chai</code><button class="btn clippy" data-clipboard-target="#npm-install-chai" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span><span class="collapse in" id="npm-install-chai-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
 
-<li><code>npm install chai-as-promised</code>
-</li>
+<li id="npm-install-chai-as-promised-item"><a aria-controls="npm-install-chai-as-promised-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#npm-install-chai-as-promised-item-section" role="button"></a><span class="code"><code id="npm-install-chai-as-promised">npm install chai-as-promised</code><button class="btn clippy" data-clipboard-target="#npm-install-chai-as-promised" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span><span class="collapse in" id="npm-install-chai-as-promised-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
 </ul></li>
 </ol>
 </div>
 </section>
 
 <section id="filstruktur">
-<h2><a aria-hidden="true" class="header-anchor" href="#filstruktur" title="Filstruktur"></a>Filstruktur<a aria-controls="filstruktur-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#filstruktur-section" role="button"></a></h2>
+<h2><a aria-hidden="true" class="header-anchor" href="#filstruktur" title="Filstruktur"></a>Filstruktur<a aria-controls="filstruktur-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#filstruktur-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h2>
 
 <div class="collapse in" id="filstruktur-section">
-<pre>
+<div class="pre"><button class="btn clippy" data-clipboard-target="#test-testjs-node-modules-selenium-webdriver-chai-chai-as-promised-" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
+
+<pre id="test-testjs-node-modules-selenium-webdriver-chai-chai-as-promised-">
 <code>test/
 |-- test.js
 `-- node_modules/
@@ -238,21 +244,27 @@
     |-- chai-as-promised/
     `-- ...</code>
 </pre>
+</div>
 
 <p>Kj&#248;res med:</p>
 
-<pre>
+<div class="pre"><button class="btn clippy" data-clipboard-target="#mocha-testjs" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
+
+<pre id="mocha-testjs">
 <code>mocha test.js</code>
 </pre>
+</div>
 </div>
 </section>
 
 <section id="testjs">
-<h2><a aria-hidden="true" class="header-anchor" href="#testjs" title="test.js"></a><a href="test.js">test.js</a><a aria-controls="testjs-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#testjs-section" role="button"></a>
+<h2><a aria-hidden="true" class="header-anchor" href="#testjs" title="test.js"></a><a href="test.js">test.js</a><a aria-controls="testjs-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#testjs-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a>
 </h2>
 
 <div class="collapse in" id="testjs-section">
-<pre>
+<div class="pre"><button class="btn clippy" data-clipboard-target="#var-selenium-requireselenium-webdriver-var-chai-requirechai-chaiuserequirechai-as-promised-var-expect-chaiexpect-beforefunction-thistimeout60000-thisdriver-new-seleniumbuilder-withcapabilitiesseleniumcapabilitieschrome-build-return-thisdrivergetwindowhandle-afterfunction-return-thisdriverquit-describecomponent-function-" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
+
+<pre id="var-selenium-requireselenium-webdriver-var-chai-requirechai-chaiuserequirechai-as-promised-var-expect-chaiexpect-beforefunction-thistimeout60000-thisdriver-new-seleniumbuilder-withcapabilitiesseleniumcapabilitieschrome-build-return-thisdrivergetwindowhandle-afterfunction-return-thisdriverquit-describecomponent-function-">
 <code class="language-javascript"><span class="hljs-keyword">var</span> selenium = <span class="hljs-built_in">require</span>(<span class="hljs-string">'selenium-webdriver'</span>)
 <span class="hljs-keyword">var</span> chai = <span class="hljs-built_in">require</span>(<span class="hljs-string">'chai'</span>)
 chai.use(<span class="hljs-built_in">require</span>(<span class="hljs-string">'chai-as-promised'</span>))
@@ -275,13 +287,16 @@ describe(<span class="hljs-string">'Component'</span>, <span class="hljs-functio
 })</code>
 </pre>
 </div>
+</div>
 </section>
 
 <section id="testjs-del-2">
-<h2><a aria-hidden="true" class="header-anchor" href="#testjs-del-2" title="test.js, del 2"></a><a href="test.js">test.js</a>, del 2<a aria-controls="testjs-del-2-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#testjs-del-2-section" role="button"></a></h2>
+<h2><a aria-hidden="true" class="header-anchor" href="#testjs-del-2" title="test.js, del 2"></a><a href="test.js">test.js</a>, del 2<a aria-controls="testjs-del-2-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#testjs-del-2-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h2>
 
 <div class="collapse in" id="testjs-del-2-section">
-<pre>
+<div class="pre"><button class="btn clippy" data-clipboard-target="#describecomponent-function-beforeeachfunction-aftereachfunction-itshould-work-as-expected-function-selenium-test-code-here" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
+
+<pre id="describecomponent-function-beforeeachfunction-aftereachfunction-itshould-work-as-expected-function-selenium-test-code-here">
 <code class="language-javascript">describe(<span class="hljs-string">'Component'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
   beforeEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
     <span class="hljs-comment">// ...</span>
@@ -296,51 +311,52 @@ describe(<span class="hljs-string">'Component'</span>, <span class="hljs-functio
   })
 })</code>
 </pre>
+</div>
 
 <p>Resultat:</p>
 
-<ul>
-<li>Component should work as expected:&#160;&#10004;</li>
+<ul class="collapse in">
+<li id="component-should-work-as-expected-item"><a aria-controls="component-should-work-as-expected-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#component-should-work-as-expected-item-section" role="button"></a>Component should work as expected: &#10004;<span class="collapse in" id="component-should-work-as-expected-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
 </ul>
 </div>
 </section>
 
 <section id="testjs-del-3">
-<h2><a aria-hidden="true" class="header-anchor" href="#testjs-del-3" title="test.js, del 3"></a><a href="test.js">test.js</a>, del 3<a aria-controls="testjs-del-3-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#testjs-del-3-section" role="button"></a></h2>
+<h2><a aria-hidden="true" class="header-anchor" href="#testjs-del-3" title="test.js, del 3"></a><a href="test.js">test.js</a>, del 3<a aria-controls="testjs-del-3-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#testjs-del-3-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h2>
 
 <div class="collapse in" id="testjs-del-3-section">
-<pre>
+<div class="pre"><button class="btn clippy" data-clipboard-target="#describesearch-field-function-itshould-clear-when-selected-function-thisdrivergethttp-var-searchfield-thisdriverfindelement-css-searchfield-searchfieldclick-return-expectsearchfieldgettexttoeventuallyequal" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
+
+<pre id="describesearch-field-function-itshould-clear-when-selected-function-thisdrivergethttp-var-searchfield-thisdriverfindelement-css-searchfield-searchfieldclick-return-expectsearchfieldgettexttoeventuallyequal">
 <code class="language-javascript">describe(<span class="hljs-string">'Search field'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
   it(<span class="hljs-string">'should clear when selected'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
     <span class="hljs-keyword">this</span>.driver.get(<span class="hljs-string">'http://...'</span>)
-    <span class="hljs-keyword">var</span> searchField = <span class="hljs-keyword">this</span>.driver.findElement({ css: <span class="hljs-string">'#searchField'</span> })
+    <span class="hljs-keyword">var</span> searchField = <span class="hljs-keyword">this</span>.driver.findElement({ <span class="hljs-attr">css</span>: <span class="hljs-string">'#searchField'</span> })
     searchField.click()
     <span class="hljs-keyword">return</span> expect(searchField.getText()).to.eventually.equal(<span class="hljs-string">''</span>)
   })
 })</code>
 </pre>
+</div>
 
 <p>Resultat:</p>
 
-<ul>
-<li>Search field should clear when selected:&#160;&#10004;</li>
+<ul class="collapse in">
+<li id="search-field-should-clear-when-selected-item"><a aria-controls="search-field-should-clear-when-selected-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#search-field-should-clear-when-selected-item-section" role="button"></a>Search field should clear when selected: &#10004;<span class="collapse in" id="search-field-should-clear-when-selected-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
 </ul>
 </div>
 </section>
 
 <section id="linker">
-<h2><a aria-hidden="true" class="header-anchor" href="#linker" title="Linker"></a>Linker<a aria-controls="linker-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#linker-section" role="button"></a></h2>
+<h2><a aria-hidden="true" class="header-anchor" href="#linker" title="Linker"></a>Linker<a aria-controls="linker-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#linker-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h2>
 
 <div class="collapse in" id="linker-section">
-<ul>
-<li><a href="test.js">test.js</a>
-</li>
+<ul class="collapse in">
+<li id="testjs-item"><a aria-controls="testjs-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#testjs-item-section" role="button"></a><a href="test.js">test.js</a><span class="collapse in" id="testjs-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
 
-<li><a href="http://bites.goodeggs.com/posts/selenium-webdriver-nodejs-tutorial/" target="_blank" title="Open bites.goodeggs.com in a new window">Getting started with Selenium Webdriver for&#160;node.js</a>
-</li>
+<li id="getting-started-with-selenium-webdriver-for-nodejs-item"><a aria-controls="getting-started-with-selenium-webdriver-for-nodejs-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#getting-started-with-selenium-webdriver-for-nodejs-item-section" role="button"></a><a href="http://bites.goodeggs.com/posts/selenium-webdriver-nodejs-tutorial/" target="_blank" title="Open bites.goodeggs.com in a new window">Getting started with Selenium Webdriver for node.js</a><span class="collapse in" id="getting-started-with-selenium-webdriver-for-nodejs-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
 
-<li><a href="http://simpleprogrammer.com/2014/02/03/selenium-with-node-js/" target="_blank" title="Open simpleprogrammer.com in a new window">Selenium With Node.js and&#160;Mocha</a>
-</li>
+<li id="selenium-with-nodejs-and-mocha-item"><a aria-controls="selenium-with-nodejs-and-mocha-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#selenium-with-nodejs-and-mocha-item-section" role="button"></a><a href="http://simpleprogrammer.com/2014/02/03/selenium-with-node-js/" target="_blank" title="Open simpleprogrammer.com in a new window">Selenium With Node.js and Mocha</a><span class="collapse in" id="selenium-with-nodejs-and-mocha-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
 </ul>
 </div>
 </section>

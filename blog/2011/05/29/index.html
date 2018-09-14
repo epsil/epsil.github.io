@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="no" prefix="og: http://ogp.me/ns#">
 <head>
-<title>Installere GNOME 3 p&#229; Ubuntu &#8211; Vegards blogg</title>
+<title>Installere GNOME 3 p&#229; Ubuntu</title>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="no-referrer" name="referrer">
+<meta content="noindex" name="robots">
 <meta content="Vegard &#216;ye" name="author">
 <meta content="2011-05-29" name="date">
 <meta content="ef57d0e6951da01ad08b11631194b94f" name="md5">
@@ -23,77 +25,79 @@
 <meta content="Installere GNOME 3 p&#229; Ubuntu" name="twitter:title">
 <link href="../../../../favicon.ico" rel="icon" type="image/x-icon">
 <link href="../../../../apple-touch-icon.png" rel="apple-touch-icon">
-<link href="../../../../resources/css/markdown-template.css" rel="stylesheet">
-<link href="https://epsil.github.io/blog/2011/05/29/" rel="canonical">
+<link href="../../../../_assets/css/wiki.css" rel="stylesheet">
 <link href="index.md" rel="alternate" title="Markdown" type="text/markdown">
-<script src="../../../../resources/js/markdown-template.js">
+<script src="../../../../_assets/js/wiki.js">
 </script>
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top">
-<div class="container-fluid">
+<div class="container-fluid topbar">
 <ul class="nav nav-pills navbar-left">
 <li role="presentation"><a href="../../../../" title="G&#229; hjem"><i class="fa fa-home"></i></a>
 </li>
 </ul>
 
 <ul class="nav nav-pills navbar-right">
-<li role="presentation"><a href="http://www.facebook.com/share.php?u=https%3A%2F%2Fepsil.github.io%2Fblog%2F2011%2F05%2F29%2F" target="_blank" title="Del p&#229; Facebook"><i class="fa fa-facebook-square"></i></a>
+<li role="presentation"><a href="../../../../tmp/clipboard/" target="_blank" title="Kopier til Markdown"><i class="fa fa-clipboard"></i></a>
 </li>
 
-<li role="presentation"><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fepsil.github.io%2Fblog%2F2011%2F05%2F29%2F" target="_blank" title="Del p&#229; Twitter"><i class="fa fa-twitter-square"></i></a>
+<li role="presentation"><a href="https://github.com/epsil/mdwiki/blob/master/blog/2011/05/29/index.md" target="_blank" title="Vis p&#229; GitHub"><i class="fa fa-github"></i></a>
 </li>
 
-<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/blob/master/blog/2011/05/29/index.md" target="_blank" title="Vis p&#229; GitHub"><i class="fa fa-github"></i></a>
+<li role="presentation"><a href="https://github.com/epsil/mdwiki/edit/master/blog/2011/05/29/index.md" target="_blank" title="Rediger p&#229; GitHub"><i class="fa fa-edit"></i></a>
 </li>
 
-<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/edit/master/blog/2011/05/29/index.md" target="_blank" title="Rediger p&#229; GitHub"><i class="fa fa-edit"></i></a>
+<li role="presentation"><a href="https://github.com/epsil/mdwiki/raw/master/blog/2011/05/29/index.md" target="_blank" title="Vis Markdown-kilde"><i class="fa fa-download"></i></a>
 </li>
 
-<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/raw/master/blog/2011/05/29/index.md" target="_blank" title="Vis Markdown-kilde"><i class="fa fa-download"></i></a>
-</li>
-
-<li role="presentation"><a data-toggle="collapse" href="#toc" id="toc-button" name="toc-button" title="Innhold"><i class="fa fa-list"></i></a>
+<li role="presentation"><a data-toggle="collapse" href="#toc" id="toc-button" title="Innhold"><i class="fa fa-list"></i></a>
 </li>
 </ul>
+
+<form action="https://www.google.com/search" class="navbar-form" method="get" target="_blank">
+<div class="form-group" style="display: inline;">
+<div class="input-group" style="display: table;"><span class="input-group-addon" style="width: 1%;"><span class="glyphicon glyphicon-search"></span></span> <input accesskey="." autocomplete="off" class="form-control" name="q" title="S&#248;k" type="text"></div>
+</div>
+</form>
 </div>
 
 <div id="toc-placeholder">
 </div>
 </nav>
 
-<article class="h-entry">
+<article class="h-entry" id="main">
 <header>
-<h1 class="p-name"><a class="u-uid u-url" href="https://epsil.github.io/blog/2011/05/29/" rel="bookmark" target="_blank" title="Permalink">Installere <abbr class="acronym" title="GNOME GNU Network Object Model Environment"><span class="caps">GNOME</span></abbr> 3 p&#229;&#160;Ubuntu</a>
+<h1 class="p-name"><a class="u-uid u-url" href="https://epsil.github.io/blog/2011/05/29/" rel="bookmark" target="_blank" title="Permalink">Installere <abbr class="acronym" title="GNOME GNU Network Object Model Environment"><span class="caps">GNOME</span></abbr> 3 p&#229; Ubuntu</a>
 </h1>
 
 <p class="author"><a class="p-author h-card" href="https://epsil.github.io/" target="_blank" title="Open epsil.github.io in a new window">Vegard &#216;ye</a> &#8226; <time class="dt-published" datetime="2011-05-29">2011-05-29</time></p>
 </header>
 
-<section class="e-content">
+<section class="e-content sidenotes">
 <section>
 <ol>
-<li>Flytt innstillingsfiler: <code>$ mv .[^.]* oldsettings</code>.</li>
+<li>Flytt innstillingsfiler: <span class="code"><code id="mv-oldsettings">$ mv .[^.]* oldsettings</code><button class="btn clippy" data-clipboard-target="#mv-oldsettings" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>.</li>
 
-<li>Installer Ubuntu 11.04 til <code>/dev/sda5</code> med <code>/home</code> p&#229; <code>/dev/sda7</code>.</li>
+<li>Installer Ubuntu 11.04 til <span class="code"><code id="dev-sda5">/dev/sda5</code><button class="btn clippy" data-clipboard-target="#dev-sda5" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> med <span class="code"><code id="home">/home</code><button class="btn clippy" data-clipboard-target="#home" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> p&#229; <span class="code"><code id="dev-sda7">/dev/sda7</code><button class="btn clippy" data-clipboard-target="#dev-sda7" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>.</li>
 
-<li>Sl&#229; av lyd og oppdater spr&#229;kpakker, samt sl&#229; av&#160;skjerml&#229;s.</li>
+<li>Sl&#229; av lyd og oppdater spr&#229;kpakker, samt sl&#229; av skjerml&#229;s.</li>
 
-<li>Legg til bruker i gruppen <code>nopasswdlogin</code> (<code>$ sudo adduser user nopasswdlogin</code>).</li>
+<li>Legg til bruker i gruppen <span class="code"><code id="nopasswdlogin">nopasswdlogin</code><button class="btn clippy" data-clipboard-target="#nopasswdlogin" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> (<span class="code"><code id="sudo-adduser-user-nopasswdlogin">$ sudo adduser user nopasswdlogin</code><button class="btn clippy" data-clipboard-target="#sudo-adduser-user-nopasswdlogin" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>).</li>
 
-<li>Kj&#248;r <code>$ sudo apt-get dist-upgrade</code>.</li>
+<li>Kj&#248;r <span class="code"><code id="sudo-apt-get-dist-upgrade">$ sudo apt-get dist-upgrade</code><button class="btn clippy" data-clipboard-target="#sudo-apt-get-dist-upgrade" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>.</li>
 
-<li>Avinstaller pakkene <code>overlay-scrollbar</code> og <code>liboverlay-scrollbar-0.1-0</code> og start p&#229;&#160;nytt.</li>
+<li>Avinstaller pakkene <span class="code"><code id="overlay-scrollbar">overlay-scrollbar</code><button class="btn clippy" data-clipboard-target="#overlay-scrollbar" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> og <span class="code"><code id="liboverlay-scrollbar-01-0">liboverlay-scrollbar-0.1-0</code><button class="btn clippy" data-clipboard-target="#liboverlay-scrollbar-01-0" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> og start p&#229; nytt.</li>
 
-<li>Legg til <abbr class="acronym" title="GNOME GNU Network Object Model Environment"><span class="caps">GNOME</span></abbr> 3-repoet med <code>$ sudo add-apt-repository ppa:gnome3-team/gnome3</code> og kj&#248;r <code>$ sudo apt-get update</code> for &#229; oppdatere&#160;pakkelistene.</li>
+<li>Legg til <abbr class="acronym" title="GNOME GNU Network Object Model Environment"><span class="caps">GNOME</span></abbr> 3-repoet med <span class="code"><code id="sudo-add-apt-repository-ppagnome3-team-gnome3">$ sudo add-apt-repository ppa:gnome3-team/gnome3</code><button class="btn clippy" data-clipboard-target="#sudo-add-apt-repository-ppagnome3-team-gnome3" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> og kj&#248;r <span class="code"><code id="sudo-apt-get-update">$ sudo apt-get update</code><button class="btn clippy" data-clipboard-target="#sudo-apt-get-update" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> for &#229; oppdatere pakkelistene.</li>
 
-<li>Kj&#248;r <code>$ sudo apt-get dist-upgrade</code>.</li>
+<li>Kj&#248;r <span class="code"><code id="sudo-apt-get-dist-upgrade-2">$ sudo apt-get dist-upgrade</code><button class="btn clippy" data-clipboard-target="#sudo-apt-get-dist-upgrade-2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>.</li>
 
-<li>Installer <abbr class="acronym" title="GNOME GNU Network Object Model Environment"><span class="caps">GNOME</span></abbr> Shell med <code>$ sudo apt-get install gnome-shell</code>, <code>$ sudo apt-get install gnome-session</code>, <code>$ sudo apt-get install gnome-themes-standard</code>, <code>$ sudo apt-get install gnome-tweak-tool</code>.</li>
+<li>Installer <abbr class="acronym" title="GNOME GNU Network Object Model Environment"><span class="caps">GNOME</span></abbr> Shell med <span class="code"><code id="sudo-apt-get-install-gnome-shell">$ sudo apt-get install gnome-shell</code><button class="btn clippy" data-clipboard-target="#sudo-apt-get-install-gnome-shell" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>, <span class="code"><code id="sudo-apt-get-install-gnome-session">$ sudo apt-get install gnome-session</code><button class="btn clippy" data-clipboard-target="#sudo-apt-get-install-gnome-session" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>, <span class="code"><code id="sudo-apt-get-install-gnome-themes-standard">$ sudo apt-get install gnome-themes-standard</code><button class="btn clippy" data-clipboard-target="#sudo-apt-get-install-gnome-themes-standard" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>, <span class="code"><code id="sudo-apt-get-install-gnome-tweak-tool">$ sudo apt-get install gnome-tweak-tool</code><button class="btn clippy" data-clipboard-target="#sudo-apt-get-install-gnome-tweak-tool" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>.</li>
 
 <li>Start p&#229; nytt og velg &#171;Others&#187; p&#229; innloggingsskjermen. Tast inn brukernavnet manuelt og velg &#171;<abbr class="acronym" title="GNOME GNU Network Object Model Environment"><span class="caps">GNOME</span></abbr>&#187; fra listen.</li>
 
-<li>Sett opp temaer, <abbr title="et cetera">etc.</abbr> Conky installeres med <kbd title="Alt">Alt</kbd> + <kbd>F2</kbd> <code>gnome-sessions-properties</code>. Husk <code>ttf-dejavu-extra</code> (<code>$ sudo apt-get install ttj-dejavu</code>), <code>evince</code> (<code>$ sudo apt-get install evince</code>), <code>ttf-mscorefonts-installer</code>, <code>texlive-full</code> (<code>$ getnonfreefonts-sys -a -f -v</code>), <code>emacs23</code>, <code>emacs23-common</code>, <code>emacs23-el</code>, <code>auctex</code>, <code>git-all</code>.</li>
+<li>Sett opp temaer, <abbr title="et cetera">etc.</abbr> Conky installeres med <kbd title="Alt">Alt</kbd> + <kbd>F2</kbd> <span class="code"><code id="gnome-sessions-properties">gnome-sessions-properties</code><button class="btn clippy" data-clipboard-target="#gnome-sessions-properties" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>. Husk <span class="code"><code id="ttf-dejavu-extra">ttf-dejavu-extra</code><button class="btn clippy" data-clipboard-target="#ttf-dejavu-extra" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> (<span class="code"><code id="sudo-apt-get-install-ttj-dejavu">$ sudo apt-get install ttj-dejavu</code><button class="btn clippy" data-clipboard-target="#sudo-apt-get-install-ttj-dejavu" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>), <span class="code"><code id="evince">evince</code><button class="btn clippy" data-clipboard-target="#evince" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> (<span class="code"><code id="sudo-apt-get-install-evince">$ sudo apt-get install evince</code><button class="btn clippy" data-clipboard-target="#sudo-apt-get-install-evince" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>), <span class="code"><code id="ttf-mscorefonts-installer">ttf-mscorefonts-installer</code><button class="btn clippy" data-clipboard-target="#ttf-mscorefonts-installer" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>, <span class="code"><code id="texlive-full">texlive-full</code><button class="btn clippy" data-clipboard-target="#texlive-full" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> (<span class="code"><code id="getnonfreefonts-sys-a-f-v">$ getnonfreefonts-sys -a -f -v</code><button class="btn clippy" data-clipboard-target="#getnonfreefonts-sys-a-f-v" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>), <span class="code"><code id="emacs23">emacs23</code><button class="btn clippy" data-clipboard-target="#emacs23" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>, <span class="code"><code id="emacs23-common">emacs23-common</code><button class="btn clippy" data-clipboard-target="#emacs23-common" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>, <span class="code"><code id="emacs23-el">emacs23-el</code><button class="btn clippy" data-clipboard-target="#emacs23-el" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>, <span class="code"><code id="auctex">auctex</code><button class="btn clippy" data-clipboard-target="#auctex" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>, <span class="code"><code id="git-all">git-all</code><button class="btn clippy" data-clipboard-target="#git-all" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>.</li>
 </ol>
 </section>
 </section>

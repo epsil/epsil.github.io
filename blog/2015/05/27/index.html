@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="no" prefix="og: http://ogp.me/ns#">
 <head>
-<title>Gollum og Pandoc &#8211; Vegards blogg</title>
+<title>Gollum og Pandoc</title>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="no-referrer" name="referrer">
+<meta content="noindex" name="robots">
 <meta content="Vegard &#216;ye" name="author">
 <meta content="2015-05-27" name="date">
 <meta content="77df58def715bc7281d61abeeaf3726c" name="md5">
@@ -23,46 +25,48 @@
 <meta content="Gollum og Pandoc" name="twitter:title">
 <link href="../../../../favicon.ico" rel="icon" type="image/x-icon">
 <link href="../../../../apple-touch-icon.png" rel="apple-touch-icon">
-<link href="../../../../resources/css/markdown-template.css" rel="stylesheet">
-<link href="https://epsil.github.io/blog/2015/05/27/" rel="canonical">
+<link href="../../../../_assets/css/wiki.css" rel="stylesheet">
 <link href="index.md" rel="alternate" title="Markdown" type="text/markdown">
-<script src="../../../../resources/js/markdown-template.js">
+<script src="../../../../_assets/js/wiki.js">
 </script>
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top">
-<div class="container-fluid">
+<div class="container-fluid topbar">
 <ul class="nav nav-pills navbar-left">
 <li role="presentation"><a href="../../../../" title="G&#229; hjem"><i class="fa fa-home"></i></a>
 </li>
 </ul>
 
 <ul class="nav nav-pills navbar-right">
-<li role="presentation"><a href="http://www.facebook.com/share.php?u=https%3A%2F%2Fepsil.github.io%2Fblog%2F2015%2F05%2F27%2F" target="_blank" title="Del p&#229; Facebook"><i class="fa fa-facebook-square"></i></a>
+<li role="presentation"><a href="../../../../tmp/clipboard/" target="_blank" title="Kopier til Markdown"><i class="fa fa-clipboard"></i></a>
 </li>
 
-<li role="presentation"><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fepsil.github.io%2Fblog%2F2015%2F05%2F27%2F" target="_blank" title="Del p&#229; Twitter"><i class="fa fa-twitter-square"></i></a>
+<li role="presentation"><a href="https://github.com/epsil/mdwiki/blob/master/blog/2015/05/27/index.md" target="_blank" title="Vis p&#229; GitHub"><i class="fa fa-github"></i></a>
 </li>
 
-<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/blob/master/blog/2015/05/27/index.md" target="_blank" title="Vis p&#229; GitHub"><i class="fa fa-github"></i></a>
+<li role="presentation"><a href="https://github.com/epsil/mdwiki/edit/master/blog/2015/05/27/index.md" target="_blank" title="Rediger p&#229; GitHub"><i class="fa fa-edit"></i></a>
 </li>
 
-<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/edit/master/blog/2015/05/27/index.md" target="_blank" title="Rediger p&#229; GitHub"><i class="fa fa-edit"></i></a>
+<li role="presentation"><a href="https://github.com/epsil/mdwiki/raw/master/blog/2015/05/27/index.md" target="_blank" title="Vis Markdown-kilde"><i class="fa fa-download"></i></a>
 </li>
 
-<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/raw/master/blog/2015/05/27/index.md" target="_blank" title="Vis Markdown-kilde"><i class="fa fa-download"></i></a>
-</li>
-
-<li role="presentation"><a data-toggle="collapse" href="#toc" id="toc-button" name="toc-button" title="Innhold"><i class="fa fa-list"></i></a>
+<li role="presentation"><a data-toggle="collapse" href="#toc" id="toc-button" title="Innhold"><i class="fa fa-list"></i></a>
 </li>
 </ul>
+
+<form action="https://www.google.com/search" class="navbar-form" method="get" target="_blank">
+<div class="form-group" style="display: inline;">
+<div class="input-group" style="display: table;"><span class="input-group-addon" style="width: 1%;"><span class="glyphicon glyphicon-search"></span></span> <input accesskey="." autocomplete="off" class="form-control" name="q" title="S&#248;k" type="text"></div>
+</div>
+</form>
 </div>
 
 <div id="toc-placeholder">
 </div>
 </nav>
 
-<article class="h-entry">
+<article class="h-entry" id="main">
 <header>
 <h1 class="p-name"><a class="u-uid u-url" href="https://epsil.github.io/blog/2015/05/27/" rel="bookmark" target="_blank" title="Permalink">Gollum og Pandoc</a>
 </h1>
@@ -70,13 +74,15 @@
 <p class="author"><a class="p-author h-card" href="https://epsil.github.io/" target="_blank" title="Open epsil.github.io in a new window">Vegard &#216;ye</a> &#8226; <time class="dt-published" datetime="2015-05-27">2015-05-27</time></p>
 </header>
 
-<section class="e-content">
+<section class="e-content sidenotes">
 <section>
-<p>En oppgradering av Gollum til versjon 4.0.0 skapte visse problemer med Markdown-koden (ingen st&#248;tte for gjennomstreking, problemer med underlister). Det ser ut til at denne versjonen bruker Gem-pakken <code>github-markup</code> for &#229; h&#229;ndtere Markdown, ikke <code>redcarpet</code> eller <code>kramdown</code>.</p>
+<p>En oppgradering av Gollum til versjon 4.0.0 skapte visse problemer med Markdown-koden (ingen st&#248;tte for gjennomstreking, problemer med underlister). Det ser ut til at denne versjonen bruker Gem-pakken <span class="code"><code id="github-markup">github-markup</code><button class="btn clippy" data-clipboard-target="#github-markup" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> for &#229; h&#229;ndtere Markdown, ikke <span class="code"><code id="redcarpet">redcarpet</code><button class="btn clippy" data-clipboard-target="#redcarpet" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> eller <span class="code"><code id="kramdown">kramdown</code><button class="btn clippy" data-clipboard-target="#kramdown" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>.</p>
 
-<p>Martin Wolf har laget en <code>config.rb</code>-fil som gj&#248;r at Gollum bruker <a href="http://mwolf.net/2014/04/29/adding-pandoc-to-gollum/" target="_blank" title="Open mwolf.net in a new window">Pandoc</a>:</p>
+<p>Martin Wolf har laget en <span class="code"><code id="configrb">config.rb</code><button class="btn clippy" data-clipboard-target="#configrb" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>-fil som gj&#248;r at Gollum bruker <a href="http://mwolf.net/2014/04/29/adding-pandoc-to-gollum/" target="_blank" title="Open mwolf.net in a new window">Pandoc</a>:</p>
 
-<pre>
+<div class="pre"><button class="btn clippy" data-clipboard-target="#require-github-markup-ci-githubmarkupcommandimplementationnew-mdmkdnmdwnmdownmarkdownlitcoffee-pandoc-f-markdown-tex-math-dollars-raw-tex-our-command-needs-to-go-to-the-front-of-the-queue-in-order-to-take-precedence-before-the-stock-githubmarkupmarkdown-implementation-githubmarkupmarkupsunshiftci" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
+
+<pre id="require-github-markup-ci-githubmarkupcommandimplementationnew-mdmkdnmdwnmdownmarkdownlitcoffee-pandoc-f-markdown-tex-math-dollars-raw-tex-our-command-needs-to-go-to-the-front-of-the-queue-in-order-to-take-precedence-before-the-stock-githubmarkupmarkdown-implementation-githubmarkupmarkupsunshiftci">
 <code class="language-ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">"github/markup"</span>
 
 ci = GitHub::Markup::CommandImplementation.new(
@@ -86,8 +92,9 @@ ci = GitHub::Markup::CommandImplementation.new(
 <span class="hljs-comment"># precedence before the stock GitHub::Markup::Markdown implementation</span>
 GitHub::Markup::markups.unshift(ci)</code>
 </pre>
+</div>
 
-<p>Dette forutsetter at Gollum startes med opsjonen <code>--config</code>.</p>
+<p>Dette forutsetter at Gollum startes med opsjonen <span class="code"><code id="config">--config</code><button class="btn clippy" data-clipboard-target="#config" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>.</p>
 </section>
 </section>
 </article>

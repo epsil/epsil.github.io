@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="no" prefix="og: http://ogp.me/ns#">
 <head>
-<title>Oppsett irssi og screen &#8211; Vegards blogg</title>
+<title>Oppsett irssi og screen</title>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="no-referrer" name="referrer">
+<meta content="noindex" name="robots">
 <meta content="Vegard &#216;ye" name="author">
 <meta content="2014-05-06" name="date">
 <meta content="Noen gamle #cyb-notater, gjengitt her for dem som leter etter dem." name="description">
@@ -29,54 +31,56 @@
 <meta content="https://epsil.github.io/blog/2014/05/06/logo.png" name="twitter:image">
 <link href="../../../../favicon.ico" rel="icon" type="image/x-icon">
 <link href="logo.png" rel="apple-touch-icon">
-<link href="../../../../resources/css/markdown-template.css" rel="stylesheet">
-<link href="https://epsil.github.io/blog/2014/05/06/" rel="canonical">
+<link href="../../../../_assets/css/wiki.css" rel="stylesheet">
 <link href="index.md" rel="alternate" title="Markdown" type="text/markdown">
 <link href="style.css" rel="stylesheet" type="text/css">
-<script src="../../../../resources/js/markdown-template.js">
+<script src="../../../../_assets/js/wiki.js">
 </script>
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top">
-<div class="container-fluid">
+<div class="container-fluid topbar">
 <ul class="nav nav-pills navbar-left">
 <li role="presentation"><a href="../../../../" title="G&#229; hjem"><i class="fa fa-home"></i></a>
 </li>
 </ul>
 
 <ul class="nav nav-pills navbar-right">
-<li role="presentation"><a href="http://www.facebook.com/share.php?u=https%3A%2F%2Fepsil.github.io%2Fblog%2F2014%2F05%2F06%2F" target="_blank" title="Del p&#229; Facebook"><i class="fa fa-facebook-square"></i></a>
+<li role="presentation"><a href="../../../../tmp/clipboard/" target="_blank" title="Kopier til Markdown"><i class="fa fa-clipboard"></i></a>
 </li>
 
-<li role="presentation"><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fepsil.github.io%2Fblog%2F2014%2F05%2F06%2F" target="_blank" title="Del p&#229; Twitter"><i class="fa fa-twitter-square"></i></a>
+<li role="presentation"><a href="https://github.com/epsil/mdwiki/blob/master/blog/2014/05/06/index.md" target="_blank" title="Vis p&#229; GitHub"><i class="fa fa-github"></i></a>
 </li>
 
-<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/blob/master/blog/2014/05/06/index.md" target="_blank" title="Vis p&#229; GitHub"><i class="fa fa-github"></i></a>
+<li role="presentation"><a href="https://github.com/epsil/mdwiki/edit/master/blog/2014/05/06/index.md" target="_blank" title="Rediger p&#229; GitHub"><i class="fa fa-edit"></i></a>
 </li>
 
-<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/edit/master/blog/2014/05/06/index.md" target="_blank" title="Rediger p&#229; GitHub"><i class="fa fa-edit"></i></a>
+<li role="presentation"><a href="https://github.com/epsil/mdwiki/raw/master/blog/2014/05/06/index.md" target="_blank" title="Vis Markdown-kilde"><i class="fa fa-download"></i></a>
 </li>
 
-<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/raw/master/blog/2014/05/06/index.md" target="_blank" title="Vis Markdown-kilde"><i class="fa fa-download"></i></a>
-</li>
-
-<li role="presentation"><a data-toggle="collapse" href="#toc" id="toc-button" name="toc-button" title="Innhold"><i class="fa fa-list"></i></a>
+<li role="presentation"><a data-toggle="collapse" href="#toc" id="toc-button" title="Innhold"><i class="fa fa-list"></i></a>
 </li>
 </ul>
+
+<form action="https://www.google.com/search" class="navbar-form" method="get" target="_blank">
+<div class="form-group" style="display: inline;">
+<div class="input-group" style="display: table;"><span class="input-group-addon" style="width: 1%;"><span class="glyphicon glyphicon-search"></span></span> <input accesskey="." autocomplete="off" class="form-control" name="q" title="S&#248;k" type="text"></div>
+</div>
+</form>
 </div>
 
 <div class="collapse" id="toc">
 <ul>
-<li><a href="#hva-er-screen-nice-og-irssi" title="Hva er screen, nice og irssi">Hva er <code>screen</code>, <code>nice</code> og <code>irssi</code></a>
+<li><a href="#hva-er-screen-nice-og-irssi" title="Hva er screen, nice og irssi">Hva er <span class="code"><code id="screen">screen</code><button class="btn clippy" data-clipboard-target="#screen" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>, <span class="code"><code id="nice">nice</code><button class="btn clippy" data-clipboard-target="#nice" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> og <span class="code"><code id="irssi">irssi</code><button class="btn clippy" data-clipboard-target="#irssi" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span></a>
 </li>
 
-<li><a href="#opprette-screen" title="Opprette screen">Opprette <code>screen</code></a>
+<li><a href="#opprette-screen" title="Opprette screen">Opprette <span class="code"><code id="screen-2">screen</code><button class="btn clippy" data-clipboard-target="#screen-2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span></a>
 </li>
 
-<li><a href="#neste-gang-du-na-skal-hente-opp-igjen-din-screen" title="Neste gang du n&#229; skal hente opp igjen din screen">Neste gang du n&#229; skal hente opp igjen din <code>screen</code></a>
+<li><a href="#neste-gang-du-na-skal-hente-opp-igjen-din-screen" title="Neste gang du n&#229; skal hente opp igjen din screen">Neste gang du n&#229; skal hente opp igjen din <span class="code"><code id="screen-3">screen</code><button class="btn clippy" data-clipboard-target="#screen-3" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span></a>
 </li>
 
-<li><a href="#bruk-av-irssi" title="Bruk av irssi">Bruk av <code>irssi</code></a>
+<li><a href="#bruk-av-irssi" title="Bruk av irssi">Bruk av <span class="code"><code id="irssi-2">irssi</code><button class="btn clippy" data-clipboard-target="#irssi-2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span></a>
 </li>
 
 <li><a href="#oppsummert" title="Oppsummert">Oppsummert</a>
@@ -85,83 +89,98 @@
 </div>
 </nav>
 
-<article class="h-entry">
+<article class="h-entry" id="main">
 <header>
-<h1 class="p-name"><a class="u-uid u-url" href="https://epsil.github.io/blog/2014/05/06/" rel="bookmark" target="_blank" title="Permalink">Oppsett</a> <a href="http://folk.uio.no/veronahe/CYB/IRC/" target="_blank" title="Open folk.uio.no in a new window"><code>irssi</code> og <code>screen</code></a></h1>
+<h1 class="p-name"><a class="u-uid u-url" href="https://epsil.github.io/blog/2014/05/06/" rel="bookmark" target="_blank" title="Permalink">Oppsett</a> <a href="http://folk.uio.no/veronahe/CYB/IRC/" target="_blank" title="Open folk.uio.no in a new window"><span class="code"><code id="irssi-3">irssi</code><button class="btn clippy" data-clipboard-target="#irssi-3" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> og <span class="code"><code id="screen-4">screen</code><button class="btn clippy" data-clipboard-target="#screen-4" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span></a></h1>
 
 <p class="author"><a class="p-author h-card" href="https://epsil.github.io/" target="_blank" title="Open epsil.github.io in a new window">Vegard &#216;ye</a> &#8226; <time class="dt-published" datetime="2014-05-06">2014-05-06</time></p>
 
-<p class="p-summary">Noen gamle <a href="http://folk.uio.no/veronahe/CYB/IRC/" target="_blank" title="Open folk.uio.no in a new window"><code>#cyb</code>-notater</a>, gjengitt her for dem som leter etter&#160;dem.</p>
+<p class="p-summary">Noen gamle <a href="http://folk.uio.no/veronahe/CYB/IRC/" target="_blank" title="Open folk.uio.no in a new window"><span class="code"><code id="cyb">#cyb</code><button class="btn clippy" data-clipboard-target="#cyb" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>-notater</a>, gjengitt her for dem som leter etter dem.</p>
 
-<figure><img alt="" class="u-photo" src="logo.png" width="200">
+<figure class="u-photo" style="width: 209px;"><a class="image" href="logo.png" title="View logo.png in full screen"><img alt="" src="logo.png" width="200"></a>
 </figure>
 </header>
 
-<section class="e-content">
+<section class="e-content sidenotes">
 <section id="hva-er-screen-nice-og-irssi">
-<h2><a aria-hidden="true" class="header-anchor" href="#hva-er-screen-nice-og-irssi" title="Hva er screen, nice og irssi"></a>Hva er <code>screen</code>, <code>nice</code> og <code>irssi</code><a aria-controls="hva-er-screen-nice-og-irssi-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#hva-er-screen-nice-og-irssi-section" role="button"></a></h2>
+<h2><a aria-hidden="true" class="header-anchor" href="#hva-er-screen-nice-og-irssi" title="Hva er screen, nice og irssi"></a>Hva er <span class="code"><code id="screen-5">screen</code><button class="btn clippy" data-clipboard-target="#screen-5" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>, <span class="code"><code id="nice-2">nice</code><button class="btn clippy" data-clipboard-target="#nice-2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> og <span class="code"><code id="irssi-4">irssi</code><button class="btn clippy" data-clipboard-target="#irssi-4" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span><a aria-controls="hva-er-screen-nice-og-irssi-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#hva-er-screen-nice-og-irssi-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h2>
 
 <div class="collapse in" id="hva-er-screen-nice-og-irssi-section">
-<p><strong><code>screen</code></strong> er et terminalprogram som lar deg kj&#248;re prosesser selv etter at du er logget ut, eller nettlinjen har falt ned. Prosessen blir liggende og kj&#248;re i en virtuell terminal p&#229;&#160;serveren.</p>
+<p><strong><span class="code"><code id="screen-6">screen</code><button class="btn clippy" data-clipboard-target="#screen-6" title="Copy to clipboard"><strong><span class="code"><i class="fa fa-clipboard"></i></span></strong></button></span> er et terminalprogram som lar deg kj&#248;re prosesser selv etter at du er logget ut, eller nettlinjen har falt ned. Prosessen blir liggende og kj&#248;re i en virtuell terminal p&#229; serveren.</strong>
+</p>
 
-<p><strong><code>nice</code></strong>: <abbr title="Universitetet i Oslo">UiO</abbr> har implementert <abbr class="acronym" title="Idle Job Killer"><span class="caps">IJK</span></abbr> (Idle Job Killer), som vil drepe denne prosessen etter en stund. Dette l&#248;ses ved &#229; sette en spesiell <code>nice</code>-verdi til prosessen, som gj&#248;r at <abbr class="acronym" title="Idle Job Killer"><span class="caps">IJK</span></abbr> ikke vil drepe&#160;prosessen.</p>
+<p><strong><span class="code"><code id="nice-3">nice</code><button class="btn clippy" data-clipboard-target="#nice-3" title="Copy to clipboard"><strong><span class="code"><i class="fa fa-clipboard"></i></span></strong></button></span>: <abbr title="Universitetet i Oslo">UiO</abbr> har implementert <abbr class="acronym" title="Idle Job Killer"><span class="caps">IJK</span></abbr> (Idle Job Killer), som vil drepe denne prosessen etter en stund. Dette l&#248;ses ved &#229; sette en spesiell <span class="code"><code id="nice-4">nice</code><button class="btn clippy" data-clipboard-target="#nice-4" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>-verdi til prosessen, som gj&#248;r at <abbr class="acronym" title="Idle Job Killer"><span class="caps">IJK</span></abbr> ikke vil drepe prosessen.</strong>
+</p>
 
-<p><strong><code>irssi</code></strong> er en terminalbasert <abbr class="acronym" title="Internet Relay Chat"><span class="caps">IRC</span></abbr>-klient. Grunnen til at man bruker dette er fordi at man i kombinasjon med <code>screen</code> kan ligge tilkoblet konstant til <abbr class="acronym" title="Internet Relay Chat"><span class="caps">IRC</span></abbr>-nettverket. Fordelene er at man har en konstant backlog, samt at man ikke plager allerede p&#229;loggede brukere med stadige p&#229;logginger. Man vil ogs&#229; kunne beholde sin operator-status (<code>@</code>).</p>
+<p><strong><span class="code"><code id="irssi-5">irssi</code><button class="btn clippy" data-clipboard-target="#irssi-5" title="Copy to clipboard"><strong><span class="code"><i class="fa fa-clipboard"></i></span></strong></button></span> er en terminalbasert <abbr class="acronym" title="Internet Relay Chat"><span class="caps">IRC</span></abbr>-klient. Grunnen til at man bruker dette er fordi at man i kombinasjon med <span class="code"><code id="screen-7">screen</code><button class="btn clippy" data-clipboard-target="#screen-7" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> kan ligge tilkoblet konstant til <abbr class="acronym" title="Internet Relay Chat"><span class="caps">IRC</span></abbr>-nettverket. Fordelene er at man har en konstant backlog, samt at man ikke plager allerede p&#229;loggede brukere med stadige p&#229;logginger. Man vil ogs&#229; kunne beholde sin operator-status (<span class="code"><code id="n-10">@</code><button class="btn clippy" data-clipboard-target="#n-10" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>).</strong>
+</p>
 </div>
 </section>
 
 <section id="opprette-screen">
-<h2><a aria-hidden="true" class="header-anchor" href="#opprette-screen" title="Opprette screen"></a>Opprette <code>screen</code><a aria-controls="opprette-screen-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#opprette-screen-section" role="button"></a></h2>
+<h2><a aria-hidden="true" class="header-anchor" href="#opprette-screen" title="Opprette screen"></a>Opprette <span class="code"><code id="screen-8">screen</code><button class="btn clippy" data-clipboard-target="#screen-8" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span><a aria-controls="opprette-screen-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#opprette-screen-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h2>
 
 <div class="collapse in" id="opprette-screen-section">
 <ol>
 <li>
 <p>&#197;pne en terminal:</p>
 
-<figure><img alt="" src="terminal_linux.jpg">
+<figure><a class="image" href="terminal_linux.jpg" title="View terminal_linux.jpg in full screen"><img alt="" src="terminal_linux.jpg"></a>
 </figure>
 
-<p>Eller last ned PuTTY om man bruker&#160;Windows:</p>
+<p>Eller last ned PuTTY om man bruker Windows:</p>
 
-<figure><img alt="" src="putty.jpg">
+<figure><a class="image" href="putty.jpg" title="View putty.jpg in full screen"><img alt="" src="putty.jpg"></a>
 </figure>
 </li>
 
 <li>
 <p><strong>Koble til med <abbr class="acronym" title="Secure Shell"><span class="caps">SSH</span></abbr> til en server du husker</strong> (<em>safir</em>, <em>rubin</em>, <em>smaragd</em>, <em>diamant</em>):</p>
 
-<pre>
+<div class="pre"><button class="btn clippy" data-clipboard-target="#ssh-safirifiuiono" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
+
+<pre id="ssh-safirifiuiono">
 <code>$ ssh safir.ifi.uio.no</code>
 </pre>
+</div>
 </li>
 
 <li>
-<p>Opprett en <code>screen</code> som ikke blir avsluttet av <abbr class="acronym" title="Idle Job Killer"><span class="caps">IJK</span></abbr>:</p>
+<p>Opprett en <span class="code"><code id="screen-9">screen</code><button class="btn clippy" data-clipboard-target="#screen-9" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> som ikke blir avsluttet av <abbr class="acronym" title="Idle Job Killer"><span class="caps">IJK</span></abbr>:</p>
 
-<pre>
+<div class="pre"><button class="btn clippy" data-clipboard-target="#nice-n-11-screen" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
+
+<pre id="nice-n-11-screen">
 <code>$ nice -n 11 screen</code>
 </pre>
+</div>
 
-<figure><img alt="" src="screen.png">
+<figure><a class="image" href="screen.png" title="View screen.png in full screen"><img alt="" src="screen.png"></a>
 </figure>
 </li>
 
 <li>
-<p>Start <code>irssi</code>:</p>
+<p>Start <span class="code"><code id="irssi-6">irssi</code><button class="btn clippy" data-clipboard-target="#irssi-6" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>:</p>
 
-<pre>
+<div class="pre"><button class="btn clippy" data-clipboard-target="#irssi-7" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
+
+<pre id="irssi-7">
 <code>$ irssi</code>
 </pre>
+</div>
 </li>
 
 <li>
-<p>Du er n&#229; koblet p&#229; <code>irssi</code> og kan koble til <code>#cyb</code> med f&#248;lgende&#160;kommando:</p>
+<p>Du er n&#229; koblet p&#229; <span class="code"><code id="irssi-8">irssi</code><button class="btn clippy" data-clipboard-target="#irssi-8" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> og kan koble til <span class="code"><code id="cyb-2">#cyb</code><button class="btn clippy" data-clipboard-target="#cyb-2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> med f&#248;lgende kommando:</p>
 
-<pre>
+<div class="pre"><button class="btn clippy" data-clipboard-target="#join-cyb" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
+
+<pre id="join-cyb">
 <code>/join #cyb</code>
 </pre>
+</div>
 
-<figure><img alt="" src="cyb.png">
+<figure><a class="image" href="cyb.png" title="View cyb.png in full screen"><img alt="" src="cyb.png"></a>
 </figure>
 </li>
 </ol>
@@ -169,70 +188,83 @@
 </section>
 
 <section id="neste-gang-du-na-skal-hente-opp-igjen-din-screen">
-<h2><a aria-hidden="true" class="header-anchor" href="#neste-gang-du-na-skal-hente-opp-igjen-din-screen" title="Neste gang du n&#229; skal hente opp igjen din screen"></a>Neste gang du n&#229; skal hente opp igjen din <code>screen</code><a aria-controls="neste-gang-du-na-skal-hente-opp-igjen-din-screen-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#neste-gang-du-na-skal-hente-opp-igjen-din-screen-section" role="button"></a></h2>
+<h2><a aria-hidden="true" class="header-anchor" href="#neste-gang-du-na-skal-hente-opp-igjen-din-screen" title="Neste gang du n&#229; skal hente opp igjen din screen"></a>Neste gang du n&#229; skal hente opp igjen din <span class="code"><code id="screen-10">screen</code><button class="btn clippy" data-clipboard-target="#screen-10" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span><a aria-controls="neste-gang-du-na-skal-hente-opp-igjen-din-screen-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#neste-gang-du-na-skal-hente-opp-igjen-din-screen-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h2>
 
 <div class="collapse in" id="neste-gang-du-na-skal-hente-opp-igjen-din-screen-section">
 <ol>
 <li>
-<p><abbr class="acronym" title="Secure Shell"><span class="caps">SSH</span></abbr> til serveren du valgte i f&#248;rste&#160;del:</p>
+<p><abbr class="acronym" title="Secure Shell"><span class="caps">SSH</span></abbr> til serveren du valgte i f&#248;rste del:</p>
 
-<pre>
+<div class="pre"><button class="btn clippy" data-clipboard-target="#ssh-safirifiuiono-2" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
+
+<pre id="ssh-safirifiuiono-2">
 <code>$ ssh safir.ifi.uio.no</code>
 </pre>
+</div>
 </li>
 
 <li>
-<p>Koble til din <code>screen</code> med:</p>
+<p>Koble til din <span class="code"><code id="screen-11">screen</code><button class="btn clippy" data-clipboard-target="#screen-11" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> med:</p>
 
-<pre>
+<div class="pre"><button class="btn clippy" data-clipboard-target="#screen-rd" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
+
+<pre id="screen-rd">
 <code>$ screen -rd</code>
 </pre>
+</div>
 </li>
 </ol>
 
-<p>Hvis din <code>screen</code> ikke dukker opp igjen, sjekk om du er p&#229; riktig server eller om serveren har blitt restartet i senere tid (<code>$ screen -ls</code>). Gj&#248;r om igjen fra f&#248;rste&#160;del.</p>
+<p>Hvis din <span class="code"><code id="screen-12">screen</code><button class="btn clippy" data-clipboard-target="#screen-12" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> ikke dukker opp igjen, sjekk om du er p&#229; riktig server eller om serveren har blitt restartet i senere tid (<span class="code"><code id="screen-ls">$ screen -ls</code><button class="btn clippy" data-clipboard-target="#screen-ls" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>). Gj&#248;r om igjen fra f&#248;rste del.</p>
 
-<p>(For &#229; <a href="http://stackoverflow.com/questions/1509677/kill-detached-screen-session" target="_blank" title="Open stackoverflow.com in a new window">avslutte</a> en <code>screen</code>-&#248;kt for godt, skriv <code>C-a :quit</code>.)</p>
+<p>(For &#229; <a href="http://stackoverflow.com/questions/1509677/kill-detached-screen-session" target="_blank" title="Open stackoverflow.com in a new window">avslutte</a> en <span class="code"><code id="screen-13">screen</code><button class="btn clippy" data-clipboard-target="#screen-13" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>-&#248;kt for godt, skriv <span class="code"><code id="c-a-quit">C-a :quit</code><button class="btn clippy" data-clipboard-target="#c-a-quit" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>.)</p>
 </div>
 </section>
 
 <section id="bruk-av-irssi">
-<h2><a aria-hidden="true" class="header-anchor" href="#bruk-av-irssi" title="Bruk av irssi"></a>Bruk av <code>irssi</code><a aria-controls="bruk-av-irssi-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#bruk-av-irssi-section" role="button"></a></h2>
+<h2><a aria-hidden="true" class="header-anchor" href="#bruk-av-irssi" title="Bruk av irssi"></a>Bruk av <span class="code"><code id="irssi-9">irssi</code><button class="btn clippy" data-clipboard-target="#irssi-9" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span><a aria-controls="bruk-av-irssi-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#bruk-av-irssi-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h2>
 
 <div class="collapse in" id="bruk-av-irssi-section">
-<p>For &#229; bytte kanalfane, trykk kombinasjonen: <kbd title="Alt">Alt</kbd> + <kbd><em>tall</em></kbd> (<abbr title="for eksempel">f.eks.</abbr> <kbd title="Alt">Alt</kbd> + <kbd>1</kbd>).</p>
+<p>For &#229; bytte kanalfane, trykk kombinasjonen: <kbd title="Alt">Alt</kbd> + <kbd><em>tall</em></kbd> (<abbr title="for eksempel">f.eks.</abbr><br>
+<kbd title="Alt">Alt</kbd> + <kbd>1</kbd>).</p>
 
 <p>Alternativt: <kbd title="Escape">Esc</kbd> + <kbd><em>tall</em></kbd> (<abbr title="for eksempel">f.eks.</abbr> <kbd title="Escape">Esc</kbd> + <kbd>1</kbd>).</p>
 
 <p>Alternativt: <kbd title="Control">Ctrl</kbd> + <kbd>N</kbd> eller <kbd title="Control">Ctrl</kbd> + <kbd>P</kbd>.</p>
 
-<p>Alternativt: skriv <code>/win + tall</code> (<abbr title="for eksempel">f.eks.</abbr> <code>/win 2</code>).</p>
+<p>Alternativt: skriv <span class="code"><code id="win-tall">/win + tall</code><button class="btn clippy" data-clipboard-target="#win-tall" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> (<abbr title="for eksempel">f.eks.</abbr> <span class="code"><code id="win-2">/win 2</code><button class="btn clippy" data-clipboard-target="#win-2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>).</p>
 
-<p>For &#229; liste brukere i kanalen,&#160;skriv:</p>
+<p>For &#229; liste brukere i kanalen, skriv:</p>
 
-<pre>
+<div class="pre"><button class="btn clippy" data-clipboard-target="#names" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
+
+<pre id="names">
 <code>/names</code>
 </pre>
+</div>
 
 <p>For &#229; scrolle opp/ned: <kbd title="Page Up">PgUp</kbd>/<kbd title="Page Down">PgDn</kbd>.</p>
 
-<p>For &#229; starte en privat&#160;samtale:</p>
+<p>For &#229; starte en privat samtale:</p>
 
-<pre>
+<div class="pre"><button class="btn clippy" data-clipboard-target="#msg-hei" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
+
+<pre id="msg-hei">
 <code>/msg hei</code>
 </pre>
+</div>
 
-<p>Bla eller hopp deg s&#229; frem til vinduet samtalen ble startet&#160;i.</p>
+<p>Bla eller hopp deg s&#229; frem til vinduet samtalen ble startet i.</p>
 
-<p>(Husk: man kan kopiere og lime&#160;inn!)</p>
+<p>(Husk: man kan kopiere og lime inn!)</p>
 </div>
 </section>
 
 <section id="oppsummert">
-<h2><a aria-hidden="true" class="header-anchor" href="#oppsummert" title="Oppsummert"></a>Oppsummert<a aria-controls="oppsummert-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#oppsummert-section" role="button"></a></h2>
+<h2><a aria-hidden="true" class="header-anchor" href="#oppsummert" title="Oppsummert"></a>Oppsummert<a aria-controls="oppsummert-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#oppsummert-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h2>
 
 <div class="collapse in" id="oppsummert-section">
-<figure><img alt="" src="diagram.png">
+<figure><a class="image" href="diagram.png" title="View diagram.png in full screen"><img alt="" src="diagram.png"></a>
 </figure>
 </div>
 </section>

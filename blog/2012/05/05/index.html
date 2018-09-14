@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="no" prefix="og: http://ogp.me/ns#">
 <head>
-<title>DOM, XPath og jQuery &#8211; Vegards blogg</title>
+<title>DOM, XPath og jQuery</title>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="no-referrer" name="referrer">
+<meta content="noindex" name="robots">
 <meta content="Vegard &#216;ye" name="author">
 <meta content="2012-05-05" name="date">
 <meta content="7c063abb33cf015df6786779c5285084" name="md5">
@@ -23,89 +25,101 @@
 <meta content="DOM, XPath og jQuery" name="twitter:title">
 <link href="../../../../favicon.ico" rel="icon" type="image/x-icon">
 <link href="../../../../apple-touch-icon.png" rel="apple-touch-icon">
-<link href="../../../../resources/css/markdown-template.css" rel="stylesheet">
-<link href="https://epsil.github.io/blog/2012/05/05/" rel="canonical">
+<link href="../../../../_assets/css/wiki.css" rel="stylesheet">
 <link href="index.md" rel="alternate" title="Markdown" type="text/markdown">
-<script src="../../../../resources/js/markdown-template.js">
+<script src="../../../../_assets/js/wiki.js">
 </script>
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top">
-<div class="container-fluid">
+<div class="container-fluid topbar">
 <ul class="nav nav-pills navbar-left">
 <li role="presentation"><a href="../../../../" title="G&#229; hjem"><i class="fa fa-home"></i></a>
 </li>
 </ul>
 
 <ul class="nav nav-pills navbar-right">
-<li role="presentation"><a href="http://www.facebook.com/share.php?u=https%3A%2F%2Fepsil.github.io%2Fblog%2F2012%2F05%2F05%2F" target="_blank" title="Del p&#229; Facebook"><i class="fa fa-facebook-square"></i></a>
+<li role="presentation"><a href="../../../../tmp/clipboard/" target="_blank" title="Kopier til Markdown"><i class="fa fa-clipboard"></i></a>
 </li>
 
-<li role="presentation"><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fepsil.github.io%2Fblog%2F2012%2F05%2F05%2F" target="_blank" title="Del p&#229; Twitter"><i class="fa fa-twitter-square"></i></a>
+<li role="presentation"><a href="https://github.com/epsil/mdwiki/blob/master/blog/2012/05/05/index.md" target="_blank" title="Vis p&#229; GitHub"><i class="fa fa-github"></i></a>
 </li>
 
-<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/blob/master/blog/2012/05/05/index.md" target="_blank" title="Vis p&#229; GitHub"><i class="fa fa-github"></i></a>
+<li role="presentation"><a href="https://github.com/epsil/mdwiki/edit/master/blog/2012/05/05/index.md" target="_blank" title="Rediger p&#229; GitHub"><i class="fa fa-edit"></i></a>
 </li>
 
-<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/edit/master/blog/2012/05/05/index.md" target="_blank" title="Rediger p&#229; GitHub"><i class="fa fa-edit"></i></a>
+<li role="presentation"><a href="https://github.com/epsil/mdwiki/raw/master/blog/2012/05/05/index.md" target="_blank" title="Vis Markdown-kilde"><i class="fa fa-download"></i></a>
 </li>
 
-<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/raw/master/blog/2012/05/05/index.md" target="_blank" title="Vis Markdown-kilde"><i class="fa fa-download"></i></a>
-</li>
-
-<li role="presentation"><a data-toggle="collapse" href="#toc" id="toc-button" name="toc-button" title="Innhold"><i class="fa fa-list"></i></a>
+<li role="presentation"><a data-toggle="collapse" href="#toc" id="toc-button" title="Innhold"><i class="fa fa-list"></i></a>
 </li>
 </ul>
+
+<form action="https://www.google.com/search" class="navbar-form" method="get" target="_blank">
+<div class="form-group" style="display: inline;">
+<div class="input-group" style="display: table;"><span class="input-group-addon" style="width: 1%;"><span class="glyphicon glyphicon-search"></span></span> <input accesskey="." autocomplete="off" class="form-control" name="q" title="S&#248;k" type="text"></div>
+</div>
+</form>
 </div>
 
 <div id="toc-placeholder">
 </div>
 </nav>
 
-<article class="h-entry">
+<article class="h-entry" id="main">
 <header>
-<h1 class="p-name"><a class="u-uid u-url" href="https://epsil.github.io/blog/2012/05/05/" rel="bookmark" target="_blank" title="Permalink"><abbr class="acronym" title="Document Object Model"><span class="caps">DOM</span></abbr>, <abbr title="XML Path Language">XPath</abbr> og&#160;jQuery</a>
+<h1 class="p-name"><a class="u-uid u-url" href="https://epsil.github.io/blog/2012/05/05/" rel="bookmark" target="_blank" title="Permalink"><abbr class="acronym" title="Document Object Model"><span class="caps">DOM</span></abbr>, <abbr title="XML Path Language">XPath</abbr> og jQuery</a>
 </h1>
 
 <p class="author"><a class="p-author h-card" href="https://epsil.github.io/" target="_blank" title="Open epsil.github.io in a new window">Vegard &#216;ye</a> &#8226; <time class="dt-published" datetime="2012-05-05">2012-05-05</time></p>
 </header>
 
-<section class="e-content">
+<section class="e-content sidenotes">
 <section>
-<p>JavaScript har forandret seg mye de siste &#229;rene. F&#248;rst har man <a href="https://developer.mozilla.org/en/Gecko_DOM_Reference/Introduction#Core_Interfaces_in_the_DOM" target="_blank" title="Open developer.mozilla.org in a new window">Document Object Model</a> (<abbr class="acronym" title="Document Object Model"><span class="caps">DOM</span></abbr>), som implementeres litt forskjellig av hver nettleser og i grunn er ganske&#160;omstendelig:</p>
+<p>JavaScript har forandret seg mye de siste &#229;rene. F&#248;rst har man <a href="https://developer.mozilla.org/en/Gecko_DOM_Reference/Introduction#Core_Interfaces_in_the_DOM" target="_blank" title="Open developer.mozilla.org in a new window">Document Object Model</a> (<abbr class="acronym" title="Document Object Model"><span class="caps">DOM</span></abbr>), som implementeres litt forskjellig av hver nettleser og i grunn er ganske omstendelig:</p>
 
-<pre>
+<div class="pre"><button class="btn clippy" data-clipboard-target="#var-elmnewcontent-documentcreateelementa-elmnewcontenthref-http-wwwexamplecom-elmnewcontentappendchilddocumentcreatetextnodeclick-here-var-elmfoo-documentgetelementbyidfoo-elmfooparentnodeinsertbeforeelmnewcontent-elmfoo" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
+
+<pre id="var-elmnewcontent-documentcreateelementa-elmnewcontenthref-http-wwwexamplecom-elmnewcontentappendchilddocumentcreatetextnodeclick-here-var-elmfoo-documentgetelementbyidfoo-elmfooparentnodeinsertbeforeelmnewcontent-elmfoo">
 <code class="language-javascript"><span class="hljs-keyword">var</span> elmNewContent = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'a'</span>);
 elmNewContent.href = <span class="hljs-string">'http://www.example.com/'</span>;
 elmNewContent.appendChild(<span class="hljs-built_in">document</span>.createTextNode(<span class="hljs-string">'click here'</span>));
 <span class="hljs-keyword">var</span> elmFoo = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'foo'</span>);
 elmFoo.parentNode.insertBefore(elmNewContent, elmFoo);</code>
 </pre>
+</div>
 
-<p>Douglas Crockford vil knapt <em>nevne</em> <abbr class="acronym" title="Document Object Model"><span class="caps">DOM</span></abbr> i <em>JavaScript: The Good Parts</em>: &#171;I think writing a Good Parts book about the <abbr class="acronym" title="Document Object Model"><span class="caps">DOM</span></abbr> would be extremely challenging.&#187;<sup class="footnote-ref"><a href="#fn1" id="fnref1" title="Douglas Crockford: JavaScript: The Good Parts, kapittel 1: &#171;Good Parts&#187;, s. 2. O&#8217;Reilly, 2008.">[1]</a></sup></p>
+<aside class="sidenote">
+<p><sup class="ref-mark"><a href="#fnref1" id="sidenote1" title="Douglas Crockford vil knapt nevne DOM i JavaScript: The Good Parts: &#171;I think writing a Good Parts book about the DOM would be extremely challenging.&#187;[1]"><span class="left-bracket">[</span>1<span class="right-bracket">]</span></a></sup>Douglas Crockford: <em>JavaScript: The Good Parts</em>, kapittel 1: &#171;Good Parts&#187;, <abbr title="side">s.</abbr> 2. O&#8217;Reilly, 2008. <a class="footnote-backref" href="#fnref1" title="Douglas Crockford vil knapt nevne DOM i JavaScript: The Good Parts: &#171;I think writing a Good Parts book about the DOM would be extremely challenging.&#187;[1]">&#8617;&#65038;</a></p>
+</aside>
 
-<p>S&#229; har man <a href="http://en.wikipedia.org/wiki/XPath" target="_blank" title="Open en.wikipedia.org in a new window"><abbr title="XML Path Language">XPath</abbr></a>, som gj&#248;r det en del lettere &#229; velge noder i et <abbr class="acronym" title="Extensible Markup Language"><span class="caps">XML</span></abbr>-tre. <em>Greasemonkey Hacks</em> gj&#248;r mye bruk av <abbr title="XML Path Language">XPath</abbr>. <abbr title="XML Path Language">XPath</abbr> hjelper imidlertid ikke med &#229; manipulere nodene, bare &#229; hente dem ut. Og det er jo det alt det andre som er mest krevende, med XmlHttpRequest og jeg vet ikke&#160;hva.</p>
+<p>Douglas Crockford vil knapt <em>nevne</em> <abbr class="acronym" title="Document Object Model"><span class="caps">DOM</span></abbr> i <em>JavaScript: The Good Parts</em>: &#171;I think writing a Good Parts book about the <abbr class="acronym" title="Document Object Model"><span class="caps">DOM</span></abbr> would be extremely challenging.&#187;<sup class="footnote-ref"><a href="#fn1" id="fnref1" title="Douglas Crockford: JavaScript: The Good Parts, kapittel 1: &#171;Good Parts&#187;, s. 2. O&#8217;Reilly, 2008."><span class="left-bracket">[</span>1<span class="right-bracket">]</span></a></sup></p>
 
-<p>Dermed kommer vi til <a href="http://api.jquery.com/" target="_blank" title="Open api.jquery.com in a new window">jQuery</a>. jQuery gj&#248;r det lettere b&#229;de &#229; hente ut noder (<abbr class="acronym" title="Cascading Style Sheets"><span class="caps">CSS</span></abbr>-syntaks), og &#229; manipulere dem. Boken <em>JavaScript <span class="amp">&amp;</span> jQuery: The Missing Manual</em> virker &#229; v&#230;re en lettlest&#160;innf&#248;ring.</p>
+<p>S&#229; har man <a href="http://en.wikipedia.org/wiki/XPath" target="_blank" title="Open en.wikipedia.org in a new window"><abbr title="XML Path Language">XPath</abbr></a>, som gj&#248;r det en del lettere &#229; velge noder i et <abbr class="acronym" title="Extensible Markup Language"><span class="caps">XML</span></abbr>-tre. <em>Greasemonkey Hacks</em> gj&#248;r mye bruk av <abbr title="XML Path Language">XPath</abbr>. <abbr title="XML Path Language">XPath</abbr> hjelper imidlertid ikke med &#229; manipulere nodene, bare &#229; hente dem ut. Og det er jo det alt det andre som er mest krevende, med XmlHttpRequest og jeg vet ikke hva.</p>
 
-<p>Det m&#229; imidlertid p&#229;pekes at Greasemonkey ikke n&#248;dvendigvis er <a href="http://wiki.greasespot.net/Third-Party_Libraries#jQuery" target="_blank" title="Open wiki.greasespot.net in a new window">kompatibel</a> med siste versjon av jQuery. Versjon 1.3.2 virker, men 1.4.1 gj&#248;r det ikke. Anbefalt bruk&#160;er:</p>
+<p>Dermed kommer vi til <a href="http://api.jquery.com/" target="_blank" title="Open api.jquery.com in a new window">jQuery</a>. jQuery gj&#248;r det lettere b&#229;de &#229; hente ut noder (<abbr class="acronym" title="Cascading Style Sheets"><span class="caps">CSS</span></abbr>-syntaks), og &#229; manipulere dem. Boken <em>JavaScript <span class="amp">&amp;</span> jQuery: The Missing Manual</em> virker &#229; v&#230;re en lettlest innf&#248;ring.</p>
 
-<pre>
+<p>Det m&#229; imidlertid p&#229;pekes at Greasemonkey ikke n&#248;dvendigvis er <a href="http://wiki.greasespot.net/Third-Party_Libraries#jQuery" target="_blank" title="Open wiki.greasespot.net in a new window">kompatibel</a> med siste versjon av jQuery. Versjon 1.3.2 virker, men 1.4.1 gj&#248;r det ikke. Anbefalt bruk er:</p>
+
+<div class="pre"><button class="btn clippy" data-clipboard-target="#userscript-name-jquery-example-require-http-ajaxgoogleapiscom-ajax-libs-jquery-132-jqueryminjs-userscript" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
+
+<pre id="userscript-name-jquery-example-require-http-ajaxgoogleapiscom-ajax-libs-jquery-132-jqueryminjs-userscript">
 <code class="language-javascript"><span class="hljs-comment">// ==UserScript==</span>
 <span class="hljs-comment">// @name          jQuery Example</span>
 <span class="hljs-comment">// @require       http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js</span>
 <span class="hljs-comment">// ==/UserScript==</span></code>
 </pre>
+</div>
 
-<p>Greasemonkey-utgaven av <a href="http://userscripts.org/scripts/show/66698" target="_blank" title="Open userscripts.org in a new window">Reddit Reveal</a> gj&#248;r <abbr title="for eksempel">f.eks.</abbr> utstrakt bruk av jQuery. Forresten har Ubuntu en pakke, <code>libjs-jsquery</code>, som installerer en utgave av jQuery under <code>/usr/share/javascript/jquery/jquery.js</code> (v1.7.1 i skrivende&#160;stund).</p>
+<p>Greasemonkey-utgaven av <a href="http://userscripts.org/scripts/show/66698" target="_blank" title="Open userscripts.org in a new window">Reddit Reveal</a> gj&#248;r <abbr title="for eksempel">f.eks.</abbr> utstrakt bruk av jQuery. Forresten har Ubuntu en pakke, <span class="code"><code id="libjs-jsquery">libjs-jsquery</code><button class="btn clippy" data-clipboard-target="#libjs-jsquery" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>, som installerer en utgave av jQuery under <span class="code"><code id="usr-share-javascript-jquery-jqueryjs">/usr/share/javascript/jquery/jquery.js</code><button class="btn clippy" data-clipboard-target="#usr-share-javascript-jquery-jqueryjs" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> (v1.7.1 i skrivende stund).</p>
 
-<hr class="footnotes-sep">
+<hr class="footnotes-sep endnotes">
 </section>
 
 <section class="footnotes">
-<ol class="footnotes-list">
+<ol class="footnotes-list endnotes">
 <li class="footnote-item" id="fn1">
-<p>Douglas Crockford: <em>JavaScript: The Good Parts</em>, kapittel 1: &#171;Good Parts&#187;, s. 2. O&#8217;Reilly, 2008. <a class="footnote-backref" href="#fnref1" title="Douglas Crockford vil knapt nevne DOM i JavaScript: The Good Parts: &#171;I think writing a Good Parts book about the DOM would be extremely challenging.&#187;[1]">&#8617;&#65038;</a></p>
+<p>Douglas Crockford: <em>JavaScript: The Good Parts</em>, kapittel 1: &#171;Good Parts&#187;, <abbr title="side">s.</abbr> 2. O&#8217;Reilly, 2008. <a class="footnote-backref" href="#fnref1" title="Douglas Crockford vil knapt nevne DOM i JavaScript: The Good Parts: &#171;I think writing a Good Parts book about the DOM would be extremely challenging.&#187;[1]">&#8617;&#65038;</a></p>
 </li>
 </ol>
 </section>
