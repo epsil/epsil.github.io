@@ -537,17 +537,17 @@ MathJax.Hub.Config({
 
 <p>\[\begin{equation}\label{eq:spenningsdeling} V_{IN} = V_{CC} \cdot \frac{R}{R_S + R} \end{equation} \]</p>
 
-<p>\(V_{IN}\) sendes inn p&#229; analog-til-digital-omformeren p&#229; kortet (<abbr class="acronym" title="Analog-to-Digital Converter">ADC</abbr>-en), og er alts&#229; verdien som programmet p&#229; mikrokontrolleren &#171;ser&#187;. Gjennom <abbr class="acronym" title="Analog-to-Digital Converter">ADC</abbr>-en f&#229;r vi en overgang fra den <em>fysiske</em> st&#248;rrelsen \(V_{IN}\) til den <em>digitale</em> 8-bit verdien <span class="code"><code id="adc-variabel">ADC_VARIABEL</code><button class="btn clippy" data-clipboard-target="#adc-variabel" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> i programkoden:</p>
+<p>\(V_{IN}\) sendes inn p&#229; analog-til-digital-omformeren p&#229; kortet (<abbr class="acronym" title="Analog-to-Digital Converter">ADC</abbr>-en), og er alts&#229; verdien som programmet p&#229; mikrokontrolleren &#171;ser&#187;. Gjennom <abbr class="acronym" title="Analog-to-Digital Converter">ADC</abbr>-en f&#229;r vi en overgang fra den <em>fysiske</em> st&#248;rrelsen \(V_{IN}\) til den <em>digitale</em> 8-bit verdien <span class="code"><code id="adc-variabel">ADC_VARIABEL</code></span> i programkoden:</p>
 
 <p>\[\begin{equation}\label{eq:datablad} \text{ADC_VARIABEL} = \frac{V_{IN} \cdot 255}{V_{REF}} \end{equation} \]</p>
 
-<p>\(V_{REF}\) er <em>referansespenningen</em> og er lik \(V_{CC}\). Den maksimale verdien for <span class="code"><code id="adc-variabel-2">ADC_VARIABEL</code><button class="btn clippy" data-clipboard-target="#adc-variabel-2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>, 255, svarer dermed til 3,3 V, og <span class="code"><code id="adc-variabel-3">ADC_VARIABEL</code><button class="btn clippy" data-clipboard-target="#adc-variabel-3" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> er proporsjonal med \(V_{IN}\).</p>
+<p>\(V_{REF}\) er <em>referansespenningen</em> og er lik \(V_{CC}\). Den maksimale verdien for <span class="code"><code id="adc-variabel-2">ADC_VARIABEL</code></span>, 255, svarer dermed til 3,3 V, og <span class="code"><code id="adc-variabel-3">ADC_VARIABEL</code></span> er proporsjonal med \(V_{IN}\).</p>
 
 <p>For &#229; velge en passende verdi for forspenningsmotstanden \(R\), m&#229; vi se hvordan den p&#229;virker forholdet mellom trykk og spenning. Dette forholdet kan brytes opp i to mindre: forholdet mellom trykk (\(\rho\)) og sensorresistans (\(R_S\)), og forholdet mellom sensorresistans (\(R_S\)) og m&#229;lt spenning (\(V_{IN}\)).</p>
 
 <p>M&#229;linger p&#229; \(\rho\)&#8211;\(R_S\)-forholdet er gitt i <a href="#sec-malinger" title="2.2 M&#229;linger">avsnitt 2.2</a>, og kan i korte trekk oppsummeres slik: for lette trykk er \(R_S \approx 100\) <abbr title="kiloohm">k&#937;</abbr>, og for harde trykk g&#229;r \(R_S\) ned til 20 <abbr title="kiloohm">k&#937;</abbr>, med sterkt avtagende stigning (<a href="#fig-litenok" title="(a) Spenning mot trykk (b) Motstand mot trykk, utregnet fra (a) Figur 2.10: Liten sensor, &#248;kende vekt, vektene ikke av mellom m&#229;lingene (tabell 2.5)"><abbr title="figur">fig.</abbr> 2.10</a>). Forholdet er alts&#229; sterkt uline&#230;rt: \(R_S\) er stor n&#229;r \(\rho\) er liten, og \(R_S\) er liten n&#229;r \(\rho\) er stor.</p>
 
-<p id="sec-nullnivaa">Det samme gjelder for \(R_S\)&#8211;\(V_{IN}\)-forholdet, gitt i ligning \(\eqref{eq:spenningsdeling}\): n&#229;r den ene g&#229;r opp, g&#229;r den andre ned. Summen av disse to &#171;inverse&#187; forholdene er at \(\rho\) og \(V_{IN}\) &#248;ker i takt: n&#229;r trykket &#248;ker, s&#229; &#248;ker den m&#229;lte spenningen, og n&#229;r trykket minker, s&#229; minker spenningen. N&#229;r \(\rho = 0\), s&#229; er ogs&#229; \(V_{IN} = 0\), og i programkoden har <span class="code"><code id="adc-variabel-4">ADC_VARIABEL</code><button class="btn clippy" data-clipboard-target="#adc-variabel-4" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> verdien 0. Dette er det ideelle <em>nullniv&#229;et</em>, verdien n&#229;r sensoren ikke er i bruk.</p>
+<p id="sec-nullnivaa">Det samme gjelder for \(R_S\)&#8211;\(V_{IN}\)-forholdet, gitt i ligning \(\eqref{eq:spenningsdeling}\): n&#229;r den ene g&#229;r opp, g&#229;r den andre ned. Summen av disse to &#171;inverse&#187; forholdene er at \(\rho\) og \(V_{IN}\) &#248;ker i takt: n&#229;r trykket &#248;ker, s&#229; &#248;ker den m&#229;lte spenningen, og n&#229;r trykket minker, s&#229; minker spenningen. N&#229;r \(\rho = 0\), s&#229; er ogs&#229; \(V_{IN} = 0\), og i programkoden har <span class="code"><code id="adc-variabel-4">ADC_VARIABEL</code></span> verdien 0. Dette er det ideelle <em>nullniv&#229;et</em>, verdien n&#229;r sensoren ikke er i bruk.</p>
 
 <blockquote eq:spenningsdeling="">
 <figure id="fig-vin" style="width: 629px;"><a class="image" href="fig/vin.svg" title="View vin.svg in full screen"><img alt="" src="fig/vin.svg" width="620"></a>
@@ -560,7 +560,7 @@ MathJax.Hub.Config({
 
 <p>Vi ser ogs&#229; at sammenhengen mellom \(R_S\) og \(V_{IN}\) blir <em>mer uline&#230;r</em> for lavere verdier av \(R\). Ulinearitet er ikke n&#248;dvendigvis negativt. Si at vi &#248;nsker at pekerfarten skal v&#230;re konstant for lette trykk (\(R_S = \text{40&#8210;100}\) <abbr title="kiloohm">k&#937;</abbr>), men at den skal &#248;ke for harde trykk (\(R_S &lt; 40\) <abbr title="kiloohm">k&#937;</abbr>). Da er det gunstig med <em>lav oppl&#248;sning</em> for &#171;lette trykk&#187; og <em>h&#248;y oppl&#248;sning</em> for &#171;harde trykk&#187;. Det vil si at vi bruker en st&#248;rre del av intervallet av \(V_{IN}\)-verdier til &#229; differensiere mellom de &#171;harde trykkene&#187;, mens de &#171;lette trykkene&#187; delegeres til et snevrere utsnitt.</p>
 
-<p>Veier vi disse hensynene opp mot hverandre, ser vi at en motstand p&#229; 8&#8210;15 <abbr title="kiloohm">k&#937;</abbr> kan v&#230;re egnet. Dette gir \(V_{IN\text{min}} = \text{0,24&#8210;0,43}\) V, som svarer til <span class="code"><code id="adc-variabel-5">ADC_VARIABEL</code><button class="btn clippy" data-clipboard-target="#adc-variabel-5" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> = 19&#8210;33: godt over det ideelle nullniv&#229;et, og god utnyttelse av verdiomr&#229;det.</p>
+<p>Veier vi disse hensynene opp mot hverandre, ser vi at en motstand p&#229; 8&#8210;15 <abbr title="kiloohm">k&#937;</abbr> kan v&#230;re egnet. Dette gir \(V_{IN\text{min}} = \text{0,24&#8210;0,43}\) V, som svarer til <span class="code"><code id="adc-variabel-5">ADC_VARIABEL</code></span> = 19&#8210;33: godt over det ideelle nullniv&#229;et, og god utnyttelse av verdiomr&#229;det.</p>
 
 <p>Men hvordan fungerer sensorene i praksis? Endres sensorresistansen over tid? Er nullniv&#229;et alltid 0 V? For &#229; f&#229; svar p&#229; disse sp&#248;rsm&#229;lene, m&#229; vi foreta noen m&#229;linger.</p>
 </div>
@@ -1707,7 +1707,7 @@ MathJax.Hub.Config({
 </blockquote>
 
 <aside class="sidenote">
-<p><sup class="ref-mark"><a href="#fnref4" id="sidenote4" title="Atmel har laget et USB Human Interface Device (HID)-kompatibelt musegrensesnitt for mikrokontrolleren.[4] Ved &#229; bruke dette sparer prosjektgruppen ytterligere med arbeidstid, men dette betyr at avlest data m&#229; behandles av mikrokontrolleren f&#248;r den sendes til PC (for databehandling, se kapittel 6)."><span class="left-bracket">[</span>4<span class="right-bracket">]</span></a></sup>Lisensen for den medf&#248;lgende programvaren til Atmel er gitt i <span class="code"><code id="licensetxt">LICENSE.TXT</code><button class="btn clippy" data-clipboard-target="#licensetxt" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> i [<a href="#ref-program" title="[Vedlegg 1] Programkode, dokumentert.">Vedlegg 1</a>]. <a class="footnote-backref" href="#fnref4" title="Atmel har laget et USB Human Interface Device (HID)-kompatibelt musegrensesnitt for mikrokontrolleren.[4] Ved &#229; bruke dette sparer prosjektgruppen ytterligere med arbeidstid, men dette betyr at avlest data m&#229; behandles av mikrokontrolleren f&#248;r den sendes til PC (for databehandling, se kapittel 6).">&#8617;&#65038;</a></p>
+<p><sup class="ref-mark"><a href="#fnref4" id="sidenote4" title="Atmel har laget et USB Human Interface Device (HID)-kompatibelt musegrensesnitt for mikrokontrolleren.[4] Ved &#229; bruke dette sparer prosjektgruppen ytterligere med arbeidstid, men dette betyr at avlest data m&#229; behandles av mikrokontrolleren f&#248;r den sendes til PC (for databehandling, se kapittel 6)."><span class="left-bracket">[</span>4<span class="right-bracket">]</span></a></sup>Lisensen for den medf&#248;lgende programvaren til Atmel er gitt i <span class="code"><code id="licensetxt">LICENSE.TXT</code></span> i [<a href="#ref-program" title="[Vedlegg 1] Programkode, dokumentert.">Vedlegg 1</a>]. <a class="footnote-backref" href="#fnref4" title="Atmel har laget et USB Human Interface Device (HID)-kompatibelt musegrensesnitt for mikrokontrolleren.[4] Ved &#229; bruke dette sparer prosjektgruppen ytterligere med arbeidstid, men dette betyr at avlest data m&#229; behandles av mikrokontrolleren f&#248;r den sendes til PC (for databehandling, se kapittel 6).">&#8617;&#65038;</a></p>
 </aside>
 
 <p>Atmel har laget et <abbr class="acronym" title="Universal Serial Bus">USB</abbr> Human Interface Device (<abbr class="acronym" title="Human Interface Device">HID</abbr>)-kompatibelt musegrensesnitt for mikrokontrolleren.<sup class="footnote-ref"><a href="#fn4" id="fnref4" title="Lisensen for den medf&#248;lgende programvaren til Atmel er gitt i LICENSE.TXT i [Vedlegg 1]."><span class="left-bracket">[</span>4<span class="right-bracket">]</span></a></sup> Ved &#229; bruke dette sparer prosjektgruppen ytterligere med arbeidstid, men dette betyr at avlest data m&#229; behandles av mikrokontrolleren f&#248;r den sendes til <abbr class="acronym" title="Personal Computer">PC</abbr> (for databehandling, se <a href="#sec-funksjonalitet" title="6 Funksjonalitet">kapittel 6</a>).</p>
@@ -2676,7 +2676,7 @@ MathJax.Hub.Config({
 <h2><a aria-hidden="true" class="header-anchor" href="#vedlegg-1-programkode" title="Vedlegg 1: Programkode"></a>Vedlegg 1: Programkode<a aria-controls="vedlegg-1-programkode-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#vedlegg-1-programkode-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h2>
 
 <div class="collapse in" id="vedlegg-1-programkode-section">
-<p>Plassert i mappen <span class="code"><code id="program">/Program</code><button class="btn clippy" data-clipboard-target="#program" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>. Lisens for Atmel-kode har plasseringen <span class="code"><code id="program-at90usb128-demo-series6-hidmouse-licensetxt">/Program/at90usb128/demo/series6-hidmouse/LICENSE.txt</code><button class="btn clippy" data-clipboard-target="#program-at90usb128-demo-series6-hidmouse-licensetxt" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>.</p>
+<p>Plassert i mappen <span class="code"><code id="program">/Program</code></span>. Lisens for Atmel-kode har plasseringen <span class="code"><code id="program-at90usb128-demo-series6-hidmouse-licensetxt">/Program/at90usb128/demo/series6-hidmouse/LICENSE.txt</code></span>.</p>
 </div>
 </section>
 
@@ -2684,7 +2684,7 @@ MathJax.Hub.Config({
 <h2><a aria-hidden="true" class="header-anchor" href="#vedlegg-2-datablad-for-interlink-sensorer" title="Vedlegg 2: Datablad for Interlink-sensorer"></a>Vedlegg 2: Datablad for Interlink-sensorer<a aria-controls="vedlegg-2-datablad-for-interlink-sensorer-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#vedlegg-2-datablad-for-interlink-sensorer-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h2>
 
 <div class="collapse in" id="vedlegg-2-datablad-for-interlink-sensorer-section">
-<p>Plassert i mappen <span class="code"><code id="datablader-trykksensorer">/Datablader/Trykksensorer</code><button class="btn clippy" data-clipboard-target="#datablader-trykksensorer" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>.</p>
+<p>Plassert i mappen <span class="code"><code id="datablader-trykksensorer">/Datablader/Trykksensorer</code></span>.</p>
 </div>
 </section>
 
@@ -2692,7 +2692,7 @@ MathJax.Hub.Config({
 <h2><a aria-hidden="true" class="header-anchor" href="#vedlegg-3-datablad-for-at90usbkey" title="Vedlegg 3: Datablad for AT90USBKey"></a>Vedlegg 3: Datablad for AT90USBKey<a aria-controls="vedlegg-3-datablad-for-at90usbkey-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#vedlegg-3-datablad-for-at90usbkey-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h2>
 
 <div class="collapse in" id="vedlegg-3-datablad-for-at90usbkey-section">
-<p>Plassert i mappen <span class="code"><code id="datablader-kretskort">/Datablader/Kretskort</code><button class="btn clippy" data-clipboard-target="#datablader-kretskort" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>.</p>
+<p>Plassert i mappen <span class="code"><code id="datablader-kretskort">/Datablader/Kretskort</code></span>.</p>
 </div>
 </section>
 
@@ -2700,7 +2700,7 @@ MathJax.Hub.Config({
 <h2><a aria-hidden="true" class="header-anchor" href="#vedlegg-4-datablad-for-mikrokontrolleren" title="Vedlegg 4: Datablad for mikrokontrolleren"></a>Vedlegg 4: Datablad for mikrokontrolleren<a aria-controls="vedlegg-4-datablad-for-mikrokontrolleren-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#vedlegg-4-datablad-for-mikrokontrolleren-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h2>
 
 <div class="collapse in" id="vedlegg-4-datablad-for-mikrokontrolleren-section">
-<p>Plassert i mappen <span class="code"><code id="datablader-mikrokontroller">/Datablader/Mikrokontroller</code><button class="btn clippy" data-clipboard-target="#datablader-mikrokontroller" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>.</p>
+<p>Plassert i mappen <span class="code"><code id="datablader-mikrokontroller">/Datablader/Mikrokontroller</code></span>.</p>
 </div>
 </section>
 </div>
@@ -2724,7 +2724,7 @@ MathJax.Hub.Config({
 </li>
 
 <li class="footnote-item" id="fn4">
-<p>Lisensen for den medf&#248;lgende programvaren til Atmel er gitt i <span class="code"><code id="licensetxt">LICENSE.TXT</code><button class="btn clippy" data-clipboard-target="#licensetxt" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> i [<a href="#ref-program" title="[Vedlegg 1] Programkode, dokumentert.">Vedlegg 1</a>]. <a class="footnote-backref" href="#fnref4" title="Atmel har laget et USB Human Interface Device (HID)-kompatibelt musegrensesnitt for mikrokontrolleren.[4] Ved &#229; bruke dette sparer prosjektgruppen ytterligere med arbeidstid, men dette betyr at avlest data m&#229; behandles av mikrokontrolleren f&#248;r den sendes til PC (for databehandling, se kapittel 6).">&#8617;&#65038;</a></p>
+<p>Lisensen for den medf&#248;lgende programvaren til Atmel er gitt i <span class="code"><code id="licensetxt">LICENSE.TXT</code></span> i [<a href="#ref-program" title="[Vedlegg 1] Programkode, dokumentert.">Vedlegg 1</a>]. <a class="footnote-backref" href="#fnref4" title="Atmel har laget et USB Human Interface Device (HID)-kompatibelt musegrensesnitt for mikrokontrolleren.[4] Ved &#229; bruke dette sparer prosjektgruppen ytterligere med arbeidstid, men dette betyr at avlest data m&#229; behandles av mikrokontrolleren f&#248;r den sendes til PC (for databehandling, se kapittel 6).">&#8617;&#65038;</a></p>
 </li>
 
 <li class="footnote-item" id="fn5">

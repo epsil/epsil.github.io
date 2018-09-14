@@ -76,10 +76,9 @@
 
 <section class="e-content sidenotes">
 <section>
-<p>Rediger filen <span class="code"><code id="etc-fstab">/etc/fstab</code><button class="btn clippy" data-clipboard-target="#etc-fstab" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>:</p>
+<p>Rediger filen <span class="code"><code id="etc-fstab">/etc/fstab</code></span>:</p>
 
-<div class="pre"><button class="btn clippy" data-clipboard-target="#sudo-vi-etc-fstab" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
-
+<div class="pre">
 <pre id="sudo-vi-etc-fstab">
 <code>sudo vi /etc/fstab</code>
 </pre>
@@ -87,19 +86,17 @@
 
 <p>Legg til:</p>
 
-<div class="pre"><button class="btn clippy" data-clipboard-target="#labeldrive-name-none-ntfs-rwautonobrowse" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
-
+<div class="pre">
 <pre id="labeldrive-name-none-ntfs-rwautonobrowse">
 <code>LABEL=DRIVE_NAME none ntfs rw,auto,nobrowse</code>
 </pre>
 </div>
 
-<p>(Hvis disken har et komplisert navn, finn <abbr class="acronym" title="Universally Unique Identifier"><span class="caps">UUID</span></abbr>-en med <span class="code"><code id="diskutil-info-volumes-drivename-grep-uuid">diskutil info /Volumes/DRIVENAME | grep UUID</code><button class="btn clippy" data-clipboard-target="#diskutil-info-volumes-drivename-grep-uuid" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> og skriv <span class="code"><code id="uuid">UUID=...</code><button class="btn clippy" data-clipboard-target="#uuid" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> istedenfor.)</p>
+<p>(Hvis disken har et komplisert navn, finn <abbr class="acronym" title="Universally Unique Identifier"><span class="caps">UUID</span></abbr>-en med <span class="code"><code id="diskutil-info-volumes-drivename-grep-uuid">diskutil info /Volumes/DRIVENAME | grep UUID</code></span> og skriv <span class="code"><code id="uuid">UUID=...</code></span> istedenfor.)</p>
 
 <p>Disken vil ikke vises som en vanlig disk, men kan &#229;pnes i Finder med:</p>
 
-<div class="pre"><button class="btn clippy" data-clipboard-target="#open-volumes-drivename" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
-
+<div class="pre">
 <pre id="open-volumes-drivename">
 <code>open /Volumes/DRIVENAME</code>
 </pre>
@@ -107,8 +104,7 @@
 
 <p>Alternativt kan man legge til en snarvei p&#229; skrivebordet:</p>
 
-<div class="pre"><button class="btn clippy" data-clipboard-target="#sudo-ln-s-volumes-drivename-desktop-drivename" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
-
+<div class="pre">
 <pre id="sudo-ln-s-volumes-drivename-desktop-drivename">
 <code>sudo ln -s /Volumes/DRIVENAME ~/Desktop/DRIVENAME</code>
 </pre>

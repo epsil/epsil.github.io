@@ -68,7 +68,7 @@
 
 <article class="h-entry" id="main">
 <header>
-<h1 class="p-name"><a class="u-uid u-url" href="https://epsil.github.io/blog/2013/12/20/" rel="bookmark" target="_blank" title="Permalink">Starte Gollum med <span class="code"><code id="launchd">launchd</code><button class="btn clippy" data-clipboard-target="#launchd" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span></a>
+<h1 class="p-name"><a class="u-uid u-url" href="https://epsil.github.io/blog/2013/12/20/" rel="bookmark" target="_blank" title="Permalink">Starte Gollum med <span class="code"><code id="launchd">launchd</code></span></a>
 </h1>
 
 <p class="author"><a class="p-author h-card" href="https://epsil.github.io/" target="_blank" title="Open epsil.github.io in a new window">Vegard &#216;ye</a> &#8226; <time class="dt-published" datetime="2013-12-20">2013-12-20</time></p>
@@ -76,10 +76,9 @@
 
 <section class="e-content sidenotes">
 <section>
-<p>P&#229; <abbr class="acronym" title="Operating System 10"><span class="caps">OS</span> X</abbr> startes <a href="https://github.com/gollum/gollum" target="_blank" title="Open github.com in a new window">Gollum</a> automatisk med <a href="http://www.nomachetejuggling.com/2012/05/15/personal-wiki-using-github-and-gollum-on-os-x/" target="_blank" title="Open nomachetejuggling.com in a new window"><span class="code"><code id="launchd-2">launchd</code><button class="btn clippy" data-clipboard-target="#launchd-2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span></a>. Opprett en fil <span class="code"><code id="library-launchagents-compersonalwikigollumplist">~/Library/LaunchAgents/com.personalwiki.gollum.plist</code><button class="btn clippy" data-clipboard-target="#library-launchagents-compersonalwikigollumplist" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> (med eksklusive <a href="http://stackoverflow.com/questions/16809861/launchd-doesnt-launch-my-daemon" target="_blank" title="Open stackoverflow.com in a new window">rettigheter</a>, <abbr title="det vil si">dvs.</abbr> <span class="code"><code id="chmod-600">chmod 600</code><button class="btn clippy" data-clipboard-target="#chmod-600" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>) som inneholder dette:</p>
+<p>P&#229; <abbr class="acronym" title="Operating System 10"><span class="caps">OS</span> X</abbr> startes <a href="https://github.com/gollum/gollum" target="_blank" title="Open github.com in a new window">Gollum</a> automatisk med <a href="http://www.nomachetejuggling.com/2012/05/15/personal-wiki-using-github-and-gollum-on-os-x/" target="_blank" title="Open nomachetejuggling.com in a new window"><span class="code"><code id="launchd-2">launchd</code></span></a>. Opprett en fil <span class="code"><code id="library-launchagents-compersonalwikigollumplist">~/Library/LaunchAgents/com.personalwiki.gollum.plist</code></span> (med eksklusive <a href="http://stackoverflow.com/questions/16809861/launchd-doesnt-launch-my-daemon" target="_blank" title="Open stackoverflow.com in a new window">rettigheter</a>, <abbr title="det vil si">dvs.</abbr> <span class="code"><code id="chmod-600">chmod 600</code></span>) som inneholder dette:</p>
 
-<div class="pre"><button class="btn clippy" data-clipboard-target="#xml-version10-encodingutf-8-doctype-plist-public-apple-dtd-plist-10-en-http-wwwapplecom-dtds-propertylist-10dtd-plist-version10-dict-keylabel-key-stringcomusergollum-string-keyprogramarguments-key-array-string-usr-bin-gollum-string-string-users-vegard-documents-wiki-string-array-keyrunatload-key-true-dict-plist" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
-
+<div class="pre">
 <pre id="xml-version10-encodingutf-8-doctype-plist-public-apple-dtd-plist-10-en-http-wwwapplecom-dtds-propertylist-10dtd-plist-version10-dict-keylabel-key-stringcomusergollum-string-keyprogramarguments-key-array-string-usr-bin-gollum-string-string-users-vegard-documents-wiki-string-array-keyrunatload-key-true-dict-plist">
 <code class="language-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"<span class="caps">UTF</span>-8"</span><span class="hljs-meta">?&gt;</span></span>
 <span class="hljs-meta">&lt;!<span class="caps">DOCTYPE</span> plist <span class="caps">PUBLIC</span> "-//Apple//<span class="caps">DTD</span> <span class="caps">PLIST</span> 1.0//<span class="caps">EN</span>"
@@ -102,10 +101,9 @@
 
 <hr>
 
-<p><strong>Oppdatering 2016-07-29:</strong> &#197; f&#229; <a href="https://github.com/indexzero/http-server" target="_blank" title="Open github.com in a new window">http-server</a> til &#229; starte automatisk krever at man eksplisitt oppgir plasseringen til <span class="code"><code id="node">node</code><button class="btn clippy" data-clipboard-target="#node" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>, for <a href="http://apple.stackexchange.com/questions/106355/setting-the-system-wide-path-environment-variable-in-mavericks" target="_blank" title="Open apple.stackexchange.com in a new window"><span class="code"><code id="launchd-3">launchd</code><button class="btn clippy" data-clipboard-target="#launchd-3" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> leser ikke <span class="code"><code id="usr-local-bin">/usr/local/bin</code><button class="btn clippy" data-clipboard-target="#usr-local-bin" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span></a>. Serveren startes med Bash-skriptet <span class="code"><code id="start-httpserversh">start_httpserver.sh</code><button class="btn clippy" data-clipboard-target="#start-httpserversh" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>:</p>
+<p><strong>Oppdatering 2016-07-29:</strong> &#197; f&#229; <a href="https://github.com/indexzero/http-server" target="_blank" title="Open github.com in a new window">http-server</a> til &#229; starte automatisk krever at man eksplisitt oppgir plasseringen til <span class="code"><code id="node">node</code></span>, for <a href="http://apple.stackexchange.com/questions/106355/setting-the-system-wide-path-environment-variable-in-mavericks" target="_blank" title="Open apple.stackexchange.com in a new window"><span class="code"><code id="launchd-3">launchd</code></span> leser ikke <span class="code"><code id="usr-local-bin">/usr/local/bin</code></span></a>. Serveren startes med Bash-skriptet <span class="code"><code id="start-httpserversh">start_httpserver.sh</code></span>:</p>
 
-<div class="pre"><button class="btn clippy" data-clipboard-target="#bin-bash-node-usr-local-bin-node-program-usr-local-bin-http-server-httpservernode-program-dir-cd-dirname-bash-source0-pwd-cd-dir-httpserver-p-8000" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
-
+<div class="pre">
 <pre id="bin-bash-node-usr-local-bin-node-program-usr-local-bin-http-server-httpservernode-program-dir-cd-dirname-bash-source0-pwd-cd-dir-httpserver-p-8000">
 <code class="language-bash"><span class="hljs-meta">#!/bin/bash</span>
 <span class="caps">NODE</span>=<span class="hljs-string">"/usr/local/bin/node"</span>
@@ -118,10 +116,9 @@ cd "</span><span class="hljs-variable">$<span class="caps">DIR</span></span><spa
 </pre>
 </div>
 
-<p>Skriptet refereres s&#229; av <span class="code"><code id="library-launchagents-compersonalwikihttpserverplist">~/Library/LaunchAgents/com.personalwiki.httpserver.plist</code><button class="btn clippy" data-clipboard-target="#library-launchagents-compersonalwikihttpserverplist" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>:</p>
+<p>Skriptet refereres s&#229; av <span class="code"><code id="library-launchagents-compersonalwikihttpserverplist">~/Library/LaunchAgents/com.personalwiki.httpserver.plist</code></span>:</p>
 
-<div class="pre"><button class="btn clippy" data-clipboard-target="#xml-version10-encodingutf-8-doctype-plist-public-apple-dtd-plist-10-en-http-wwwapplecom-dtds-propertylist-10dtd-plist-version10-dict-keylabel-key-stringcomuserhttpserver-string-keyprogramarguments-key-array-string-users-vegard-documents-wiki-start-httpserversh-string-array-keyrunatload-key-true-keystandarderrorpath-key-string-tmp-mycommanderr-string-keystandardoutpath-key-string-tmp-mycommandout-string-dict-plist" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
-
+<div class="pre">
 <pre id="xml-version10-encodingutf-8-doctype-plist-public-apple-dtd-plist-10-en-http-wwwapplecom-dtds-propertylist-10dtd-plist-version10-dict-keylabel-key-stringcomuserhttpserver-string-keyprogramarguments-key-array-string-users-vegard-documents-wiki-start-httpserversh-string-array-keyrunatload-key-true-keystandarderrorpath-key-string-tmp-mycommanderr-string-keystandardoutpath-key-string-tmp-mycommandout-string-dict-plist">
 <code class="language-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"<span class="caps">UTF</span>-8"</span><span class="hljs-meta">?&gt;</span></span>
 <span class="hljs-meta">&lt;!<span class="caps">DOCTYPE</span> plist <span class="caps">PUBLIC</span> "-//Apple//<span class="caps">DTD</span> <span class="caps">PLIST</span> 1.0//<span class="caps">EN</span>"
@@ -145,7 +142,7 @@ cd "</span><span class="hljs-variable">$<span class="caps">DIR</span></span><spa
 </pre>
 </div>
 
-<p>For &#229; kunne <a href="http://stackoverflow.com/questions/6337513/how-can-i-debug-a-launchd-script-that-doesnt-run-on-startup#answer-29926482" target="_blank" title="Open stackoverflow.com in a new window">debugge <span class="code"><code id="launchd-4">launchd</code><button class="btn clippy" data-clipboard-target="#launchd-4" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span></a> dersom noe skulle g&#229; galt, loggf&#248;res resultatet til <span class="code"><code id="standarderrorpath">StandardErrorPath</code><button class="btn clippy" data-clipboard-target="#standarderrorpath" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> og <span class="code"><code id="standardoutpath">StandardOutPath</code><button class="btn clippy" data-clipboard-target="#standardoutpath" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>.</p>
+<p>For &#229; kunne <a href="http://stackoverflow.com/questions/6337513/how-can-i-debug-a-launchd-script-that-doesnt-run-on-startup#answer-29926482" target="_blank" title="Open stackoverflow.com in a new window">debugge <span class="code"><code id="launchd-4">launchd</code></span></a> dersom noe skulle g&#229; galt, loggf&#248;res resultatet til <span class="code"><code id="standarderrorpath">StandardErrorPath</code></span> og <span class="code"><code id="standardoutpath">StandardOutPath</code></span>.</p>
 </section>
 </section>
 </article>

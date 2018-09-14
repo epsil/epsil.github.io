@@ -76,19 +76,17 @@
 
 <section class="e-content sidenotes">
 <section>
-<p>Pakkeh&#229;ndtering p&#229; <abbr class="acronym" title="Operating System 10"><span class="caps">OS</span> X</abbr> er et herk uten like. Her er det som skulle til for &#229; installere Python-biblioteket <a href="http://eyed3.nicfit.net/installation.html" target="_blank" title="Open eyed3.nicfit.net in a new window">eyeD3</a> med <span class="code"><code id="pip">pip</code><button class="btn clippy" data-clipboard-target="#pip" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>. F&#248;rst, <a href="http://www.pip-installer.org/en/latest/installing.html" target="_blank" title="Open pip-installer.org in a new window">installer pip</a> med <span class="code"><code id="easy-install">easy_install</code><button class="btn clippy" data-clipboard-target="#easy-install" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>:</p>
+<p>Pakkeh&#229;ndtering p&#229; <abbr class="acronym" title="Operating System 10"><span class="caps">OS</span> X</abbr> er et herk uten like. Her er det som skulle til for &#229; installere Python-biblioteket <a href="http://eyed3.nicfit.net/installation.html" target="_blank" title="Open eyed3.nicfit.net in a new window">eyeD3</a> med <span class="code"><code id="pip">pip</code></span>. F&#248;rst, <a href="http://www.pip-installer.org/en/latest/installing.html" target="_blank" title="Open pip-installer.org in a new window">installer pip</a> med <span class="code"><code id="easy-install">easy_install</code></span>:</p>
 
-<div class="pre"><button class="btn clippy" data-clipboard-target="#sudo-easy-install-pip" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
-
+<div class="pre">
 <pre id="sudo-easy-install-pip">
 <code>sudo easy_install pip</code>
 </pre>
 </div>
 
-<p>Deretter kan det v&#230;re n&#248;dvendig &#229; oppgradere <span class="code"><code id="setuptools">setuptools</code><button class="btn clippy" data-clipboard-target="#setuptools" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>:</p>
+<p>Deretter kan det v&#230;re n&#248;dvendig &#229; oppgradere <span class="code"><code id="setuptools">setuptools</code></span>:</p>
 
-<div class="pre"><button class="btn clippy" data-clipboard-target="#pip-install-upgrade-setuptools" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
-
+<div class="pre">
 <pre id="pip-install-upgrade-setuptools">
 <code>pip install --upgrade setuptools</code>
 </pre>
@@ -96,8 +94,7 @@
 
 <p>Hvis dette ikke fungerer, pr&#248;v:</p>
 
-<div class="pre"><button class="btn clippy" data-clipboard-target="#sudo-pip-install-no-use-wheel-upgrade-setuptools" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
-
+<div class="pre">
 <pre id="sudo-pip-install-no-use-wheel-upgrade-setuptools">
 <code>sudo pip install --no-use-wheel --upgrade setuptools</code>
 </pre>
@@ -105,19 +102,17 @@
 
 <p>Alternativt, last ned og kj&#248;r det offisielle <a href="https://pypi.python.org/pypi/setuptools#unix-based-systems-including-mac-os-x" target="_blank" title="Open pypi.python.org in a new window">installasjonsskriptet</a>:</p>
 
-<div class="pre"><button class="btn clippy" data-clipboard-target="#wget-https-bitbucketorg-pypa-setuptools-raw-bootstrap-ez-setuppy-o-sudo-python" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
-
+<div class="pre">
 <pre id="wget-https-bitbucketorg-pypa-setuptools-raw-bootstrap-ez-setuppy-o-sudo-python">
 <code>wget https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py -O - | sudo python</code>
 </pre>
 </div>
 
-<p>(Hvis <span class="code"><code id="wget">wget</code><button class="btn clippy" data-clipboard-target="#wget" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> ikke er installert enn&#229;, gj&#248;r <span class="code"><code id="brew-install-wget">brew install wget</code><button class="btn clippy" data-clipboard-target="#brew-install-wget" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>. Hvis <span class="code"><code id="brew">brew</code><button class="btn clippy" data-clipboard-target="#brew" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> krangler, kj&#248;r <span class="code"><code id="brew-doctor">brew doctor</code><button class="btn clippy" data-clipboard-target="#brew-doctor" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> og p&#229;se at filrettigheter er som de skal v&#230;re.)</p>
+<p>(Hvis <span class="code"><code id="wget">wget</code></span> ikke er installert enn&#229;, gj&#248;r <span class="code"><code id="brew-install-wget">brew install wget</code></span>. Hvis <span class="code"><code id="brew">brew</code></span> krangler, kj&#248;r <span class="code"><code id="brew-doctor">brew doctor</code></span> og p&#229;se at filrettigheter er som de skal v&#230;re.)</p>
 
-<p>N&#229;r <span class="code"><code id="pip-2">pip</code><button class="btn clippy" data-clipboard-target="#pip-2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> <em>og</em> <span class="code"><code id="setuptools-2">setuptools</code><button class="btn clippy" data-clipboard-target="#setuptools-2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> er installert, kan <span class="code"><code id="pip-3">pip</code><button class="btn clippy" data-clipboard-target="#pip-3" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>-pakken for <span class="code"><code id="eye3d">eye3D</code><button class="btn clippy" data-clipboard-target="#eye3d" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> finnes med <span class="code"><code id="pip-search">pip search</code><button class="btn clippy" data-clipboard-target="#pip-search" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>:</p>
+<p>N&#229;r <span class="code"><code id="pip-2">pip</code></span> <em>og</em> <span class="code"><code id="setuptools-2">setuptools</code></span> er installert, kan <span class="code"><code id="pip-3">pip</code></span>-pakken for <span class="code"><code id="eye3d">eye3D</code></span> finnes med <span class="code"><code id="pip-search">pip search</code></span>:</p>
 
-<div class="pre"><button class="btn clippy" data-clipboard-target="#pip-search-eyed3-pip-install-eyed3-pip" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
-
+<div class="pre">
 <pre id="pip-search-eyed3-pip-install-eyed3-pip">
 <code>pip search eyeD3
 pip install eyeD3-pip</code>

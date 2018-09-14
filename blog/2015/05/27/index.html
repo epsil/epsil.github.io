@@ -76,12 +76,11 @@
 
 <section class="e-content sidenotes">
 <section>
-<p>En oppgradering av Gollum til versjon 4.0.0 skapte visse problemer med Markdown-koden (ingen st&#248;tte for gjennomstreking, problemer med underlister). Det ser ut til at denne versjonen bruker Gem-pakken <span class="code"><code id="github-markup">github-markup</code><button class="btn clippy" data-clipboard-target="#github-markup" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> for &#229; h&#229;ndtere Markdown, ikke <span class="code"><code id="redcarpet">redcarpet</code><button class="btn clippy" data-clipboard-target="#redcarpet" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> eller <span class="code"><code id="kramdown">kramdown</code><button class="btn clippy" data-clipboard-target="#kramdown" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>.</p>
+<p>En oppgradering av Gollum til versjon 4.0.0 skapte visse problemer med Markdown-koden (ingen st&#248;tte for gjennomstreking, problemer med underlister). Det ser ut til at denne versjonen bruker Gem-pakken <span class="code"><code id="github-markup">github-markup</code></span> for &#229; h&#229;ndtere Markdown, ikke <span class="code"><code id="redcarpet">redcarpet</code></span> eller <span class="code"><code id="kramdown">kramdown</code></span>.</p>
 
-<p>Martin Wolf har laget en <span class="code"><code id="configrb">config.rb</code><button class="btn clippy" data-clipboard-target="#configrb" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>-fil som gj&#248;r at Gollum bruker <a href="http://mwolf.net/2014/04/29/adding-pandoc-to-gollum/" target="_blank" title="Open mwolf.net in a new window">Pandoc</a>:</p>
+<p>Martin Wolf har laget en <span class="code"><code id="configrb">config.rb</code></span>-fil som gj&#248;r at Gollum bruker <a href="http://mwolf.net/2014/04/29/adding-pandoc-to-gollum/" target="_blank" title="Open mwolf.net in a new window">Pandoc</a>:</p>
 
-<div class="pre"><button class="btn clippy" data-clipboard-target="#require-github-markup-ci-githubmarkupcommandimplementationnew-mdmkdnmdwnmdownmarkdownlitcoffee-pandoc-f-markdown-tex-math-dollars-raw-tex-our-command-needs-to-go-to-the-front-of-the-queue-in-order-to-take-precedence-before-the-stock-githubmarkupmarkdown-implementation-githubmarkupmarkupsunshiftci" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
-
+<div class="pre">
 <pre id="require-github-markup-ci-githubmarkupcommandimplementationnew-mdmkdnmdwnmdownmarkdownlitcoffee-pandoc-f-markdown-tex-math-dollars-raw-tex-our-command-needs-to-go-to-the-front-of-the-queue-in-order-to-take-precedence-before-the-stock-githubmarkupmarkdown-implementation-githubmarkupmarkupsunshiftci">
 <code class="language-ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">"github/markup"</span>
 
@@ -94,7 +93,7 @@ GitHub::Markup::markups.unshift(ci)</code>
 </pre>
 </div>
 
-<p>Dette forutsetter at Gollum startes med opsjonen <span class="code"><code id="config">--config</code><button class="btn clippy" data-clipboard-target="#config" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>.</p>
+<p>Dette forutsetter at Gollum startes med opsjonen <span class="code"><code id="config">--config</code></span>.</p>
 </section>
 </section>
 </article>

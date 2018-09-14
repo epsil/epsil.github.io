@@ -78,8 +78,7 @@
 <section>
 <p>JavaScript har forandret seg mye de siste &#229;rene. F&#248;rst har man <a href="https://developer.mozilla.org/en/Gecko_DOM_Reference/Introduction#Core_Interfaces_in_the_DOM" target="_blank" title="Open developer.mozilla.org in a new window">Document Object Model</a> (<abbr class="acronym" title="Document Object Model"><span class="caps">DOM</span></abbr>), som implementeres litt forskjellig av hver nettleser og i grunn er ganske omstendelig:</p>
 
-<div class="pre"><button class="btn clippy" data-clipboard-target="#var-elmnewcontent-documentcreateelementa-elmnewcontenthref-http-wwwexamplecom-elmnewcontentappendchilddocumentcreatetextnodeclick-here-var-elmfoo-documentgetelementbyidfoo-elmfooparentnodeinsertbeforeelmnewcontent-elmfoo" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
-
+<div class="pre">
 <pre id="var-elmnewcontent-documentcreateelementa-elmnewcontenthref-http-wwwexamplecom-elmnewcontentappendchilddocumentcreatetextnodeclick-here-var-elmfoo-documentgetelementbyidfoo-elmfooparentnodeinsertbeforeelmnewcontent-elmfoo">
 <code class="language-javascript"><span class="hljs-keyword">var</span> elmNewContent = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'a'</span>);
 elmNewContent.href = <span class="hljs-string">'http://www.example.com/'</span>;
@@ -101,8 +100,7 @@ elmFoo.parentNode.insertBefore(elmNewContent, elmFoo);</code>
 
 <p>Det m&#229; imidlertid p&#229;pekes at Greasemonkey ikke n&#248;dvendigvis er <a href="http://wiki.greasespot.net/Third-Party_Libraries#jQuery" target="_blank" title="Open wiki.greasespot.net in a new window">kompatibel</a> med siste versjon av jQuery. Versjon 1.3.2 virker, men 1.4.1 gj&#248;r det ikke. Anbefalt bruk er:</p>
 
-<div class="pre"><button class="btn clippy" data-clipboard-target="#userscript-name-jquery-example-require-http-ajaxgoogleapiscom-ajax-libs-jquery-132-jqueryminjs-userscript" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
-
+<div class="pre">
 <pre id="userscript-name-jquery-example-require-http-ajaxgoogleapiscom-ajax-libs-jquery-132-jqueryminjs-userscript">
 <code class="language-javascript"><span class="hljs-comment">// ==UserScript==</span>
 <span class="hljs-comment">// @name          jQuery Example</span>
@@ -111,7 +109,7 @@ elmFoo.parentNode.insertBefore(elmNewContent, elmFoo);</code>
 </pre>
 </div>
 
-<p>Greasemonkey-utgaven av <a href="http://userscripts.org/scripts/show/66698" target="_blank" title="Open userscripts.org in a new window">Reddit Reveal</a> gj&#248;r <abbr title="for eksempel">f.eks.</abbr> utstrakt bruk av jQuery. Forresten har Ubuntu en pakke, <span class="code"><code id="libjs-jsquery">libjs-jsquery</code><button class="btn clippy" data-clipboard-target="#libjs-jsquery" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>, som installerer en utgave av jQuery under <span class="code"><code id="usr-share-javascript-jquery-jqueryjs">/usr/share/javascript/jquery/jquery.js</code><button class="btn clippy" data-clipboard-target="#usr-share-javascript-jquery-jqueryjs" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> (v1.7.1 i skrivende stund).</p>
+<p>Greasemonkey-utgaven av <a href="http://userscripts.org/scripts/show/66698" target="_blank" title="Open userscripts.org in a new window">Reddit Reveal</a> gj&#248;r <abbr title="for eksempel">f.eks.</abbr> utstrakt bruk av jQuery. Forresten har Ubuntu en pakke, <span class="code"><code id="libjs-jsquery">libjs-jsquery</code></span>, som installerer en utgave av jQuery under <span class="code"><code id="usr-share-javascript-jquery-jqueryjs">/usr/share/javascript/jquery/jquery.js</code></span> (v1.7.1 i skrivende stund).</p>
 
 <hr class="footnotes-sep endnotes">
 </section>

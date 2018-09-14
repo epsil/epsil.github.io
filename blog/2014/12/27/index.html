@@ -78,16 +78,15 @@
 <section>
 <p>Profilmappene til Firefox og Thunderbird kan ta stor plass p&#229; grunn av <a href="http://en.kioskea.net/faq/2285-compacting-sqlite-bases-of-firefox-3" target="_blank" title="Open en.kioskea.net in a new window">ukomprimerte SQLite-databaser</a>. Man kan komprimere dem manuelt med f&#248;lgende kommando:</p>
 
-<div class="pre"><button class="btn clippy" data-clipboard-target="#for-f-in-sqlite-do-sqlite3-f-vacuum-done" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
-
+<div class="pre">
 <pre id="for-f-in-sqlite-do-sqlite3-f-vacuum-done">
 <code>for f in *.sqlite; do sqlite3 "$f" "VACUUM"; done</code>
 </pre>
 </div>
 
-<p>Firefox-profilmappen befinner seg i <span class="code"><code id="library-application-support-firefox-profiles">~/Library/Application Support/Firefox/Profiles</code><button class="btn clippy" data-clipboard-target="#library-application-support-firefox-profiles" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> og Thunderbird-profilmappen i <span class="code"><code id="library-thunderbird-profiles">~/Library/Thunderbird/Profiles</code><button class="btn clippy" data-clipboard-target="#library-thunderbird-profiles" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>.</p>
+<p>Firefox-profilmappen befinner seg i <span class="code"><code id="library-application-support-firefox-profiles">~/Library/Application Support/Firefox/Profiles</code></span> og Thunderbird-profilmappen i <span class="code"><code id="library-thunderbird-profiles">~/Library/Thunderbird/Profiles</code></span>.</p>
 
-<p>Utvidelsen <a href="https://addons.mozilla.org/en-US/firefox/addon/epubreader/" target="_blank" title="Open addons.mozilla.org in a new window">EPUBReader</a> kan lage en stor <span class="code"><code id="epub">epub</code><button class="btn clippy" data-clipboard-target="#epub" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>-mappe i profilmappen til Firefox. Denne er det bare &#229; slette med jevne mellomrom.</p>
+<p>Utvidelsen <a href="https://addons.mozilla.org/en-US/firefox/addon/epubreader/" target="_blank" title="Open addons.mozilla.org in a new window">EPUBReader</a> kan lage en stor <span class="code"><code id="epub">epub</code></span>-mappe i profilmappen til Firefox. Denne er det bare &#229; slette med jevne mellomrom.</p>
 </section>
 </section>
 </article>

@@ -73,7 +73,7 @@
 <ul>
 <li><span class="" id="git-for-windows-2"><a href="#git-for-windows" title="Git for Windows">Git for Windows</a><a aria-controls="git-for-windows-2-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#git-for-windows-2-section" role="button"></a></span>
 <ul class="collapse in" id="git-for-windows-2-section">
-<li><a href="#update-pathext" title="Update PATHEXT">Update <span class="code"><code id="pathext">PATHEXT</code><button class="btn clippy" data-clipboard-target="#pathext" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span></a>
+<li><a href="#update-pathext" title="Update PATHEXT">Update <span class="code"><code id="pathext">PATHEXT</code></span></a>
 </li>
 </ul>
 </li>
@@ -84,10 +84,10 @@
 <li><a href="#mingw" title="MinGW"><abbr title="Minimalist GNU for Windows">MinGW</abbr></a>
 </li>
 
-<li><a href="#alias-open" title="Alias open">Alias <span class="code"><code id="open">open</code><button class="btn clippy" data-clipboard-target="#open" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span></a>
+<li><a href="#alias-open" title="Alias open">Alias <span class="code"><code id="open">open</code></span></a>
 </li>
 
-<li><a href="#alias-find" title="Alias find">Alias <span class="code"><code id="find-8">find</code><button class="btn clippy" data-clipboard-target="#find-8" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span></a>
+<li><a href="#alias-find" title="Alias find">Alias <span class="code"><code id="find-8">find</code></span></a>
 </li>
 
 <li><span class="" id="alternatives-2"><a href="#alternatives" title="Alternatives">Alternatives</a><a aria-controls="alternatives-2-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#alternatives-2-section" role="button"></a></span>
@@ -118,11 +118,11 @@
 
 <section class="e-content sidenotes">
 <section>
-<p>The following setup allows one to run Bash scripts from Windows&#8217; command prompt. It also augments it with common Unix commands like <span class="code"><code id="cp">cp</code><button class="btn clippy" data-clipboard-target="#cp" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>, <span class="code"><code id="rm-5">rm</code><button class="btn clippy" data-clipboard-target="#rm-5" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> and <span class="code"><code id="mv">mv</code><button class="btn clippy" data-clipboard-target="#mv" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>, which is useful if these are ingrained into muscle memory.</p>
+<p>The following setup allows one to run Bash scripts from Windows&#8217; command prompt. It also augments it with common Unix commands like <span class="code"><code id="cp">cp</code></span>, <span class="code"><code id="rm-5">rm</code></span> and <span class="code"><code id="mv">mv</code></span>, which is useful if these are ingrained into muscle memory.</p>
 
-<p>Note that this setup affects the <em>command prompt</em> (<abbr class="acronym" title="Also Known As"><span class="caps">AKA</span></abbr> <span class="code"><code id="cmdexe">cmd.exe</code><button class="btn clippy" data-clipboard-target="#cmdexe" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>). Although Windows 10 includes a full-fledged <a href="#standalone-shells" title="Standalone shells">Ubuntu Linux Bash Shell</a>, that shell &#8211; like PowerShell &#8211; is separate from the command prompt. Therefore, the following instructions still apply to Windows 10, as well as to earlier Windows versions. (For a brief list of standalone Bash shells for Windows, see the <a href="#standalone-shells" title="Standalone shells">discussion</a> at the end.)</p>
+<p>Note that this setup affects the <em>command prompt</em> (<abbr class="acronym" title="Also Known As"><span class="caps">AKA</span></abbr> <span class="code"><code id="cmdexe">cmd.exe</code></span>). Although Windows 10 includes a full-fledged <a href="#standalone-shells" title="Standalone shells">Ubuntu Linux Bash Shell</a>, that shell &#8211; like PowerShell &#8211; is separate from the command prompt. Therefore, the following instructions still apply to Windows 10, as well as to earlier Windows versions. (For a brief list of standalone Bash shells for Windows, see the <a href="#standalone-shells" title="Standalone shells">discussion</a> at the end.)</p>
 
-<p><em>Bash scripts</em> (with an extension of <span class="code"><code id="sh">.sh</code><button class="btn clippy" data-clipboard-target="#sh" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>) are a Unix invention, and should not be confused with <em>batch files</em> (with an extension of <span class="code"><code id="bat">.bat</code><button class="btn clippy" data-clipboard-target="#bat" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>), which are a Windows invention. However, we could say that our goal is to help Windows run Bash scripts <em>as if</em> they were batch files.</p>
+<p><em>Bash scripts</em> (with an extension of <span class="code"><code id="sh">.sh</code></span>) are a Unix invention, and should not be confused with <em>batch files</em> (with an extension of <span class="code"><code id="bat">.bat</code></span>), which are a Windows invention. However, we could say that our goal is to help Windows run Bash scripts <em>as if</em> they were batch files.</p>
 </section>
 
 <section id="git-for-windows">
@@ -140,8 +140,7 @@
 
 <p>We can now open a command prompt window and run a Bash script as follows:</p>
 
-<div class="pre"><button class="btn clippy" data-clipboard-target="#sh-scriptsh" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
-
+<div class="pre">
 <pre id="sh-scriptsh">
 <code>sh script.sh</code>
 </pre>
@@ -149,17 +148,15 @@
 
 <p>If the script accepts parameters, we just provide them at the end:</p>
 
-<div class="pre"><button class="btn clippy" data-clipboard-target="#sh-scriptsh-param1-val1-param2-val2" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
-
+<div class="pre">
 <pre id="sh-scriptsh-param1-val1-param2-val2">
 <code>sh script.sh --param1 val1 --param2 val2</code>
 </pre>
 </div>
 
-<p>Git for Windows also extends the command prompt with common Unix commands like <span class="code"><code id="cp-2">cp</code><button class="btn clippy" data-clipboard-target="#cp-2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>, <span class="code"><code id="rm-6">rm</code><button class="btn clippy" data-clipboard-target="#rm-6" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> and <span class="code"><code id="mv-2">mv</code><button class="btn clippy" data-clipboard-target="#mv-2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>:</p>
+<p>Git for Windows also extends the command prompt with common Unix commands like <span class="code"><code id="cp-2">cp</code></span>, <span class="code"><code id="rm-6">rm</code></span> and <span class="code"><code id="mv-2">mv</code></span>:</p>
 
-<div class="pre"><button class="btn clippy" data-clipboard-target="#cp-scriptsh-script2sh-rm-scriptsh-mv-script2sh-scriptsh" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
-
+<div class="pre">
 <pre id="cp-scriptsh-script2sh-rm-scriptsh-mv-script2sh-scriptsh">
 <code>cp script.sh script2.sh
 rm script.sh
@@ -167,62 +164,57 @@ mv script2.sh script.sh</code>
 </pre>
 </div>
 
-<p>Git Bash, a <a href="#standalone-shells" title="Standalone shells">standalone shell</a>, is installed as well. It can be run as a separate program, or in the command prompt. To do the latter, just type <span class="code"><code id="bash">bash</code><button class="btn clippy" data-clipboard-target="#bash" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>; to return to the standard command prompt, type <span class="code"><code id="exit">exit</code><button class="btn clippy" data-clipboard-target="#exit" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>. A <span class="code"><code id="bash-profile-3">.bash_profile</code><button class="btn clippy" data-clipboard-target="#bash-profile-3" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> file can be used to store settings between sessions. To edit this file, start Git Bash and type:</p>
+<p>Git Bash, a <a href="#standalone-shells" title="Standalone shells">standalone shell</a>, is installed as well. It can be run as a separate program, or in the command prompt. To do the latter, just type <span class="code"><code id="bash">bash</code></span>; to return to the standard command prompt, type <span class="code"><code id="exit">exit</code></span>. A <span class="code"><code id="bash-profile-3">.bash_profile</code></span> file can be used to store settings between sessions. To edit this file, start Git Bash and type:</p>
 
-<div class="pre"><button class="btn clippy" data-clipboard-target="#notepad-bash-profile" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
-
+<div class="pre">
 <pre id="notepad-bash-profile">
 <code>notepad ~/.bash_profile</code>
 </pre>
 </div>
 
-<p>(Feel free to substitute <span class="code"><code id="vi">vi</code><button class="btn clippy" data-clipboard-target="#vi" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> for <span class="code"><code id="notepad">notepad</code><button class="btn clippy" data-clipboard-target="#notepad" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> if familiar with the former.) Below is an example file that configures the history size:</p>
+<p>(Feel free to substitute <span class="code"><code id="vi">vi</code></span> for <span class="code"><code id="notepad">notepad</code></span> if familiar with the former.) Below is an example file that configures the history size:</p>
 
-<div class="pre"><button class="btn clippy" data-clipboard-target="#histsize10000-histfilesize10000" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
-
+<div class="pre">
 <pre id="histsize10000-histfilesize10000">
 <code>HISTSIZE=10000
 HISTFILESIZE=10000</code>
 </pre>
 </div>
 
-<p>Configuring Bash settings is not covered here &#8211; that is a topic in its own right. Note that Git Bash typically stores the <span class="code"><code id="bash-profile-4">.bash_profile</code><button class="btn clippy" data-clipboard-target="#bash-profile-4" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> file at <span class="code"><code id="cusersuserbash-profile">C:\Users\user\.bash_profile</code><button class="btn clippy" data-clipboard-target="#cusersuserbash-profile" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>.</p>
+<p>Configuring Bash settings is not covered here &#8211; that is a topic in its own right. Note that Git Bash typically stores the <span class="code"><code id="bash-profile-4">.bash_profile</code></span> file at <span class="code"><code id="cusersuserbash-profile">C:\Users\user\.bash_profile</code></span>.</p>
 </section>
 
 <section id="update-pathext">
-<h3><a aria-hidden="true" class="header-anchor" href="#update-pathext" title="Update PATHEXT"></a>Update <span class="code"><code id="pathext-2">PATHEXT</code><button class="btn clippy" data-clipboard-target="#pathext-2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span><a aria-controls="update-pathext-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#update-pathext-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h3>
+<h3><a aria-hidden="true" class="header-anchor" href="#update-pathext" title="Update PATHEXT"></a>Update <span class="code"><code id="pathext-2">PATHEXT</code></span><a aria-controls="update-pathext-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#update-pathext-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h3>
 
 <div class="collapse in" id="update-pathext-section">
-<p>With further refinements, we can trim the initial &#8220;<span class="code"><code id="sh-2">sh</code><button class="btn clippy" data-clipboard-target="#sh-2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>&#8221; from the script invocation in the command prompt. First, associate <span class="code"><code id="sh-3">.sh</code><button class="btn clippy" data-clipboard-target="#sh-3" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> files with <span class="code"><code id="shexe">sh.exe</code><button class="btn clippy" data-clipboard-target="#shexe" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>. To do this, create a blank <span class="code"><code id="scriptsh">script.sh</code><button class="btn clippy" data-clipboard-target="#scriptsh" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> file (with Notepad, for example) and right-click on it. Choose <em>Open with</em> from the context menu. Click <em>More apps</em> and navigate to <span class="code"><code id="cprogram-filesgitbinshexe">C:\Program Files\Git\bin\sh.exe</code><button class="btn clippy" data-clipboard-target="#cprogram-filesgitbinshexe" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>. Enable <em>Always use this app to open .sh files</em> and click <em><abbr class="acronym" title="okay"><span class="caps">OK</span></abbr></em>.</p>
+<p>With further refinements, we can trim the initial &#8220;<span class="code"><code id="sh-2">sh</code></span>&#8221; from the script invocation in the command prompt. First, associate <span class="code"><code id="sh-3">.sh</code></span> files with <span class="code"><code id="shexe">sh.exe</code></span>. To do this, create a blank <span class="code"><code id="scriptsh">script.sh</code></span> file (with Notepad, for example) and right-click on it. Choose <em>Open with</em> from the context menu. Click <em>More apps</em> and navigate to <span class="code"><code id="cprogram-filesgitbinshexe">C:\Program Files\Git\bin\sh.exe</code></span>. Enable <em>Always use this app to open .sh files</em> and click <em><abbr class="acronym" title="okay"><span class="caps">OK</span></abbr></em>.</p>
 
-<p>Next, update the value of the <span class="code"><code id="pathext-3">PATHEXT</code><button class="btn clippy" data-clipboard-target="#pathext-3" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> environmental variable. To access the variable, go to <em>Control Panel</em> &#8594; <em>System</em> &#8594; <em>Advanced</em> &#8594; <em>Environment Variables</em>. The value is a list of file extensions separated by <span class="code"><code id="n-10">;</code><button class="btn clippy" data-clipboard-target="#n-10" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>, for example:</p>
+<p>Next, update the value of the <span class="code"><code id="pathext-3">PATHEXT</code></span> environmental variable. To access the variable, go to <em>Control Panel</em> &#8594; <em>System</em> &#8594; <em>Advanced</em> &#8594; <em>Environment Variables</em>. The value is a list of file extensions separated by <span class="code"><code id="n-10">;</code></span>, for example:</p>
 
-<div class="pre"><button class="btn clippy" data-clipboard-target="#comexebatcmdvbsvbejsjsewsfwshmsc" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
-
+<div class="pre">
 <pre id="comexebatcmdvbsvbejsjsewsfwshmsc">
 <code>.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC</code>
 </pre>
 </div>
 
-<p>Add <span class="code"><code id="sh-4">;.SH</code><button class="btn clippy" data-clipboard-target="#sh-4" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> to the end:</p>
+<p>Add <span class="code"><code id="sh-4">;.SH</code></span> to the end:</p>
 
-<div class="pre"><button class="btn clippy" data-clipboard-target="#comexebatcmdvbsvbejsjsewsfwshmscsh" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
-
+<div class="pre">
 <pre id="comexebatcmdvbsvbejsjsewsfwshmscsh">
 <code>.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.SH</code>
 </pre>
 </div>
 
-<p>We can now run <span class="code"><code id="sh-5">.sh</code><button class="btn clippy" data-clipboard-target="#sh-5" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> files <em>directly</em> from the command prompt, like so:</p>
+<p>We can now run <span class="code"><code id="sh-5">.sh</code></span> files <em>directly</em> from the command prompt, like so:</p>
 
-<div class="pre"><button class="btn clippy" data-clipboard-target="#scriptsh-param1-val1-param2-val2" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
-
+<div class="pre">
 <pre id="scriptsh-param1-val1-param2-val2">
 <code>script.sh --param1 val1 --param2 val2</code>
 </pre>
 </div>
 
-<p>We can also run a <span class="code"><code id="sh-6">.sh</code><button class="btn clippy" data-clipboard-target="#sh-6" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> file by clicking on it. However, note that the <span class="code"><code id="sh-7">.sh</code><button class="btn clippy" data-clipboard-target="#sh-7" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> extension is required to identify the file as a Bash script. Windows does <em>not</em> parse the <span class="code"><code id="bin-sh">#!/bin/sh</code><button class="btn clippy" data-clipboard-target="#bin-sh" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> shebang line; to execute an extensionless script, use <span class="code"><code id="sh-8">sh</code><button class="btn clippy" data-clipboard-target="#sh-8" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> (<abbr title="exempli gratia">e.g.</abbr>, <span class="code"><code id="sh-script">sh script</code><button class="btn clippy" data-clipboard-target="#sh-script" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>).</p>
+<p>We can also run a <span class="code"><code id="sh-6">.sh</code></span> file by clicking on it. However, note that the <span class="code"><code id="sh-7">.sh</code></span> extension is required to identify the file as a Bash script. Windows does <em>not</em> parse the <span class="code"><code id="bin-sh">#!/bin/sh</code></span> shebang line; to execute an extensionless script, use <span class="code"><code id="sh-8">sh</code></span> (<abbr title="exempli gratia">e.g.</abbr>, <span class="code"><code id="sh-script">sh script</code></span>).</p>
 </div>
 </section>
 </div>
@@ -233,19 +225,17 @@ HISTFILESIZE=10000</code>
 </h2>
 
 <div class="collapse in" id="gnuwin32-section">
-<p>For even more Unix utilities, install <a href="http://gnuwin32.sourceforge.net/" target="_blank" title="Open gnuwin32.sourceforge.net in a new window">G<em>nu</em>W<em>in</em>32</a>. Ensure that its utilities are globally available by <em>appending</em> the location of G<em>nu</em>W<em>in</em>32&#8217;s executables (its <span class="code"><code id="bin-">bin/</code><button class="btn clippy" data-clipboard-target="#bin-" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> directory) to the <span class="code"><code id="path-3">PATH</code><button class="btn clippy" data-clipboard-target="#path-3" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> environment variable. The value is a list of file paths separated by <span class="code"><code id="n-11">;</code><button class="btn clippy" data-clipboard-target="#n-11" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>, for example:</p>
+<p>For even more Unix utilities, install <a href="http://gnuwin32.sourceforge.net/" target="_blank" title="Open gnuwin32.sourceforge.net in a new window">G<em>nu</em>W<em>in</em>32</a>. Ensure that its utilities are globally available by <em>appending</em> the location of G<em>nu</em>W<em>in</em>32&#8217;s executables (its <span class="code"><code id="bin-">bin/</code></span> directory) to the <span class="code"><code id="path-3">PATH</code></span> environment variable. The value is a list of file paths separated by <span class="code"><code id="n-11">;</code></span>, for example:</p>
 
-<div class="pre"><button class="btn clippy" data-clipboard-target="#systemrootsystem32systemrootcruby22bin" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
-
+<div class="pre">
 <pre id="systemrootsystem32systemrootcruby22bin">
 <code>%SystemRoot%\system32;%SystemRoot%;C:\Ruby22\bin</code>
 </pre>
 </div>
 
-<p>Thus, if G<em>nu</em>W<em>in</em>32&#8217;s executables are located in <span class="code"><code id="cgnuwin32bin">C:\GnuWin32\bin</code><button class="btn clippy" data-clipboard-target="#cgnuwin32bin" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>, simply add <span class="code"><code id="cgnuwin32bin-2">;C:\GnuWin32\bin</code><button class="btn clippy" data-clipboard-target="#cgnuwin32bin-2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> to the end:</p>
+<p>Thus, if G<em>nu</em>W<em>in</em>32&#8217;s executables are located in <span class="code"><code id="cgnuwin32bin">C:\GnuWin32\bin</code></span>, simply add <span class="code"><code id="cgnuwin32bin-2">;C:\GnuWin32\bin</code></span> to the end:</p>
 
-<div class="pre"><button class="btn clippy" data-clipboard-target="#systemrootsystem32systemrootcruby22bincgnuwin32bin" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
-
+<div class="pre">
 <pre id="systemrootsystem32systemrootcruby22bincgnuwin32bin">
 <code>%SystemRoot%\system32;%SystemRoot%;C:\Ruby22\bin;C:\GnuWin32\bin</code>
 </pre>
@@ -253,7 +243,7 @@ HISTFILESIZE=10000</code>
 
 <p>On Windows 10, the variable may be displayed as an editable list of directories. Add the directory to the bottom of the list.</p>
 
-<p>We now have a host of tools at our command. For example, <span class="code"><code id="make-2">make</code><button class="btn clippy" data-clipboard-target="#make-2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> builds a software project from a Makefile, while <span class="code"><code id="wget-2">wget</code><button class="btn clippy" data-clipboard-target="#wget-2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> downloads a file from the Internet. Peruse G<em>nu</em>W<em>in</em>32&#8217;s <a href="http://gnuwin32.sourceforge.net/packages.html" target="_blank" title="Open gnuwin32.sourceforge.net in a new window">package list</a> to get a sense of the possibilities.</p>
+<p>We now have a host of tools at our command. For example, <span class="code"><code id="make-2">make</code></span> builds a software project from a Makefile, while <span class="code"><code id="wget-2">wget</code></span> downloads a file from the Internet. Peruse G<em>nu</em>W<em>in</em>32&#8217;s <a href="http://gnuwin32.sourceforge.net/packages.html" target="_blank" title="Open gnuwin32.sourceforge.net in a new window">package list</a> to get a sense of the possibilities.</p>
 </div>
 </section>
 
@@ -262,30 +252,28 @@ HISTFILESIZE=10000</code>
 </h2>
 
 <div class="collapse in" id="mingw-section">
-<p>For additional developer tools, augment the above setup with a complete installation of <a href="http://www.mingw.org/" target="_blank" title="Open mingw.org in a new window"><abbr title="Minimalist GNU for Windows">MinGW</abbr></a>. Append its directory to <span class="code"><code id="path-4">PATH</code><button class="btn clippy" data-clipboard-target="#path-4" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> <em>after</em> the other directories.</p>
+<p>For additional developer tools, augment the above setup with a complete installation of <a href="http://www.mingw.org/" target="_blank" title="Open mingw.org in a new window"><abbr title="Minimalist GNU for Windows">MinGW</abbr></a>. Append its directory to <span class="code"><code id="path-4">PATH</code></span> <em>after</em> the other directories.</p>
 
-<p>We can now link (<span class="code"><code id="ld">ld</code><button class="btn clippy" data-clipboard-target="#ld" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>) and compile C programs (<span class="code"><code id="gcc">gcc</code><button class="btn clippy" data-clipboard-target="#gcc" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>) and C++ programs (<span class="code"><code id="g-2">g++</code><button class="btn clippy" data-clipboard-target="#g-2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>).</p>
+<p>We can now link (<span class="code"><code id="ld">ld</code></span>) and compile C programs (<span class="code"><code id="gcc">gcc</code></span>) and C++ programs (<span class="code"><code id="g-2">g++</code></span>).</p>
 </div>
 </section>
 
 <section id="alias-open">
-<h2><a aria-hidden="true" class="header-anchor" href="#alias-open" title="Alias open"></a>Alias <span class="code"><code id="open-2">open</code><button class="btn clippy" data-clipboard-target="#open-2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span><a aria-controls="alias-open-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#alias-open-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h2>
+<h2><a aria-hidden="true" class="header-anchor" href="#alias-open" title="Alias open"></a>Alias <span class="code"><code id="open-2">open</code></span><a aria-controls="alias-open-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#alias-open-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h2>
 
 <div class="collapse in" id="alias-open-section">
-<p>Windows does not have the <span class="code"><code id="open-3">open</code><button class="btn clippy" data-clipboard-target="#open-3" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> command, and none of the packages above provide it. To alias <span class="code"><code id="open-4">open</code><button class="btn clippy" data-clipboard-target="#open-4" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> to Windows&#8217; <span class="code"><code id="start">start</code><button class="btn clippy" data-clipboard-target="#start" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> command, navigate to <abbr class="acronym" title="Minimal System"><span class="caps">MSYS</span></abbr>&#8217; <span class="code"><code id="bin--2">bin/</code><button class="btn clippy" data-clipboard-target="#bin--2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> directory (<span class="code"><code id="cprogram-filesgitusrbin">C:\Program Files\Git\usr\bin</code><button class="btn clippy" data-clipboard-target="#cprogram-filesgitusrbin" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> or <span class="code"><code id="cmsys10bin">C:\msys\1.0\bin</code><button class="btn clippy" data-clipboard-target="#cmsys10bin" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>) and create an <span class="code"><code id="openbat">open.bat</code><button class="btn clippy" data-clipboard-target="#openbat" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> file containing the following:</p>
+<p>Windows does not have the <span class="code"><code id="open-3">open</code></span> command, and none of the packages above provide it. To alias <span class="code"><code id="open-4">open</code></span> to Windows&#8217; <span class="code"><code id="start">start</code></span> command, navigate to <abbr class="acronym" title="Minimal System"><span class="caps">MSYS</span></abbr>&#8217; <span class="code"><code id="bin--2">bin/</code></span> directory (<span class="code"><code id="cprogram-filesgitusrbin">C:\Program Files\Git\usr\bin</code></span> or <span class="code"><code id="cmsys10bin">C:\msys\1.0\bin</code></span>) and create an <span class="code"><code id="openbat">open.bat</code></span> file containing the following:</p>
 
-<div class="pre"><button class="btn clippy" data-clipboard-target="#echo-off-start" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
-
+<div class="pre">
 <pre id="echo-off-start">
 <code>@echo off
 start %*</code>
 </pre>
 </div>
 
-<p>For Git Bash, we need to add a Bash alias to <span class="code"><code id="bash-profile-5">.bash_profile</code><button class="btn clippy" data-clipboard-target="#bash-profile-5" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>. Start Git Bash and type:</p>
+<p>For Git Bash, we need to add a Bash alias to <span class="code"><code id="bash-profile-5">.bash_profile</code></span>. Start Git Bash and type:</p>
 
-<div class="pre"><button class="btn clippy" data-clipboard-target="#notepad-bash-profile-2" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
-
+<div class="pre">
 <pre id="notepad-bash-profile-2">
 <code>notepad ~/.bash_profile</code>
 </pre>
@@ -293,8 +281,7 @@ start %*</code>
 
 <p>Then add the following line:</p>
 
-<div class="pre"><button class="btn clippy" data-clipboard-target="#alias-openstart" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
-
+<div class="pre">
 <pre id="alias-openstart">
 <code>alias open='start'</code>
 </pre>
@@ -303,15 +290,14 @@ start %*</code>
 </section>
 
 <section id="alias-find">
-<h2><a aria-hidden="true" class="header-anchor" href="#alias-find" title="Alias find"></a>Alias <span class="code"><code id="find-9">find</code><button class="btn clippy" data-clipboard-target="#find-9" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span><a aria-controls="alias-find-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#alias-find-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h2>
+<h2><a aria-hidden="true" class="header-anchor" href="#alias-find" title="Alias find"></a>Alias <span class="code"><code id="find-9">find</code></span><a aria-controls="alias-find-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#alias-find-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h2>
 
 <div class="collapse in" id="alias-find-section">
-<p>Windows&#8217; own <span class="code"><code id="find-10">find</code><button class="btn clippy" data-clipboard-target="#find-10" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> utility shadows the Unix <span class="code"><code id="find-11">find</code><button class="btn clippy" data-clipboard-target="#find-11" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> command. To create an alias for the latter, make a copy of <span class="code"><code id="findexe">find.exe</code><button class="btn clippy" data-clipboard-target="#findexe" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>, <span class="code"><code id="find2exe">find2.exe</code><button class="btn clippy" data-clipboard-target="#find2exe" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>, in the same folder (typically <span class="code"><code id="cprogram-filesgitusrbin-2">C:\Program Files\Git\usr\bin</code><button class="btn clippy" data-clipboard-target="#cprogram-filesgitusrbin-2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>). The Unix command can now be accessed as <span class="code"><code id="find2">find2</code><button class="btn clippy" data-clipboard-target="#find2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>.</p>
+<p>Windows&#8217; own <span class="code"><code id="find-10">find</code></span> utility shadows the Unix <span class="code"><code id="find-11">find</code></span> command. To create an alias for the latter, make a copy of <span class="code"><code id="findexe">find.exe</code></span>, <span class="code"><code id="find2exe">find2.exe</code></span>, in the same folder (typically <span class="code"><code id="cprogram-filesgitusrbin-2">C:\Program Files\Git\usr\bin</code></span>). The Unix command can now be accessed as <span class="code"><code id="find2">find2</code></span>.</p>
 
 <p>Alternatively, switch to Git Bash for the duration of the command:</p>
 
-<div class="pre"><button class="btn clippy" data-clipboard-target="#bash-find-name-txt-exit" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
-
+<div class="pre">
 <pre id="bash-find-name-txt-exit">
 <code>bash
 find . -name "*.txt"
@@ -330,7 +316,7 @@ exit</code>
 </h3>
 
 <div class="collapse in" id="msys-section">
-<p>The above instructions assume that <abbr class="acronym" title="Minimal System"><span class="caps">MSYS</span></abbr> is installed along with <a href="#git-for-windows" title="Git for Windows">Git for Windows</a>. However, it is also possible to install <abbr class="acronym" title="Minimal System"><span class="caps">MSYS</span></abbr> manually. If this applies, then run the <a href="http://www.mingw.org/wiki/msys" target="_blank" title="Open mingw.org in a new window"><abbr class="acronym" title="Minimal System"><span class="caps">MSYS</span></abbr></a> installer and append <abbr class="acronym" title="Minimal System"><span class="caps">MSYS</span></abbr>&#8217; <span class="code"><code id="bin--3">bin/</code><button class="btn clippy" data-clipboard-target="#bin--3" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> directory to <span class="code"><code id="path-5">PATH</code><button class="btn clippy" data-clipboard-target="#path-5" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> <em>after</em> the other directories.</p>
+<p>The above instructions assume that <abbr class="acronym" title="Minimal System"><span class="caps">MSYS</span></abbr> is installed along with <a href="#git-for-windows" title="Git for Windows">Git for Windows</a>. However, it is also possible to install <abbr class="acronym" title="Minimal System"><span class="caps">MSYS</span></abbr> manually. If this applies, then run the <a href="http://www.mingw.org/wiki/msys" target="_blank" title="Open mingw.org in a new window"><abbr class="acronym" title="Minimal System"><span class="caps">MSYS</span></abbr></a> installer and append <abbr class="acronym" title="Minimal System"><span class="caps">MSYS</span></abbr>&#8217; <span class="code"><code id="bin--3">bin/</code></span> directory to <span class="code"><code id="path-5">PATH</code></span> <em>after</em> the other directories.</p>
 </div>
 </section>
 
@@ -340,7 +326,7 @@ exit</code>
 <div class="collapse in" id="standalone-shells-section">
 <p>Windows 10 includes its own <a href="http://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/" target="_blank" title="Open howtogeek.com in a new window">Linux Bash Shell</a>, based on Ubuntu. Note that this is a <em>standalone</em> shell, similar to PowerShell; Windows 10&#8217;s command prompt is unaffected and will still benefit from the instructions above. However, a standalone shell may provide built-in functionality that cannot be added to the command prompt (searchable history, for example).</p>
 
-<p>Also note that if we install the Linux Bash Shell, then the <span class="code"><code id="bash-2">bash</code><button class="btn clippy" data-clipboard-target="#bash-2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> command switches to that shell, not to Git Bash. However, we can still use the <span class="code"><code id="git-bash">git bash</code><button class="btn clippy" data-clipboard-target="#git-bash" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> command to change to Git Bash from the command prompt.</p>
+<p>Also note that if we install the Linux Bash Shell, then the <span class="code"><code id="bash-2">bash</code></span> command switches to that shell, not to Git Bash. However, we can still use the <span class="code"><code id="git-bash">git bash</code></span> command to change to Git Bash from the command prompt.</p>
 
 <p>Another comprehensive standalone shell is provided by the <a href="http://www.cygwin.com/" target="_blank" title="Open cygwin.com in a new window">Cygwin</a> project, which can be used on older Windows versions. <a href="#msys" title="MSYS"><abbr class="acronym" title="Minimal System"><span class="caps">MSYS</span></abbr></a> and <a href="#mingw" title="MinGW"><abbr title="Minimalist GNU for Windows">MinGW</abbr></a> also provide standalone shells. Git Bash, the shell provided by <a href="#git-for-windows" title="Git for Windows">Git for Windows</a>, is in fact an extension of these.</p>
 </div>

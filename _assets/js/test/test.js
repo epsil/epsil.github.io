@@ -2160,7 +2160,8 @@ util.addPullQuotes = function () {
 
 util.addClipboardButtons = function () {
   return this.map(function () {
-    $(this).find('pre, code').each(function () {
+    var body = $(this)
+    body.find('pre, code').each(function () {
       var pre = $(this)
       var parents = pre.parents('pre')
       if (parents.length === 0) {
@@ -2186,6 +2187,7 @@ util.addClipboardButtons = function () {
         e.clearSelection()
       })
     } catch (err) {
+      body.find('.btn').remove()
     }
   })
 }

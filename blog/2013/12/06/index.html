@@ -68,7 +68,7 @@
 
 <article class="h-entry" id="main">
 <header>
-<h1 class="p-name"><a class="u-uid u-url" href="https://epsil.github.io/blog/2013/12/06/" rel="bookmark" target="_blank" title="Permalink">Fikse <span class="code"><code id="mkfsntfs">mkfs.ntfs</code><button class="btn clippy" data-clipboard-target="#mkfsntfs" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> p&#229; Ubuntu</a>
+<h1 class="p-name"><a class="u-uid u-url" href="https://epsil.github.io/blog/2013/12/06/" rel="bookmark" target="_blank" title="Permalink">Fikse <span class="code"><code id="mkfsntfs">mkfs.ntfs</code></span> p&#229; Ubuntu</a>
 </h1>
 
 <p class="author"><a class="p-author h-card" href="https://epsil.github.io/" target="_blank" title="Open epsil.github.io in a new window">Vegard &#216;ye</a> &#8226; <time class="dt-published" datetime="2013-12-06">2013-12-06</time></p>
@@ -76,10 +76,9 @@
 
 <section class="e-content sidenotes">
 <section>
-<p>I Ubuntu 13.04 er <span class="code"><code id="mkfsntfs-2">mkfs.ntfs</code><button class="btn clippy" data-clipboard-target="#mkfsntfs-2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> utilgjengelig (<span class="code"><code id="mkntfs">mkntfs</code><button class="btn clippy" data-clipboard-target="#mkntfs" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> fungerer). Dette skyldes en <a href="https://bugs.launchpad.net/ubuntu/+source/ntfs-3g/+bug/1148541" target="_blank" title="Open bugs.launchpad.net in a new window">manglende symlink</a> fra <span class="code"><code id="sbin-mkfsntfs">/sbin/mkfs.ntfs</code><button class="btn clippy" data-clipboard-target="#sbin-mkfsntfs" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> til <span class="code"><code id="sbin-mkntfs">/sbin/mkntfs</code><button class="btn clippy" data-clipboard-target="#sbin-mkntfs" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>. Det f&#248;lgende retter opp problemet:</p>
+<p>I Ubuntu 13.04 er <span class="code"><code id="mkfsntfs-2">mkfs.ntfs</code></span> utilgjengelig (<span class="code"><code id="mkntfs">mkntfs</code></span> fungerer). Dette skyldes en <a href="https://bugs.launchpad.net/ubuntu/+source/ntfs-3g/+bug/1148541" target="_blank" title="Open bugs.launchpad.net in a new window">manglende symlink</a> fra <span class="code"><code id="sbin-mkfsntfs">/sbin/mkfs.ntfs</code></span> til <span class="code"><code id="sbin-mkntfs">/sbin/mkntfs</code></span>. Det f&#248;lgende retter opp problemet:</p>
 
-<div class="pre"><button class="btn clippy" data-clipboard-target="#sudo-unlink-sbin-mkfsntfs-sudo-ln-s-sbin-mkntfs-sbin-mkfsntfs" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
-
+<div class="pre">
 <pre id="sudo-unlink-sbin-mkfsntfs-sudo-ln-s-sbin-mkntfs-sbin-mkfsntfs">
 <code>sudo unlink /sbin/mkfs.ntfs
 sudo ln -s /sbin/mkntfs /sbin/mkfs.ntfs</code>
