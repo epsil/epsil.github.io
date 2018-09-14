@@ -1,6 +1,7 @@
 ---
 title: Bruene i Königsberg
 date: 2010-11-21
+mathjax: true
 ---
 
 I min bardom dukket denne oppgaven opp mange ganger: tegn en figur uten å løfte blyanten fra papiret og uten å tegne samme kant to ganger. Den klassiske utfordringen var en konvolutt, som kan tegnes på mange måter, en av dem vist under.

@@ -17,7 +17,7 @@
   },
   "16": {
     "href": "/blog/2012/04/16/",
-    "title": "Why Functional Programming Matters"
+    "title": "Why Functional Programming Matters: Haskell Translation"
   },
   "17": {
     "href": "/blog/2011/09/17/",
@@ -45,7 +45,7 @@
   },
   "23": {
     "href": "/blog/2013/11/23/",
-    "title": "Importere spillelister inn i Spotify"
+    "title": "Importere Last.fm-spilleliste inn i Spotify"
   },
   "24": {
     "href": "/blog/2010/03/24/",
@@ -87,10 +87,6 @@
     "href": "/blog/2002/06/03/",
     "title": "Spesielle tall i matematikken"
   },
-  "04": {
-    "href": "/blog/2008/12/04/",
-    "title": "Descent WASD configuration"
-  },
   "05": {
     "href": "/blog/2011/10/05/",
     "title": "Konvertere gjenstridige Word-dokumenter til PDF ved UiO"
@@ -104,8 +100,8 @@
     "title": "En kort historie om HTML"
   },
   "08": {
-    "href": "/blog/2007/08/08/",
-    "title": "Do You Want to Become an IEEE Author?"
+    "href": "/blog/2010/04/08/",
+    "title": "Skrifter for LaTeX"
   },
   "09": {
     "href": "/blog/2004/03/09/",
@@ -141,11 +137,7 @@
   },
   "BLOG": {
     "href": "/blog/",
-    "title": "Blogg"
-  },
-  "BLOGG": {
-    "href": "/blog/",
-    "title": "Blogg"
+    "title": "Blog posts"
   },
   "BRUENE I K\u00d6NIGSBERG": {
     "href": "/blog/2010/11/21/",
@@ -179,10 +171,6 @@
     "href": "/blog/2007/10/07/",
     "title": "Delbr\u00f8ksoppspaltning"
   },
-  "DESCENT WASD CONFIGURATION": {
-    "href": "/blog/2008/12/04/",
-    "title": "Descent WASD configuration"
-  },
   "DIA ON OS X": {
     "href": "/blog/2015/06/25/en/",
     "title": "Dia on OS X"
@@ -190,10 +178,6 @@
   "DIA P\u00c5 OS X": {
     "href": "/blog/2015/06/25/",
     "title": "Dia p\u00e5 OS X"
-  },
-  "DO YOU WANT TO BECOME AN IEEE AUTHOR?": {
-    "href": "/blog/2007/08/08/",
-    "title": "Do You Want to Become an IEEE Author?"
   },
   "DOM, XPATH OG JQUERY": {
     "href": "/blog/2012/05/05/",
@@ -207,7 +191,7 @@
     "href": "/blog/2004/03/07/",
     "title": "En kort historie om HTML"
   },
-  "ENDRE [NAVNET P\u00c5 GOOGLE DRIVE-MAPPEN](HTTPS://PRODUCTFORUMS.GOOGLE.COM/FORUM/#!TOPIC/DRIVE/4QYBDNOWBCS)": {
+  "ENDRE NAVNET P\u00c5 GOOGLE DRIVE-MAPPEN": {
     "href": "/blog/2015/02/15/",
     "title": "Endre navnet p\u00e5 Google Drive-mappen"
   },
@@ -222,6 +206,14 @@
   "FLASH OG TILGJENGELIGHET": {
     "href": "/blog/2004/03/21/",
     "title": "Flash og tilgjengelighet"
+  },
+  "FONT": {
+    "href": "/blog/2010/04/08/",
+    "title": "Skrifter for LaTeX"
+  },
+  "FONTER": {
+    "href": "/blog/2010/04/08/",
+    "title": "Skrifter for LaTeX"
   },
   "FORDELER MED EMACS": {
     "href": "/blog/2007/11/26/",
@@ -263,9 +255,21 @@
     "href": "/blog/2012/03/24/",
     "title": "GUI-programmering med Qt"
   },
+  "HTTP://MACINTOSHHOWTO.COM/PDF/HOW-TO-MERGE-2-PDF-FILES-WITH-OS-X-MAVERICKS-10-9.HTML": {
+    "href": "/blog/2015/05/20/",
+    "title": "Hvordan kombinere PDF-filer p\u00e5 OS X Mavericks"
+  },
+  "HTTP://OSXDAILY.COM/2013/10/02/ENABLE-NTFS-WRITE-SUPPORT-MAC-OS-X/": {
+    "href": "/blog/2014/05/13/",
+    "title": "Hvordan skrive til en NTFS-disk p\u00e5 OS X"
+  },
   "HTTPS://EPSIL.GITHUB.IO/GLL/": {
     "href": "/gll/",
     "title": "General Parser Combinators in Racket"
+  },
+  "HTTPS://PRODUCTFORUMS.GOOGLE.COM/FORUM/#!TOPIC/DRIVE/4QYBDNOWBCS": {
+    "href": "/blog/2015/02/15/",
+    "title": "Endre navnet p\u00e5 Google Drive-mappen"
   },
   "HTTPS://WWW.LINKEDIN.COM/IN/VEGARDOYE/": {
     "href": "/resume/",
@@ -275,11 +279,11 @@
     "href": "/blog/2003/05/01/",
     "title": "Hvordan har hovedpersonene i norsk kriminallitteratur forandret seg de siste 100 \u00e5rene?"
   },
-  "HVORDAN [KOMBINERE PDF-FILER](HTTP://MACINTOSHHOWTO.COM/PDF/HOW-TO-MERGE-2-PDF-FILES-WITH-OS-X-MAVERICKS-10-9.HTML) P\u00c5 OS X MAVERICKS": {
+  "HVORDAN KOMBINERE PDF-FILER P\u00c5 OS X MAVERICKS": {
     "href": "/blog/2015/05/20/",
     "title": "Hvordan kombinere PDF-filer p\u00e5 OS X Mavericks"
   },
-  "HVORDAN [SKRIVE TIL EN NTFS-DISK P\u00c5 OS X](HTTP://OSXDAILY.COM/2013/10/02/ENABLE-NTFS-WRITE-SUPPORT-MAC-OS-X/)": {
+  "HVORDAN SKRIVE TIL EN NTFS-DISK P\u00c5 OS X": {
     "href": "/blog/2014/05/13/",
     "title": "Hvordan skrive til en NTFS-disk p\u00e5 OS X"
   },
@@ -287,9 +291,9 @@
     "href": "/blog/2004/03/02/",
     "title": "Hvorfor unng\u00e5 egendefinerte rullefelt"
   },
-  "IMPORTERE SPILLELISTER INN I SPOTIFY": {
+  "IMPORTERE LAST.FM-SPILLELISTE INN I SPOTIFY": {
     "href": "/blog/2013/11/23/",
-    "title": "Importere spillelister inn i Spotify"
+    "title": "Importere Last.fm-spilleliste inn i Spotify"
   },
   "INDEX": {
     "href": "/",
@@ -375,7 +379,7 @@
     "href": "/blog/2014/01/07/",
     "title": "Oppgradere Python p\u00e5 OS X"
   },
-  "OPPSETT [`IRSSI` OG `SCREEN`](HTTP://FOLK.UIO.NO/VERONAHE/CYB/IRC/)": {
+  "OPPSETT `IRSSI` OG `SCREEN`": {
     "href": "/blog/2014/05/06/",
     "title": "Oppsett irssi og screen"
   },
@@ -410,6 +414,18 @@
   "SALSA": {
     "href": "/salsa/",
     "title": "Cubansk salsa"
+  },
+  "SELENIUM": {
+    "href": "/blog/2015/12/10/",
+    "title": "Testing med Selenium"
+  },
+  "SKRIFT": {
+    "href": "/blog/2010/04/08/",
+    "title": "Skrifter for LaTeX"
+  },
+  "SKRIFTER": {
+    "href": "/blog/2010/04/08/",
+    "title": "Skrifter for LaTeX"
   },
   "SKRIFTER FOR LATEX": {
     "href": "/blog/2010/04/08/",
@@ -483,13 +499,9 @@
     "href": "/tunge/",
     "title": "Virtuell arm for funksjonshemmede"
   },
-  "WASD": {
-    "href": "/blog/2008/12/04/wasd/",
-    "title": "Descent WASD configuration"
-  },
-  "WHY FUNCTIONAL PROGRAMMING MATTERS": {
+  "WHY FUNCTIONAL PROGRAMMING MATTERS: HASKELL TRANSLATION": {
     "href": "/blog/2012/04/16/",
-    "title": "Why Functional Programming Matters"
+    "title": "Why Functional Programming Matters: Haskell Translation"
   },
   "WISHLIST": {
     "href": "/wishlist/",

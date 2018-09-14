@@ -1,6 +1,7 @@
 ---
 title: Spesielle tall i matematikken
 date: 2002-06-03
+mathjax: true
 ---
 
 Fra de tidligste tider har menneskene lagt merke til geometriske former i naturen. Grekerne gjorde geometrien til en formell vitenskap med presise definisjoner og regler ca. år 300 f.Kr. Hovedårsaken til dette var at tallæren hadde gitt opphav til selvmotsigelser og paradokser, og derfor ble ansett som utilstrekkelig på mange områder.
@@ -59,21 +60,19 @@ Nå er oppmerksomheten rettet mot å se om det finnes mønstre i desimalene til 
 Det gylne forhold
 -----------------
 
-Det gylne forhold er en symmetrisk proporsjon utgjort av asymmetriske deler. To tall, former eller elementer legemliggjør forholdet når den mindre er til den store hva den store er til summen av begge. Det vil si, $a : b = b : (a + b)$. Sagt med algebra er dette forholdet $1 : \phi = 1 : (1 + \sqrt{5})/2$, og med trigonometri kan det uttrykkes $1 : (2 \sin{54°})$. Dets omtrentlige verdi utviklet av desimaler er $1 : 1,61803$.[^1]
+Det gylne forhold er en symmetrisk proporsjon utgjort av asymmetriske deler. To tall, former eller elementer legemliggjør forholdet når den mindre er til den store hva den store er til summen av begge. Det vil si, $a : b = b : (a + b)$. Sagt med algebra er dette forholdet $1 : \varphi = 1 : (1 + \sqrt{5})/2$, og med trigonometri kan det uttrykkes $1 : (2 \sin{54°})$. Dets omtrentlige verdi utviklet av desimaler er $1 : 1,61803$.^[Det eksisterer noe uenighet om verdien av det gylne forhold. I noen lærebøker omtales det som $1 : \varphi$, i andre som $\varphi : 1$ (= $\varphi$). Begge er like kurante, det er bare valg av divisor og dividend som varierer. I denne rapporten brukes førstnevnte forhold, $1 : \varphi$.]
 
-[^1]: Det eksisterer noe uenighet om verdien av det gylne forhold. I noen lærebøker omtales det som $1 : \phi$, i andre som $\phi : 1$ (= $\phi$). Begge er like kurante, det er bare valg av divisor og dividend som varierer. I denne rapporten brukes førstnevnte forhold, $1 : \phi$.
+Det andre uttrykket som omfatter dette forholdet, $\varphi$ (den greske bokstaven *fi*), er et nummer med flere uvanlige egenskaper. Hvis man legger en til $\varphi$, får man dets kvadrattall ($\varphi \times \varphi = \varphi^2$). Hvis man trekker en fra $\varphi$, får man dets inverse verdi ($1 / \varphi = \varphi^{-1}$). Og hvis man multipliserer $\varphi$ i det uendelige med seg selv, får man en endeløs tallrekke som oppsummerer ett enkelt forhold. Det forholdet er $1 : \varphi$. Hvis vi skriver disse faktaene i algebra, ser de slik ut:
 
-Det andre uttrykket som omfatter dette forholdet, $\phi$ (den greske bokstaven *fi*), er et nummer med flere uvanlige egenskaper. Hvis man legger en til $\phi$, får man dets kvadrattall ($\phi \times \phi = \phi^2$). Hvis man trekker en fra $\phi$, får man dets inverse verdi ($1 / \phi = \phi^{-1}$). Og hvis man multipliserer $\phi$ i det uendelige med seg selv, får man en endeløs tallrekke som oppsummerer ett enkelt forhold. Det forholdet er $1 : \phi$. Hvis vi skriver disse faktaene i algebra, ser de slik ut:
+$$\varphi + 1 = \varphi^2$$
 
-$$\phi + 1 = \phi^2$$
+$$\varphi - 1 = 1 / \varphi$$
 
-$$\phi - 1 = 1 / \phi$$
-
-$$\phi^{-1} : 1 = 1 : \phi = \phi : \phi^2 = \phi^2 : \phi^3 = \phi^3 : \phi^4 = \phi^4 : \phi^5 ...$$
+$$\varphi^{-1} : 1 = 1 : \varphi = \varphi : \varphi^2 = \varphi^2 : \varphi^3 = \varphi^3 : \varphi^4 = \varphi^4 : \varphi^5 ...$$
 
 ### Fibonacci-tallene
 
-En numerisk tilnærmelse for det gylne forhold, $1 : \phi$, kan man finne i en tallrekke kalt Fibonacci-tallene, oppkalt etter Leonardo av Pisa (1170--1240). Han ble gjerne kalt «Fibonacci» av sine bekjente, som er en forkortelse for Filius Bonacci (sønn av Bonacci).
+En numerisk tilnærmelse for det gylne forhold, $1 : \varphi$, kan man finne i en tallrekke kalt Fibonacci-tallene, oppkalt etter Leonardo av Pisa (1170--1240). Han ble gjerne kalt «Fibonacci» av sine bekjente, som er en forkortelse for Filius Bonacci (sønn av Bonacci).
 
 Det Fibonacci gjorde var å lage et tenkt kaninforsøk der man starter med to kaniner som får to unger hver måned. Kaniner kan parre seg allerede når de bare en måned gamle, så etter to måneder kan en hunnkanin produsere enda et kaninpar. Anta at kaninene våre aldri dør ut og at hunnkaninene alltid produserer et nytt par (en hunnkanin, en hannkanin) hver eneste måned etter den andre måneden etter fødselen. Spørsmålet til Fibonacci var som følger: Hvor mange kaniner lever i alt etter ett år?
 
@@ -81,9 +80,9 @@ Hvis vi ser bort fra de genetiske problemene innavl vanligvis medfører, kan vi 
 
 $$0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765, 10946, 17711, 28657, ...$$
 
-Her er hvert tall etter de to første *summen av de to foregående*. Og jo lengre vi fortsetter langs denne tallrekken, jo nærmere kommer vi en eksakt tilnærmelse av tallet $\phi$. Altså er $5 : 8 = 1 : 1,68$; $13 : 21 = 1 : 1,615$; $21 : 34 = 1 : 1,619$, og så videre. Sammenlikn dette med $\phi^x : \phi^{x + 1}$-serien på forrige side.
+Her er hvert tall etter de to første *summen av de to foregående*. Og jo lengre vi fortsetter langs denne tallrekken, jo nærmere kommer vi en eksakt tilnærmelse av tallet $\varphi$. Altså er $5 : 8 = 1 : 1,68$; $13 : 21 = 1 : 1,615$; $21 : 34 = 1 : 1,619$, og så videre. Sammenlikn dette med $\varphi^x : \varphi^{x + 1}$-serien på forrige side.
 
-Når vi deler et linjestykke opp i to lengder og forholdet mellom disse lengdene tilsvarer $1 : \phi$, vil lengdene grense til hverandre på et punkt på linja som kalles det gylne snitt. Vi sier også at dette punktet høydeler linjestykket. Det gylne snitt brukes i mange sammenhenger i arkitektur, formgivning, musikk og billedkunst. Fotografer og designere tenker fortsatt på det gylne snitt når de skal komponere bildene sine: Et fotografi blir aldri pent hvis man f.eks. lar horisonten komme midt på bildet.
+Når vi deler et linjestykke opp i to lengder og forholdet mellom disse lengdene tilsvarer $1 : \varphi$, vil lengdene grense til hverandre på et punkt på linja som kalles det gylne snitt. Vi sier også at dette punktet høydeler linjestykket. Det gylne snitt brukes i mange sammenhenger i arkitektur, formgivning, musikk og billedkunst. Fotografer og designere tenker fortsatt på det gylne snitt når de skal komponere bildene sine: Et fotografi blir aldri pent hvis man f.eks. lar horisonten komme midt på bildet.
 
 Det gylne forhold hadde stor betydning for kunstformene under renessansen og tidligere stilperioder, og ble brukt som basis for utvikle gylne geometriske figurer. To former -- det gylne rektangel og den gylne trekant -- er mye brukt. Felles for dem begge er at kortsiden høydeler langsiden (når vi avsetter kortsiden på langsiden). En gyllen trekant har to langsider og vinklene 72°, 72° og 36°.
 
@@ -93,7 +92,7 @@ Også naturen synes å foretrekke det gylne forhold for mange av sine prosesser.
 
 $$222,5° : 360° = 0,62$$
 
-som er meget nær det gylne snitt. Vinkelen kalles gjerne den gylne vinkel, og uttrykkes $360° : \phi$. Dette matematiske regelverk som mange planter bruker, er altså i samsvar med det gylne snitt og framkommer i kombinasjonen mellom plantenes genetikk og de omliggende randbetingelser.
+som er meget nær det gylne snitt. Vinkelen kalles gjerne den gylne vinkel, og uttrykkes $360° : \varphi$. Dette matematiske regelverk som mange planter bruker, er altså i samsvar med det gylne snitt og framkommer i kombinasjonen mellom plantenes genetikk og de omliggende randbetingelser.
 
 Kilder
 ------

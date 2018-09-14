@@ -1,4 +1,3 @@
----
 title: Oppgradere Homebrew
 date: 2014-12-20
 ---
@@ -10,7 +9,7 @@ Etter oppdatering til OS X Yosemite feiler `brew` med følgende feilmelding:
 
 `brew update` feiler også. For å løse problemet, [oppgrader med Git](http://apple.stackexchange.com/questions/153790/how-to-fix-brew-after-its-upgrade-to-yosemite):
 
-    $ cd /usr/local/Library
-    $ git pull origin master
+    cd /usr/local/Library
+    git pull origin master
 
-Kjør deretter `$ brew update` for å oppdatere til siste versjon.
+Kjør deretter `brew update` for å oppdatere til siste versjon.

@@ -1,4 +1,3 @@
----
 title: AUCTeX på Windows
 date: 2007-10-09
 ---

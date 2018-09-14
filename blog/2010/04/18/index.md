@@ -1,4 +1,3 @@
----
 title: Bruk versjonskontroll
 date: 2010-04-18
 ---

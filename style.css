@@ -3,7 +3,7 @@ a, a:hover {
     color: #fff !important;
 }
 
-a:after {
+a:before {
     content: normal !important;
 }
 
@@ -19,6 +19,7 @@ body {
 }
 
 h1 {
+    font-size: 2em;
     font-weight: normal;
 }
 
@@ -85,4 +86,12 @@ header {
 
 .p-author {
     display: none;
+}
+
+.p-summary {
+    font-size: 1.3em;
+}
+
+.collapse-button, li span.collapse.in {
+    display: none !important;
 }

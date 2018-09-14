@@ -1,6 +1,6 @@
----
-title: Hvordan [kombinere PDF-filer](http://macintoshhowto.com/pdf/how-to-merge-2-pdf-files-with-os-x-mavericks-10-9.html) på OS X Mavericks
+title: Hvordan kombinere PDF-filer på OS X Mavericks
 date: 2015-05-20
+url: http://macintoshhowto.com/pdf/how-to-merge-2-pdf-files-with-os-x-mavericks-10-9.html
 ---
 
 1.  Lag en kopi av det første dokumentet å jobbe på.

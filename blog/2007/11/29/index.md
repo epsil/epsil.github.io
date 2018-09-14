@@ -1,4 +1,3 @@
----
 title: Tastaturmakroer i Emacs
 date: 2007-11-29
 ---

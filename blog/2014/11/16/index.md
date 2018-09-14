@@ -1,4 +1,3 @@
----
 title: Google Drive og Git
 date: 2014-11-16
 ---

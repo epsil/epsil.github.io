@@ -7,7 +7,7 @@
 <meta content="noindex" name="robots">
 <meta content="Vegard &#216;ye" name="author">
 <meta content="2010-03-24" name="date">
-<meta content="6c054c915f52d11a014ba1482404c261" name="md5">
+<meta content="ddb8f8235c7f90cf36567592f19334e4" name="md5">
 <meta content="text/css" http-equiv="Content-Style-Type">
 <meta content="width=device-width, initial-scale=1" name="viewport">
 <meta content="Line&#230;re differensialligninger med konstante koeffisienter" name="DC.Title">
@@ -27,6 +27,20 @@
 <link href="../../../../apple-touch-icon.png" rel="apple-touch-icon">
 <link href="../../../../_assets/css/wiki.css" rel="stylesheet">
 <link href="index.md" rel="alternate" title="Markdown" type="text/markdown">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  "HTML-CSS": {
+    preferredFont: "STIX"
+  },
+  TeX: {
+    equationNumbers: {
+      autoNumber: "all"
+    }
+  }
+})
+</script>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script>
 <script src="../../../../_assets/js/wiki.js">
 </script>
 </head>
@@ -113,9 +127,9 @@
 
 <div class="collapse in" id="n1-ordens-lineaer-differensialligning-med-konstante-koeffisienter-section">
 <section>
-<p><abbr class="acronym" title="dollar">$</abbr>$a \cdot y&#8217; + b \cdot y = f(t), y(0)\text{ gitt}<abbr class="acronym" title="dollar">$</abbr>$</p>
+<p gitt="">\[a \cdot y&#8217; + b \cdot y = f(t), y(0)\text\]</p>
 
-<p>Her er $a$ og $b$ konstanter, mens $f(t)<abbr class="acronym" title="dollar">$</abbr> er en ytre kilde (<abbr title="for eksempel">f.eks.</abbr> en spenningskilde). $y(0)<abbr class="acronym" title="dollar">$</abbr> er startbetingelsen til differensialligningen.</p>
+<p>Her er \(a\) og \(b\) konstanter, mens \(f(t)\) er en ytre kilde (<abbr title="for eksempel">f.eks.</abbr> en spenningskilde). \(y(0)\) er startbetingelsen til differensialligningen.</p>
 
 <p>N&#229;r en skal l&#248;se en slik differensialligning, kan en f&#248;lge f&#248;lgende prosedyre:</p>
 </section>
@@ -124,7 +138,7 @@
 <h3><a aria-hidden="true" class="header-anchor" href="#n1-bestem-den-homogene-transiente-losningen-forst" title="1. Bestem den homogene (transiente) l&#248;sningen f&#248;rst"></a>1. Bestem den homogene (transiente) l&#248;sningen f&#248;rst<a aria-controls="n1-bestem-den-homogene-transiente-losningen-forst-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#n1-bestem-den-homogene-transiente-losningen-forst-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h3>
 
 <div class="collapse in" id="n1-bestem-den-homogene-transiente-losningen-forst-section">
-<p>Den karakteristiske ligningen er gitt ved $a \cdot \lambda + b = 0$. $y_H = C \cdot e^{\lambda \cdot t}<abbr class="acronym" title="dollar">$</abbr>, der <abbr class="acronym" title="dollar">$</abbr>\lambda$ finnes fra den karakteristiske ligningen. Tidskonstanten til systemet er gitt ved <abbr class="acronym" title="dollar">$</abbr>\lvert 1/\lambda\rvert$.</p>
+<p>Den karakteristiske ligningen er gitt ved \(a \cdot \lambda + b = 0\). \(y_H = C \cdot e^{\lambda \cdot t}\), der \(\lambda\) finnes fra den karakteristiske ligningen. Tidskonstanten til systemet er gitt ved \(\lvert 1/\lambda\rvert\).</p>
 </div>
 </section>
 
@@ -132,21 +146,21 @@
 <h3><a aria-hidden="true" class="header-anchor" href="#n2-bestem-deretter-den-partikulaere-stasjonaere-losningen" title="2. Bestem deretter den partikul&#230;re (stasjon&#230;re) l&#248;sningen"></a>2. Bestem deretter den partikul&#230;re (stasjon&#230;re) l&#248;sningen<a aria-controls="n2-bestem-deretter-den-partikulaere-stasjonaere-losningen-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#n2-bestem-deretter-den-partikulaere-stasjonaere-losningen-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h3>
 
 <div class="collapse in" id="n2-bestem-deretter-den-partikulaere-stasjonaere-losningen-section">
-<p>Den partikul&#230;re l&#248;sningen, $y_P$, vil alltid v&#230;re av samme funksjonstype som $f(t)<abbr class="acronym" title="dollar">$</abbr>, eventuelt multiplisert med $t$ dersom det er sammenfall mellom den homogene l&#248;sningen og $f(t)<abbr class="acronym" title="dollar">$</abbr>.</p>
+<p>Den partikul&#230;re l&#248;sningen, \(y_P\), vil alltid v&#230;re av samme funksjonstype som \(f(t)\), eventuelt multiplisert med \(t\) dersom det er sammenfall mellom den homogene l&#248;sningen og \(f(t)\).</p>
 
 <ul class="collapse in">
-<li id="konstant-y-p-a-item"><a aria-controls="konstant-y-p-a-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#konstant-y-p-a-item-section" role="button"></a><strong>Konstant:</strong> $y_P = A$<span class="collapse in" id="konstant-y-p-a-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+<li id="konstant-y-p-a-item"><a aria-controls="konstant-y-p-a-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#konstant-y-p-a-item-section" role="button"></a><strong>Konstant:</strong> \(y_P = A\)<span class="collapse in" id="konstant-y-p-a-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
 
-<li id="1-grads-polynom-y-p-a-cdot-t-b-item"><a aria-controls="1-grads-polynom-y-p-a-cdot-t-b-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#1-grads-polynom-y-p-a-cdot-t-b-item-section" role="button"></a><strong>1. grads polynom:</strong> $y_P = A \cdot t + B$<span class="collapse in" id="1-grads-polynom-y-p-a-cdot-t-b-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+<li id="1-grads-polynom-y-p-a-cdot-t-b-item"><a aria-controls="1-grads-polynom-y-p-a-cdot-t-b-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#1-grads-polynom-y-p-a-cdot-t-b-item-section" role="button"></a><strong>1. grads polynom:</strong> \(y_P = A \cdot t + B\)<span class="collapse in" id="1-grads-polynom-y-p-a-cdot-t-b-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
 
-<li id="2-grads-polynom-y-p-a-cdot-t2-b-cdot-t-c-item"><a aria-controls="2-grads-polynom-y-p-a-cdot-t2-b-cdot-t-c-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#2-grads-polynom-y-p-a-cdot-t2-b-cdot-t-c-item-section" role="button"></a><strong>2. grads polynom:</strong> $y_P = A \cdot t2 + B \cdot t + C$<span class="collapse in" id="2-grads-polynom-y-p-a-cdot-t2-b-cdot-t-c-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+<li id="2-grads-polynom-y-p-a-cdot-t2-b-cdot-t-c-item"><a aria-controls="2-grads-polynom-y-p-a-cdot-t2-b-cdot-t-c-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#2-grads-polynom-y-p-a-cdot-t2-b-cdot-t-c-item-section" role="button"></a><strong>2. grads polynom:</strong> \(y_P = A \cdot t2 + B \cdot t + C\)<span class="collapse in" id="2-grads-polynom-y-p-a-cdot-t2-b-cdot-t-c-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
 
-<li id="eksponentialfunksjon-e-b-cdot-t-y-p-a-cdot-e-b-cdot-t-item"><a aria-controls="eksponentialfunksjon-e-b-cdot-t-y-p-a-cdot-e-b-cdot-t-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#eksponentialfunksjon-e-b-cdot-t-y-p-a-cdot-e-b-cdot-t-item-section" role="button"></a><strong>Eksponentialfunksjon ($e^{-b \cdot t}<abbr class="acronym" title="dollar">$</abbr>):</strong> $y_P = A \cdot e^{-b \cdot t}<abbr class="acronym" title="dollar">$</abbr><span class="collapse in" id="eksponentialfunksjon-e-b-cdot-t-y-p-a-cdot-e-b-cdot-t-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+<li id="eksponentialfunksjon-e-b-cdot-t-y-p-a-cdot-e-item" t=""><a aria-controls="eksponentialfunksjon-e-b-cdot-t-y-p-a-cdot-e-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#eksponentialfunksjon-e-b-cdot-t-y-p-a-cdot-e-item-section" role="button"></a><strong>Eksponentialfunksjon (\(e^{-b \cdot t}\)):</strong> \(y_P = A \cdot e^\)<span class="collapse in" id="eksponentialfunksjon-e-b-cdot-t-y-p-a-cdot-e-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
 
-<li id="sinus-ogeller-cosinusfunksjon-med-vinkelfrekvens-omega-y-p-a-cdot-sinomega-cdot-t-b-cdot-cosomega-cdot-t-item"><a aria-controls="sinus-ogeller-cosinusfunksjon-med-vinkelfrekvens-omega-y-p-a-cdot-sinomega-cdot-t-b-cdot-cosomega-cdot-t-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#sinus-ogeller-cosinusfunksjon-med-vinkelfrekvens-omega-y-p-a-cdot-sinomega-cdot-t-b-cdot-cosomega-cdot-t-item-section" role="button"></a><strong>Sinus- og/eller cosinusfunksjon med vinkelfrekvens <abbr class="acronym" title="dollar">$</abbr>\omega$:</strong> $y_P = A \cdot \sin(\omega \cdot t) + B \cdot \cos(\omega \cdot t)<abbr class="acronym" title="dollar">$</abbr><span class="collapse in" id="sinus-ogeller-cosinusfunksjon-med-vinkelfrekvens-omega-y-p-a-cdot-sinomega-cdot-t-b-cdot-cosomega-cdot-t-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+<li id="sinus-ogeller-cosinusfunksjon-med-vinkelfrekvens-omega-y-p-a-cdot-sinomega-cdot-t-b-cdot-cosomega-cdot-t-item"><a aria-controls="sinus-ogeller-cosinusfunksjon-med-vinkelfrekvens-omega-y-p-a-cdot-sinomega-cdot-t-b-cdot-cosomega-cdot-t-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#sinus-ogeller-cosinusfunksjon-med-vinkelfrekvens-omega-y-p-a-cdot-sinomega-cdot-t-b-cdot-cosomega-cdot-t-item-section" role="button"></a><strong>Sinus- og/eller cosinusfunksjon med vinkelfrekvens \(\omega\):</strong> \(y_P = A \cdot \sin(\omega \cdot t) + B \cdot \cos(\omega \cdot t)\)<span class="collapse in" id="sinus-ogeller-cosinusfunksjon-med-vinkelfrekvens-omega-y-p-a-cdot-sinomega-cdot-t-b-cdot-cosomega-cdot-t-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
 </ul>
 
-<p><strong><abbr class="acronym" title="Nota bene"><span class="caps">NB</span></abbr>!</strong> Den frie konstanten eller de frie konstantene i den partikul&#230;re l&#248;sningen finnes ved &#229; sette inn den partikul&#230;re l&#248;sningen inn i differensialligningen. Ved &#229; sammenligne venstre og h&#248;yre side vil konstanten(e) bli bestemt.</p>
+<p><strong><abbr class="acronym" title="Nota bene">NB</abbr>!</strong> Den frie konstanten eller de frie konstantene i den partikul&#230;re l&#248;sningen finnes ved &#229; sette inn den partikul&#230;re l&#248;sningen inn i differensialligningen. Ved &#229; sammenligne venstre og h&#248;yre side vil konstanten(e) bli bestemt.</p>
 </div>
 </section>
 
@@ -154,7 +168,7 @@
 <h3><a aria-hidden="true" class="header-anchor" href="#n3-den-totale-losningen-er-da-summen-av-den-homogene-og-den-partikulaere-losningen" title="3. Den totale l&#248;sningen er da summen av den homogene og den partikul&#230;re l&#248;sningen"></a>3. Den totale l&#248;sningen er da summen av den homogene og den partikul&#230;re l&#248;sningen<a aria-controls="n3-den-totale-losningen-er-da-summen-av-den-homogene-og-den-partikulaere-losningen-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#n3-den-totale-losningen-er-da-summen-av-den-homogene-og-den-partikulaere-losningen-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h3>
 
 <div class="collapse in" id="n3-den-totale-losningen-er-da-summen-av-den-homogene-og-den-partikulaere-losningen-section">
-<p><abbr class="acronym" title="dollar">$</abbr>$y(t) = y_H(t) + y_P(t)<abbr class="acronym" title="dollar">$</abbr>$</p>
+<p>\[y(t) = y_H(t) + y_P(t)\]</p>
 </div>
 </section>
 
@@ -172,9 +186,9 @@
 
 <div class="collapse in" id="n2-ordens-lineaer-differensialligning-med-konstante-koeffisienter-section">
 <section>
-<p><abbr class="acronym" title="dollar">$</abbr>$a \cdot y&#8217;&#8217; + b \cdot y&#8217; + c \cdot y = f(t), y(0)\text{ og }y&#8217;(0)\text{ gitt}<abbr class="acronym" title="dollar">$</abbr>$</p>
+<p gitt="">\[a \cdot y&#8217;&#8217; + b \cdot y&#8217; + c \cdot y = f(t), y(0)\text{ og }y&#8217;(0)\text\]</p>
 
-<p>Her er $a$, $b$ og $c$ konstanter, mens $f(t)<abbr class="acronym" title="dollar">$</abbr> er en ytre kilde (<abbr title="for eksempel">f.eks.</abbr> en spenningskilde). $y(0)<abbr class="acronym" title="dollar">$</abbr> og $y&#8217;(0)<abbr class="acronym" title="dollar">$</abbr> er startbetingelsene til differensialligningen.</p>
+<p>Her er \(a\), \(b\) og \(c\) konstanter, mens \(f(t)\) er en ytre kilde (<abbr title="for eksempel">f.eks.</abbr> en spenningskilde). \(y(0)\) og \(y&#8217;(0)\) er startbetingelsene til differensialligningen.</p>
 
 <p>N&#229;r en skal l&#248;se en slik differensialligning, kan en f&#248;lge f&#248;lgende prosedyre:</p>
 </section>
@@ -183,14 +197,14 @@
 <h3><a aria-hidden="true" class="header-anchor" href="#n1-bestem-den-homogene-transiente-losningen-forst-2" title="1. Bestem den homogene (transiente) l&#248;sningen f&#248;rst"></a>1. Bestem den homogene (transiente) l&#248;sningen f&#248;rst<a aria-controls="n1-bestem-den-homogene-transiente-losningen-forst-2-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#n1-bestem-den-homogene-transiente-losningen-forst-2-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h3>
 
 <div class="collapse in" id="n1-bestem-den-homogene-transiente-losningen-forst-2-section">
-<p>Den karakteristiske ligningen er gitt ved $a \cdot \lambda^2 + b \cdot \lambda + c = 0$.</p>
+<p>Den karakteristiske ligningen er gitt ved \(a \cdot \lambda^2 + b \cdot \lambda + c = 0\).</p>
 
 <ul class="collapse in">
-<li id="tilfelle-1-reelle-og-forskjellige-lambda-verdier-y-h-c-1-cdot-elambda-1-cdot-t-c2-cdot-elambda-2-cdot-t-der-lambda-1-og-lambda-2-finnes-fra-den-karakteristiske-ligningen-item"><a aria-controls="tilfelle-1-reelle-og-forskjellige-lambda-verdier-y-h-c-1-cdot-elambda-1-cdot-t-c2-cdot-elambda-2-cdot-t-der-lambda-1-og-lambda-2-finnes-fra-den-karakteristiske-ligningen-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#tilfelle-1-reelle-og-forskjellige-lambda-verdier-y-h-c-1-cdot-elambda-1-cdot-t-c2-cdot-elambda-2-cdot-t-der-lambda-1-og-lambda-2-finnes-fra-den-karakteristiske-ligningen-item-section" role="button"></a><strong>Tilfelle 1, reelle og forskjellige <abbr class="acronym" title="dollar">$</abbr>\lambda$-verdier:</strong> $y_H = C_1 \cdot e^{\lambda_1 \cdot t} + C2 \cdot e^{\lambda_2 \cdot t}<abbr class="acronym" title="dollar">$</abbr>, der <abbr class="acronym" title="dollar">$</abbr>\lambda_1$ og <abbr class="acronym" title="dollar">$</abbr>\lambda_2$ finnes fra den karakteristiske ligningen.<span class="collapse in" id="tilfelle-1-reelle-og-forskjellige-lambda-verdier-y-h-c-1-cdot-elambda-1-cdot-t-c2-cdot-elambda-2-cdot-t-der-lambda-1-og-lambda-2-finnes-fra-den-karakteristiske-ligningen-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+<li id="tilfelle-1-reelle-og-forskjellige-lambda-verdier-y-h-c-1-cdot-elambda-1-cdot-t-c2-cdot-elambda-2-cdot-t-der-lambda-1-og-lambda-2-finnes-fra-den-karakteristiske-ligningen-item"><a aria-controls="tilfelle-1-reelle-og-forskjellige-lambda-verdier-y-h-c-1-cdot-elambda-1-cdot-t-c2-cdot-elambda-2-cdot-t-der-lambda-1-og-lambda-2-finnes-fra-den-karakteristiske-ligningen-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#tilfelle-1-reelle-og-forskjellige-lambda-verdier-y-h-c-1-cdot-elambda-1-cdot-t-c2-cdot-elambda-2-cdot-t-der-lambda-1-og-lambda-2-finnes-fra-den-karakteristiske-ligningen-item-section" role="button"></a><strong>Tilfelle 1, reelle og forskjellige \(\lambda\)-verdier:</strong> \(y_H = C_1 \cdot e^{\lambda_1 \cdot t} + C2 \cdot e^{\lambda_2 \cdot t}\), der \(\lambda_1\) og \(\lambda_2\) finnes fra den karakteristiske ligningen.<span class="collapse in" id="tilfelle-1-reelle-og-forskjellige-lambda-verdier-y-h-c-1-cdot-elambda-1-cdot-t-c2-cdot-elambda-2-cdot-t-der-lambda-1-og-lambda-2-finnes-fra-den-karakteristiske-ligningen-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
 
-<li id="tilfelle-2-reelle-og-like-lambda-verdier-y-h-c-1-cdot-elambda-cdot-t-c-2-cdot-t-cdot-elambda-cdot-t-der-lambda-1-lambda-2-lambda-finnes-fra-den-karakteristiske-ligningen-item"><a aria-controls="tilfelle-2-reelle-og-like-lambda-verdier-y-h-c-1-cdot-elambda-cdot-t-c-2-cdot-t-cdot-elambda-cdot-t-der-lambda-1-lambda-2-lambda-finnes-fra-den-karakteristiske-ligningen-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#tilfelle-2-reelle-og-like-lambda-verdier-y-h-c-1-cdot-elambda-cdot-t-c-2-cdot-t-cdot-elambda-cdot-t-der-lambda-1-lambda-2-lambda-finnes-fra-den-karakteristiske-ligningen-item-section" role="button"></a><strong>Tilfelle 2, reelle og like <abbr class="acronym" title="dollar">$</abbr>\lambda$-verdier:</strong> $y_H = C_1 \cdot e^{\lambda \cdot t + C_2 \cdot t} \cdot e^{\lambda \cdot t}<abbr class="acronym" title="dollar">$</abbr>, der <abbr class="acronym" title="dollar">$</abbr>\lambda_1 = \lambda_2 = \lambda$ finnes fra den karakteristiske ligningen.<span class="collapse in" id="tilfelle-2-reelle-og-like-lambda-verdier-y-h-c-1-cdot-elambda-cdot-t-c-2-cdot-t-cdot-elambda-cdot-t-der-lambda-1-lambda-2-lambda-finnes-fra-den-karakteristiske-ligningen-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+<li id="tilfelle-2-reelle-og-like-lambda-verdier-y-h-c-1-cdot-elambda-cdot-t-c-2-cdot-t-cdot-elambda-cdot-t-der-lambda-1-lambda-2-lambda-finnes-fra-den-karakteristiske-ligningen-item"><a aria-controls="tilfelle-2-reelle-og-like-lambda-verdier-y-h-c-1-cdot-elambda-cdot-t-c-2-cdot-t-cdot-elambda-cdot-t-der-lambda-1-lambda-2-lambda-finnes-fra-den-karakteristiske-ligningen-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#tilfelle-2-reelle-og-like-lambda-verdier-y-h-c-1-cdot-elambda-cdot-t-c-2-cdot-t-cdot-elambda-cdot-t-der-lambda-1-lambda-2-lambda-finnes-fra-den-karakteristiske-ligningen-item-section" role="button"></a><strong>Tilfelle 2, reelle og like \(\lambda\)-verdier:</strong> \(y_H = C_1 \cdot e^{\lambda \cdot t + C_2 \cdot t} \cdot e^{\lambda \cdot t}\), der \(\lambda_1 = \lambda_2 = \lambda\) finnes fra den karakteristiske ligningen.<span class="collapse in" id="tilfelle-2-reelle-og-like-lambda-verdier-y-h-c-1-cdot-elambda-cdot-t-c-2-cdot-t-cdot-elambda-cdot-t-der-lambda-1-lambda-2-lambda-finnes-fra-den-karakteristiske-ligningen-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
 
-<li id="tilfelle-3-komplekskonjugerte-lambda-verdier-y-h-ealpha-cdot-t-cdot-a-cdot-cosbeta-cdot-t-b-cdot-sinbeta-cdot-t-der-lambda-alpha-pm-ibeta-item"><a aria-controls="tilfelle-3-komplekskonjugerte-lambda-verdier-y-h-ealpha-cdot-t-cdot-a-cdot-cosbeta-cdot-t-b-cdot-sinbeta-cdot-t-der-lambda-alpha-pm-ibeta-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#tilfelle-3-komplekskonjugerte-lambda-verdier-y-h-ealpha-cdot-t-cdot-a-cdot-cosbeta-cdot-t-b-cdot-sinbeta-cdot-t-der-lambda-alpha-pm-ibeta-item-section" role="button"></a><strong>Tilfelle 3, komplekskonjugerte <abbr class="acronym" title="dollar">$</abbr>\lambda$-verdier:</strong> $y_H = e^{\alpha \cdot t} \cdot (A \cdot \cos(\beta \cdot t) + B \cdot \sin(\beta \cdot t))<abbr class="acronym" title="dollar">$</abbr>, der <abbr class="acronym" title="dollar">$</abbr>\lambda = \alpha \pm i\beta$.<span class="collapse in" id="tilfelle-3-komplekskonjugerte-lambda-verdier-y-h-ealpha-cdot-t-cdot-a-cdot-cosbeta-cdot-t-b-cdot-sinbeta-cdot-t-der-lambda-alpha-pm-ibeta-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+<li id="tilfelle-3-komplekskonjugerte-lambda-verdier-y-h-ealpha-cdot-t-cdot-a-cdot-cosbeta-cdot-t-b-cdot-sinbeta-cdot-t-der-lambda-alpha-pm-ibeta-item"><a aria-controls="tilfelle-3-komplekskonjugerte-lambda-verdier-y-h-ealpha-cdot-t-cdot-a-cdot-cosbeta-cdot-t-b-cdot-sinbeta-cdot-t-der-lambda-alpha-pm-ibeta-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#tilfelle-3-komplekskonjugerte-lambda-verdier-y-h-ealpha-cdot-t-cdot-a-cdot-cosbeta-cdot-t-b-cdot-sinbeta-cdot-t-der-lambda-alpha-pm-ibeta-item-section" role="button"></a><strong>Tilfelle 3, komplekskonjugerte \(\lambda\)-verdier:</strong> \(y_H = e^{\alpha \cdot t} \cdot (A \cdot \cos(\beta \cdot t) + B \cdot \sin(\beta \cdot t))\), der \(\lambda = \alpha \pm i\beta\).<span class="collapse in" id="tilfelle-3-komplekskonjugerte-lambda-verdier-y-h-ealpha-cdot-t-cdot-a-cdot-cosbeta-cdot-t-b-cdot-sinbeta-cdot-t-der-lambda-alpha-pm-ibeta-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
 </ul>
 </div>
 </section>
@@ -199,21 +213,21 @@
 <h3><a aria-hidden="true" class="header-anchor" href="#n2-bestem-deretter-den-partikulaere-stasjonaere-losningen-2" title="2. Bestem deretter den partikul&#230;re (stasjon&#230;re) l&#248;sningen"></a>2. Bestem deretter den partikul&#230;re (stasjon&#230;re) l&#248;sningen<a aria-controls="n2-bestem-deretter-den-partikulaere-stasjonaere-losningen-2-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#n2-bestem-deretter-den-partikulaere-stasjonaere-losningen-2-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h3>
 
 <div class="collapse in" id="n2-bestem-deretter-den-partikulaere-stasjonaere-losningen-2-section">
-<p>Den partikul&#230;re l&#248;sningen, $y_P$, vil alltid v&#230;re av samme funksjonstype som $f(t)<abbr class="acronym" title="dollar">$</abbr>, eventuelt multiplisert med $t$ eller $t_2$ dersom det er sammenfall mellom den homogene l&#248;sningen og $f(t)<abbr class="acronym" title="dollar">$</abbr>.</p>
+<p>Den partikul&#230;re l&#248;sningen, \(y_P\), vil alltid v&#230;re av samme funksjonstype som \(f(t)\), eventuelt multiplisert med \(t\) eller \(t_2\) dersom det er sammenfall mellom den homogene l&#248;sningen og \(f(t)\).</p>
 
 <ul class="collapse in">
-<li id="konstant-y-p-a-2-item"><a aria-controls="konstant-y-p-a-2-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#konstant-y-p-a-2-item-section" role="button"></a><strong>Konstant:</strong> $y_P = A$<span class="collapse in" id="konstant-y-p-a-2-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+<li id="konstant-y-p-a-2-item"><a aria-controls="konstant-y-p-a-2-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#konstant-y-p-a-2-item-section" role="button"></a><strong>Konstant:</strong> \(y_P = A\)<span class="collapse in" id="konstant-y-p-a-2-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
 
-<li id="1-grads-polynom-y-p-a-cdot-t-b-2-item"><a aria-controls="1-grads-polynom-y-p-a-cdot-t-b-2-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#1-grads-polynom-y-p-a-cdot-t-b-2-item-section" role="button"></a><strong>1. grads polynom:</strong> $y_P = A \cdot t + B$<span class="collapse in" id="1-grads-polynom-y-p-a-cdot-t-b-2-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+<li id="1-grads-polynom-y-p-a-cdot-t-b-2-item"><a aria-controls="1-grads-polynom-y-p-a-cdot-t-b-2-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#1-grads-polynom-y-p-a-cdot-t-b-2-item-section" role="button"></a><strong>1. grads polynom:</strong> \(y_P = A \cdot t + B\)<span class="collapse in" id="1-grads-polynom-y-p-a-cdot-t-b-2-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
 
-<li id="2-grads-polynom-y-p-a-cdot-t-2-b-cdot-t-c-item"><a aria-controls="2-grads-polynom-y-p-a-cdot-t-2-b-cdot-t-c-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#2-grads-polynom-y-p-a-cdot-t-2-b-cdot-t-c-item-section" role="button"></a><strong>2. grads polynom:</strong> $y_P = A \cdot t_2 + B \cdot t + C$<span class="collapse in" id="2-grads-polynom-y-p-a-cdot-t-2-b-cdot-t-c-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+<li id="2-grads-polynom-y-p-a-cdot-t-2-b-cdot-t-c-item"><a aria-controls="2-grads-polynom-y-p-a-cdot-t-2-b-cdot-t-c-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#2-grads-polynom-y-p-a-cdot-t-2-b-cdot-t-c-item-section" role="button"></a><strong>2. grads polynom:</strong> \(y_P = A \cdot t_2 + B \cdot t + C\)<span class="collapse in" id="2-grads-polynom-y-p-a-cdot-t-2-b-cdot-t-c-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
 
-<li id="eksponentialfunksjon-e-b-cdot-t-y-p-a-cdot-e-b-cdot-t-2-item"><a aria-controls="eksponentialfunksjon-e-b-cdot-t-y-p-a-cdot-e-b-cdot-t-2-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#eksponentialfunksjon-e-b-cdot-t-y-p-a-cdot-e-b-cdot-t-2-item-section" role="button"></a><strong>Eksponentialfunksjon ($e^{-b \cdot t}<abbr class="acronym" title="dollar">$</abbr>):</strong> $y_P = A \cdot e^{-b \cdot t}<abbr class="acronym" title="dollar">$</abbr><span class="collapse in" id="eksponentialfunksjon-e-b-cdot-t-y-p-a-cdot-e-b-cdot-t-2-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+<li id="eksponentialfunksjon-e-b-cdot-t-y-p-a-cdot-e-2-item" t=""><a aria-controls="eksponentialfunksjon-e-b-cdot-t-y-p-a-cdot-e-2-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#eksponentialfunksjon-e-b-cdot-t-y-p-a-cdot-e-2-item-section" role="button"></a><strong>Eksponentialfunksjon (\(e^{-b \cdot t}\)):</strong> \(y_P = A \cdot e^\)<span class="collapse in" id="eksponentialfunksjon-e-b-cdot-t-y-p-a-cdot-e-2-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
 
-<li id="sinus-ogeller-cosinusfunksjon-med-vinkelfrekvens-omega-y-p-a-cdot-sinomega-cdot-t-b-cdot-cosomega-cdot-t-2-item"><a aria-controls="sinus-ogeller-cosinusfunksjon-med-vinkelfrekvens-omega-y-p-a-cdot-sinomega-cdot-t-b-cdot-cosomega-cdot-t-2-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#sinus-ogeller-cosinusfunksjon-med-vinkelfrekvens-omega-y-p-a-cdot-sinomega-cdot-t-b-cdot-cosomega-cdot-t-2-item-section" role="button"></a><strong>Sinus- og/eller cosinusfunksjon med vinkelfrekvens <abbr class="acronym" title="dollar">$</abbr>\omega$:</strong> $y_P = A \cdot \sin(\omega \cdot t) + B \cdot \cos(\omega \cdot t)<abbr class="acronym" title="dollar">$</abbr><span class="collapse in" id="sinus-ogeller-cosinusfunksjon-med-vinkelfrekvens-omega-y-p-a-cdot-sinomega-cdot-t-b-cdot-cosomega-cdot-t-2-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+<li id="sinus-ogeller-cosinusfunksjon-med-vinkelfrekvens-omega-y-p-a-cdot-sinomega-cdot-t-b-cdot-cosomega-cdot-t-2-item"><a aria-controls="sinus-ogeller-cosinusfunksjon-med-vinkelfrekvens-omega-y-p-a-cdot-sinomega-cdot-t-b-cdot-cosomega-cdot-t-2-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#sinus-ogeller-cosinusfunksjon-med-vinkelfrekvens-omega-y-p-a-cdot-sinomega-cdot-t-b-cdot-cosomega-cdot-t-2-item-section" role="button"></a><strong>Sinus- og/eller cosinusfunksjon med vinkelfrekvens \(\omega\):</strong> \(y_P = A \cdot \sin(\omega \cdot t) + B \cdot \cos(\omega \cdot t)\)<span class="collapse in" id="sinus-ogeller-cosinusfunksjon-med-vinkelfrekvens-omega-y-p-a-cdot-sinomega-cdot-t-b-cdot-cosomega-cdot-t-2-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
 </ul>
 
-<p><strong><abbr class="acronym" title="Nota bene"><span class="caps">NB</span></abbr>!</strong> Den frie konstanten eller de frie konstantene i den partikul&#230;re l&#248;sningen finnes ved &#229; sette inn den partikul&#230;re l&#248;sningen inn i differensialligningen. Ved &#229; sammenligne venstre og h&#248;yre side vil konstanten(e) bli bestemt.</p>
+<p><strong><abbr class="acronym" title="Nota bene">NB</abbr>!</strong> Den frie konstanten eller de frie konstantene i den partikul&#230;re l&#248;sningen finnes ved &#229; sette inn den partikul&#230;re l&#248;sningen inn i differensialligningen. Ved &#229; sammenligne venstre og h&#248;yre side vil konstanten(e) bli bestemt.</p>
 </div>
 </section>
 
@@ -221,7 +235,7 @@
 <h3><a aria-hidden="true" class="header-anchor" href="#n3-den-totale-losningen-er-da-summen-av-den-homogene-og-den-partikulaere-losningen-2" title="3. Den totale l&#248;sningen er da summen av den homogene og den partikul&#230;re l&#248;sningen"></a>3. Den totale l&#248;sningen er da summen av den homogene og den partikul&#230;re l&#248;sningen<a aria-controls="n3-den-totale-losningen-er-da-summen-av-den-homogene-og-den-partikulaere-losningen-2-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#n3-den-totale-losningen-er-da-summen-av-den-homogene-og-den-partikulaere-losningen-2-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h3>
 
 <div class="collapse in" id="n3-den-totale-losningen-er-da-summen-av-den-homogene-og-den-partikulaere-losningen-2-section">
-<p><abbr class="acronym" title="dollar">$</abbr>$y(t) = y_H(t) + y_P(t)<abbr class="acronym" title="dollar">$</abbr>$</p>
+<p>\[y(t) = y_H(t) + y_P(t)\]</p>
 </div>
 </section>
 

@@ -1,4 +1,3 @@
----
 title: iTerm2 som nedtrekksterminal
 date: 2013-11-28
 ---

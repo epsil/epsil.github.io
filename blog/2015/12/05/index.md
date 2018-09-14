@@ -1,4 +1,3 @@
----
 title: Nettilkobling med iPhone
 date: 2015-12-05
 ---

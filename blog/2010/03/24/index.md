@@ -1,6 +1,6 @@
----
 title: Lineære differensialligninger med konstante koeffisienter
 date: 2010-03-24
+mathjax: true
 ---
 
 1\. ordens lineær differensialligning med konstante koeffisienter

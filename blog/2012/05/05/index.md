@@ -1,4 +1,3 @@
----
 title: DOM, XPath og jQuery
 date: 2012-05-05
 ---

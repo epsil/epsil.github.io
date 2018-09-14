@@ -1,6 +1,7 @@
 ---
 title: Grenseverdisetningen
 date: 2010-11-20
+mathjax: true
 ---
 
 $$0 < \lvert x - x_0\rvert < \delta \quad\Rightarrow\quad 0 < \lvert f(x) - L\rvert < \epsilon$$

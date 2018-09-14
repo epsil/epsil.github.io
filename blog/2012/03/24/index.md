@@ -1,4 +1,3 @@
----
 title: GUI-programmering med Qt
 date: 2012-03-24
 ---
@@ -7,7 +6,7 @@ God bok om GUI-programmering med Qt: [*C++ GUI Programming with Qt 4*](http://ww
 
 `qmake` brukes for å lage en `Makefile` som forteller `g++` hvor Qt-bibliotekene er:
 
-    $ qmake -project
-    $ qmake
+    qmake -project
+    qmake
 
 Deretter kan prosjektet kompileres med `make`. (Qt Creator håndterer dette automatisk.)

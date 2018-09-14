@@ -8,7 +8,7 @@
 <meta content="Vegard &#216;ye" name="author">
 <meta content="2015-06-25" name="date">
 <meta content="Some notes on using the graphics program Dia on OS X." name="description">
-<meta content="89a9aae99571700ca55a52a04ca72996" name="md5">
+<meta content="d3f28393249204a3254db2bc8e3027d2" name="md5">
 <meta content="text/css" http-equiv="Content-Style-Type">
 <meta content="width=device-width, initial-scale=1" name="viewport">
 <meta content="Dia on OS X" name="DC.Title">
@@ -131,7 +131,7 @@
 <div class="pre"><button class="btn clippy" data-clipboard-target="#epstopdf-diagrameps" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
 
 <pre id="epstopdf-diagrameps">
-<code>$ epstopdf diagram.eps</code>
+<code>epstopdf diagram.eps</code>
 </pre>
 </div>
 
@@ -147,12 +147,12 @@
 <h3><a aria-hidden="true" class="header-anchor" href="#with-pdf2svg" title="With pdf2svg"></a>With <span class="code"><code id="pdf2svg-2">pdf2svg</code><button class="btn clippy" data-clipboard-target="#pdf2svg-2" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span><a aria-controls="with-pdf2svg-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#with-pdf2svg-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h3>
 
 <div class="collapse in" id="with-pdf2svg-section">
-<p>To convert to <abbr class="acronym" title="Scalable Vector Graphics"><span class="caps">SVG</span></abbr>, it is better to <a href="http://superuser.com/questions/198460/converting-from-eps-to-svg-format#answer-542987" target="_blank" title="Open superuser.com in a new window">convert to <abbr class="acronym" title="Portable Document Format"><span class="caps">PDF</span></abbr></a> first than to export directly or convert from <abbr class="acronym" title="Encapsulated PostScript"><span class="caps">EPS</span></abbr>. <abbr class="acronym" title="Portable Document Format"><span class="caps">PDF</span></abbr> can be converted to <abbr class="acronym" title="Scalable Vector Graphics"><span class="caps">SVG</span></abbr> with <a href="http://www.cityinthesky.co.uk/opensource/pdf2svg/" target="_blank" title="Open cityinthesky.co.uk in a new window"><span class="code"><code id="pdf2svg-3">pdf2svg</code><button class="btn clippy" data-clipboard-target="#pdf2svg-3" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span></a> (may be installed with <span class="code"><code id="brew-install-pdf2svg">$ brew install pdf2svg</code><button class="btn clippy" data-clipboard-target="#brew-install-pdf2svg" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>):</p>
+<p>To convert to <abbr class="acronym" title="Scalable Vector Graphics"><span class="caps">SVG</span></abbr>, it is better to <a href="http://superuser.com/questions/198460/converting-from-eps-to-svg-format#answer-542987" target="_blank" title="Open superuser.com in a new window">convert to <abbr class="acronym" title="Portable Document Format"><span class="caps">PDF</span></abbr></a> first than to export directly or convert from <abbr class="acronym" title="Encapsulated PostScript"><span class="caps">EPS</span></abbr>. <abbr class="acronym" title="Portable Document Format"><span class="caps">PDF</span></abbr> can be converted to <abbr class="acronym" title="Scalable Vector Graphics"><span class="caps">SVG</span></abbr> with <a href="http://www.cityinthesky.co.uk/opensource/pdf2svg/" target="_blank" title="Open cityinthesky.co.uk in a new window"><span class="code"><code id="pdf2svg-3">pdf2svg</code><button class="btn clippy" data-clipboard-target="#pdf2svg-3" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span></a> (may be installed with <span class="code"><code id="brew-install-pdf2svg">brew install pdf2svg</code><button class="btn clippy" data-clipboard-target="#brew-install-pdf2svg" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span>):</p>
 
 <div class="pre"><button class="btn clippy" data-clipboard-target="#pdf2svg-diagrampdf-diagramsvg" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
 
 <pre id="pdf2svg-diagrampdf-diagramsvg">
-<code>$ pdf2svg diagram.pdf diagram.svg</code>
+<code>pdf2svg diagram.pdf diagram.svg</code>
 </pre>
 </div>
 
@@ -161,7 +161,7 @@
 <div class="pre"><button class="btn clippy" data-clipboard-target="#pdf2svg-diagrammerpdf-diagramsvg-20" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
 
 <pre id="pdf2svg-diagrammerpdf-diagramsvg-20">
-<code>$ pdf2svg diagrammer.pdf diagram.svg 20</code>
+<code>pdf2svg diagrammer.pdf diagram.svg 20</code>
 </pre>
 </div>
 
@@ -178,7 +178,7 @@
 <div class="pre"><button class="btn clippy" data-clipboard-target="#inkscape-without-gui-filediagrampdf-export-plain-svgdiagramsvg" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
 
 <pre id="inkscape-without-gui-filediagrampdf-export-plain-svgdiagramsvg">
-<code>$ inkscape --without-gui --file=diagram.pdf --export-plain-svg=diagram.svg</code>
+<code>inkscape --without-gui --file=diagram.pdf --export-plain-svg=diagram.svg</code>
 </pre>
 </div>
 

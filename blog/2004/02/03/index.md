@@ -1,4 +1,3 @@
----
 title: XML og XHTML
 date: 2004-02-03
 ---

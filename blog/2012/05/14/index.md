@@ -1,4 +1,3 @@
----
 title: C++ for Java Programmers
 date: 2012-05-14
 ---

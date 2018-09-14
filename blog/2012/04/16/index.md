@@ -1,5 +1,4 @@
----
-title: Why Functional Programming Matters
+title: "Why Functional Programming Matters: Haskell Translation"
 date: 2012-04-16
 ---
 

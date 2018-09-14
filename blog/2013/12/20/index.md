@@ -1,9 +1,8 @@
----
 title: Starte Gollum med `launchd`
 date: 2013-12-20
 ---
 
-På OS X startes [Gollum](https://github.com/gollum/gollum) automatisk med [`launchd`](http://www.nomachetejuggling.com/2012/05/15/personal-wiki-using-github-and-gollum-on-os-x/). Opprett en fil `~/Library/LaunchAgents/com.personalwiki.gollum.plist` (med eksklusive [rettigheter](http://stackoverflow.com/questions/16809861/launchd-doesnt-launch-my-daemon), dvs. `$ chmod 600`) som inneholder dette:
+På OS X startes [Gollum](https://github.com/gollum/gollum) automatisk med [`launchd`](http://www.nomachetejuggling.com/2012/05/15/personal-wiki-using-github-and-gollum-on-os-x/). Opprett en fil `~/Library/LaunchAgents/com.personalwiki.gollum.plist` (med eksklusive [rettigheter](http://stackoverflow.com/questions/16809861/launchd-doesnt-launch-my-daemon), dvs. `chmod 600`) som inneholder dette:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

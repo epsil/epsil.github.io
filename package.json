@@ -1,8 +1,8 @@
 {
-  "name": "mdwiki",
+  "name": "blog",
   "repository": {
     "type": "git",
-    "url": "https://github.com/epsil/mdwiki.git"
+    "url": "https://github.com/epsil/epsil.github.io.git"
   },
   "scripts": {
     "clean": "git stash && git clean -d -f -f -x",

@@ -1,4 +1,3 @@
----
 title: Gollum og Pandoc
 date: 2015-05-27
 ---

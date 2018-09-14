@@ -1,6 +1,6 @@
----
 title: Delbrøksoppspaltning
 date: 2007-10-07
+mathjax: true
 ---
 
 Ved delbrøksoppspaltning faktoriseres *nevneren* i brøken som vi ønsker å spalte opp. Hver faktor gir så en delbrøk med en eller flere ukjente verdier i *telleren*. De ukjente verdiene finnes så ved å sette det nye delbrøksuttrykket, altså summen av alle delbrøkene, lik det opprinnelige.

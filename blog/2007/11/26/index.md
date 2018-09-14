@@ -1,4 +1,3 @@
----
 title: Fordeler med Emacs
 date: 2007-11-26
 ---

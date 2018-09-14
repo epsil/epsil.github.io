@@ -7,7 +7,7 @@
 <meta content="noindex" name="robots">
 <meta content="Vegard &#216;ye" name="author">
 <meta content="2010-11-14" name="date">
-<meta content="20f74b9f101bae662aa4fa9216b08224" name="md5">
+<meta content="7a6b7e60a29808e5268b14eeff6ba98c" name="md5">
 <meta content="text/css" http-equiv="Content-Style-Type">
 <meta content="width=device-width, initial-scale=1" name="viewport">
 <meta content="Bruke grep og find" name="DC.Title">
@@ -92,7 +92,7 @@
 <div class="pre"><button class="btn clippy" data-clipboard-target="#grep-ri-test" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
 
 <pre id="grep-ri-test">
-<code class="language-bash">$ grep -Ri <span class="hljs-string">"test"</span> .</code>
+<code class="language-bash">grep -Ri <span class="hljs-string">"test"</span> .</code>
 </pre>
 </div>
 
@@ -101,7 +101,7 @@
 <div class="pre"><button class="btn clippy" data-clipboard-target="#grep-ri-includetxt-test" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
 
 <pre id="grep-ri-includetxt-test">
-<code class="language-bash">$ grep -Ri --include=<span class="hljs-string">"*.txt"</span> <span class="hljs-string">"test"</span> .</code>
+<code class="language-bash">grep -Ri --include=<span class="hljs-string">"*.txt"</span> <span class="hljs-string">"test"</span> .</code>
 </pre>
 </div>
 
@@ -120,7 +120,7 @@
 <div class="pre"><button class="btn clippy" data-clipboard-target="#find-name-pattern-xargs-rm" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
 
 <pre id="find-name-pattern-xargs-rm">
-<code class="language-bash">$ find . -name &lt;PATTERN&gt; | xargs rm</code>
+<code class="language-bash">find . -name &lt;PATTERN&gt; | xargs rm</code>
 </pre>
 </div>
 
@@ -129,8 +129,8 @@
 <div class="pre"><button class="btn clippy" data-clipboard-target="#find-name-pattern-exec-rm-find-name-pattern-print0-xargs-0-rm" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
 
 <pre id="find-name-pattern-exec-rm-find-name-pattern-print0-xargs-0-rm">
-<code class="language-bash">$ find . -name &lt;PATTERN&gt; -<span class="hljs-built_in">exec</span> rm {} \;
-$ find . -name &lt;<span class="caps">PATTERN</span>&gt; -print0 | xargs -0 rm</code>
+<code class="language-bash">find . -name &lt;PATTERN&gt; -<span class="hljs-built_in">exec</span> rm {} \;
+find . -name &lt;<span class="caps">PATTERN</span>&gt; -print0 | xargs -0 rm</code>
 </pre>
 </div>
 

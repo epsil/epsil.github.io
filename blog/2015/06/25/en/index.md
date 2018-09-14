@@ -1,11 +1,10 @@
----
 title: Dia on OS X
 date: 2015-06-25
 abstract: Some notes on using the graphics program [Dia](http://dia-installer.de/) on OS X.
-image: ../dia.svg
-image-width: 70
+cover-image: ../dia.svg
+cover-image-width: 70
 lang: en
-css: ../custom.css
+stylesheet: ../custom.css
 ---
 
 If Dia crashes
@@ -25,7 +24,7 @@ Export to PDF
 
 To create a PDF file, it is best to export to EPS first (with Pango fonts) and then [convert to PDF](http://www.dark.ca/2009/07/16/getting-dia-to-give-you-a-pdf/):
 
-    $ epstopdf diagram.eps
+    epstopdf diagram.eps
 
 `epstopdf` is included in TeX Live ([MacTeX](http://tug.org/mactex/)).
 
@@ -34,13 +33,13 @@ Convert PDF to SVG
 
 ### With `pdf2svg`
 
-To convert to SVG, it is better to [convert to PDF](http://superuser.com/questions/198460/converting-from-eps-to-svg-format#answer-542987) first than to export directly or convert from EPS. PDF can be converted to SVG with [`pdf2svg`](http://www.cityinthesky.co.uk/opensource/pdf2svg/) (may be installed with `$ brew install pdf2svg`):
+To convert to SVG, it is better to [convert to PDF](http://superuser.com/questions/198460/converting-from-eps-to-svg-format#answer-542987) first than to export directly or convert from EPS. PDF can be converted to SVG with [`pdf2svg`](http://www.cityinthesky.co.uk/opensource/pdf2svg/) (may be installed with `brew install pdf2svg`):
 
-    $ pdf2svg diagram.pdf diagram.svg
+    pdf2svg diagram.pdf diagram.svg
 
 To convert a specific page:
 
-    $ pdf2svg diagrammer.pdf diagram.svg 20
+    pdf2svg diagrammer.pdf diagram.svg 20
 
 Unfortunately, `pdf2svg` has no options for cropping. For this, one can use [PDF Scissors](https://sites.google.com/site/pdfscissors/) (graphics) or [PDFtk](https://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/) (command line).
 
@@ -48,6 +47,6 @@ Unfortunately, `pdf2svg` has no options for cropping. For this, one can use [PDF
 
 It seems that `pdf2svg` runs into problems with some PDF files. An alternative is to use [Inkscape](http://inkscape.org/), which can be [run from the terminal](http://stackoverflow.com/questions/10288065/convert-pdf-to-clean-svg#answer-10290006):
 
-    $ inkscape --without-gui --file=diagram.pdf --export-plain-svg=diagram.svg
+    inkscape --without-gui --file=diagram.pdf --export-plain-svg=diagram.svg
 
 This is apparently the conversion method recommended by [Wikipedia](https://en.wikipedia.org/wiki/Wikipedia:Graphics_Lab/Resources/PDF_conversion_to_SVG#Conversion_with_Inkscape).

@@ -7,31 +7,45 @@ a:hover {
     text-decoration: underline;
 }
 
+a:before {
+    text-decoration: none !important;
+}
+
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Lato, "Open Sans", Avenir, "Avenir Next", "Myriad Set Pro", "Myriad Pro", Myriad, Ubuntu, "Bitstream Vera Sans", "DejaVu Sans", Helvetica, Arial, Tahoma, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
+    font-family: "Segoe UI", Seravek, "League Spartan", "Open Sans", "Work Sans", Avenir, "Avenir Next", Optima, "Optima Web", "Linux Biolinum", Vegur, Karla, Candara, Futura, "Gill Sans", Calibri, Corbel, Helvetica, Arial, sans-serif !important;
+    font-size: 115% !important;
     margin-top: 3em;
 }
 
 code, kbd, samp, tt, pre {
-    background-color: inherit;
-    padding: 0;
+    /* background-color: inherit; */
+    /* padding: 0; */
     font-size: 0.85em !important;
 }
 
-header {
-    text-align: center;
-}
-
+/*
 h1 {
     color: #cf022b;
 }
+*/
 
-h1, h2, h3, h4, h5, h6 {
-    font-weight: 200;
+header {
+    color: #cf022b;
+}
+
+header h1 {
+    /* display: none; */
+    border: none;
+    margin: 0;
+    padding: 0 !important;
 }
 
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
     text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    clear: both;
 }
 
 h2 {
@@ -54,6 +68,9 @@ nav {
 .nav li a .fa,
 .nav li a:focus,
 .nav li > a:focus .fa,
+.nav input,
+nav .form-control,
+nav .form-control::-moz-placeholder,
 #toc li:before,
 #toc li a {
     color: #ffffff !important;
@@ -68,10 +85,13 @@ time, .p-summary, .fa {
     color: #5a5a5a;
 }
 
+/*
 li li {
     font-size: 0.85em;
 }
+*/
 
+/*
 .h-entry ul > li:before {
     content: "\2022";
     color: #cf022b;
@@ -86,16 +106,41 @@ li li {
 .h-entry li li li:before {
     color: #000000;
 }
+*/
+
+.e-content ul.collapse a.collapse-button::before {
+    color: #cf022b !important;
+}
+
+.p-name {
+    padding-right: 200px;
+}
+
+/*
+header figure {
+    background: #fff;
+    margin-bottom: -70px;
+    position: relative;
+    top: -70px;
+    z-index: 999;
+}
+*/
+
+.p-summary {
+    display: none;
+}
 
 .collapse-button[aria-expanded="false"] {
     border: none;
 }
 
+/*
 img {
     margin-top: 0.5em !important;
 }
 
 header figure {
-    /* float: right; */
-    /* margin-top: -140px; */
+    float: right;
+    margin-top: -140px;
 }
+*/

@@ -1,5 +1,9 @@
----
 title: Skrifter for LaTeX
+aliases:
+  - Font
+  - Fonter
+  - Skrift
+  - Skrifter
 date: 2010-04-08
 ---
 

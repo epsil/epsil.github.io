@@ -1,7 +1,3 @@
-a, a:focus {
-    border: none;
-}
-
 body {
     margin-bottom: 5em;
 }
@@ -32,13 +28,13 @@ header {
     padding: 0;
 }
 
-.author, .p-summary {
+.p-summary {
     display: none;
 }
 
 #blogg h2:before,
-#arkiver h2:before,
 #arkiver h3:before,
+#arkiver h4:before,
 #kontakt h2:before,
 #linkedin:before,
 #github:before,
@@ -54,11 +50,11 @@ header {
   content: "\f09e"; /* fa-feed */
 }
 
-#arkiver h2:before {
+#arkiver h3:before {
   content: "\f07c"; /* fa-folder-open */
 }
 
-#arkiver h3:before {
+#arkiver h4:before {
   content: "\f133"; /* fa-calendar-o */
 }
 
@@ -77,10 +73,6 @@ header {
     position: fixed;
     text-align: right;
     width: 100%;
-}
-
-#kontakt a:after {
-    content: normal;
 }
 
 #kontakt h2 {
@@ -112,4 +104,8 @@ header {
 
 #email:before {
     content: "\f1fa"; /* fa-at */
+}
+
+.collapse-button {
+    display: none;
 }

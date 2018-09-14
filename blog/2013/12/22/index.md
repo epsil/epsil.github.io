@@ -1,11 +1,10 @@
----
 title: Last.fm Search Links
 date: 2013-12-22
 ---
 
 [Last.fm Search Links](http://userscripts.org/scripts/show/20252) er et nyttig skript for diverse musikknettsteder. Dessverre har den siste offisielle versjonen (2012.12.09) problemer med [Rate Your Music](http://rateyourmusic.com/). En uoffisiell [versjon 2013.09.10](http://userscripts.org/topics/131464) gjør noen endringer:
 
-```js
+```javascript
 {       // rym artist
         url:/^http:\/\/(?:www\.)?rateyourmusic\.com\/artist\/[\w#!:.?+=&%@!\-]+\/?$/i,
         mainPath:"div.profilehir",
@@ -15,7 +14,7 @@ date: 2013-12-22
 
 Men nå har Rate Your Music endret HTML-koden igjen, så dette virker ikke lenger. Det følgende ser ut til å fungere:
 
-```js
+```javascript
 {       // rym artist
         url:/^http:\/\/(?:www\.)?rateyourmusic\.com\/artist\/[\w#!:.?+=&%@!\-]+\/?$/i,
         mainPath:"div.section_artist_name",

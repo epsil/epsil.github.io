@@ -1,4 +1,3 @@
----
 title: The International Obfuscated C Code Contest
 date: 2007-10-30
 ---

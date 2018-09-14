@@ -7,7 +7,7 @@
 <meta content="noindex" name="robots">
 <meta content="Vegard &#216;ye" name="author">
 <meta content="2014-05-13" name="date">
-<meta content="c1bff7eb679304be4016676af3246a96" name="md5">
+<meta content="9fe09965b6e4fe6ad32ce8b456e9882a" name="md5">
 <meta content="text/css" http-equiv="Content-Style-Type">
 <meta content="width=device-width, initial-scale=1" name="viewport">
 <meta content="Hvordan skrive til en NTFS-disk p&#229; OS X" name="DC.Title">
@@ -18,7 +18,7 @@
 <meta content="Hvordan skrive til en NTFS-disk p&#229; OS X" property="og:title">
 <meta content="no" name="og:locale">
 <meta content="article" property="og:type">
-<meta content="https://epsil.github.io/blog/2014/05/13/" property="og:url">
+<meta content="http://osxdaily.com/2013/10/02/enable-ntfs-write-support-mac-os-x/" property="og:url">
 <meta content="Vegards blogg" property="og:site_name">
 <meta content="summary" name="twitter:card">
 <meta content="@github" name="twitter:site">
@@ -68,7 +68,8 @@
 
 <article class="h-entry" id="main">
 <header>
-<h1 class="p-name"><a class="u-uid u-url" href="https://epsil.github.io/blog/2014/05/13/" rel="bookmark" target="_blank" title="Permalink">Hvordan</a> <a href="http://osxdaily.com/2013/10/02/enable-ntfs-write-support-mac-os-x/" target="_blank" title="Open osxdaily.com in a new window">skrive til en <abbr class="acronym" title="New Technology File System"><span class="caps">NTFS</span></abbr>-disk p&#229; <abbr class="acronym" title="Operating System 10"><span class="caps">OS</span> X</abbr></a></h1>
+<h1 class="p-name"><a class="u-uid u-url" href="http://osxdaily.com/2013/10/02/enable-ntfs-write-support-mac-os-x/" rel="bookmark" target="_blank" title="Permalink">Hvordan skrive til en <abbr class="acronym" title="New Technology File System"><span class="caps">NTFS</span></abbr>-disk p&#229; <abbr class="acronym" title="Operating System 10"><span class="caps">OS</span> X</abbr></a>
+</h1>
 
 <p class="author"><a class="p-author h-card" href="https://epsil.github.io/" target="_blank" title="Open epsil.github.io in a new window">Vegard &#216;ye</a> &#8226; <time class="dt-published" datetime="2014-05-13">2014-05-13</time></p>
 </header>
@@ -80,7 +81,7 @@
 <div class="pre"><button class="btn clippy" data-clipboard-target="#sudo-vi-etc-fstab" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
 
 <pre id="sudo-vi-etc-fstab">
-<code>$ sudo vi /etc/fstab</code>
+<code>sudo vi /etc/fstab</code>
 </pre>
 </div>
 
@@ -93,14 +94,14 @@
 </pre>
 </div>
 
-<p>(Hvis disken har et komplisert navn, finn <abbr class="acronym" title="Universally Unique Identifier"><span class="caps">UUID</span></abbr>-en med <span class="code"><code id="diskutil-info-volumes-drivename-grep-uuid">$ diskutil info /Volumes/DRIVENAME | grep UUID</code><button class="btn clippy" data-clipboard-target="#diskutil-info-volumes-drivename-grep-uuid" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> og skriv <span class="code"><code id="uuid">UUID=...</code><button class="btn clippy" data-clipboard-target="#uuid" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> istedenfor.)</p>
+<p>(Hvis disken har et komplisert navn, finn <abbr class="acronym" title="Universally Unique Identifier"><span class="caps">UUID</span></abbr>-en med <span class="code"><code id="diskutil-info-volumes-drivename-grep-uuid">diskutil info /Volumes/DRIVENAME | grep UUID</code><button class="btn clippy" data-clipboard-target="#diskutil-info-volumes-drivename-grep-uuid" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> og skriv <span class="code"><code id="uuid">UUID=...</code><button class="btn clippy" data-clipboard-target="#uuid" title="Copy to clipboard"><span class="code"><i class="fa fa-clipboard"></i></span></button></span> istedenfor.)</p>
 
 <p>Disken vil ikke vises som en vanlig disk, men kan &#229;pnes i Finder med:</p>
 
 <div class="pre"><button class="btn clippy" data-clipboard-target="#open-volumes-drivename" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
 
 <pre id="open-volumes-drivename">
-<code>$ open /Volumes/DRIVENAME</code>
+<code>open /Volumes/DRIVENAME</code>
 </pre>
 </div>
 
@@ -109,7 +110,7 @@
 <div class="pre"><button class="btn clippy" data-clipboard-target="#sudo-ln-s-volumes-drivename-desktop-drivename" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>
 
 <pre id="sudo-ln-s-volumes-drivename-desktop-drivename">
-<code>$ sudo ln -s /Volumes/DRIVENAME ~/Desktop/DRIVENAME</code>
+<code>sudo ln -s /Volumes/DRIVENAME ~/Desktop/DRIVENAME</code>
 </pre>
 </div>
 

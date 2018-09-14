@@ -1,11 +1,12 @@
----
 title: Testing med Selenium
 abstract: Hvordan kombinere Selenium, mocha og chai.
+aliases:
+  - Selenium
 date: 2015-12-10
-image: selenium.png
-image-width: 100
-include-before: "![](steria.svg){width=150}"
-css: style.css
+cover-image: selenium.png
+cover-image-width: 100
+include-before: '![](steria.svg){width=150}'
+stylesheet: style.css
 ---
 
 Selenium
@@ -71,45 +72,45 @@ Kjøres med:
 ------------------
 
 ```javascript
-var selenium = require('selenium-webdriver')
-var chai = require('chai')
-chai.use(require('chai-as-promised'))
-var expect = chai.expect
+var selenium = require('selenium-webdriver');
+var chai = require('chai');
+chai.use(require('chai-as-promised'));
+var expect = chai.expect;
 
-before(function () {
-  this.timeout(60000)
+before(function() {
+  this.timeout(60000);
   this.driver = new selenium.Builder()
     .withCapabilities(selenium.Capabilities.chrome())
-    .build()
-  return this.driver.getWindowHandle()
-})
+    .build();
+  return this.driver.getWindowHandle();
+});
 
-after(function () {
-  return this.driver.quit()
-})
+after(function() {
+  return this.driver.quit();
+});
 
-describe('Component', function () {
+describe('Component', function() {
   // ...
-})
+});
 ```
 
 [test.js](test.js), del 2
 -------------------------
 
 ```javascript
-describe('Component', function () {
-  beforeEach(function () {
+describe('Component', function() {
+  beforeEach(function() {
     // ...
-  })
+  });
 
-  afterEach(function () {
+  afterEach(function() {
     // ...
-  })
+  });
 
-  it('should work as expected', function () {
+  it('should work as expected', function() {
     // Selenium test code here
-  })
-})
+  });
+});
 ```
 
 Resultat:
@@ -120,14 +121,14 @@ Resultat:
 -------------------------
 
 ```javascript
-describe('Search field', function () {
-  it('should clear when selected', function () {
-    this.driver.get('http://...')
-    var searchField = this.driver.findElement({ css: '#searchField' })
-    searchField.click()
-    return expect(searchField.getText()).to.eventually.equal('')
-  })
-})
+describe('Search field', function() {
+  it('should clear when selected', function() {
+    this.driver.get('http://...');
+    var searchField = this.driver.findElement({ css: '#searchField' });
+    searchField.click();
+    return expect(searchField.getText()).to.eventually.equal('');
+  });
+});
 ```
 
 Resultat:
