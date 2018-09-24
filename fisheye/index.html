@@ -409,7 +409,7 @@ July 2015</p>
 
 <p>The multi-core imperative was first laid out by <a href="#chandrakasan95-power" title="A. P. Chandrakasan, M. Potkonjak, R. Mehra, J. Rabaey, and R.W. Brodersen. Optimizing power using transformations. IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems, 14(1), 1995.">Chandrakasan et al. (1995)</a>. The gist of their argument is as follows. The energy expended in switching the gates in a processor is given by:</p>
 
-<p>\[P = CV^2f\]</p>
+<p class="formula">\[P = CV^2f\]</p>
 
 <p>Here, \(C\) is the capacitance, \(V\) is the voltage and \(f\) is the frequency. According to their models, if we compare a single-core processor running at voltage of \(V\) and a frequency \(f\) to a dual-core processor running at \(f/2\), then the capacitance for the latter increases by \(2.2\), while the voltage drops to \(0.6V\). Therefore, the power in the dual-core case is \(0.396\) of the power in the single-core case. In general, many cores running at lower frequencies are fundamentally more power-efficient.</p>
 
@@ -579,7 +579,7 @@ July 2015</p>
 
 <p>Mathematically, scaling can be expressed as multiplying the image coordinates with a scalar \(k\). If the operation is expressed as matrix multiplication, then the scaling matrix has the form \([\begin{smallmatrix} k &amp; 0\\ 0 &amp; k \end{smallmatrix}]\), or \(k\) times the identity matrix:</p>
 
-<p>\[\left[\begin{matrix} k &amp; 0\\ 0 &amp; k \end{matrix}\right] \left[\begin{matrix} x\\ y \end{matrix}\right] = \left[\begin{matrix} kx\\ ky \end{matrix}\right]\]</p>
+<p class="formula">\[\left[\begin{matrix} k &amp; 0\\ 0 &amp; k \end{matrix}\right] \left[\begin{matrix} x\\ y \end{matrix}\right] = \left[\begin{matrix} kx\\ ky \end{matrix}\right]\]</p>
 
 <p>Of course, scaling is invertible, since scaling by \(k\) can be undone by scaling by \(1/k\).</p>
 </div>
@@ -593,11 +593,11 @@ July 2015</p>
 
 <p>Mathematically, a transformation \(F(\mathbf{x})\) is linear if it preserves the basic operations of addition and multiplication by a scalar \(k\):</p>
 
-<p>\[\begin{aligned} F(\mathbf{x} + \mathbf{y}) &amp;= F(\mathbf{x}) + F(\mathbf{y})\\ F(k\mathbf{x}) &amp;= kF(\mathbf{x}) \end{aligned} \]</p>
+<p class="formula">\[\begin{aligned} F(\mathbf{x} + \mathbf{y}) &amp;= F(\mathbf{x}) + F(\mathbf{y})\\ F(k\mathbf{x}) &amp;= kF(\mathbf{x}) \end{aligned} \]</p>
 
 <p>Note that the transformation doesn&#8217;t shift the coordinate system &#8211; it maps the zero coordinate onto itself:</p>
 
-<p>\[\label{eq:zero} F(\mathbf{0}) = \mathbf{0} \]</p>
+<p class="formula">\[\label{eq:zero} F(\mathbf{0}) = \mathbf{0} \]</p>
 
 <p>Linear transformations can be expressed as multiplication by a two-by-two matrix \([\begin{smallmatrix} m_{11} &amp; m_{12}\\ m_{21} &amp; m_{22} \end{smallmatrix}]\). For all practical purposes, these matrices are invertible, excluding a few corner cases which are meaningless in the context of image transformation.</p>
 </div>
@@ -609,11 +609,11 @@ July 2015</p>
 <div class="collapse in" id="n213-affine-transformations-section">
 <p>An affine transformation is a linear transformation followed by translation, <abbr title="id est">i.e.</abbr>, shifting the coordinate system by offsets \(\Delta x\) and \(\Delta y\). Translations cannot be expressed by a two-by-two matrix, as equation shows. However, if we extend our two-dimensional coordinates with a &#8220;dummy&#8221; coordinate \(z = 1\), we can express translation as multiplication by a three-by-three matrix:</p>
 
-<p>\[\left[\begin{matrix} 1 &amp; 0 &amp; \Delta x\\ 0 &amp; 1 &amp; \Delta y\\ 0 &amp; 0 &amp; 1 \end{matrix}\right] \left[\begin{matrix} x\\ y\\ 1 \end{matrix}\right] = \left[\begin{matrix} x + \Delta x\\ y + \Delta y\\ 1 \end{matrix}\right]\]</p>
+<p class="formula">\[\left[\begin{matrix} 1 &amp; 0 &amp; \Delta x\\ 0 &amp; 1 &amp; \Delta y\\ 0 &amp; 0 &amp; 1 \end{matrix}\right] \left[\begin{matrix} x\\ y\\ 1 \end{matrix}\right] = \left[\begin{matrix} x + \Delta x\\ y + \Delta y\\ 1 \end{matrix}\right]\]</p>
 
 <p>An affine transformation can then be expressed as:</p>
 
-<p>\[\left[\begin{matrix} m_{11} &amp; m_{12} &amp; \Delta x\\ m_{21} &amp; m_{22} &amp; \Delta y\\ 0 &amp; 0 &amp; 1 \end{matrix}\right] \left[\begin{matrix} x\\ y\\ 1 \end{matrix}\right] = \left[\begin{matrix} m_{11}x + m_{12}y + \Delta x\\ m_{21}x + m_{22}y + \Delta y\\ 1 \end{matrix}\right]\]</p>
+<p class="formula">\[\left[\begin{matrix} m_{11} &amp; m_{12} &amp; \Delta x\\ m_{21} &amp; m_{22} &amp; \Delta y\\ 0 &amp; 0 &amp; 1 \end{matrix}\right] \left[\begin{matrix} x\\ y\\ 1 \end{matrix}\right] = \left[\begin{matrix} m_{11}x + m_{12}y + \Delta x\\ m_{21}x + m_{22}y + \Delta y\\ 1 \end{matrix}\right]\]</p>
 
 <p>In actuality, the coordinate \([x, y, z]\) is a <em>homogeneous</em> coordinate. OpenGL ES provides built-in support for such coordinates, which extends the scope of transformations that can be expressed as matrix multiplication.</p>
 </div>
@@ -625,11 +625,11 @@ July 2015</p>
 <div class="collapse in" id="n214-projective-transformations-section">
 <p>If the three-by-three matrix modifies the \(z\) coordinate, then the transformation is projective:</p>
 
-<p>\[\left[\begin{matrix} m_{11} &amp; m_{12} &amp; m_{13}\\ m_{21} &amp; m_{22} &amp; m_{23}\\ m_{31} &amp; m_{32} &amp; m_{33} \end{matrix}\right] \left[\begin{matrix} x\\ y\\ z \end{matrix}\right] = \left[\begin{matrix} m_{11}x + m_{12}y + m_{13}z\\ m_{21}x + m_{22}y + m_{23}z\\ m_{31}x + m_{32}y + m_{33}z \end{matrix}\right]\]</p>
+<p class="formula">\[\left[\begin{matrix} m_{11} &amp; m_{12} &amp; m_{13}\\ m_{21} &amp; m_{22} &amp; m_{23}\\ m_{31} &amp; m_{32} &amp; m_{33} \end{matrix}\right] \left[\begin{matrix} x\\ y\\ z \end{matrix}\right] = \left[\begin{matrix} m_{11}x + m_{12}y + m_{13}z\\ m_{21}x + m_{22}y + m_{23}z\\ m_{31}x + m_{32}y + m_{33}z \end{matrix}\right]\]</p>
 
 <p>In this case, the \(z\) value contains information. We map from homogeneous coordinates to image coordinates by dividing by \(z\):</p>
 
-<p>\[\frac{1}{z} \left[\begin{matrix} x\\ y\\ z \end{matrix}\right] = \left[\begin{matrix} x/z\\ y/z\\ 1 \end{matrix}\right]\]</p>
+<p class="formula">\[\frac{1}{z} \left[\begin{matrix} x\\ y\\ z \end{matrix}\right] = \left[\begin{matrix} x/z\\ y/z\\ 1 \end{matrix}\right]\]</p>
 
 <p>By transforming the input coordinates with this two-step process &#8211; first multiplying with an homogeneous matrix and then mapping back to two-dimensional coordinates &#8211; we can express more advanced transformations, for example perspective projection (figure <a href="#fig-perspective" title="Figure 2.2: Perspective projection">2.2</a>). Any planar quadrilateral can be transformed to any other quadrilateral.</p>
 
@@ -639,7 +639,7 @@ July 2015</p>
 
 <p>In the case of nonplanar quadrilaterals, however, a more general solution is necessary. The general quadrilateral-to-quadrilateral problem can be expressed as a bilinear transformation:</p>
 
-<p>\[\left[\begin{matrix} a_3 &amp; a_2 &amp; a_1 &amp; a_0\\ b_3 &amp; b_2 &amp; b_1 &amp; b_0 \end{matrix}\right] \left[\begin{matrix} xy\\ x\\ y\\ 1 \end{matrix}\right] = \left[\begin{matrix} a_3xy + a_2x + a_1y + a_0\\ b_3xy + b_2x + b_1y + b_0 \end{matrix}\right]\]</p>
+<p class="formula">\[\left[\begin{matrix} a_3 &amp; a_2 &amp; a_1 &amp; a_0\\ b_3 &amp; b_2 &amp; b_1 &amp; b_0 \end{matrix}\right] \left[\begin{matrix} xy\\ x\\ y\\ 1 \end{matrix}\right] = \left[\begin{matrix} a_3xy + a_2x + a_1y + a_0\\ b_3xy + b_2x + b_1y + b_0 \end{matrix}\right]\]</p>
 
 <p>For example, a photograph can be transformed from perspective projection to orthographic projection by mapping a rectangle imaged as a quadrilateral to a rectangle with the correct aspect ratio (<a href="#zisserman04-multiple-view" title="Richard Hartley and Andrew Zisserman. Multiple View Geometry in Computer Vision. Cambridge University Press, 2 edition, 2004.">Hartley and Zisserman 2004</a>).</p>
 
@@ -657,7 +657,7 @@ July 2015</p>
 
 <p>A nonlinear transformation is not necessarily costly to calculate. If it is, however, then it might be preferable to compute it in advance and store it as a table of \([x, y]\)-offsets:</p>
 
-<p>\[\left[ \begin{matrix} F(\mathbf{x}_{11}) &amp; F(\mathbf{x}_{12}) &amp; F(\mathbf{x}_{13}) &amp; F(\mathbf{x}_{14}) &amp; \dotsb &amp; F(\mathbf{x}_{1n}) \\ F(\mathbf{x}_{21}) &amp; F(\mathbf{x}_{22}) &amp; F(\mathbf{x}_{23}) &amp; F(\mathbf{x}_{24}) &amp; \dotsb &amp; F(\mathbf{x}_{2n}) \\ F(\mathbf{x}_{31}) &amp; F(\mathbf{x}_{32}) &amp; F(\mathbf{x}_{33}) &amp; F(\mathbf{x}_{34}) &amp; \dotsb &amp; F(\mathbf{x}_{3n}) \\ F(\mathbf{x}_{41}) &amp; F(\mathbf{x}_{42}) &amp; F(\mathbf{x}_{43}) &amp; F(\mathbf{x}_{44}) &amp; \dotsb &amp; F(\mathbf{x}_{4n}) \\ F(\mathbf{x}_{41}) &amp; F(\mathbf{x}_{42}) &amp; F(\mathbf{x}_{43}) &amp; F(\mathbf{x}_{44}) &amp; \dotsb &amp; F(\mathbf{x}_{4n}) \\ \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ F(\mathbf{x}_{m1}) &amp; F(\mathbf{x}_{m2}) &amp; F(\mathbf{x}_{m3}) &amp; F(\mathbf{x}_{m4}) &amp; \dotsb &amp; F(\mathbf{x}_{mn}) \end{matrix} \right]\]</p>
+<p class="formula">\[\left[ \begin{matrix} F(\mathbf{x}_{11}) &amp; F(\mathbf{x}_{12}) &amp; F(\mathbf{x}_{13}) &amp; F(\mathbf{x}_{14}) &amp; \dotsb &amp; F(\mathbf{x}_{1n}) \\ F(\mathbf{x}_{21}) &amp; F(\mathbf{x}_{22}) &amp; F(\mathbf{x}_{23}) &amp; F(\mathbf{x}_{24}) &amp; \dotsb &amp; F(\mathbf{x}_{2n}) \\ F(\mathbf{x}_{31}) &amp; F(\mathbf{x}_{32}) &amp; F(\mathbf{x}_{33}) &amp; F(\mathbf{x}_{34}) &amp; \dotsb &amp; F(\mathbf{x}_{3n}) \\ F(\mathbf{x}_{41}) &amp; F(\mathbf{x}_{42}) &amp; F(\mathbf{x}_{43}) &amp; F(\mathbf{x}_{44}) &amp; \dotsb &amp; F(\mathbf{x}_{4n}) \\ F(\mathbf{x}_{41}) &amp; F(\mathbf{x}_{42}) &amp; F(\mathbf{x}_{43}) &amp; F(\mathbf{x}_{44}) &amp; \dotsb &amp; F(\mathbf{x}_{4n}) \\ \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ F(\mathbf{x}_{m1}) &amp; F(\mathbf{x}_{m2}) &amp; F(\mathbf{x}_{m3}) &amp; F(\mathbf{x}_{m4}) &amp; \dotsb &amp; F(\mathbf{x}_{mn}) \end{matrix} \right]\]</p>
 
 <p>Since coordinate transformation is reduced to a single table lookup, this is very efficient, at least for small tables. For large tables, cache misses may outweigh the cost of computing the value directly. Note that if the image resolution is not known beforehand (<abbr title="exempli gratia">e.g.</abbr>, because of user-adjustable resizing), then this approach requires us to calculate the table at some sufficiently rich resolution, and then interpolate between table entries in order to up- or downsample the table to the given image size. A simple way to achieve this is to store the table as a texture and let OpenGL ES interpolate between texel values.</p>
 
@@ -801,7 +801,7 @@ July 2015</p>
 
 <p>If \([x, y]\) are the Cartesian coordinates of a point, then the polar coordinates \([r, \theta]\) represent the radius \(r\) and the angle \(\theta\) with the positive \(x\) axis. The relationship between Cartesian coordinates and polar coordinates is:</p>
 
-<p>\[\label{eq:cartesiantopolar} [r, \theta] = \left[\!\sqrt{x^2 + y^2}, \operatorname{atan2}(y, x)\right]\]</p>
+<p class="formula">\[\label{eq:cartesiantopolar} [r, \theta] = \left[\!\sqrt{x^2 + y^2}, \operatorname{atan2}(y, x)\right]\]</p>
 
 <aside class="sidenote">
 <p><sup class="ref-mark"><a href="#fnref6" id="sidenote6" title="where \(\operatorname{atan2}\) is the arcus tangent function of two arguments \(y\) and \(x\), which expresses the quadrant of the angle accurately.[6] The inverse relationship is given by:"><span class="left-bracket">[</span>6<span class="right-bracket">]</span></a></sup>This is provided as the <span class="code"><code id="atan">atan()</code></span> function in OpenGL ES. <a class="footnote-backref" href="#fnref6" title="where \(\operatorname{atan2}\) is the arcus tangent function of two arguments \(y\) and \(x\), which expresses the quadrant of the angle accurately.[6] The inverse relationship is given by:">&#8617;&#65038;</a></p>
@@ -809,23 +809,23 @@ July 2015</p>
 
 <p>where \(\operatorname{atan2}\) is the arcus tangent function of <em>two</em> arguments \(y\) and \(x\), which expresses the quadrant of the angle accurately.<sup class="footnote-ref"><a href="#fn6" id="fnref6" title="This is provided as the atan() function in OpenGL ES."><span class="left-bracket">[</span>6<span class="right-bracket">]</span></a></sup> The inverse relationship is given by:</p>
 
-<p>\[\label{eq:polartocartesian} [x, y] = [r\cos{\theta}, r\sin{\theta}]\]</p>
+<p class="formula">\[\label{eq:polartocartesian} [x, y] = [r\cos{\theta}, r\sin{\theta}]\]</p>
 
 <p>A model is a mapping from an untransformed coordinate \([r, \theta]\) to a transformed coordinate \([r&#8217;, \theta&#8217;]\). (It may map undistorted coordinates to distorted coordinates or vice versa; for the time being, we ignore the direction of the model and only concern ourselves with the mapping itself.) Since the angle doesn&#8217;t change (<abbr title="id est">i.e.</abbr>, \(\theta&#8217; = \theta\)), the model can be expressed more compactly as the relationship between the undistorted radius \(r\) and the distorted radius \(r&#8217;\):</p>
 
-<p>\[\label{eq:model} r&#8217; = F(r)\]</p>
+<p class="formula">\[\label{eq:model} r&#8217; = F(r)\]</p>
 
 <p>We can avoid incurring the cost of the trigonometric functions in equations (\ref{eq:cartesiantopolar}&#8211;\ref{eq:polartocartesian}). Let \(d\) be the displacement factor, expressed as the ratio of the distorted radius to the undistorted radius:</p>
 
-<p>\[\label{eq:displacement} d = \frac{r&#8217;}{r} = \frac{F(r)}{r} \]</p>
+<p class="formula">\[\label{eq:displacement} d = \frac{r&#8217;}{r} = \frac{F(r)}{r} \]</p>
 
 <p>Then the relationship between undistorted polar coordinates and distorted polar coordinates can be expressed in terms of this factor:</p>
 
-<p>\[\label{eq:polardisplacement} [r&#8217;, \theta&#8217;] = [F(r), \theta] = \left[\frac{F(r)}{r}r, \theta\right] = [dr, \theta]\]</p>
+<p class="formula">\[\label{eq:polardisplacement} [r&#8217;, \theta&#8217;] = [F(r), \theta] = \left[\frac{F(r)}{r}r, \theta\right] = [dr, \theta]\]</p>
 
 <p>Likewise, the relationship between undistorted Cartesian coordinates and distorted Cartesian coordinates is given by:</p>
 
-<p>\[\label{eq:cartesiandisplacement} [x&#8217;, y&#8217;] = d[x, d] = [dx, dy]\]</p>
+<p class="formula">\[\label{eq:cartesiandisplacement} [x&#8217;, y&#8217;] = d[x, d] = [dx, dy]\]</p>
 
 <p>This is easily verified by substituting equation \eqref{eq:polardisplacement} into equation \eqref{eq:polartocartesian}. In the rest of the chapter, we will consider distortion to be a function of the radius.</p>
 </div>
@@ -837,25 +837,25 @@ July 2015</p>
 <div class="collapse in" id="n32-polynomial-models-section">
 <p>The classical distortion model is Brown&#8217;s model. In addition to radial distortion, it also models tangential distortion, which occurs when the lens is not aligned with the sensor. The model is commonly approximated as a Taylor series:</p>
 
-<p>\[\label{eq:brown} \begin{split} x_u &amp;= x_d + (x_d &#8211; x_c)(\kappa_1r^2 + \kappa_2r^4 + \kappa_3r^6 + \dotsb) + {} \\ &amp;\phantom{{}={}} [(\rho_1(r^2 + 2(x_d &#8211; x_c)^2) + 2\rho_2(x_d &#8211; x_c)(y_d &#8211; y_c))(1 + \rho_3r^2 + \dotsb)]\\ y_u &amp;= y_d + (y_d &#8211; y_c)(\kappa_1r^2 + \kappa_2r^4 + \kappa_3r^6 + \dotsb) + {} \\ &amp;\phantom{{}={}} [(\rho_1(r^2 + 2(y_d &#8211; y_c)^2) + 2\rho_2(y_d &#8211; y_c)(y_d &#8211; y_c))(1 + \rho_3r^2 + \dotsb)] \end{split} \]</p>
+<p class="formula">\[\label{eq:brown} \begin{split} x_u &amp;= x_d + (x_d &#8211; x_c)(\kappa_1r^2 + \kappa_2r^4 + \kappa_3r^6 + \dotsb) + {} \\ &amp;\phantom{{}={}} [(\rho_1(r^2 + 2(x_d &#8211; x_c)^2) + 2\rho_2(x_d &#8211; x_c)(y_d &#8211; y_c))(1 + \rho_3r^2 + \dotsb)]\\ y_u &amp;= y_d + (y_d &#8211; y_c)(\kappa_1r^2 + \kappa_2r^4 + \kappa_3r^6 + \dotsb) + {} \\ &amp;\phantom{{}={}} [(\rho_1(r^2 + 2(y_d &#8211; y_c)^2) + 2\rho_2(y_d &#8211; y_c)(y_d &#8211; y_c))(1 + \rho_3r^2 + \dotsb)] \end{split} \]</p>
 
 <p>where \([x_u, y_u]\) is the undistorted image point, \([x_d, y_d]\) is the distorted image point, \([x_c, y_c]\) is the center of distortion (<abbr title="id est">i.e.</abbr>, \([0, 0]\) under our assumptions), \(\kappa_n\) is the \(n\)th radial distortion coefficient and \(r\) is the radius as defined in equation \eqref{eq:cartesiantopolar}. The part in brackets expresses tangential distortion, where \(\rho_n\) is the \(n\)th tangential distortion coefficient.</p>
 
 <p>If we substitute \([x_c, x_c] = [0, 0]\) and remove the tangential part, the model simplifies to:</p>
 
-<p>\[\label{eq:brownradial} \begin{split} x_u &amp;= x_d(1 + \kappa_1r^2 + \kappa_2r^4 + \kappa_3r^6 + \dotsb)\\ y_u &amp;= y_d(\underbrace{1 + \kappa_1r^2 + \kappa_2r^4 + \kappa_3r^6 + \dotsb}_d) \end{split} \]</p>
+<p class="formula">\[\label{eq:brownradial} \begin{split} x_u &amp;= x_d(1 + \kappa_1r^2 + \kappa_2r^4 + \kappa_3r^6 + \dotsb)\\ y_u &amp;= y_d(\underbrace{1 + \kappa_1r^2 + \kappa_2r^4 + \kappa_3r^6 + \dotsb}_d) \end{split} \]</p>
 
 <p>where \(d\) is the displacement factor we defined in equation \eqref{eq:displacement}. Since the polynomial \(d = f(r)\) must be symmetric in \(r\), only the coefficients of even powers of \(r\) will be nonzero. Higher-order terms contribute very little, so equation \eqref{eq:brownradial} can be approximated by a finite expression where the coefficient \(\kappa_1\) controls the general behavior of the distortion:</p>
 
-<p>\[\label{eq:taylorone} d = f(r) = 1 + \kappa_1r^2\]</p>
+<p class="formula">\[\label{eq:taylorone} d = f(r) = 1 + \kappa_1r^2\]</p>
 
 <p>The coefficient \(\kappa_2\) needs only be added if a first-order approximation is insufficient:</p>
 
-<p>\[\label{eq:taylortwo} d = f(r) = 1 + \kappa_1r^2 + \kappa_2r^4)\]</p>
+<p class="formula">\[\label{eq:taylortwo} d = f(r) = 1 + \kappa_1r^2 + \kappa_2r^4)\]</p>
 
 <p>However, for larger distortions (<abbr title="id est">i.e.</abbr>, wide-angle lenses), at least three terms are needed:</p>
 
-<p>\[\label{eq:taylorthree} d = f(r) = 1 + \kappa_1r^2 + \kappa_2r^4 + \kappa_3r^6\]</p>
+<p class="formula">\[\label{eq:taylorthree} d = f(r) = 1 + \kappa_1r^2 + \kappa_2r^4 + \kappa_3r^6\]</p>
 
 <p>Brown&#8217;s model is a mapping from distorted positions to undistorted positions, <abbr title="id est">i.e.</abbr>, a relationship of the form \([x_u, y_u] = F(x_d, y_d)\). This allows us to determine where any point in the distorted image would appear if there was <em>no</em> lens distortion. Applied as a forward mapping image transformation, it produces a &#8220;pincushion&#8221; effect (the opposite of barrel distortion). However, lens undistortion can also be implemented in terms of the reverse relationship, \([x_d, y_d] = F^{-1}(x_u, y_u)\), provided we substitute backward mapping for forward mapping. Table <a href="#tab-mappings" title="Interpolation Model Effect Forward mapping \([x_u, y_u] = F(x_d, y_d)\) Pincushion Backward mapping \([x_u, y_u] = F(x_d, y_d)\) Barrel Forward mapping \([x_d, y_d] = F^{-1}(x_u, y_u)\) Barrel Backward mapping \([x_d, y_d] = F^{-1}(x_u, y_u)\) Pincushion Table 3.1: Forward mapping and backward mapping">3.1</a> shows the relationships between interpolation method, model direction, and the produced effect.</p>
 
@@ -903,19 +903,19 @@ July 2015</p>
 
 <p>Another approach is to compute the inverse by an iterative method such as Newton&#8211;Raphson approximation:</p>
 
-<p>\[\label{eq:newton} x_{n+1} = x_n &#8211; \frac{f(x_n)}{f&#8217;(x_n)} \]</p>
+<p class="formula">\[\label{eq:newton} x_{n+1} = x_n &#8211; \frac{f(x_n)}{f&#8217;(x_n)} \]</p>
 
 <p>To approximate a value for \(r\) corresponding to a displacement \(d\), we rewrite equation \eqref{eq:taylorthree} on the form \(f(r) = 0\):</p>
 
-<p>\[\label{eq:rewrite} f(r) = 0 = 1 + \kappa_1r^2 + \kappa_2r^4 + \kappa_3r^6 &#8211; d\]</p>
+<p class="formula">\[\label{eq:rewrite} f(r) = 0 = 1 + \kappa_1r^2 + \kappa_2r^4 + \kappa_3r^6 &#8211; d\]</p>
 
 <p>The derivative of this polynomial is:</p>
 
-<p>\[\label{eq:derivative} f&#8217;(r) = 2\kappa_1r + 4\kappa_2r^3 + 6\kappa_3r^5\]</p>
+<p class="formula">\[\label{eq:derivative} f&#8217;(r) = 2\kappa_1r + 4\kappa_2r^3 + 6\kappa_3r^5\]</p>
 
 <p>Substituting equations (\ref{eq:rewrite}&#8211;\ref{eq:derivative}) into equation \eqref{eq:newton} gives us:</p>
 
-<p>\[\label{eq:approximation} r_{n+1} = r_n &#8211; \frac{1 + \kappa_1r^2 + \kappa_2r^4 + \kappa_3r^6 &#8211; d}{2\kappa_1r + 4\kappa_2r^3 + 6\kappa_3r^5} \]</p>
+<p class="formula">\[\label{eq:approximation} r_{n+1} = r_n &#8211; \frac{1 + \kappa_1r^2 + \kappa_2r^4 + \kappa_3r^6 &#8211; d}{2\kappa_1r + 4\kappa_2r^3 + 6\kappa_3r^5} \]</p>
 
 <p>This is an iterative equation for finding better and better estimates of \(r\) such that \(f(r) = d\). Since the equation is considerably more complicated than the forward relationship, we would like to reduce the number of iterations to a minimum. Note that the approximation converges towards better estimates depending on how good the previous estimate was. Thus, by combining Newton&#8211;Raphson approximation with precomputed values in a table, the number of iterations can be reduced. The initial estimate is picked from a precomputed table \(T\), and subsequent iterations refine it. Algorithm <a href="#alg-newton" title="">1</a> illustrates this approach.</p>
 
@@ -952,11 +952,11 @@ end <span class="hljs-keyword">for</span>
 <div class="collapse in" id="sec-exponential-section">
 <p><a href="#schwarz80-comput" title="E. L. Schwarz. Computational anatomy and functional architecture of striate cortex: a spatial mapping approach to perceptual coding. Vision Research, 20:656&#8210;669, 1980.">Schwarz (1980)</a> showed that the relationship between the distorted radius \(r_d\) and the undistorted radius \(r_u\) can be approximated by the following exponential equation:</p>
 
-<p>\[\label{eq:exp} r_u = (\mathrm{e}^{r_d/s} &#8211; 1) / \lambda\]</p>
+<p class="formula">\[\label{eq:exp} r_u = (\mathrm{e}^{r_d/s} &#8211; 1) / \lambda\]</p>
 
 <p>where \(s\) is a scaling factor and \(\lambda\) is the amount of distortion. The <em>inverse</em> relationship is given by a logarithmic equation:</p>
 
-<p>\[\label{eq:logarithm} r_d = s\ln(1 + \lambda r_u)\]</p>
+<p class="formula">\[\label{eq:logarithm} r_d = s\ln(1 + \lambda r_u)\]</p>
 
 <p><a href="#basu95-alter" title="Anup Basu and Sergio Licardie. Alternative models for fish-eye lenses. Pattern Recognition Letters, 1995.">Basu and Licardie (1995)</a> compared this model with a polynomial model, and found it to produce good results.</p>
 </div>
@@ -968,7 +968,7 @@ end <span class="hljs-keyword">for</span>
 <div class="collapse in" id="n332-trigonometric-model-section">
 <p><a href="#devernay01-straig-lines" title="Frederic Devernay and Olivier Faugeras. Straight lines have to be straight: Automatic calibration and removal of distortion from scenes of structured environments. Machine Vision and Applications, 2001.">Devernay and Faugeras (2001)</a> proposed an alternate approximation:</p>
 
-<p>\[\begin{aligned} \label{eq:devernay} r_u &amp;= \tfrac{1}{\omega} \operatorname{atan}(2r_d\tan{\tfrac{\omega}{2}})\\ r_d &amp;= \frac{\tan(r_u\omega)}{2\tan{\tfrac{\omega}{2}}} \end{aligned} \]</p>
+<p class="formula">\[\begin{aligned} \label{eq:devernay} r_u &amp;= \tfrac{1}{\omega} \operatorname{atan}(2r_d\tan{\tfrac{\omega}{2}})\\ r_d &amp;= \frac{\tan(r_u\omega)}{2\tan{\tfrac{\omega}{2}}} \end{aligned} \]</p>
 
 <p>where \(\omega\) is the field-of-view of the corresponding ideal wide-angle lens.</p>
 </div>
@@ -980,7 +980,7 @@ end <span class="hljs-keyword">for</span>
 <div class="collapse in" id="n333-division-model-section">
 <p><a href="#fitzgibbon01-simul" title="Andrew W. Fitzgibbon. Simultaneous linear estimation of multiple view geometry and lens distortion. Technical report, The University of Oxford, Department of Engineering Science, 2001.">Fitzgibbon (2001)</a> described a fast inverse model called the &#8220;division model&#8221;:</p>
 
-<p>\[\label{eq:division} r_d = \frac{1}{1 + \kappa r^2}r_u\]</p>
+<p class="formula">\[\label{eq:division} r_d = \frac{1}{1 + \kappa r^2}r_u\]</p>
 
 <p>This model is about as good an approximation as the first-order Taylor expansion in equation \eqref{eq:taylorone}, but in the opposite direction.</p>
 </div>
@@ -1002,19 +1002,19 @@ end <span class="hljs-keyword">for</span>
 
 <p>Using Matlab&#8217;s <span class="code"><code id="fitnlm">fitnlm()</code></span> function, we obtained the following coefficients for Brown&#8217;s model:<sup class="footnote-ref"><a href="#fn7" id="fnref7" title="The complete Matlab code is given in Appendix B."><span class="left-bracket">[</span>7<span class="right-bracket">]</span></a></sup></p>
 
-<p>\[\label{eq:taylorparam} d = f(r) = 1 &#8211; 3.5778r^2 + 7.1946r^4 + -3.9842r^6\]</p>
+<p class="formula">\[\label{eq:taylorparam} d = f(r) = 1 &#8211; 3.5778r^2 + 7.1946r^4 + -3.9842r^6\]</p>
 
 <p>For the exponential model:</p>
 
-<p>\[\begin{aligned} \label{eq:expparam} r_u &amp;= (\mathrm{e}^{r_d/0.76} &#8211; 1) / 3.8342\\ \label{eq:logparam} r_d &amp;= 0.76\ln(1 + 3.8342r_u) \end{aligned} \]</p>
+<p class="formula">\[\begin{aligned} \label{eq:expparam} r_u &amp;= (\mathrm{e}^{r_d/0.76} &#8211; 1) / 3.8342\\ \label{eq:logparam} r_d &amp;= 0.76\ln(1 + 3.8342r_u) \end{aligned} \]</p>
 
 <p>For the trigonometric model:</p>
 
-<p>\[\begin{aligned} \label{eq:devernayparam} r_u &amp;= \tfrac{1}{0.95617} \operatorname{atan}(2r_d\tan{\tfrac{0.95617}{2}})\\ r_d &amp;= \frac{\tan(0.95617r_u)}{2\tan{\tfrac{0.95617}{2}}} \end{aligned} \]</p>
+<p class="formula">\[\begin{aligned} \label{eq:devernayparam} r_u &amp;= \tfrac{1}{0.95617} \operatorname{atan}(2r_d\tan{\tfrac{0.95617}{2}})\\ r_d &amp;= \frac{\tan(0.95617r_u)}{2\tan{\tfrac{0.95617}{2}}} \end{aligned} \]</p>
 
 <p>For the division model:</p>
 
-<p>\[\label{eq:divisionparam} r_d = \frac{1}{1 &#8211; 0.29948r^2}r_u\]</p>
+<p class="formula">\[\label{eq:divisionparam} r_d = \frac{1}{1 &#8211; 0.29948r^2}r_u\]</p>
 </div>
 </section>
 
@@ -1201,19 +1201,19 @@ Built-in/Manual</th>
 
 <p>To explain this transformation in detail, we need to give an overview of OpenGL ES&#8217; coordinate spaces. By itself, OpenGL ES contains a mapping between <em>two</em> coordinate spaces: vertex positions \([x, y]\) in the range \([-1, 1]\) and texture coordinates \([s, t]\) in the range \([0, 1]\). The default mapping is given by the equation:</p>
 
-<p>\[\label{eq:mapping} \left[\begin{matrix} s\\ t \end{matrix}\right] = \left[\begin{matrix} x/2 + 1/2\\ y/2 + 1/2 \end{matrix}\right]\]</p>
+<p class="formula">\[\label{eq:mapping} \left[\begin{matrix} s\\ t \end{matrix}\right] = \left[\begin{matrix} x/2 + 1/2\\ y/2 + 1/2 \end{matrix}\right]\]</p>
 
 <p>This is an affine transformation, where vertex space is centered around \([0, 0]\). It is translated and scaled to texture space, which is centered around \([1/2, 1/2]\). Using the conventions established in chapter <a href="#chap-trans" title="2 Image transformation">2</a>, we can express the translation in matrix form:</p>
 
-<p>\[\label{eq:affinemapping} \left[\begin{matrix} s\\ t\\ 1 \end{matrix}\right] = \left[\begin{matrix} x\\ y\\ 1 \end{matrix}\right] \left[\begin{matrix} 1/2 &amp; 0 &amp; 1/2\\ 0 &amp; 1/2 &amp; 1/2\\ 0 &amp; 0 &amp; 1 \end{matrix}\right]\]</p>
+<p class="formula">\[\label{eq:affinemapping} \left[\begin{matrix} s\\ t\\ 1 \end{matrix}\right] = \left[\begin{matrix} x\\ y\\ 1 \end{matrix}\right] \left[\begin{matrix} 1/2 &amp; 0 &amp; 1/2\\ 0 &amp; 1/2 &amp; 1/2\\ 0 &amp; 0 &amp; 1 \end{matrix}\right]\]</p>
 
 <p>Or in tableaux form:</p>
 
-<p>\[\label{eq:table} \left[\begin{matrix} s\\ t \end{matrix}\right] = \begin{cases} [0, 0] &amp; \text{if $[x, y] = [-1, -1]$}\\ [0, 1] &amp; \text{if $[x, y] = [-1, 1]$}\\ [1, 0] &amp; \text{if $[x, y] = [1, -1]$}\\ [1, 1] &amp; \text{if $[x, y] = [1, 1]$}\\ [1/2, 1/2] &amp; \text{if $[x, y] = [0, 0]$}\\ \dots &amp; \\ [x/2 + 1/2, y/2 + 1/2] &amp; \end{cases} \]</p>
+<p class="formula">\[\label{eq:table} \left[\begin{matrix} s\\ t \end{matrix}\right] = \begin{cases} [0, 0] &amp; \text{if $[x, y] = [-1, -1]$}\\ [0, 1] &amp; \text{if $[x, y] = [-1, 1]$}\\ [1, 0] &amp; \text{if $[x, y] = [1, -1]$}\\ [1, 1] &amp; \text{if $[x, y] = [1, 1]$}\\ [1/2, 1/2] &amp; \text{if $[x, y] = [0, 0]$}\\ \dots &amp; \\ [x/2 + 1/2, y/2 + 1/2] &amp; \end{cases} \]</p>
 
 <p>The inverse relationship is of course given by:</p>
 
-<p>\[\label{eq:inversemapping} \left[\begin{matrix} x\\ y \end{matrix}\right] = \left[\begin{matrix} 2(s &#8211; 1/2)\\ 2(t &#8211; 1/2) \end{matrix}\right]\]</p>
+<p class="formula">\[\label{eq:inversemapping} \left[\begin{matrix} x\\ y \end{matrix}\right] = \left[\begin{matrix} 2(s &#8211; 1/2)\\ 2(t &#8211; 1/2) \end{matrix}\right]\]</p>
 
 <p>The utility of equations (\ref{eq:mapping}&#8211;\ref{eq:inversemapping}) is evident when we want to transform texture space. The transformation equations assume that the coordinate space is centered around \([0, 0]\), <em>not</em> \([1/2, 1/2]\). Therefore we must translate the coordinates before and after conversion, as shown in algorithm <a href="#alg-coord" title="">2</a>.</p>
 
@@ -1264,15 +1264,15 @@ Built-in/Manual</th>
 <div class="collapse in" id="sec-gdbm-section">
 <p>All the previous strategies have relied on built-in interpolation. However, the last strategy, which performs backward mapping on the <abbr class="acronym" title="Graphics Processing Unit">GPU</abbr>, can be combined with supersampling as a custom interpolation step. Instead of sampling a <em>single</em> color value, which will have been interpolated for us by OpenGL ES&#8217; <span class="code"><code id="gl-linear-2">GL_LINEAR</code></span> option, we can sample multiple values and blend them together ourselves. If we know that the length and height of an output pixel is \(l\), then the positions of the corners are given as follows:</p>
 
-<p>\[\begin{aligned} \label{eq:ul} [x, y]_{ul} &amp;= [x &#8211; \tfrac{1}{2}l, y + \tfrac{1}{2}l] \\ [x, y]_{ur} &amp;= [x + \tfrac{1}{2}l, y + \tfrac{1}{2}l] \\ [x, y]_{ll} &amp;= [x &#8211; \tfrac{1}{2}l, y &#8211; \tfrac{1}{2}l] \\ [x, y]_{lr} &amp;= [x + \tfrac{1}{2}l, y &#8211; \tfrac{1}{2}l] \end{aligned} \]</p>
+<p class="formula">\[\begin{aligned} \label{eq:ul} [x, y]_{ul} &amp;= [x &#8211; \tfrac{1}{2}l, y + \tfrac{1}{2}l] \\ [x, y]_{ur} &amp;= [x + \tfrac{1}{2}l, y + \tfrac{1}{2}l] \\ [x, y]_{ll} &amp;= [x &#8211; \tfrac{1}{2}l, y &#8211; \tfrac{1}{2}l] \\ [x, y]_{lr} &amp;= [x + \tfrac{1}{2}l, y &#8211; \tfrac{1}{2}l] \end{aligned} \]</p>
 
 <p>These four coordinates plus the original coordinate can then be transformed to input coordinates that are sampled to compute an average of five values. Alternatively, we can overlay a grid of \(3 \times 3\) positions over the pixel and sample the input at nine different positions. This gives us four more positions to compute:</p>
 
-<p>\[\begin{aligned} [x, y]_{um} &amp;= [x, y + \tfrac{1}{2}l] \\ [x, y]_{ml} &amp;= [x &#8211; \tfrac{1}{2}l, y] \\ [x, y]_{mr} &amp;= [x + \tfrac{1}{2}l, y] \\ \label{eq:lm} [x, y]_{lm} &amp;= [x, y &#8211; \tfrac{1}{2}l] \end{aligned} \]</p>
+<p class="formula">\[\begin{aligned} [x, y]_{um} &amp;= [x, y + \tfrac{1}{2}l] \\ [x, y]_{ml} &amp;= [x &#8211; \tfrac{1}{2}l, y] \\ [x, y]_{mr} &amp;= [x + \tfrac{1}{2}l, y] \\ \label{eq:lm} [x, y]_{lm} &amp;= [x, y &#8211; \tfrac{1}{2}l] \end{aligned} \]</p>
 
 <p>An unweighed average produces a smooth, if somewhat fuzzy result. We can achieve a different filtering effect by adjusting the coefficients &#8211; that is, by computing a weighed average. A weighed average can be expressed a two-dimensional dot product with a weight matrix (or &#8220;kernel&#8221;) divided by a normalization value (<a href="#bjorke04-filter" title="Kevin Bjorke. High-quality filtering. In Randima Fernando, editor, GPU Gems. Addison-Wesley, 2004.">Bjorke 2004</a>):</p>
 
-<p>\[\label{eq:kernel} \frac{1}{d} \left[\begin{matrix} w_{ul} &amp; w_{um} &amp; w_{ur}\\ w_{ml} &amp; w_{mm} &amp; w_{mr}\\ w_{lr} &amp; w_{lm} &amp; w_{lr} \end{matrix}\right] \cdot \left[\begin{matrix} c_{ul} &amp; c_{um} &amp; c_{ur}\\ c_{ml} &amp; c_{mm} &amp; c_{mr}\\ c_{lr} &amp; c_{lm} &amp; c_{lr} \end{matrix}\right] = \tfrac{1}{d}(w_{ul}c_{ul} + w_{um}c_{um} + \dotsb + w_{lr}c_{lr})\]</p>
+<p class="formula">\[\label{eq:kernel} \frac{1}{d} \left[\begin{matrix} w_{ul} &amp; w_{um} &amp; w_{ur}\\ w_{ml} &amp; w_{mm} &amp; w_{mr}\\ w_{lr} &amp; w_{lm} &amp; w_{lr} \end{matrix}\right] \cdot \left[\begin{matrix} c_{ul} &amp; c_{um} &amp; c_{ur}\\ c_{ml} &amp; c_{mm} &amp; c_{mr}\\ c_{lr} &amp; c_{lm} &amp; c_{lr} \end{matrix}\right] = \tfrac{1}{d}(w_{ul}c_{ul} + w_{um}c_{um} + \dotsb + w_{lr}c_{lr})\]</p>
 
 <p>A brief discussion of a few very simple filters follows. For example, the previously mentioned average of nine samples can be expressed as a matrix of \(1\)&#8217;s divided by \(9\) (figure <a href="#fig-kernels" title="Figure 4.4: Interpolation kernels">4.4b</a>). This is also known as a box filter, since it weighs the neighboring samples equally (figure <a href="#fig-boxfilterandgaussianfilter" title="Figure 4.3: Filtering methods">4.3a</a>). Such a filter removes much of the noise in the original image by averaging samples together; but it also removes a significant amount of detail that isn&#8217;t noise.</p>
 

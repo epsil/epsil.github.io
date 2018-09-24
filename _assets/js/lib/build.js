@@ -211,10 +211,23 @@ function getCachedSummary (label, href) {
 function referencesBookmarkEntries (entry) {
   var refs = []
   if (entry.references) {
+    if (!Array.isArray(entry.references)) {
+      var refsArray = []
+      for (var title in entry.references) {
+        var url = entry.references[title]
+        var ref = {
+          title: title,
+          url: url
+        }
+        refsArray.push(ref)
+      }
+      entry.references = refsArray
+    }
     entry.references.forEach(function (r) {
       var label = r.title
       var href = util.urlResolve(entry.path, r.url)
-      var title = entry.title || r.title
+      // var title = entry.title || r.title
+      var title = util.isExternalUrl(r.url) ? (r.title || entry.title) : (entry.title || r.title)
       var ref = new Reference(label, href, title, entry.hidden)
       refs.push(ref)
     })

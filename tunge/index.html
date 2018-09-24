@@ -535,11 +535,11 @@ MathJax.Hub.Config({
 
 <p>For &#229; f&#229; m&#229;lbare trykkverdier, m&#229; sensorene <em>forspennes</em> (<a href="#fig-sensor" title=""><abbr title="figur">fig.</abbr> 2.3a</a>). Hver sensor kobles i serie med en motstand \(R\), som g&#229;r til jord. I den andre enden p&#229;trykkes en tilf&#248;rselsspenning \(V_{CC}\) p&#229; 3,3 V. Dette oppsettet gir en spenningsdeling mellom sensorresistansen, \(R_S\), og \(R\):</p>
 
-<p>\[\begin{equation}\label{eq:spenningsdeling} V_{IN} = V_{CC} \cdot \frac{R}{R_S + R} \end{equation} \]</p>
+<p class="formula">\[\begin{equation}\label{eq:spenningsdeling} V_{IN} = V_{CC} \cdot \frac{R}{R_S + R} \end{equation} \]</p>
 
 <p>\(V_{IN}\) sendes inn p&#229; analog-til-digital-omformeren p&#229; kortet (<abbr class="acronym" title="Analog-to-Digital Converter">ADC</abbr>-en), og er alts&#229; verdien som programmet p&#229; mikrokontrolleren &#171;ser&#187;. Gjennom <abbr class="acronym" title="Analog-to-Digital Converter">ADC</abbr>-en f&#229;r vi en overgang fra den <em>fysiske</em> st&#248;rrelsen \(V_{IN}\) til den <em>digitale</em> 8-bit verdien <span class="code"><code id="adc-variabel">ADC_VARIABEL</code></span> i programkoden:</p>
 
-<p>\[\begin{equation}\label{eq:datablad} \text{ADC_VARIABEL} = \frac{V_{IN} \cdot 255}{V_{REF}} \end{equation} \]</p>
+<p class="formula">\[\begin{equation}\label{eq:datablad} \text{ADC_VARIABEL} = \frac{V_{IN} \cdot 255}{V_{REF}} \end{equation} \]</p>
 
 <p>\(V_{REF}\) er <em>referansespenningen</em> og er lik \(V_{CC}\). Den maksimale verdien for <span class="code"><code id="adc-variabel-2">ADC_VARIABEL</code></span>, 255, svarer dermed til 3,3 V, og <span class="code"><code id="adc-variabel-3">ADC_VARIABEL</code></span> er proporsjonal med \(V_{IN}\).</p>
 
@@ -765,7 +765,7 @@ MathJax.Hub.Config({
 
 <p>For m&#229;lingene gjelder ligning \(\eqref{eq:spenningsdeling}\), samt sammenhengene</p>
 
-<p>\[\begin{aligned} R_S &amp;= \frac{V_{CC} &#8211; V_R}{I_R}\label{eq:resistans}\\ I_R &amp;= \frac{U_R}{R}\label{eq:strom}\end{aligned} \]</p>
+<p class="formula">\[\begin{aligned} R_S &amp;= \frac{V_{CC} &#8211; V_R}{I_R}\label{eq:resistans}\\ I_R &amp;= \frac{U_R}{R}\label{eq:strom}\end{aligned} \]</p>
 
 <p>M&#229;lingene er foretatt med \(V_{CC} = 4,5\) V og \(R = 8,2\) <abbr title="kiloohm">k&#937;</abbr>. Valget av verdier er basert p&#229; utstyret som var tilgjengelig da m&#229;lingene ble foretatt.</p>
 
@@ -1722,7 +1722,7 @@ MathJax.Hub.Config({
 <div class="collapse in" id="sec-stromforsyning-section">
 <p>Den innebygde spenningskretsen p&#229; AT90USBKey gj&#248;r det mulig &#229; bruke str&#248;m direkte fra <abbr class="acronym" title="Universal Serial Bus">USB</abbr>-porten eller fra et eksternt batteri (se <a href="#sec-veienvidere" title="10 Veien videre">kapittel 10</a> for bruk av batteri). I v&#229;rt tilfelle bruker vi 5 V spenningen fra <abbr class="acronym" title="Universal Serial Bus">USB</abbr>-kontakten for &#229; forsyne kretsen. Se <a href="#fig-powerkrets-usb" title="">figur 5.2</a> for skjemategning over str&#248;mforsyningen fra <abbr class="acronym" title="Universal Serial Bus">USB</abbr>. Fordelene med dette er at kretsen blir billigere og mindre komplisert. Spenningen blir gjort om til <abbr title="cirka">ca.</abbr> 3,3 V ved hjelp av en line&#230;r <abbr class="acronym" title="Complimentary Metal Oxide Semiconductor">CMOS</abbr>-spenningsregulator. Den n&#248;yaktige utspenningen fra denne kan beregnes fra formelen</p>
 
-<p>\[V_{CC3} = 1,25 \cdot \left(1 + \frac{R_{15}+R_{18}}{R_{19}}\right)\]</p>
+<p class="formula">\[V_{CC3} = 1,25 \cdot \left(1 + \frac{R_{15}+R_{18}}{R_{19}}\right)\]</p>
 
 <p>Dette gir en utspenning p&#229; \(V_{CC3} = 3,266\) V. Denne spenningen blir ogs&#229; benyttet av sensorene som er koblet til.</p>
 
@@ -1842,7 +1842,7 @@ MathJax.Hub.Config({
 
 <p>For &#229; finne ut om en sensor er aktiv, m&#229; den avleste verdien sammenlignes med en verdi for n&#229;r sensoren <em>ikke</em> er i bruk, nullniv&#229;et. Hvis den avleste verdien er st&#248;rre enn nullniv&#229;et med en viss margin &#8211; <em>spranget</em> &#8211; er sensoren aktiv:</p>
 
-<p>\[\begin{equation}\label{eq:sprang} \text{avlest verdi} &gt; \text{nullniv&#229;} + \text{sprang} \end{equation} \]</p>
+<p class="formula">\[\begin{equation}\label{eq:sprang} \text{avlest verdi} &gt; \text{nullniv&#229;} + \text{sprang} \end{equation} \]</p>
 
 <p>N&#229;r dette er oppfylt, sier vi at vi &#171;har et sprang&#187;. Marginen er fastsatt p&#229; forh&#229;nd, og er litt st&#248;rre for de store sensorene p&#229; knappkinnet enn de sm&#229; sensorene p&#229; bevegelseskinnet.</p>
 

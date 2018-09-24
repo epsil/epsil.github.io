@@ -269,5 +269,8 @@
   ":MacTeX": "MacTeX",
   ":KaTeX": "KaTeX",
   ":lhs2TeX": "lhs2TeX",
-  ":TeX": "TeX"
+  ":TeX": "TeX",
+  ":TXT": "Text",
+  ":MD": "Markdown",
+  ":NSFW": "Not Safe For Work"
 }

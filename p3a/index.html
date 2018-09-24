@@ -381,11 +381,11 @@ MathJax.Hub.Config({
 <div class="collapse in" id="forsterkning-section">
 <p>Vi fikk at 8 <abbr title="millivolt">mV</abbr> inn ga 140 <abbr title="millivolt">mV</abbr> ut. Det gir en forsterking p&#229;</p>
 
-<p>\[A = \frac{0,14\text{ V}}{0,008\text{ V}} = 17,5\]</p>
+<p class="formula">\[A = \frac{0,14\text{ V}}{0,008\text{ V}} = 17,5\]</p>
 
 <p>I desibel tilsvarer dette</p>
 
-<p>\[A_{\mathrm{dB}} = 20\lg{17,5} = 24,9\text{ dB} \]</p>
+<p class="formula">\[A_{\mathrm{dB}} = 20\lg{17,5} = 24,9\text{ dB} \]</p>
 </div>
 </section>
 
@@ -443,15 +443,15 @@ MathJax.Hub.Config({
 
 <p>Her har vi f&#248;lgende spenningsdeling over \(R_o\) og \(R_L\):</p>
 
-<p>\[\begin{split} v_{oL} &amp;= Av_i\frac{R_L}{R_o + R_L}\\ &amp;= v_o\frac{R_L}{R_o + R_L} \end{split} \]</p>
+<p class="formula">\[\begin{split} v_{oL} &amp;= Av_i\frac{R_L}{R_o + R_L}\\ &amp;= v_o\frac{R_L}{R_o + R_L} \end{split} \]</p>
 
 <p>hvor vi utnytter at \(v_o = Av_i\) for &#229; f&#229; en sammenheng mellom \(v_{oL}\) og \(v_o\). Uttrykket kan s&#229; ordnes for \(R_o\):</p>
 
-<p>\[\begin{split} R_o &amp;= R_L\left(\frac{v_o &#8211; v_{oL}}{v_{oL}}\right)\\ &amp;= \frac{v_o &#8211; v_{oL}}{v_{oL}}\quad\text{dersom }R_L = 1\text{ $\Omega$} \end{split} \]</p>
+<p class="formula">\[\begin{split} R_o &amp;= R_L\left(\frac{v_o &#8211; v_{oL}}{v_{oL}}\right)\\ &amp;= \frac{v_o &#8211; v_{oL}}{v_{oL}}\quad\text{dersom }R_L = 1\text{ $\Omega$} \end{split} \]</p>
 
 <p>Her ser vi verdien av &#229; m&#229;le med en utgangslast p&#229; 1 <abbr class="acronym" title="ohm">&#937;</abbr> &#8211; uttrykket blir enklere. Vi setter inn for gjennomsnittsverdiene og f&#229;r en utgangsimpedans p&#229;</p>
 
-<p>\[R_o = \frac{\overline{v_o} &#8211; \overline{v_{oL}}}{\overline{v_{oL}}} = \frac{834,03\text{ mV} &#8211; 831,49\text{ mV}}{831,49\text{ mV}} = 0,003\text{ $\Omega$} \]</p>
+<p class="formula">\[R_o = \frac{\overline{v_o} &#8211; \overline{v_{oL}}}{\overline{v_{oL}}} = \frac{834,03\text{ mV} &#8211; 831,49\text{ mV}}{831,49\text{ mV}} = 0,003\text{ $\Omega$} \]</p>
 
 <p>P&#229; grunn av forsterkerens negative <a href="#tilbakekobling" title="R&#229;forsterkning og tilbakekobling">tilbakekobling</a> blir utgangsimpedansen mindre enn den ellers ville ha v&#230;rt.</p>
 </div>
@@ -469,7 +469,7 @@ MathJax.Hub.Config({
 
 <p>Dempningsfaktor ved 8 <abbr class="acronym" title="ohm">&#937;</abbr>:</p>
 
-<p>\[\frac{R_L}{R_o} = \frac{8\text{ $\Omega$}}{0,003\text{ $\Omega$}} = 2667\]</p>
+<p class="formula">\[\frac{R_L}{R_o} = \frac{8\text{ $\Omega$}}{0,003\text{ $\Omega$}} = 2667\]</p>
 </div>
 </section>
 
@@ -485,7 +485,7 @@ MathJax.Hub.Config({
 
 <p>For &#229; beregne klirr har man f&#248;lgende formel:</p>
 
-<p>\[K = \sqrt{\frac{\hat{U}_2^2 + \hat{U}_3^2 + \hat{U}_4^2 + \dotsb}{\hat{U}_1^2}} \cdot 100\text{ %} \]</p>
+<p class="formula">\[K = \sqrt{\frac{\hat{U}_2^2 + \hat{U}_3^2 + \hat{U}_4^2 + \dotsb}{\hat{U}_1^2}} \cdot 100\text{ %} \]</p>
 
 <p>Vi m&#229;lte klirr ved &#229; koble opp og m&#229;le som vist p&#229; figuren:</p>
 
@@ -533,11 +533,11 @@ MathJax.Hub.Config({
 
 <p>Dermed har vi</p>
 
-<p>\[2,950\text{ mV} &#8211; 2,933\text{ mV} = 17\text{ mV} \]</p>
+<p class="formula">\[2,950\text{ mV} &#8211; 2,933\text{ mV} = 17\text{ mV} \]</p>
 
 <p>som gir</p>
 
-<p>\[20\lg\left(\frac{17\text{ mV}}{2,950\text{ mV}}\right) = 0,05\text{ dB} \]</p>
+<p class="formula">\[20\lg\left(\frac{17\text{ mV}}{2,950\text{ mV}}\right) = 0,05\text{ dB} \]</p>
 </div>
 </section>
 
@@ -549,11 +549,11 @@ MathJax.Hub.Config({
 
 <p>En dobling av effekten vil ikke gi mer enn 3 <abbr title="desibel">dB</abbr> &#248;kning i lyden. For eksempel vil en h&#248;yttaler med sensitivitet lik driftseffekten 96 <abbr title="desibel">dB</abbr> ved 1 m 1 W gi:</p>
 
-<p>\[I_{\mathrm{dB}_{\mathrm{maks}}} = I_{\mathrm{sens}} + 10\lg\left(\frac{P_{\mathrm{maks}}}{1\text{ W}}\right) = 96\text{ dB} + 10\lg\left(\frac{55\text{ W}}{1\text{ W}}\right) = 113,4\text{ dB} \]</p>
+<p class="formula">\[I_{\mathrm{dB}_{\mathrm{maks}}} = I_{\mathrm{sens}} + 10\lg\left(\frac{P_{\mathrm{maks}}}{1\text{ W}}\right) = 96\text{ dB} + 10\lg\left(\frac{55\text{ W}}{1\text{ W}}\right) = 113,4\text{ dB} \]</p>
 
 <p>Dette vil ved en sitteavstand p&#229; 4 m gi:</p>
 
-<p>\[I_{\mathrm{dB}_{\mathrm{maks}}} = I_{\mathrm{sens}} &#8211; 20\lg\left(\frac{4\text{ m}}{1\text{ m}}\right) = 113,4\text{ dB} &#8211; 20\lg\left(\frac{4\text{ m}}{1\text{ m}}\right) = 101,36\text{ dB} \]</p>
+<p class="formula">\[I_{\mathrm{dB}_{\mathrm{maks}}} = I_{\mathrm{sens}} &#8211; 20\lg\left(\frac{4\text{ m}}{1\text{ m}}\right) = 113,4\text{ dB} &#8211; 20\lg\left(\frac{4\text{ m}}{1\text{ m}}\right) = 101,36\text{ dB} \]</p>
 
 <p>hvor vi ser bort fra akustikk i vegger.</p>
 </div>
@@ -618,7 +618,7 @@ MathJax.Hub.Config({
 <div class="collapse in" id="arbeidspunkt-og-smasignal-section">
 <p>En forsterkerkrets inneholder <em>flere</em> spenningskilder, b&#229;de konstantkilder (<abbr class="acronym" title="Direct Current">DC</abbr>-spenning) og en signalkilde (<abbr class="acronym" title="Alternating Current">AC</abbr>-spenning). If&#248;lge <em>superposisjonsprinsippet</em> kan en hvilken som helst spenning eller str&#248;m i kretsen finnes ved &#229; beregne <em>summen av str&#248;m- og spenningskildenes enkeltbidrag</em>, der bidraget fra en str&#248;m- eller spenningskilde finnes ved &#229; erstatte de &#248;vrige str&#248;m- eller spenningskildene med hhv. brudd eller kortslutninger, og s&#229; beregne den resulterende spenningen eller str&#248;mmen. For eksempel: Hvis kretsen inneholder <abbr class="acronym" title="Direct Current">DC</abbr>-kildene \(V_+\) og \(V_-\) og <abbr class="acronym" title="Alternating Current">AC</abbr>-kilden \(v_{\sim}\) (og ingen str&#248;mkilder), kan spenningspotensialet i punktet \(P\), \(v_P\), uttrykkes som</p>
 
-<p>\[v_P = v_P&#8217;(V_+) + v_P&#8217;&#8217;(V_-) + v_P&#8217;&#8217;&#8217;(v_{\sim})\]</p>
+<p class="formula">\[v_P = v_P&#8217;(V_+) + v_P&#8217;&#8217;(V_-) + v_P&#8217;&#8217;&#8217;(v_{\sim})\]</p>
 
 <aside class="sidenote">
 <p><sup class="ref-mark"><a href="#fnref3" id="sidenote3" title="hvor \(v_P&#8217;(V_+)\) er spenningspotensialet i \(P\) n&#229;r \(V_-\) og \(v_{\sim}\) erstattes med kortslutninger, \(v_P&#8217;&#8217;(V_-)\) er spenningspotensialet i \(P\) n&#229;r \(V_+\) og \(v_{\sim}\) erstattes med kortslutninger, osv.[3] La oss gruppere enkeltbidragene i DC- og AC-bidrag:"><span class="left-bracket">[</span>3<span class="right-bracket">]</span></a></sup>Det er vanlig &#229; bare skrive \(v_P&#8217;\), \(v_P&#8217;&#8217;\), <abbr title="og s&#229; videre">osv.</abbr> Her anf&#248;rer vi spenningskilden i parentes for &#229; gj&#248;re notasjonen tydeligere. <a class="footnote-backref" href="#fnref3" title="hvor \(v_P&#8217;(V_+)\) er spenningspotensialet i \(P\) n&#229;r \(V_-\) og \(v_{\sim}\) erstattes med kortslutninger, \(v_P&#8217;&#8217;(V_-)\) er spenningspotensialet i \(P\) n&#229;r \(V_+\) og \(v_{\sim}\) erstattes med kortslutninger, osv.[3] La oss gruppere enkeltbidragene i DC- og AC-bidrag:">&#8617;&#65038;</a></p>
@@ -626,7 +626,7 @@ MathJax.Hub.Config({
 
 <p>hvor \(v_P&#8217;(V_+)\) er spenningspotensialet i \(P\) n&#229;r \(V_-\) og \(v_{\sim}\) erstattes med kortslutninger, \(v_P&#8217;&#8217;(V_-)\) er spenningspotensialet i \(P\) n&#229;r \(V_+\) og \(v_{\sim}\) erstattes med kortslutninger, <abbr title="og s&#229; videre">osv.</abbr><sup class="footnote-ref"><a href="#fn3" id="fnref3" title="Det er vanlig &#229; bare skrive \(v_P&#8217;\), \(v_P&#8217;&#8217;\), osv. Her anf&#248;rer vi spenningskilden i parentes for &#229; gj&#248;re notasjonen tydeligere."><span class="left-bracket">[</span>3<span class="right-bracket">]</span></a></sup> La oss gruppere enkeltbidragene i <abbr class="acronym" title="Direct Current">DC</abbr>- og <abbr class="acronym" title="Alternating Current">AC</abbr>-bidrag:</p>
 
-<p>\[\begin{split} v_P &amp;= \underbrace{v_P&#8217;(V_+) + v_P&#8217;&#8217;(V_-)}_{\mathrm{DC}} + \underbrace{v_P&#8217;&#8217;&#8217;(v_{\sim})}_{\mathrm{AC}}\\ &amp;= V_{PQ} + v_p \end{split} \]</p>
+<p class="formula">\[\begin{split} v_P &amp;= \underbrace{v_P&#8217;(V_+) + v_P&#8217;&#8217;(V_-)}_{\mathrm{DC}} + \underbrace{v_P&#8217;&#8217;&#8217;(v_{\sim})}_{\mathrm{AC}}\\ &amp;= V_{PQ} + v_p \end{split} \]</p>
 
 <p>hvor \(V_{PQ} = v_P&#8217;(V_+) + v_P&#8217;&#8217;(V_-)\) og \(v_p = v_P&#8217;&#8217;&#8217;(v_{\sim})\). Vi kan n&#229; innf&#248;re f&#248;lgende terminologi: \(V_{PQ}\) er <em>arbeidspunktet til \(v_P\)</em>, og \(v_p\) er <em>sm&#229;signalet til \(v_P\)</em>. Arbeidspunktet er <abbr class="acronym" title="Direct Current">DC</abbr>-delen av \(v_P\), som <abbr class="acronym" title="Alternating Current">AC</abbr>-delen &#8211; sm&#229;signalet &#8211; varierer rundt.</p>
 
@@ -652,31 +652,31 @@ MathJax.Hub.Config({
 
 <p>\(r_\pi\), brukt i den hybride \(\pi\)-modellen, er inngangsmotstanden til base&#8211;emitter-overgangen <em>sett fra basen</em>. Den er definert som <em>sm&#229;signal</em>-base&#8211;emitter-spenningen delt p&#229; <em>sm&#229;signal</em>-basestr&#248;mmen:</p>
 
-<p>\[r_\pi = \frac{v_{be}}{i_b} \]</p>
+<p class="formula">\[r_\pi = \frac{v_{be}}{i_b} \]</p>
 
 <p>For &#229; finne \(r_\pi\) er det vanlig &#229; g&#229; veien om <em>transkonduktansen</em>, \(g_m\), som er forholdet mellom <em>sm&#229;signal</em>-kollektorstr&#248;mmen og <em>sm&#229;signal</em>-base&#8211;emitter-spenningen:</p>
 
-<p>\[g_m = \frac{i_c}{v_{be}} = \frac{I_{CQ}}{nV_T} = \frac{I_{CQ}}{V_T}\quad\text{dersom $n = 1$} \]</p>
+<p class="formula">\[g_m = \frac{i_c}{v_{be}} = \frac{I_{CQ}}{nV_T} = \frac{I_{CQ}}{V_T}\quad\text{dersom $n = 1$} \]</p>
 
 <p>der \(n = \text{1&#8210;2}\) (ofte settes \(n = 1\) slik at den kan sl&#248;yfes) og \(V_T = 25\text{ mV}\) ved en omgivelsestemperatur p&#229; 25 <abbr class="acronym" title="grader celsius">&#176;C</abbr>. Dersom transistoren er i det aktive omr&#229;det, er forholdet nesten konstant, og transkonduktansen kan forst&#229;s som <em>stigningsgraden</em> til \(i_C\)&#8211;\(v_{BE}\)-kurven <em>i arbeidspunktet</em>:</p>
 
-<p>\[g_m \approx \left.\frac{\partial i_C}{\partial v_{BE}}\right|_{i_C = I_{CQ}} \]</p>
+<p class="formula">\[g_m \approx \left.\frac{\partial i_C}{\partial v_{BE}}\right|_{i_C = I_{CQ}} \]</p>
 
 <p>Ettersom \(i_c = g_mv_{be}\), er basestr&#248;mmen gitt ved \(i_b = i_c / \beta = g_mv_{be} / \beta\), og vi f&#229;r for \(r_\pi\):</p>
 
-<p>\[r_\pi = \frac{v_{be}}{i_b} = \frac{v_{be}}{g_mv_{be} / \beta} = \frac{\beta}{g_m} \]</p>
+<p class="formula">\[r_\pi = \frac{v_{be}}{i_b} = \frac{v_{be}}{g_mv_{be} / \beta} = \frac{\beta}{g_m} \]</p>
 
 <p>Tilsvarende er \(r_e\), brukt i T-modellen, inngangsmotstanden til base&#8211;emitter-overgangen <em>sett fra emitteren</em>:</p>
 
-<p>\[r_e = \frac{v_{be}}{i_e} \]</p>
+<p class="formula">\[r_e = \frac{v_{be}}{i_e} \]</p>
 
 <p>Ettersom \(i_e = i_b + i_c\) og \(i_c = \beta i_b\), er \(i_e = (\beta + 1)i_b\). Det gir for \(r_e\):</p>
 
-<p>\[r_e = \frac{v_{be}}{(\beta + 1)i_b} = \frac{v_{be}}{(\beta + 1)g_mv_{be} / \beta} = \frac{\beta}{(\beta + 1)g_m} = \frac{\alpha}{g_m} \approx \frac{1}{g_m} = \frac{V_T}{I_{CQ}} \]</p>
+<p class="formula">\[r_e = \frac{v_{be}}{(\beta + 1)i_b} = \frac{v_{be}}{(\beta + 1)g_mv_{be} / \beta} = \frac{\beta}{(\beta + 1)g_m} = \frac{\alpha}{g_m} \approx \frac{1}{g_m} = \frac{V_T}{I_{CQ}} \]</p>
 
 <p>der \(\alpha\) er forholdet mellom emitterstr&#248;mmen og kollektorstr&#248;mmen (\(i_c = \alpha i_e\)) og er tiln&#230;rmet lik \(1\). Da \(v_{be} = i_br_\pi = i_er_e\), finnes f&#248;lgende sammenheng mellom \(r_\pi\) og \(r_e\):</p>
 
-<p>\[r_\pi = (\beta + 1)r_e\]</p>
+<p class="formula">\[r_\pi = (\beta + 1)r_e\]</p>
 </div>
 </section>
 </div>
@@ -730,33 +730,33 @@ MathJax.Hub.Config({
 
 <p>Det f&#248;rste vi kan se er at \(i_{c5}\) er lik summen av \(i_{b7}\) og str&#248;mmen gjennom \(R_{11}\), og da kan vi bruke str&#248;mdelingsprinsippet for &#229; finne \(i_{b7}\) uttrykt ved \(i_{c5}\). Vi f&#229;r</p>
 
-<p>\[i_{b7} = \frac{R_{11}}{R_{11} + r_{\pi7}}i_{c5} = \frac{R_{11}}{R_{11} + r_{\pi7}}\beta_5i_{b5} \]</p>
+<p class="formula">\[i_{b7} = \frac{R_{11}}{R_{11} + r_{\pi7}}i_{c5} = \frac{R_{11}}{R_{11} + r_{\pi7}}\beta_5i_{b5} \]</p>
 
 <p>der vi bruker str&#248;mforsterkningen til \(Q_5\), \(\beta_5\), for &#229; uttrykke \(i_{c5}\) med \(i_{b5}\). Tilsvarende er \(i_{c7} = \beta_7i_{b7}\), og vi har</p>
 
-<p>\[i_{c7} = \frac{R_{11}}{R_{11} + r_{\pi7}}\beta_5\beta_7i_{b5} \]</p>
+<p class="formula">\[i_{c7} = \frac{R_{11}}{R_{11} + r_{\pi7}}\beta_5\beta_7i_{b5} \]</p>
 
 <p>mens \(i_{e5} = (\beta_5 + 1)i_{b5}\). Utgangsstr&#248;mmen, \(i_o\), er n&#229; gitt ved</p>
 
-<p>\[\begin{split} i_o &amp;= i_{e5} + i_{c7}\\ &amp;= (\beta_5 + 1)i_{b5} + \frac{R_{11}}{R_{11} + r_{\pi7}}\beta_5\beta_7i_{b5}\\ &amp;= i_{b5}\Biggl(\underbrace{(\beta_5 + 1) + \frac{R_{11}}{R_{11} + r_{\pi7}}\beta_5\beta_7}_{\beta_{57}}\Biggr) \end{split} \]</p>
+<p class="formula">\[\begin{split} i_o &amp;= i_{e5} + i_{c7}\\ &amp;= (\beta_5 + 1)i_{b5} + \frac{R_{11}}{R_{11} + r_{\pi7}}\beta_5\beta_7i_{b5}\\ &amp;= i_{b5}\Biggl(\underbrace{(\beta_5 + 1) + \frac{R_{11}}{R_{11} + r_{\pi7}}\beta_5\beta_7}_{\beta_{57}}\Biggr) \end{split} \]</p>
 
 <p>der vi kan betrakte \(\beta_{57}\) (uttrykket i parentesen) som den totale forsterkningen til Sziklai-koblingen av \(Q_5\) og \(Q_7\). Ved hjelp av noen avrundinger kan vi gj&#248;re uttrykket for denne forsterkningen en hel del enklere:</p>
 
-<p>\[\begin{split} \beta_{57} &amp;= (\beta_5 + 1) + \frac{R_{11}}{R_{11} + r_{\pi7}}\beta_5\beta_7 = \frac{R_{11}\beta_5\beta_7}{R_{11} + r_{\pi7}} + \beta_5 + 1\\ &amp;= \frac{\beta_5\beta_7}{1 + \frac{r_{\pi7}}{R_{11}}} + \beta_5 + 1 \approx \beta_5\beta_7 + \beta_5 + 1\quad\text{ettersom $r_{\pi7} \ll R_{11}$}\\ &amp;\approx \beta_5\beta_7 + \beta_5 = \beta_5(\beta_7 + 1)\\ &amp;\approx \beta_5\beta_7 \end{split} \]</p>
+<p class="formula">\[\begin{split} \beta_{57} &amp;= (\beta_5 + 1) + \frac{R_{11}}{R_{11} + r_{\pi7}}\beta_5\beta_7 = \frac{R_{11}\beta_5\beta_7}{R_{11} + r_{\pi7}} + \beta_5 + 1\\ &amp;= \frac{\beta_5\beta_7}{1 + \frac{r_{\pi7}}{R_{11}}} + \beta_5 + 1 \approx \beta_5\beta_7 + \beta_5 + 1\quad\text{ettersom $r_{\pi7} \ll R_{11}$}\\ &amp;\approx \beta_5\beta_7 + \beta_5 = \beta_5(\beta_7 + 1)\\ &amp;\approx \beta_5\beta_7 \end{split} \]</p>
 
 <p>Her har vi bekreftet det vi sa om Sziklai-koblingen innledningsvis &#8211; at den totale str&#248;mforsterkningen er (tiln&#230;rmet) lik produktet av str&#248;mforsterkningene til \(Q_7\) og \(Q_5\).</p>
 
 <p>Utgangsspenningen er gitt ved \(v_o = i_oR_L = i_{b5}\beta_{57}R_L\). Inngangsspenningen er lik summen av alle spenningsfallene fra basen til \(Q_5\) til jord:</p>
 
-<p>\[\begin{split} v_{b5} &amp;= i_{b5}r_{\pi5} + i_oR_{13} + i_oR_L\\ &amp;= i_{b5}r_{\pi5} + i_{b5}\beta_{57}(R_{13} + R_L)\\ &amp;= i_{b5}(\underbrace{r_{\pi5} + \beta_{57}(R_{13} + R_L)}_{R_{iu}}) \end{split} \]</p>
+<p class="formula">\[\begin{split} v_{b5} &amp;= i_{b5}r_{\pi5} + i_oR_{13} + i_oR_L\\ &amp;= i_{b5}r_{\pi5} + i_{b5}\beta_{57}(R_{13} + R_L)\\ &amp;= i_{b5}(\underbrace{r_{\pi5} + \beta_{57}(R_{13} + R_L)}_{R_{iu}}) \end{split} \]</p>
 
 <p>der innholdet i parentesen, \(R_{iu}\), er <em>inngangsimpedansen</em> til trinnet. <em>Forsterkningen</em>, som vi kan kalle \(A_u\), blir</p>
 
-<p>\[A_u = \frac{v_o}{v_{b5}} = \frac{i_{b5}\beta_{57}R_L}{i_{b5}(r_{\pi5} + \beta_{57}(R_{13} + R_L))} = \frac{\beta_{57}R_L}{r_{\pi5} + \beta_{57}(R_{13} + R_L)} \]</p>
+<p class="formula">\[A_u = \frac{v_o}{v_{b5}} = \frac{i_{b5}\beta_{57}R_L}{i_{b5}(r_{\pi5} + \beta_{57}(R_{13} + R_L))} = \frac{\beta_{57}R_L}{r_{\pi5} + \beta_{57}(R_{13} + R_L)} \]</p>
 
 <p>Ettersom \(\beta_{57} \approx \beta_5\beta_7\) og \(r_{\pi5} \approx \beta_5r_{e5}\), kan uttrykket avrundes og forenkles:</p>
 
-<p>\[\begin{equation}\label{eq:au} \begin{split} A_u &amp;\approx \frac{\beta_5\beta_7R_L}{\beta_5r_{e5} + \beta_5\beta_7(R_{13} + R_L)} = \frac{\beta_5\beta_7R_L}{\beta_5(r_{e5} + \beta_7(R_{13} + R_L))} = \frac{\beta_7R_L}{r_{e5} + \beta_7(R_{13} + R_L)}\\ &amp;\approx \frac{\beta_7R_L}{\beta_7(R_{13} + R_L)} = \frac{R_L}{R_{13} + R_L} \end{split} \end{equation} \]</p>
+<p class="formula">\[\begin{equation}\label{eq:au} \begin{split} A_u &amp;\approx \frac{\beta_5\beta_7R_L}{\beta_5r_{e5} + \beta_5\beta_7(R_{13} + R_L)} = \frac{\beta_5\beta_7R_L}{\beta_5(r_{e5} + \beta_7(R_{13} + R_L))} = \frac{\beta_7R_L}{r_{e5} + \beta_7(R_{13} + R_L)}\\ &amp;\approx \frac{\beta_7R_L}{\beta_7(R_{13} + R_L)} = \frac{R_L}{R_{13} + R_L} \end{split} \end{equation} \]</p>
 
 <p>Ettersom telleren er mindre enn nevneren, er \(A_u &lt; 1\).</p>
 </div>
@@ -787,27 +787,27 @@ MathJax.Hub.Config({
 
 <p>Vi kan n&#229; finne <em>str&#248;mmen</em> gjennom \(R_9\)-motstanden, som vi kaller \(i_9\). Den er gitt ved spenningsfallet delt p&#229; resistansen:</p>
 
-<p>\[i_9 = \frac{v_{b5} &#8211; A_uv_{b5}}{R_9} = \frac{1 &#8211; A_u}{R_9}v_{b5} \]</p>
+<p class="formula">\[i_9 = \frac{v_{b5} &#8211; A_uv_{b5}}{R_9} = \frac{1 &#8211; A_u}{R_9}v_{b5} \]</p>
 
 <p><em>Bootstrap-resistansen</em> til \(R_9\), <abbr title="det vil si">dvs.</abbr> inngangsimpedansen til bootstrap-koblingen, er gitt ved spenningspotensialet ved inngangen (den &#248;vre terminalen til \(R_9\)) delt p&#229; str&#248;mmen gjennom dette punktet. Vi kaller denne st&#248;rrelsen for \(R_9&#8217;\) og f&#229;r</p>
 
-<p>\[R_9&#8217; = \frac{v_{b5}}{i_9} = \frac{v_{b5}}{v_{b5}(1 &#8211; A_u)/R_9} = \frac{R_9}{1 &#8211; A_u} \]</p>
+<p class="formula">\[R_9&#8217; = \frac{v_{b5}}{i_9} = \frac{v_{b5}}{v_{b5}(1 &#8211; A_u)/R_9} = \frac{R_9}{1 &#8211; A_u} \]</p>
 
 <p>Vi vet at \(A_u &lt; 1\), og det betyr at \(R_9&#8217; &gt; R_9\) (med en faktor p&#229; \(\frac{1}{1 &#8211; A_u}\)). S&#229; er ogs&#229; dette selve form&#229;let med bootstrap-koblingen &#8211; &#229; oppn&#229; en &#171;st&#248;rre&#187; resistans <abbr class="acronym" title="Alternating Current">AC</abbr>-messig enn den rene motstandsverdien til \(R_9\). Dermed blir forsterkningen st&#248;rre.</p>
 
 <p>N&#229; kan vi finne utgangslasten til klasse A-driveren, \(R_{La}\). Dersom forsterkeren fungerer som en klasse B-forsterker, f&#229;r vi inngangsimpedansen til \(Q_5\) (eller \(Q_6\)), \(R_{iu}\), i parallell med inngangsimpedansen til bootstrap-koblingen, \(R_9&#8217;\):</p>
 
-<p>\[R_{La} = R_{iu} \parallel R_9&#8217; = \frac{R_{iu}R_9&#8217;}{R_{iu} + R_9&#8217;} \]</p>
+<p class="formula">\[R_{La} = R_{iu} \parallel R_9&#8217; = \frac{R_{iu}R_9&#8217;}{R_{iu} + R_9&#8217;} \]</p>
 
 <p>(Dersom forsterkeren fungerer som en klasse A-forsterker, er b&#229;de \(Q_5\) og \(Q_6\) aktive, og vi f&#229;r \(R_{La} = R_{iu} \parallel R_{iu} \parallel R_9&#8217; = \frac{1}{2}R_{iu} \parallel R_9&#8217;\).) Utgangsstr&#248;mmen, kollektorstr&#248;mmen til \(Q_4\), er tiln&#230;rmet lik \(i_9\) ettersom basestr&#248;mmen til \(Q_5\) er neglisjerbar. Utgangsspenningen, kollektorspenningen til \(Q_4\), er dermed gitt ved \(v_{c4} = i_{c4}R_{La} \approx i_9R_{La}\).</p>
 
 <p>Ettersom det eneste som st&#229;r mellom basen til \(Q_4\) og jord er basemotstanden \(r_{\pi4}\) (som dermed er inngangsimpedansen), er inngangsspenningen, \(v_{b4}\), gitt ved</p>
 
-<p>\[v_{b4} = i_{b4}r_{\pi4} \]</p>
+<p class="formula">\[v_{b4} = i_{b4}r_{\pi4} \]</p>
 
 <p><em>Forsterkningen</em>, som vi kan kalle \(A_a\), blir</p>
 
-<p>\[\begin{equation}\label{eq:aa} A_a = \frac{v_{c4}}{v_{b4}} = \frac{\beta_4i_{b4}R_{La}}{i_{b4}r_{\pi4}} = \frac{\beta_4R_{La}}{r_{\pi4}} \end{equation} \]</p>
+<p class="formula">\[\begin{equation}\label{eq:aa} A_a = \frac{v_{c4}}{v_{b4}} = \frac{\beta_4i_{b4}R_{La}}{i_{b4}r_{\pi4}} = \frac{\beta_4R_{La}}{r_{\pi4}} \end{equation} \]</p>
 </div>
 </section>
 
@@ -838,12 +838,12 @@ MathJax.Hub.Config({
 
 <p>Fordi emitterne er koblet sammen og \(Q_3\) faller bort, g&#229;r den samme signalstr&#248;mmen gjennom emittermotstandene til \(Q_1\) og \(Q_2\), som er identiske (\(r_{e1} = r_{e2}\)). Ettersom basen til \(Q_2\) i denne analysen er koblet til jord, er spenningen over motstandene lik basespenningen til \(Q_1\), \(v_{b1}\). Dermed er emitterstr&#248;mmen til begge transistorene gitt ved</p>
 
-<p>\[i_{e1} = i_{e2} = \frac{v_{b1}}{2r_{e1}} \]</p>
+<p class="formula">\[i_{e1} = i_{e2} = \frac{v_{b1}}{2r_{e1}} \]</p>
 
 <aside class="sidenote">
 <p><sup class="ref-mark"><a href="#fnref6" id="sidenote6" title="Emitterstr&#248;mmen til \(Q_1\) er relatert til kollektorstr&#248;mmen til \(Q_1\) med faktoren \(\alpha\), som er tiln&#230;rmet lik \(1\) ettersom disse str&#248;mmene er nesten identiske: \(i_{c1} = \alpha i_{e1} \approx i_{e1}\).[6] N&#229;r vi kjenner kollektorstr&#248;mmen til \(Q_1\), kan vi beregne kollektorspenningen til \(Q_1\) &#8211; utgangsspenningen til differensialforsterkeren &#8211; ved &#229; finne spenningsfallet fra kollektoren til jord (dvs. signaljord, jord i sm&#229;signalskjemaet)."><span class="left-bracket">[</span>6<span class="right-bracket">]</span></a></sup>\(\alpha\) kan uttrykkes med \(\beta\) slik:</p>
 
-<p>\[\alpha = \frac{i_C}{i_E} = \frac{\beta i_B}{(\beta + 1)i_B} = \frac{\beta}{\beta + 1} \]</p>
+<p class="formula">\[\alpha = \frac{i_C}{i_E} = \frac{\beta i_B}{(\beta + 1)i_B} = \frac{\beta}{\beta + 1} \]</p>
 
 <p>som er tiln&#230;rmet lik \(1\) ettersom \(\beta \gg 1\). <a class="footnote-backref" href="#fnref6" title="Emitterstr&#248;mmen til \(Q_1\) er relatert til kollektorstr&#248;mmen til \(Q_1\) med faktoren \(\alpha\), som er tiln&#230;rmet lik \(1\) ettersom disse str&#248;mmene er nesten identiske: \(i_{c1} = \alpha i_{e1} \approx i_{e1}\).[6] N&#229;r vi kjenner kollektorstr&#248;mmen til \(Q_1\), kan vi beregne kollektorspenningen til \(Q_1\) &#8211; utgangsspenningen til differensialforsterkeren &#8211; ved &#229; finne spenningsfallet fra kollektoren til jord (dvs. signaljord, jord i sm&#229;signalskjemaet).">&#8617;&#65038;</a></p>
 </aside>
@@ -856,11 +856,11 @@ MathJax.Hub.Config({
 
 <p>Skjemaet viser at vi ogs&#229; f&#229;r kondensatoren \(C_4\) i parallell med \(r_{\pi4}\). Men vi ser bort fra \(C_4\) og betrakter parallellkoblingen av \(R_6\) og \(r_{\pi4}\), som vi kaller \(R_6&#8217;\) (<abbr title="det vil si">dvs.</abbr> \(R_6&#8217; = R_6 \parallel r_{\pi4}\)). Denne g&#229;r til jord, og kollektorspenningen er dermed gitt ved</p>
 
-<p>\[v_{c1} = i_{c1}R_6&#8217; \approx i_{e1}R_6&#8217; = v_{b1}\frac{R_6&#8217;}{2r_{e1}} \]</p>
+<p class="formula">\[v_{c1} = i_{c1}R_6&#8217; \approx i_{e1}R_6&#8217; = v_{b1}\frac{R_6&#8217;}{2r_{e1}} \]</p>
 
 <p>N&#229; er \(v_{b1}\) inngangsspenningen til differensialforsterkeren, og \(v_{c1}\) er utgangsspenningen. <em>Forsterkningen</em> til differensialforsterkeren, som vi kan kalle \(A_d\), blir da</p>
 
-<p>\[\begin{equation}\label{eq:ad} A_d = \frac{v_{c1}}{v_{b1}} = \frac{R_6&#8217;}{2r_{e1}} \end{equation} \]</p>
+<p class="formula">\[\begin{equation}\label{eq:ad} A_d = \frac{v_{c1}}{v_{b1}} = \frac{R_6&#8217;}{2r_{e1}} \end{equation} \]</p>
 </div>
 </section>
 
@@ -873,19 +873,19 @@ MathJax.Hub.Config({
 
 <p>Mellom differensialforsterkeren og inngangen er det plassert noen kondensatorer og motstander som filtrerer bort <abbr class="acronym" title="Direct Current">DC</abbr>-spenning og st&#248;y, samt s&#248;rger for korrekte inngangsstr&#248;mmer og -spenninger. Vi ser bort fra kondensatorene, men er interessert i &#229; finne spenningsforsterkningen. F&#248;rst finner vi utgangsspenningen, \(v_{b1}\), som er summen av alle spenningsfallene fra basen til \(Q_1\) og jord:</p>
 
-<p>\[v_{b1} = i_{e1}(r_{e1} + r_{e2}) = (\beta_1 + 1)i_{b1}(r_{e1} + r_{e2}) \approx i_{b1}(\underbrace{2\beta_1r_{e1}}_{R_{Li}})\]</p>
+<p class="formula">\[v_{b1} = i_{e1}(r_{e1} + r_{e2}) = (\beta_1 + 1)i_{b1}(r_{e1} + r_{e2}) \approx i_{b1}(\underbrace{2\beta_1r_{e1}}_{R_{Li}})\]</p>
 
 <p>Her er kollektoren til \(Q_2\) fortsatt koblet til jord. \(i_{b1}\) er trinnets utgangsstr&#248;m, mens \(R_{Li}\) er utgangslasten, som kan betraktes som i serie med \(R_3\). La \(R_p = R_2 \parallel (R_3 + R_{Li})\). Spenningsdelingsprinsippet gir f&#248;lgende sammenheng mellom inngangsspenningen, \(v_i\), og spenningen over parallellkoblingen, \(v_p\):</p>
 
-<p>\[v_p = v_i\frac{R_p}{R_1 + R_p} \]</p>
+<p class="formula">\[v_p = v_i\frac{R_p}{R_1 + R_p} \]</p>
 
 <p>Ettersom \(v_p\) er spenningen over seriekoblingen av \(R_3\) og \(R_{Li}\), er ogs&#229; utgangsspenningen gitt ved spenningsdeling:</p>
 
-<p>\[v_{b1} = v_p\frac{R_{Li}}{R_3 + R_{Li}} \]</p>
+<p class="formula">\[v_{b1} = v_p\frac{R_{Li}}{R_3 + R_{Li}} \]</p>
 
 <p>De to uttrykkene kan settes sammen til ett stort uttrykk. Forsterkningen, som vi kan kalle \(A_i\), blir dermed</p>
 
-<p>\[\begin{equation}\label{eq:ai} A_i = \frac{R_p}{R_1 + R_p} \cdot \frac{R_{Li}}{R_3 + R_{Li}} \end{equation} \]</p>
+<p class="formula">\[\begin{equation}\label{eq:ai} A_i = \frac{R_p}{R_1 + R_p} \cdot \frac{R_{Li}}{R_3 + R_{Li}} \end{equation} \]</p>
 
 <p>der \(R_p = R_2(R_3 + R_{Li})/(R_2 + R_3 + R_{Li})\).</p>
 </div>
@@ -900,11 +900,11 @@ MathJax.Hub.Config({
 
 <p>Selve tilbakekoblingen er en enkel spenningsdeler inn p&#229; basen til \(Q_2\) (kondensatoren \(C_3\) ignoreres). Vi g&#229;r fra h&#248;yre til venstre, slik at inngangsspenningen til tilbakekoblingen er <em>utgangsspenningen</em> til forsterkeren, \(v_o\), mens utgangsspenningen til tilbakekoblingen er basespenningen til \(Q_2\), \(v_{b2}\). Basestr&#248;mmen er neglisjerbar, og spenningsdeleren gir f&#248;lgende sammenheng mellom spenningene:</p>
 
-<p>\[v_o\frac{R_4}{R_4 + R_5} = v_{b2} \]</p>
+<p class="formula">\[v_o\frac{R_4}{R_4 + R_5} = v_{b2} \]</p>
 
 <p>Tilbakekoblingsfaktoren, som vi kaller \(\beta\), blir dermed</p>
 
-<p>\[\begin{equation}\label{eq:beta} \beta = \frac{v_{b2}}{v_o} = \frac{R_4}{R_4 + R_5} \end{equation} \]</p>
+<p class="formula">\[\begin{equation}\label{eq:beta} \beta = \frac{v_{b2}}{v_o} = \frac{R_4}{R_4 + R_5} \end{equation} \]</p>
 </div>
 </section>
 
@@ -918,77 +918,77 @@ MathJax.Hub.Config({
 
 <p>Da kollektoren til \(Q_7\) leverer brorparten av hvilestr&#248;mmen fra \(+35\) V til jord (utgangen er <abbr class="acronym" title="Direct Current">DC</abbr>-jord, ettersom den bare leverer signalspenning), og kollektoren til \(Q_8\) leverer brorparten fra jord til \(-35\) V, er</p>
 
-<p>\[I_{C7Q} = I_{C8Q} = I_Q = 75\text{ mA} \]</p>
+<p class="formula">\[I_{C7Q} = I_{C8Q} = I_Q = 75\text{ mA} \]</p>
 
 <p>Dersom \(Q_7\) er av typen MJL1302A, er str&#248;mforsterkningen \(\beta_7 = 100\). Ettersom kollektorstr&#248;mmen til \(Q_5\) er tiln&#230;rmet lik basestr&#248;mmen til \(Q_7\) (str&#248;mmen gjennom \(R_{11}\) er veldig liten), f&#229;r vi at</p>
 
-<p>\[I_{C5Q} = \frac{I_{C7Q}}{\beta_7} = \frac{75\text{ mA}}{100} = 750\text{ $\mu$A} \]</p>
+<p class="formula">\[I_{C5Q} = \frac{I_{C7Q}}{\beta_7} = \frac{75\text{ mA}}{100} = 750\text{ $\mu$A} \]</p>
 
 <p>\(Q_5\) er av typen BD139, og har for denne str&#248;mmen forsterkning \(\beta_5 = 25\). Dens sm&#229;signal-motstander blir</p>
 
-<p>\[\begin{aligned} r_{e5} &amp;= \frac{V_T}{I_{C5Q}} = \frac{25\text{ mV}}{750\text{ $\mu$A}} = 33,3\text{ $\Omega$}\\ r_{\pi5} &amp;= (\beta_5 + 1)r_{e5} = (25 + 1) \cdot 33,3\text{ $\Omega$} = 866\text{ $\Omega$}\end{aligned} \]</p>
+<p class="formula">\[\begin{aligned} r_{e5} &amp;= \frac{V_T}{I_{C5Q}} = \frac{25\text{ mV}}{750\text{ $\mu$A}} = 33,3\text{ $\Omega$}\\ r_{\pi5} &amp;= (\beta_5 + 1)r_{e5} = (25 + 1) \cdot 33,3\text{ $\Omega$} = 866\text{ $\Omega$}\end{aligned} \]</p>
 
 <p>Av ligning \(\eqref{eq:au}\) blir utgangstransistorenes forsterkning dermed:</p>
 
-<p>\[A_u = \frac{\beta_7R_L}{r_{e5} + \beta_7(R_{13} + R_L)} = \frac{100 \cdot 8\text{ $\Omega$}}{33,3\text{ $\Omega$} + 100 \cdot (0,33\text{ $\Omega$} + 8\text{ $\Omega$})} = 0,92\]</p>
+<p class="formula">\[A_u = \frac{\beta_7R_L}{r_{e5} + \beta_7(R_{13} + R_L)} = \frac{100 \cdot 8\text{ $\Omega$}}{33,3\text{ $\Omega$} + 100 \cdot (0,33\text{ $\Omega$} + 8\text{ $\Omega$})} = 0,92\]</p>
 
 <p>som er tiln&#230;rmet lik \(R_L/(R_{13} + R_L) = 8\text{ }\Omega/(0,33\text{ }\Omega + 8\text{ }\Omega) = 0,96\).</p>
 
 <p>For &#229; beregne forsterkningen til klasse A-driveren, \(A_a\), m&#229; vi f&#248;rst finne kollektorlasten til \(Q_4\), \(R_{La}\). Den er gitt ved parallellkoblingen av \(R_{iu}\) og \(R_9&#8217;\), der</p>
 
-<p>\[\begin{aligned} R_{iu} &amp;= r_{\pi5} + \beta_{57}(R_{13} + R_L)\\ &amp;= 866\text{ $\Omega$} + 25 \cdot 100 \cdot (0,33\text{ $\Omega$} + 8\text{ $\Omega$})\quad\text{der $\beta_{57} \approx \beta_5\beta_7$}\\ &amp;= 21,7\text{ k$\Omega$} \end{aligned} \]</p>
+<p class="formula">\[\begin{aligned} R_{iu} &amp;= r_{\pi5} + \beta_{57}(R_{13} + R_L)\\ &amp;= 866\text{ $\Omega$} + 25 \cdot 100 \cdot (0,33\text{ $\Omega$} + 8\text{ $\Omega$})\quad\text{der $\beta_{57} \approx \beta_5\beta_7$}\\ &amp;= 21,7\text{ k$\Omega$} \end{aligned} \]</p>
 
 <p>og</p>
 
-<p>\[R_9&#8217; = \frac{R_9}{1 &#8211; A_u} = \frac{3,3\text{ k$\Omega$}}{1 &#8211; 0,92} = 41,3\text{ k$\Omega$} \]</p>
+<p class="formula">\[R_9&#8217; = \frac{R_9}{1 &#8211; A_u} = \frac{3,3\text{ k$\Omega$}}{1 &#8211; 0,92} = 41,3\text{ k$\Omega$} \]</p>
 
 <p>\(R_{La}\) blir dermed</p>
 
-<p>\[R_{La} = R_{iu} \parallel R_9&#8217; = \frac{R_{iu}R_9&#8217;}{R_{iu} + R_9&#8217;} = \frac{21,7\text{ k$\Omega$} \cdot 41,3\text{ k$\Omega$}}{21,7\text{ k$\Omega$} + 41,3\text{ k$\Omega$}} = 14,2\text{ k$\Omega$} \]</p>
+<p class="formula">\[R_{La} = R_{iu} \parallel R_9&#8217; = \frac{R_{iu}R_9&#8217;}{R_{iu} + R_9&#8217;} = \frac{21,7\text{ k$\Omega$} \cdot 41,3\text{ k$\Omega$}}{21,7\text{ k$\Omega$} + 41,3\text{ k$\Omega$}} = 14,2\text{ k$\Omega$} \]</p>
 
 <p>Videre m&#229; vi finne kollektorstr&#248;mmen til \(Q_4\), som er omtrent den samme str&#248;mmen som g&#229;r gjennom \(R_9\) og \(R_{10}\). Spenningspotensialet i den nedre terminalen til \(R_{10}\) er \(-35\) V, mens potensialet i den &#248;vre terminalen til \(R_9\) er \(-I_QR_{14} &#8211; V_{BE6} = -25\text{ mV} &#8211; 0,7\text{ V} = -0,73\text{V}\). Str&#248;mmen blir dermed</p>
 
-<p>\[I_{C4Q} = \frac{-0,73\text{ V} &#8211; (-35\text{ V})}{R_9 + R_{10}} = \frac{34,27\text{ V}}{3,3\text{ k$\Omega$} + 3,3\text{ k$\Omega$}} = 5,19\text{ mA} \]</p>
+<p class="formula">\[I_{C4Q} = \frac{-0,73\text{ V} &#8211; (-35\text{ V})}{R_9 + R_{10}} = \frac{34,27\text{ V}}{3,3\text{ k$\Omega$} + 3,3\text{ k$\Omega$}} = 5,19\text{ mA} \]</p>
 
 <p>\(Q_4\) er av typen BD140, som for denne str&#248;mmen har forsterkning \(\beta_4 = 140\). Dens sm&#229;signal-basemotstand blir</p>
 
-<p>\[r_{\pi4} = (\beta_4 + 1)\frac{V_T}{I_{C4Q}} = (140 + 1)\frac{25\text{ mV}}{5,19\text{ mA}} = 680\text{ $\Omega$} \]</p>
+<p class="formula">\[r_{\pi4} = (\beta_4 + 1)\frac{V_T}{I_{C4Q}} = (140 + 1)\frac{25\text{ mV}}{5,19\text{ mA}} = 680\text{ $\Omega$} \]</p>
 
 <p>Av \(\eqref{eq:aa}\) blir klasse A-driverens forsterkning dermed:</p>
 
-<p>\[A_a = \frac{\beta_4R_{La}}{r_{\pi4}} = \frac{140 \cdot 14,2\text{ k$\Omega$}}{680\text{ $\Omega$}} = 2924\]</p>
+<p class="formula">\[A_a = \frac{\beta_4R_{La}}{r_{\pi4}} = \frac{140 \cdot 14,2\text{ k$\Omega$}}{680\text{ $\Omega$}} = 2924\]</p>
 
 <p>For &#229; beregne forsterkningen til differensialforsterkeren, \(A_d\), m&#229; vi finne kollektorstr&#248;mmen til \(Q_1\). Den g&#229;r gjennom motstanden \(R_6\), som er koblet over base&#8211;emitter-overgangen til \(Q_4\). Vi kan dermed anta at spenningsfallet over motstanden er om lag \(0,7\) V, hvilket gir</p>
 
-<p>\[I_{C1Q} = \frac{V_{EB4}}{R_6} = \frac{0,7\text{ V}}{560\text{ $\Omega$}} = 1,25\text{ mA} \]</p>
+<p class="formula">\[I_{C1Q} = \frac{V_{EB4}}{R_6} = \frac{0,7\text{ V}}{560\text{ $\Omega$}} = 1,25\text{ mA} \]</p>
 
 <p>\(Q_1\), som er av typen BC546, har str&#248;mforsterkning \(\beta_1 = 200\) for denne kollektorstr&#248;mmen. Sm&#229;signal-emittermotstanden blir</p>
 
-<p>\[r_{e1} = \frac{V_T}{I_{C1Q}} = \frac{25\text{ mV}}{1,25\text{ mA}} = 20\text{ $\Omega$} \]</p>
+<p class="formula">\[r_{e1} = \frac{V_T}{I_{C1Q}} = \frac{25\text{ mV}}{1,25\text{ mA}} = 20\text{ $\Omega$} \]</p>
 
 <p>Videre trenger vi \(R_6&#8217;\), som er parallellkoblingen av \(R_6\) og \(r_{\pi4}\):</p>
 
-<p>\[R_6&#8217; = R_6 \parallel r_{\pi4} = \frac{R_6r_{\pi4}}{R_6 + r_{\pi4}} = \frac{560\text{ $\Omega$} \cdot 680\text{ $\Omega$}}{560\text{ $\Omega$} + 680\text{ $\Omega$}} = 307\text{ $\Omega$} \]</p>
+<p class="formula">\[R_6&#8217; = R_6 \parallel r_{\pi4} = \frac{R_6r_{\pi4}}{R_6 + r_{\pi4}} = \frac{560\text{ $\Omega$} \cdot 680\text{ $\Omega$}}{560\text{ $\Omega$} + 680\text{ $\Omega$}} = 307\text{ $\Omega$} \]</p>
 
 <p>Av \(\eqref{eq:ad}\) blir differensialforsterkerens forsterkning dermed:</p>
 
-<p>\[A_d = \frac{R_6&#8217;}{2r_{e1}} = \frac{307\text{ $\Omega$}}{2 \cdot 20\text{ $\Omega$}} = 7,7\]</p>
+<p class="formula">\[A_d = \frac{R_6&#8217;}{2r_{e1}} = \frac{307\text{ $\Omega$}}{2 \cdot 20\text{ $\Omega$}} = 7,7\]</p>
 
 <p>For &#229; beregne forsterkningen til inngangen, \(A_i\), m&#229; vi finne utgangslasten til trinnet, \(R_{Li}\). Den er gitt ved</p>
 
-<p>\[R_{Li} = 2\beta_1r_{e1} = 2 \cdot 200 \cdot 20\text{ $\Omega$} = 8\text{ k$\Omega$} \]</p>
+<p class="formula">\[R_{Li} = 2\beta_1r_{e1} = 2 \cdot 200 \cdot 20\text{ $\Omega$} = 8\text{ k$\Omega$} \]</p>
 
 <p>Vi trenger ogs&#229; \(R_p\), som er parallellkoblingen av \(R_2\) og \(R_3 + R_{Li}\):</p>
 
-<p>\[R_p = R_2 \parallel (R_3 + R_{Li}) = \frac{R_2(R_3 + R_{Li})}{R_2 + R_3 + R_{Li}} = \frac{22\text{ k$\Omega$} \cdot (2,2\text{ k$\Omega$} + 8\text{ k$\Omega$})}{22\text{ k$\Omega$} + 2,2\text{ k$\Omega$} + 8\text{ k$\Omega$}} = 7\text{ k$\Omega$} \]</p>
+<p class="formula">\[R_p = R_2 \parallel (R_3 + R_{Li}) = \frac{R_2(R_3 + R_{Li})}{R_2 + R_3 + R_{Li}} = \frac{22\text{ k$\Omega$} \cdot (2,2\text{ k$\Omega$} + 8\text{ k$\Omega$})}{22\text{ k$\Omega$} + 2,2\text{ k$\Omega$} + 8\text{ k$\Omega$}} = 7\text{ k$\Omega$} \]</p>
 
 <p>Av \(\eqref{eq:ai}\) blir inngangens forsterkning dermed:</p>
 
-<p>\[A_i = \frac{R_p}{R_1 + R_p} \cdot \frac{R_{Li}}{R_3 + R_{Li}} = \frac{7\text{ k$\Omega$}}{2,2\text{ k$\Omega$} + 7\text{ k$\Omega$}} \cdot \frac{8\text{ k$\Omega$}}{2,2\text{ k$\Omega$} + 8\text{ k$\Omega$}} = 0,6\]</p>
+<p class="formula">\[A_i = \frac{R_p}{R_1 + R_p} \cdot \frac{R_{Li}}{R_3 + R_{Li}} = \frac{7\text{ k$\Omega$}}{2,2\text{ k$\Omega$} + 7\text{ k$\Omega$}} \cdot \frac{8\text{ k$\Omega$}}{2,2\text{ k$\Omega$} + 8\text{ k$\Omega$}} = 0,6\]</p>
 
 <p>Til slutt er tilbakekoblingsfaktoren, \(\beta\), gitt av \(\eqref{eq:beta}\), og vi f&#229;r</p>
 
-<p>\[\beta = \frac{R_4}{R_4 + R_5} = \frac{1\text{ k$\Omega$}}{1\text{ k$\Omega$} + 22\text{ k$\Omega$}} = \frac{1}{23} = 0,043\]</p>
+<p class="formula">\[\beta = \frac{R_4}{R_4 + R_5} = \frac{1\text{ k$\Omega$}}{1\text{ k$\Omega$} + 22\text{ k$\Omega$}} = \frac{1}{23} = 0,043\]</p>
 </div>
 </section>
 
@@ -998,21 +998,21 @@ MathJax.Hub.Config({
 <div class="collapse in" id="forsterkning-2-section">
 <p>N&#229; kan vi beregne forsterkningen. R&#229;forsterkningen fra differensialforsterkeren til utgangstransistorene er</p>
 
-<p>\[A_o = A_d \cdot A_a \cdot A_u = 7,7 \cdot 2924 \cdot 0,92 = 20714\]</p>
+<p class="formula">\[A_o = A_d \cdot A_a \cdot A_u = 7,7 \cdot 2924 \cdot 0,92 = 20714\]</p>
 
 <p>Forsterkningen n&#229;r vi tar med tilbakekoblingen, men ser bort fra inngangen, er</p>
 
-<p>\[A_f = \frac{A_o}{1 + \beta A_o} = \frac{20714}{1 + 0,043 \cdot 20714} = 23,2\]</p>
+<p class="formula">\[A_f = \frac{A_o}{1 + \beta A_o} = \frac{20714}{1 + 0,043 \cdot 20714} = 23,2\]</p>
 
 <p>Da r&#229;forsterkningen er stor, er \(\beta A_o \gg 1\), og br&#248;ken kan rundes av til \(A_o/\beta A_o\), som tilsvarer \(1/\beta\). Ettersom utregningen for tilbakekoblingsfaktoren ga \(\beta = \frac{1}{23}\), ser vi at dette stemmer bra med den n&#248;yaktige utregningen av \(A_f\).</p>
 
 <p>Den totale forsterkningen f&#229;s n&#229; ved &#229; multiplisere med inngangsforsterkningen:</p>
 
-<p>\[A = A_i \cdot A_f = 0,6 \cdot 23,2 = 14\]</p>
+<p class="formula">\[A = A_i \cdot A_f = 0,6 \cdot 23,2 = 14\]</p>
 
 <p>I desibel tilsvarer dette</p>
 
-<p>\[A_{\mathrm{dB}} = 20\lg{14} = 23\text{ dB} \]</p>
+<p class="formula">\[A_{\mathrm{dB}} = 20\lg{14} = 23\text{ dB} \]</p>
 </div>
 </section>
 </div>
@@ -1031,23 +1031,23 @@ MathJax.Hub.Config({
 
 <p>For &#229; oppn&#229; en effekt p&#229; 2 &#215; 60 W i 8 <abbr class="acronym" title="ohm">&#937;</abbr> trenger vi en spenningsforsyning p&#229;</p>
 
-<p>\[U_{\mathrm{maks}} = \sqrt{2 \cdot P \cdot R_L} = \sqrt{2 \cdot 60\text{ W} \cdot 8\text{ $\Omega$}} \approx 31\text{ V} \]</p>
+<p class="formula">\[U_{\mathrm{maks}} = \sqrt{2 \cdot P \cdot R_L} = \sqrt{2 \cdot 60\text{ W} \cdot 8\text{ $\Omega$}} \approx 31\text{ V} \]</p>
 
 <p>\(U_{CC}\) blir da:</p>
 
-<p>\[\begin{split} U_{CC} &amp;= U_{\mathrm{maks}} + U_{CE\mathrm{sat}} + \text{sikkerhetsmargin}\\ &amp;= 31\text{ V} + 1\text{ V} + 10\text{ %} \approx 35\text{ V} \end{split} \]</p>
+<p class="formula">\[\begin{split} U_{CC} &amp;= U_{\mathrm{maks}} + U_{CE\mathrm{sat}} + \text{sikkerhetsmargin}\\ &amp;= 31\text{ V} + 1\text{ V} + 10\text{ %} \approx 35\text{ V} \end{split} \]</p>
 
 <p>Dette oppn&#229;r vi med en trafospenning p&#229;</p>
 
-<p>\[\frac{35\text{ V}}{\sqrt{2}} \approx 24,7\text{ V} \]</p>
+<p class="formula">\[\frac{35\text{ V}}{\sqrt{2}} \approx 24,7\text{ V} \]</p>
 
 <p>Maks str&#248;m med en last p&#229; \(8\) og \(2\) tap:</p>
 
-<p>\[I_{\mathrm{maks}} = \frac{35\text{ V} &#8211; 2\text{ V}_{U_{CE\mathrm{sat}}}}{8\text{ $\Omega$}} = 4,125\text{ A} \]</p>
+<p class="formula">\[I_{\mathrm{maks}} = \frac{35\text{ V} &#8211; 2\text{ V}_{U_{CE\mathrm{sat}}}}{8\text{ $\Omega$}} = 4,125\text{ A} \]</p>
 
 <p>Vi trenger dermed en forsyning p&#229;</p>
 
-<p>\[2 \cdot I_{\mathrm{maks}} \cdot U_{CC} = 2 \cdot 4,125\text{ A} \cdot 35\text{ V} = 2 \cdot 144,4\text{ VA} \approx 290\text{ VA} \]</p>
+<p class="formula">\[2 \cdot I_{\mathrm{maks}} \cdot U_{CC} = 2 \cdot 4,125\text{ A} \cdot 35\text{ V} = 2 \cdot 144,4\text{ VA} \approx 290\text{ VA} \]</p>
 
 <p>Vi ser at en trafo p&#229; 300 <abbr class="acronym" title="voltampere">VA</abbr> oppfyller kravet.</p>
 
@@ -1063,7 +1063,7 @@ MathJax.Hub.Config({
 
 <p>V&#229;r trafo ytte over 600 <abbr class="acronym" title="voltampere">VA</abbr>, men siden den ikke hadde de rette spenningene (29&#8210;0&#8211;24 V), oppsto det en del problemer. Forsterkeren ville kanskje ha virket, men som man ser av figurene over, ble det simulert at dette ville f&#248;re til dobbelt s&#229; stor rippel. Etter mye om og men ble vi til slutt tilbudt en 200 <abbr class="acronym" title="voltampere">VA</abbr> 24&#8210;0&#8211;24 V trafo. Denne vil ikke &#248;delegge forsterkerens lydegenskaper annet enn ved maks belastning, som vil medf&#248;re spenningsfall og klipping.</p>
 
-<p>\[\begin{aligned} I &amp;= \frac{200\text{ VA}}{35\text{ V}} = 5,714\text{ A} = 2 \cdot 2,857\text{ A}\\ P &amp;= 2 \cdot ((8\text{ $\Omega$} \cdot 2,857\text{ A}) &#8211; 2 \cdot 1\text{ V$_{\mathrm{sat}}$}) \cdot 2,857\text{ A}\\ &amp;= 119,2\text{ W} = 2 \cdot 59,6\text{ W}\quad(8\text{ $\Omega$})\end{aligned} \]</p>
+<p class="formula">\[\begin{aligned} I &amp;= \frac{200\text{ VA}}{35\text{ V}} = 5,714\text{ A} = 2 \cdot 2,857\text{ A}\\ P &amp;= 2 \cdot ((8\text{ $\Omega$} \cdot 2,857\text{ A}) &#8211; 2 \cdot 1\text{ V$_{\mathrm{sat}}$}) \cdot 2,857\text{ A}\\ &amp;= 119,2\text{ W} = 2 \cdot 59,6\text{ W}\quad(8\text{ $\Omega$})\end{aligned} \]</p>
 </div>
 </section>
 
@@ -2056,7 +2056,7 @@ MathJax.Hub.Config({
 <li class="footnote-item" id="fn6">
 <p>\(\alpha\) kan uttrykkes med \(\beta\) slik:</p>
 
-<p>\[\alpha = \frac{i_C}{i_E} = \frac{\beta i_B}{(\beta + 1)i_B} = \frac{\beta}{\beta + 1} \]</p>
+<p class="formula">\[\alpha = \frac{i_C}{i_E} = \frac{\beta i_B}{(\beta + 1)i_B} = \frac{\beta}{\beta + 1} \]</p>
 
 <p>som er tiln&#230;rmet lik \(1\) ettersom \(\beta \gg 1\). <a class="footnote-backref" href="#fnref6" title="Emitterstr&#248;mmen til \(Q_1\) er relatert til kollektorstr&#248;mmen til \(Q_1\) med faktoren \(\alpha\), som er tiln&#230;rmet lik \(1\) ettersom disse str&#248;mmene er nesten identiske: \(i_{c1} = \alpha i_{e1} \approx i_{e1}\).[6] N&#229;r vi kjenner kollektorstr&#248;mmen til \(Q_1\), kan vi beregne kollektorspenningen til \(Q_1\) &#8211; utgangsspenningen til differensialforsterkeren &#8211; ved &#229; finne spenningsfallet fra kollektoren til jord (dvs. signaljord, jord i sm&#229;signalskjemaet).">&#8617;&#65038;</a></p>
 </li>

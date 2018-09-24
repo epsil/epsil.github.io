@@ -6,22 +6,32 @@
     margin-top: 1em;
 }
 
-section[id], .e-content > section {
+section[id], .e-content > section, .sidenote {
     border: 1px solid #ccc;
     border-radius: 3px;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
     padding-left: 1em;
     /* padding-right: 0.2em; */
     padding-right: 1em;
+}
+
+section[id], .e-content > section {
     margin-top: 1em;
     margin-bottom: 1em;
+}
+
+.sidenote {
+    background-color: #fff;
+    width: 10em;
+    /* margin-right: 0; */
+    padding-top: 1em;
 }
 
 section div section {
     margin-right: -0.8em;
 }
 
-section[id]:hover {
+section[id]:hover, .sidenote:hover {
     border: 1px solid #999;
 }
 

@@ -2229,6 +2229,18 @@ util.addTeXLogos = function () {
   })
 }
 
+util.addFormulas = function () {
+  return this.each(function () {
+    $(this).find('p').filter(function () {
+      var text = $(this).text() || ''
+      return (text.match(/^\$\$/) && text.match(/\$\$$/)) ||
+        (text.match(/^\\\[/) && text.match(/\\]$/))
+    }).each(function () {
+      $(this).addClass('formula')
+    })
+  })
+}
+
 // similar to Hakyll's relativizeUrls
 util.relativizeUrls = function (path) {
   return this.each(function () {
@@ -2465,6 +2477,7 @@ util.processBody = function (body) {
   body.addPunctuation()
   body.addHotkeys()
   body.addTeXLogos()
+  body.addFormulas()
   content.addAnchors()
   body.fixBlockquotes()
   body.addBootstrapDivs()
@@ -2782,6 +2795,7 @@ $.fn.traverseTextNodesHTML = util.traverseTextNodesHTML
 $.fn.addClipboardButtons = util.addClipboardButtons
 $.fn.addPunctuation = util.addPunctuation
 $.fn.addAcronyms = util.addAcronyms
+$.fn.addFormulas = util.addFormulas
 $.fn.addHotkeys = util.addHotkeys
 $.fn.addPullQuotes = util.addPullQuotes
 $.fn.addSmallCaps = util.addSmallCaps

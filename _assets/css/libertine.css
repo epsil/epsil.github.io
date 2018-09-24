@@ -1,5 +1,6 @@
-@import url("../fonts/biolinum.css");
 @import url("../fonts/libertine.css");
+@import url("../fonts/biolinum.css");
+@import url("../fonts/inconsolata.css");
 
 body {
     font-family: "Linux Libertine", "Linux Libertine O", "Minion Web", "Minion Pro", "Minion Std", Minion, "Crimson Text", "ETBembo", "ETBembo LF", "STIX Two Web", "STIX Two Text", Charter, "PT Serif", Georgia, "Iowan Old Style", Iowan, "Iowan Web", "Hoefler Text", "Libre Baskerville", Baskerville, Cambria, Constantia, Utopia, Marion, Cochin, "Palatino Linotype", Palatino, serif !important;
@@ -12,8 +13,8 @@ h1, h2, h3, h4, h5, h6, nav, button, input, kbd, textarea, .modal {
 }
 
 code, kbd, samp, tt, pre {
-    font-family: "Ubuntu Mono", "Noto Mono", "Liberation Mono", "DejaVu Sans Mono", "Andale Mono", "Consolas Web", Consolas, Menlo, Monaco, Courier, monospace !important;
-    font-size: 0.75em !important;
+    font-family: Inconsolata, "Consolas Web", Consolas, "Ubuntu Mono", "Noto Mono", "Liberation Mono", "DejaVu Sans Mono", "Andale Mono", Menlo, Monaco, Courier, monospace !important;
+    font-size: 0.8em !important;
 }
 
 @media (max-width: 767px) {
