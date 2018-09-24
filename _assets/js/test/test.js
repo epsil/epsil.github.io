@@ -520,7 +520,7 @@ module.exports={
   "url": "https://epsil.github.io/",
   "index": "index.md",
   "compile": true,
-  "github-repo": "epsil/mdwiki",
+  "github-repo": "epsil/epsil.github.io",
   "tidy": true,
   "lang": "no",
   "noindex": true,
