@@ -66,7 +66,7 @@ Blogg
 
 #### 2012 {.collapse}
 
--   [2012-12-08: General Parser Combinators in Racket](gll/)
+-   [2012-12-08: General Parser Combinators in Racket]
 -   [2012-05-14: C++ for Java Programmers](2012/05/14/)
 -   [2012-05-05: DOM, XPath og jQuery](2012/05/05/)
 -   [2012-05-03: Greasemonkey-skript for Last.fm](2012/05/03/)
