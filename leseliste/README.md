@@ -59,8 +59,8 @@ Chrome sets limitations on local file access and requires both
 `index.html` and `list.txt` to be hosted on a server, for example
 [http-server](https://www.npmjs.com/package/http-server):
 
-    $ npm install -g http-server
-    $ http-server -a localhost -p 80
+    npm install -g http-server
+    http-server -a localhost -p 80
 
 This will host the files on <http://localhost/>.
 

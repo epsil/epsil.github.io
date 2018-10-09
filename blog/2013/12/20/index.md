@@ -1,3 +1,4 @@
+---
 title: Starte Gollum med `launchd`
 date: 2013-12-20
 ---
@@ -23,7 +24,7 @@ På OS X startes [Gollum](https://github.com/gollum/gollum) automatisk med [`lau
 </plist>
 ```
 
-* * * * *
+---
 
 **Oppdatering 2016-07-29:** Å få [http-server](https://github.com/indexzero/http-server) til å starte automatisk krever at man eksplisitt oppgir plasseringen til `node`, for [`launchd` leser ikke `/usr/local/bin`](http://apple.stackexchange.com/questions/106355/setting-the-system-wide-path-environment-variable-in-mavericks). Serveren startes med Bash-skriptet `start_httpserver.sh`:
 

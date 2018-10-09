@@ -1,3 +1,4 @@
+---
 title: Synkronisere iBooks og iPad
 date: 2014-05-07
 ---
@@ -8,6 +9,6 @@ date: 2014-05-07
 4.  Åpne iPad i iTunes, gå til *Bøker*-fanen og huk av for *Synkroniser bøker* og *Synkroniser lydbøker*.
 5.  Trykk *Synkroniser*.
 
-* * * * *
+---
 
 **Oppdatering:** Ved feilkode 17 ved oppdatering av iPad i iTunes: åpne [TinyUmbrella](http://www.firmwareumbrella.com/) og trykk *Exit Recovery*. Hvis oppdateringsproblemene vedvarer, kan det fungere bedre å [oppdatere trådløst](http://osxdaily.com/2012/01/12/how-to-use-ota-update-ios/).

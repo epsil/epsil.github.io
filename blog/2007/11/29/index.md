@@ -1,3 +1,4 @@
+---
 title: Tastaturmakroer i Emacs
 date: 2007-11-29
 ---
@@ -10,6 +11,6 @@ Merk at den ovenstående makroen forutsetter at hver fil bare inneholder én opp
 
 For øvrig har Emacs sine egne kommandoer for å håndtere quoted-printable, så i stedet for det lange regulære uttrykket jeg skriver inn for å ta høyde for quoted-printable-kodede tegn à la `=F8` (som ikke forekommer så tidlig i `LOCATION`-feltet i eksemplet, så dette er bare teoretisk), kunne jeg ha konvertert fra quoted-printable til vanlig tekst, kopiert de to første tegnene, konvertert `LOCATION`-feltet tilbake, limt inn tegnene i `SUMMARY`-feltet og konvertert dem.
 
-* * * * *
+---
 
 Ifølge folket på `#emacs` har Emacs hatt tastaturmakroer siden 1975.

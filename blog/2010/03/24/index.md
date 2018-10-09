@@ -1,3 +1,4 @@
+---
 title: Lineære differensialligninger med konstante koeffisienter
 date: 2010-03-24
 mathjax: true
@@ -6,7 +7,7 @@ mathjax: true
 1\. ordens lineær differensialligning med konstante koeffisienter
 -----------------------------------------------------------------
 
-$$a \cdot y' + b \cdot y = f(t), y(0)\text{ gitt}$$
+$$ a \cdot y' + b \cdot y = f(t), y(0)\text{ gitt} $$
 
 Her er $a$ og $b$ konstanter, mens $f(t)$ er en ytre kilde (f.eks. en spenningskilde). $y(0)$ er startbetingelsen til differensialligningen.
 
@@ -23,21 +24,21 @@ Den partikulære løsningen, $y_P$, vil alltid være av samme funksjonstype som 
 -   **Konstant:** $y_P = A$
 -   **1. grads polynom:** $y_P = A \cdot t + B$
 -   **2. grads polynom:** $y_P = A \cdot t2 + B \cdot t + C$
--   **Eksponentialfunksjon ($e^{-b \cdot t}$):** $y_P = A \cdot e^{-b \cdot t}$
+-   **Eksponentialfunksjon ($e^{-b \cdot t}$):** ${y_P = A \cdot e^{-b \cdot t}}$
 -   **Sinus- og/eller cosinusfunksjon med vinkelfrekvens $\omega$:** $y_P = A \cdot \sin(\omega \cdot t) + B \cdot \cos(\omega \cdot t)$
 
 **NB!** Den frie konstanten eller de frie konstantene i den partikulære løsningen finnes ved å sette inn den partikulære løsningen inn i differensialligningen. Ved å sammenligne venstre og høyre side vil konstanten(e) bli bestemt.
 
 ### 3\. Den totale løsningen er da summen av den homogene og den partikulære løsningen
 
-$$y(t) = y_H(t) + y_P(t)$$
+$$ y(t) = y_H(t) + y_P(t) $$
 
 ### 4\. Den frie konstanten i den homogene løsningen bestemmes slik at startbetingelsen oppfylles
 
 2\. ordens lineær differensialligning med konstante koeffisienter
 -----------------------------------------------------------------
 
-$$a \cdot y'' + b \cdot y' + c \cdot y = f(t), y(0)\text{ og }y'(0)\text{ gitt}$$
+$$ a \cdot y'' + b \cdot y' + c \cdot y = f(t), y(0)\text{ og }y'(0)\text{ gitt} $$
 
 Her er $a$, $b$ og $c$ konstanter, mens $f(t)$ er en ytre kilde (f.eks. en spenningskilde). $y(0)$ og $y'(0)$ er startbetingelsene til differensialligningen.
 
@@ -58,13 +59,13 @@ Den partikulære løsningen, $y_P$, vil alltid være av samme funksjonstype som 
 -   **Konstant:** $y_P = A$
 -   **1. grads polynom:** $y_P = A \cdot t + B$
 -   **2. grads polynom:** $y_P = A \cdot t_2 + B \cdot t + C$
--   **Eksponentialfunksjon ($e^{-b \cdot t}$):** $y_P = A \cdot e^{-b \cdot t}$
+-   **Eksponentialfunksjon ($e^{-b \cdot t}$):** ${y_P = A \cdot e^{-b \cdot t}}$
 -   **Sinus- og/eller cosinusfunksjon med vinkelfrekvens $\omega$:** $y_P = A \cdot \sin(\omega \cdot t) + B \cdot \cos(\omega \cdot t)$
 
 **NB!** Den frie konstanten eller de frie konstantene i den partikulære løsningen finnes ved å sette inn den partikulære løsningen inn i differensialligningen. Ved å sammenligne venstre og høyre side vil konstanten(e) bli bestemt.
 
 ### 3\. Den totale løsningen er da summen av den homogene og den partikulære løsningen
 
-$$y(t) = y_H(t) + y_P(t)$$
+$$ y(t) = y_H(t) + y_P(t) $$
 
 ### 4\. Den frie konstanten i den homogene løsningen bestemmes slik at startbetingelsen oppfylles

@@ -1,3 +1,4 @@
+---
 title: Klone harddisk
 date: 2010-11-27
 ---

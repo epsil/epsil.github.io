@@ -10,7 +10,7 @@ mathjax: true
 Rapport om prototype til en tungestyrt musepeker for bevegelseshemmede.
 **[PDF-utgave](rapport.pdf)**.
 
-* * * * *
+---
 
 ![](fig/hist-logo.svg)
 
@@ -20,7 +20,7 @@ Veileder: Herman Ranes.
 
 Oppdragsgiver: SINTEF.
 
-* * * * *
+---
 
 ### Sammendrag
 

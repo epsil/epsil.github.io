@@ -252,6 +252,10 @@ module.exports={
     "href": "/blog/2004/03/09/",
     "title": "Gruppering av CSS-stilark"
   },
+  "GUI": {
+    "href": "/blog/2012/03/24/",
+    "title": "GUI-programmering med Qt"
+  },
   "GUI-PROGRAMMERING MED QT": {
     "href": "/blog/2012/03/24/",
     "title": "GUI-programmering med Qt"

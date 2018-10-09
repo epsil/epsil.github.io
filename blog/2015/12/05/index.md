@@ -1,3 +1,4 @@
+---
 title: Nettilkobling med iPhone
 date: 2015-12-05
 ---
@@ -6,7 +7,7 @@ Last ned og installer iTunes på datamaskinen. iTunes inkluderer en driver som g
 
 På iPhone, gå til *Delt Internett* under *Innstillinger* og aktiver deling. Koble telefonen til datamaskinen med en USB-kabel. Nettilkoblingen dukker nå opp som kablet nett.
 
-* * * * *
+---
 
 Dele tilkoblingen i Hyper-V:
 

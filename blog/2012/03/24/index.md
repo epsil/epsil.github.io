@@ -1,4 +1,7 @@
+---
 title: GUI-programmering med Qt
+aliases:
+  - GUI
 date: 2012-03-24
 ---
 

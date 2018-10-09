@@ -1,3 +1,4 @@
+---
 title: Komprimere profilmappen til Firefox
 date: 2014-12-27
 ---

@@ -1,3 +1,4 @@
+---
 title: Manglende SATA-støtte i Windows XP
 date: 2011-09-17
 ---

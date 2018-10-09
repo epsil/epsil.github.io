@@ -1,3 +1,4 @@
+---
 title: Fikse `mkfs.ntfs` på Ubuntu
 date: 2013-12-06
 ---

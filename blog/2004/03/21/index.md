@@ -1,3 +1,4 @@
+---
 title: Flash og tilgjengelighet
 date: 2004-03-21
 ---

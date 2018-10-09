@@ -1,3 +1,4 @@
+---
 title: Kjøre foobar2000 under OS X
 date: 2014-02-25
 ---

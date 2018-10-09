@@ -1,3 +1,4 @@
+---
 title: Hvordan skrive til en NTFS-disk på OS X
 date: 2014-05-13
 url: http://osxdaily.com/2013/10/02/enable-ntfs-write-support-mac-os-x/
@@ -21,6 +22,6 @@ Alternativt kan man legge til en snarvei på skrivebordet:
 
     sudo ln -s /Volumes/DRIVENAME ~/Desktop/DRIVENAME
 
-* * * * *
+---
 
 **Oppdatering:** På OS X Yosemite fungerer ikke dette lenger. ~~Bruk istedenfor [NTFS-3G](http://www.macbreaker.com/2014/06/how-to-enable-writing-to-ntfs-hard.html).~~

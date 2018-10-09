@@ -1,3 +1,4 @@
+---
 title: Greasemonkey-skript for Last.fm
 date: 2012-05-03
 ---
@@ -6,7 +7,7 @@ date: 2012-05-03
 
 Hvis jeg skal bruke Last.fm til å oppdage klassiske låter, trenger jeg de totale tallene, som finnes på siden til hver enkelt låt. Kan jeg skrive et Greasemonkey-skript som importerer denne informasjonen inn i «Charts»? Boken *Greasemonkey Hacks* av Mark Pilgrim, fra 2005, kan være et utgangspunkt.
 
-* * * * *
+---
 
 **Oppdatering:** Jeg har lykkes! Takket være jQuery var det ikke mye kode å skrive:
 

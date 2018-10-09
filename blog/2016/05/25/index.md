@@ -1,3 +1,4 @@
+---
 title: Nyttige snarveier i Visual Studio
 date: 2016-05-25
 ---

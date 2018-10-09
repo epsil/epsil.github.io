@@ -1,3 +1,4 @@
+---
 title: Cache bakgrunnsbilder i Internet Explorer
 date: 2003-03-20
 ---

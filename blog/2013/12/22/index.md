@@ -1,3 +1,4 @@
+---
 title: Last.fm Search Links
 date: 2013-12-22
 ---
@@ -30,6 +31,6 @@ Men nå har Rate Your Music endret HTML-koden igjen, så dette virker ikke lenge
 },
 ```
 
-* * * * *
+---
 
 **Oppdatering 2015-04-29:** En bruker ved navn [rocketman](http://userscripts-mirror.org/topics/131464.html) har vedlikeholdt koden.

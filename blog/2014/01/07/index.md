@@ -1,3 +1,4 @@
+---
 title: Oppgradere Python på OS X
 date: 2014-01-07
 ---

@@ -1,3 +1,4 @@
+---
 title: Skrifter for LaTeX
 aliases:
   - Font

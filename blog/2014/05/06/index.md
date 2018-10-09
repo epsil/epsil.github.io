@@ -1,3 +1,4 @@
+---
 title: Oppsett `irssi` og `screen`
 date: 2014-05-06
 abstract: Noen gamle [`#cyb`-notater](http://folk.uio.no/veronahe/CYB/IRC/), gjengitt her for dem som leter etter dem.

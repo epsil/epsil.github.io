@@ -1,10 +1,65 @@
----
 title: Cubansk salsa
 ---
 
 **Cubansk salsa**, også kjent som *Casino*, er en form for salsadans med opprinnelse i Cuba.
 
 Mange som har danset cubansk salsa en stund begynner med *Rueda*, som er en slags ringdans der man sender jenta fra gutt til gutt i en sirkel mens man gjør salsaturer som blir ropt ut av en leder.
+
+Tilbud
+------
+
+-   I Love Dancing
+-   OSI Dans
+-   Åpen Scene
+-   Sagene Samfunnshus
+
+Torsdagsdansing på Åpen Scene
+-----------------------------
+
+<http://www.bachatasalsa.no/salsa-cubana/>
+
+**EVERY TUESDAY AT ÅPEN SCENE, TORGGATA 16, 4TH FLOOR**
+
+**Enjoy the best concept for Cuban music and dance in Oslo.**
+
+Salsa Cubana is cooperation between Knut Erik Production, Åpen Scene and two of the best Cuban DJs in Oslo, DJ Casino and DJ Yuma'n. The concept is to have DJs that play 100% Cuban music and the dance floor is purely for Cuban style salsa. If you would like to dance bachata, kizomba or zouk, you will have the opportunity in the Lounge and studio 2, where the concept Zouk Kizomba & Bachata Social is taking place. This is included in the entrance.
+
+**Program:**
+
+**20:30-21:30** Mixed Latino music in the Lounge\
+**21:30-00:00** Salsa Cubana in Studio 1
+
+**Entrance:**
+
+60 NOK (include Salsa Cubana and Zouk Kizomba & Bachata Social)\
+Free of charge with Knut Erik Production VIP Card or Party Card
+
+**Venue:**
+
+[**Åpen Scene**](https://www.google.no/maps/place/Torggata+16/@59.9157613,10.7506608,17z/data=%213m1%214b1%214m2%213m1%211s0x46416e63c67d22c3:0xb72971dea5aa8372), Torggata 16, 4th floor. Use the main entrance and take the lift to the 4th floor.
+
+The dance floor is parquet and perfect for dancing. We will have a bar serving beer, wine and soft drinks.
+
+Fredagskurs på Sagene
+---------------------
+
+(Tips fra Nikolai.)
+
+<http://www.sagenesamfunnshus.no/faste-tilbud/bachata-salsa/>:
+
+> Bachata & Salsa er sosialt og avslappet kurs- og dansearrangement for danseglade på alle nivåer. Her kan du komme og lære bachata og salsa, spise god mat, sosialisere og ikke minst danse.
+>
+> Bachata & Salsa arrangeres annenhver fredag på  Sagene Samfunnshus. Følg med «På programmet» [på forsiden](http://www.sagenesamfunnshus.no).
+>
+> DJ-ene vil spille ca 60% salsa og 40% bachata. Det blir kurs i bachata og salsa hver gang, hvor du kan lære nye turer.
+>
+> Ønsker du en matbit før dansen, serverer [Nazar Cafè & Bar](http://www.nazarcafe.no) knallgod mat.
+
+<http://www.sagenesamfunnshus.no/>:
+
+> Bachata & Salsa med Kizomba & Zouk er et konsept for alle som liker å danse. Ideen er å gi danseglade på alle nivåer et sosialt og avslappet fredagstilbud. Tilbudet passer like godt til folk som ikke har danset før og for de som er flinke. Vi har nybegynnerkurs fra 19-21 og videregående kurs fra 19-21, så er det sosialdans etter kursene. Man trenger ikke komme med partner. Vi rullerer partner på kursene.
+>
+> Dans | For voksne | Kr 150,-/100,- Arr: Oslo Salsaklubb
 
 Trinn
 -----

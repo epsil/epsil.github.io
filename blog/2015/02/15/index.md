@@ -1,3 +1,4 @@
+---
 title: Endre navnet på Google Drive-mappen
 date: 2015-02-15
 url: https://productforums.google.com/forum/#!topic/drive/4qybDNOWBCs
@@ -10,7 +11,7 @@ url: https://productforums.google.com/forum/#!topic/drive/4qybDNOWBCs
 
 Det kan være lurt å fjerne mellomrommet i mappenavnet, da enkelte programmer har problemer med slike filnavn (f.eks. [Qt `moc`](../../../2012/03/24/)).
 
-* * * * *
+---
 
 **Oppdatering:** Med jevne mellomrom stiller Google Drive spørsmålet: «[Where is
 FinderSyncAPIExtension?](http://apple.stackexchange.com/questions/227216/where-is-findersyncapiextension-google-drive)»

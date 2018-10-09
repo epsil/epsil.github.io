@@ -12,7 +12,7 @@ Rapport for konstruksjon av den 60 W klasse AB-forsterkeren
 *Project 3A*: enkelt design og god lydkvalitet.
 **[PDF-utgave](rapport.pdf)**.
 
-* * * * *
+---
 
 ![](fig/hist-logo.svg){width=280}
 
@@ -20,7 +20,7 @@ Stian Rishaug, Bastian S. Solem, Aleksander Uthus og Vegard Øye.
 
 Veileder: Herman Ranes.
 
-* * * * *
+---
 
 ### Sammendrag
 

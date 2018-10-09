@@ -1,3 +1,4 @@
+---
 title: C++ for Java Programmers
 date: 2012-05-14
 ---
@@ -18,6 +19,6 @@ date: 2012-05-14
 
 Alice began to feel that this new world she found herself in was not quite the same as the cozy sitting room she had just left.
 
-* * * * *
+---
 
 *Timothy Budd: C++ for Java Programmers*
