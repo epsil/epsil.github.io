@@ -1,4 +1,9 @@
-.e-content h1, .e-content h2, .e-content h3, .e-content h4, .e-content h5, .e-content h6 {
+.e-content h1,
+.e-content h2,
+.e-content h3,
+.e-content h4,
+.e-content h5,
+.e-content h6 {
     font-size: 0.9em !important;
     font-style: normal;
     font-weight: bold;
@@ -6,7 +11,9 @@
     margin-top: 1em;
 }
 
-section[id], .e-content > section, .sidenote {
+section[id],
+.e-content > section,
+.sidenote {
     border: 1px solid #ccc;
     border-radius: 3px;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
@@ -15,7 +22,8 @@ section[id], .e-content > section, .sidenote {
     padding-right: 1em;
 }
 
-section[id], .e-content > section {
+section[id],
+.e-content > section {
     margin-top: 1em;
     margin-bottom: 1em;
 }
@@ -27,11 +35,16 @@ section[id], .e-content > section {
     padding-top: 1em;
 }
 
+.sidenote .sidenote-ruler {
+    display: none;
+}
+
 section div section {
     margin-right: -0.8em;
 }
 
-section[id]:hover, .sidenote:hover {
+section[id]:hover,
+.sidenote:hover {
     border: 1px solid #999;
 }
 
@@ -43,7 +56,6 @@ blockquote {
     /* padding-left: 20px; */
     /* padding-right: 20px; */
 }
-
 
 hr {
     border: none;

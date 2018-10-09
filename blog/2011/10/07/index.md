@@ -4,7 +4,7 @@ date: 2011-10-07
 
 > In the remotest regions, beyond the Functional Kingdoms, lies a fabled realm called Lambda the Ultimate. In this place it is said that there are no nouns at all, only verbs! There are "things" there, but all things are created from verbs, even the very integers for counting lambs, which are the most popular form of trading currency there, if the rumors speak truth. The number zero is simply `lambda()`, and 1 is `lambda(lambda())`, 2 is `lambda(lambda(lambda()))`, and so on. Every single Thing in this legendary region, be it noun, verb or otherwise, is constructed from the primal verb "lambda".
 >
-> -- Steve Yegge: *[Execution in the Kingdom of Nouns]*^[<http://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html>]
+> -- Steve Yegge: *[Execution in the Kingdom of Nouns](http://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html)*^[<http://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html>]
 
 Det er i prinsippet mulig å bruke lambdaer som et fundament for videre programmering. Det klassiske [*SICP*](http://mitpress.mit.edu/sicp/full-text/book/book.html)-eksemplet er å definere `cons`, `car` og `cdr` på denne måten,^[<http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-14.html#%_sec_2.1.3>] som vi kan tenke på som Lisp-sjargong for `pair`, `first` og `second`. La `pair` være en funksjon som returnerer et par med verdier, `first` returnere den første verdien til paret, og `second` returnere den andre:
 

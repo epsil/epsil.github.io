@@ -4,6 +4,7 @@ a {
     border: none;
 }
 
-a, a:hover {
+a,
+a:hover {
     color: #900;
 }

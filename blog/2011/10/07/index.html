@@ -7,7 +7,7 @@
 <meta content="noindex" name="robots">
 <meta content="Vegard &#216;ye" name="author">
 <meta content="2011-10-07" name="date">
-<meta content="aea2415fa8b65e5bf3997330da732de7" name="md5">
+<meta content="e998f35f776047e21e61d89ffe410500" name="md5">
 <meta content="text/css" http-equiv="Content-Style-Type">
 <meta content="width=device-width, initial-scale=1" name="viewport">
 <meta content="Closures i Lisp" name="DC.Title">
@@ -80,13 +80,17 @@
 <p>In the remotest regions, beyond the Functional Kingdoms, lies a fabled realm called Lambda the Ultimate. In this place it is said that there are no nouns at all, only verbs! There are &#8220;things&#8221; there, but all things are created from verbs, even the very integers for counting lambs, which are the most popular form of trading currency there, if the rumors speak truth. The number zero is simply <span class="code"><code id="lambda">lambda()</code></span>, and 1 is <span class="code"><code id="lambdalambda">lambda(lambda())</code></span>, 2 is <span class="code"><code id="lambdalambdalambda">lambda(lambda(lambda()))</code></span>, and so on. Every single Thing in this legendary region, be it noun, verb or otherwise, is constructed from the primal verb &#8220;lambda&#8221;.</p>
 
 <aside class="sidenote">
-<p><sup class="ref-mark"><a href="#fnref1" id="sidenote1" title="Steve Yegge: [Execution in the Kingdom of Nouns][1]"><span class="left-bracket">[</span>1<span class="right-bracket">]</span></a></sup><a class="url" href="http://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html" target="_blank" title="Open steve-yegge.blogspot.com in a new window">http://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html</a> <a class="footnote-backref" href="#fnref1" title="Steve Yegge: [Execution in the Kingdom of Nouns][1]">&#8617;&#65038;</a></p>
+<hr class="sidenote-ruler">
+
+<p><sup class="ref-mark"><a href="#fnref1" id="sidenote1" title="Steve Yegge: Execution in the Kingdom of Nouns[1]"><span class="left-bracket">[</span>1<span class="right-bracket">]</span></a></sup><a class="url" href="http://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html" target="_blank" title="Open steve-yegge.blogspot.com in a new window">http://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html</a> <a class="footnote-backref" href="#fnref1" title="Steve Yegge: Execution in the Kingdom of Nouns[1]">&#8617;&#65038;</a></p>
 </aside>
 
-<footer>Steve Yegge: <cite>[Execution in the Kingdom of Nouns]</cite><sup class="footnote-ref"><a href="#fn1" id="fnref1" title="http://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html"><span class="left-bracket">[</span>1<span class="right-bracket">]</span></a></sup></footer>
+<footer>Steve Yegge: <cite><a href="http://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html" target="_blank" title="Open steve-yegge.blogspot.com in a new window">Execution in the Kingdom of Nouns</a></cite><sup class="footnote-ref"><a href="#fn1" id="fnref1" title="http://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html"><span class="left-bracket">[</span>1<span class="right-bracket">]</span></a></sup></footer>
 </blockquote>
 
 <aside class="sidenote">
+<hr class="sidenote-ruler">
+
 <p><sup class="ref-mark"><a href="#fnref2" id="sidenote2" title="Det er i prinsippet mulig &#229; bruke lambdaer som et fundament for videre programmering. Det klassiske SICP-eksemplet er &#229; definere cons, car og cdr p&#229; denne m&#229;ten,[2] som vi kan tenke p&#229; som Lisp-sjargong for pair, first og second. La pair v&#230;re en funksjon som returnerer et par med verdier, first returnere den f&#248;rste verdien til paret, og second returnere den andre:"><span class="left-bracket">[</span>2<span class="right-bracket">]</span></a></sup><a class="url" href="http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-14.html#%25_sec_2.1.3" target="_blank" title="Open mitpress.mit.edu in a new window">http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-14.html#%_sec_2.1.3</a> <a class="footnote-backref" href="#fnref2" title="Det er i prinsippet mulig &#229; bruke lambdaer som et fundament for videre programmering. Det klassiske SICP-eksemplet er &#229; definere cons, car og cdr p&#229; denne m&#229;ten,[2] som vi kan tenke p&#229; som Lisp-sjargong for pair, first og second. La pair v&#230;re en funksjon som returnerer et par med verdier, first returnere den f&#248;rste verdien til paret, og second returnere den andre:">&#8617;&#65038;</a></p>
 </aside>
 
@@ -135,6 +139,8 @@
 <p>Det <span class="code"><code id="first-4">first</code></span> og <span class="code"><code id="second-4">second</code></span> s&#229; gj&#248;r, er &#229; kalle prosedyren med et bestemt argument slik at den f&#248;rste eller andre verdien returneres. Dermed vil <span class="code"><code id="first-pair-foo-bar">(first (pair "foo" "bar"))</code></span> fortsatt gi <span class="code"><code id="foo">"foo"</code></span>, og <span class="code"><code id="second-pair-foo-bar">(second (pair "foo" "bar"))</code></span> gi <span class="code"><code id="bar">"bar"</code></span>. P&#229; papiret en helt adekvat implementasjon.</p>
 
 <aside class="sidenote">
+<hr class="sidenote-ruler">
+
 <p><sup class="ref-mark"><a href="#fnref3" id="sidenote3" title="Koden over forutsetter closures, dvs. at prosedyren som pair returnerer, er i stand til &#229; &#171;stikke av med&#187; argumentene til pair.[3] Dermed kan man for s&#229; vidt tenke p&#229; prosedyren som et &#171;objekt&#187;, dvs. en bunt med data og instruksjoner. (I enkelte spr&#229;k, som JavaScript og Scala, er funksjoner objekter.)"><span class="left-bracket">[</span>3<span class="right-bracket">]</span></a></sup>Hvis Lisp&#8217;en din mangler dette, kan du alltids &#171;jukse&#187; ved &#229; konstruere lambdaen som en liste og splice inn verdiene av <span class="code"><code id="x">x</code></span> og <span class="code"><code id="y">y</code></span> (forutsetter at <span class="code"><code id="x-2">x</code></span> og <span class="code"><code id="y-2">y</code></span> er immutable). <a class="footnote-backref" href="#fnref3" title="Koden over forutsetter closures, dvs. at prosedyren som pair returnerer, er i stand til &#229; &#171;stikke av med&#187; argumentene til pair.[3] Dermed kan man for s&#229; vidt tenke p&#229; prosedyren som et &#171;objekt&#187;, dvs. en bunt med data og instruksjoner. (I enkelte spr&#229;k, som JavaScript og Scala, er funksjoner objekter.)">&#8617;&#65038;</a></p>
 </aside>
 
@@ -151,7 +157,7 @@ Se [GeirGrusoms innlegg](http://www.diskusjon.no/index.php?showtopic=800754&p=18
 <section class="footnotes">
 <ol class="footnotes-list endnotes">
 <li class="footnote-item" id="fn1">
-<p><a class="url" href="http://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html" target="_blank" title="Open steve-yegge.blogspot.com in a new window">http://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html</a> <a class="footnote-backref" href="#fnref1" title="Steve Yegge: [Execution in the Kingdom of Nouns][1]">&#8617;&#65038;</a></p>
+<p><a class="url" href="http://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html" target="_blank" title="Open steve-yegge.blogspot.com in a new window">http://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html</a> <a class="footnote-backref" href="#fnref1" title="Steve Yegge: Execution in the Kingdom of Nouns[1]">&#8617;&#65038;</a></p>
 </li>
 
 <li class="footnote-item" id="fn2">

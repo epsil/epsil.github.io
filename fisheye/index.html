@@ -331,6 +331,8 @@ MathJax.Hub.Config({
 <section class="e-content sidenotes">
 <section>
 <aside class="sidenote">
+<hr class="sidenote-ruler">
+
 <p><sup class="ref-mark"><a href="#fnref1" id="sidenote1" title="A study on fish-eye undistortion. PDF version. DUO: URN:NBN:no-51670.[1]"><span class="left-bracket">[</span>1<span class="right-bracket">]</span></a></sup><a class="url" href="http://hdl.handle.net/10852/47636" target="_blank" title="Open hdl.handle.net in a new window">http://hdl.handle.net/10852/47636</a>. <a class="footnote-backref" href="#fnref1" title="A study on fish-eye undistortion. PDF version. DUO: URN:NBN:no-51670.[1]">&#8617;&#65038;</a></p>
 </aside>
 
@@ -392,6 +394,8 @@ July 2015</p>
 
 <blockquote>
 <aside class="sidenote">
+<hr class="sidenote-ruler">
+
 <p><sup class="ref-mark"><a href="#fnref2" id="sidenote2" title="Imagine printing an image onto a sheet of rubber. Depending on what forces are applied to that sheet, the image may simply appear rotated or scaled, or it might appear wildly distorted, corresponding to the popular notion of a warp. While this example might seem to portray image warping as a playful exercise, image warping does serve an important role in many applied sciences. Over the past twenty years, for instance, image warping has been the subject of considerable attention in remote sensing, medical imaging, computer vision, and computer graphics. It has made its way into many applications, including distortion compensation of imaging sensors, decalibration for image registration, geometrical normalization for image analysis and display, map projection, and texture mapping for image synthesis.[2]"><span class="left-bracket">[</span>2<span class="right-bracket">]</span></a></sup><a href="#wolberg90-digital-image-warp" title="George Wolberg. Digital Image Warping. Columbia University, 1990.">Wolberg (1990)</a>, chapter 1: &#8220;Introduction&#8221;, <abbr title="page">p.</abbr> 1. <a class="footnote-backref" href="#fnref2" title="Imagine printing an image onto a sheet of rubber. Depending on what forces are applied to that sheet, the image may simply appear rotated or scaled, or it might appear wildly distorted, corresponding to the popular notion of a warp. While this example might seem to portray image warping as a playful exercise, image warping does serve an important role in many applied sciences. Over the past twenty years, for instance, image warping has been the subject of considerable attention in remote sensing, medical imaging, computer vision, and computer graphics. It has made its way into many applications, including distortion compensation of imaging sensors, decalibration for image registration, geometrical normalization for image analysis and display, map projection, and texture mapping for image synthesis.[2]">&#8617;&#65038;</a></p>
 </aside>
 
@@ -687,6 +691,8 @@ July 2015</p>
 </ol>
 
 <aside class="sidenote">
+<hr class="sidenote-ruler">
+
 <p><sup class="ref-mark"><a href="#fnref3" id="sidenote3" title="In practice, interpolation is usually expressed in more compact terms (although there are promising efforts to bring a more &#8220;functional&#8221; style into graphics).[3] The main point, for our purposes, is that the transformation is performed either through forward mapping or backward mapping. As we will see in chapter 5, OpenGL ES lends itself well to both approaches. In the case of a forward mapping implementation, we go from coordinates in the input image to coordinates in the output image (figure 2.3a). This is done by constructing a constructing a grid mesh, transforming it, and then rasterizing the result. In the case of backward mapping, we go from output coordinates to input coordinates (figure 2.3b). We therefore make use of the inverse transformation \(F^{-1}(\mathbf{x})\), rather than the original transformation \(F(\mathbf{x})\). For example, if the application is scaling, then instead of scaling coordinates in the input image by a factor of \(k\), we scale coordinates in the output image by a factor of \(1/k\)."><span class="left-bracket">[</span>3<span class="right-bracket">]</span></a></sup><a href="#heard08-beaut-code" title="Jeff R. Heard. Beautiful code, compelling evidence: Functional programming for information visualization and visual analytics. Technical report, University of North Carolina, 2008.">Heard (2008)</a> explores Haskell&#8217;s <em>monad</em> concept in conjunction with graphics processing, giving several examples of how the control flow can be abstracted away. <a class="footnote-backref" href="#fnref3" title="In practice, interpolation is usually expressed in more compact terms (although there are promising efforts to bring a more &#8220;functional&#8221; style into graphics).[3] The main point, for our purposes, is that the transformation is performed either through forward mapping or backward mapping. As we will see in chapter 5, OpenGL ES lends itself well to both approaches. In the case of a forward mapping implementation, we go from coordinates in the input image to coordinates in the output image (figure 2.3a). This is done by constructing a constructing a grid mesh, transforming it, and then rasterizing the result. In the case of backward mapping, we go from output coordinates to input coordinates (figure 2.3b). We therefore make use of the inverse transformation \(F^{-1}(\mathbf{x})\), rather than the original transformation \(F(\mathbf{x})\). For example, if the application is scaling, then instead of scaling coordinates in the input image by a factor of \(k\), we scale coordinates in the output image by a factor of \(1/k\).">&#8617;&#65038;</a></p>
 </aside>
 
@@ -706,6 +712,8 @@ July 2015</p>
 <p>Although interpolation has been expressed as convolution, it is usually implemented in terms of evaluating the interpolation polynomial directly at the resampling positions. For example, in the common case of <em>bilinear</em> interpolation, the interpolation is performed first in one direction, and then again in the orthogonal direction (thus the interpolation as a whole is actually quadratic, not linear).</p>
 
 <aside class="sidenote">
+<hr class="sidenote-ruler">
+
 <p><sup class="ref-mark"><a href="#fnref4" id="sidenote4" title="The choice of reconstruction filter has a huge impact on quality and performance. The simplest filter is the nearest-neighbor filter, which simply copies the value of the nearest sample to the reconstructed position. This is very efficient (practically a &#8220;no-op&#8221;), but tends to yield a blocky and jagged result. In the case of bilinear interpolation, the four (\(2 \times 2\)) nearest samples are considered, and a weighted average is computed according to the proximity to each. Even smoother results can be obtained with bicubic interpolation, although some sharpness of edges gets lost; this method considers sixteen (\(4 \times 4\)) samples and is more computationally intensive.[4] OpenGL ES contains built-in support for bilinear filtering; other methods can be implemented as shaders (Bjorke 2004)."><span class="left-bracket">[</span>4<span class="right-bracket">]</span></a></sup>An even more sophisticated choice for resampling is <em>Lanczos interpolation</em>, which <a href="#turkowski90-graph-gems" title="Ken Turkowski and Steve Gabriel. Graphics Gems I, chapter Filters for Common Resampling Tasks, pages 147&#8210;165. Academic Press, 1990.">Turkowski and Gabriel (1990)</a> considered the &#8220;best compromise in terms of reduction of aliasing, sharpness, and minimal ringing&#8221;. <a class="footnote-backref" href="#fnref4" title="The choice of reconstruction filter has a huge impact on quality and performance. The simplest filter is the nearest-neighbor filter, which simply copies the value of the nearest sample to the reconstructed position. This is very efficient (practically a &#8220;no-op&#8221;), but tends to yield a blocky and jagged result. In the case of bilinear interpolation, the four (\(2 \times 2\)) nearest samples are considered, and a weighted average is computed according to the proximity to each. Even smoother results can be obtained with bicubic interpolation, although some sharpness of edges gets lost; this method considers sixteen (\(4 \times 4\)) samples and is more computationally intensive.[4] OpenGL ES contains built-in support for bilinear filtering; other methods can be implemented as shaders (Bjorke 2004).">&#8617;&#65038;</a></p>
 </aside>
 
@@ -722,6 +730,8 @@ July 2015</p>
 <p>The ideal way to handle these frequencies would be to sample the image at a higher resolution. Since this is often prohibitively expensive, the alternative solution is to get rid of the higher frequencies by bandlimiting. A crude approach would be to blur the whole image before transformation. A smarter way is to blur <em>adaptively</em>: if we know where in the image the high frequencies are clustered, we can single those areas out for adaptive bandlimiting.</p>
 
 <aside class="sidenote">
+<hr class="sidenote-ruler">
+
 <p><sup class="ref-mark"><a href="#fnref5" id="sidenote5" title="In 3D applications, this is often done with a prefiltering technique known as &#8220;mip-mapping&#8221;.[5] The same texture is stored in a range of decreasing resolutions before use. For example, when a polygon is rendered at an angle, high-resolution textures may be used for the close parts of the polygon and low-resolution textures for the distant parts. Anisotropic filtering builds upon mip-mapping by also downsampling the texture to nonproportional resolutions."><span class="left-bracket">[</span>5<span class="right-bracket">]</span></a></sup>&#8220;Mip&#8221; stands for &#8220;multum in parvo&#8221;, a Latin phrase meaning &#8220;many things in a small place&#8221;. <a class="footnote-backref" href="#fnref5" title="In 3D applications, this is often done with a prefiltering technique known as &#8220;mip-mapping&#8221;.[5] The same texture is stored in a range of decreasing resolutions before use. For example, when a polygon is rendered at an angle, high-resolution textures may be used for the close parts of the polygon and low-resolution textures for the distant parts. Anisotropic filtering builds upon mip-mapping by also downsampling the texture to nonproportional resolutions.">&#8617;&#65038;</a></p>
 </aside>
 
@@ -804,6 +814,8 @@ July 2015</p>
 <p class="formula">\[\label{eq:cartesiantopolar} [r, \theta] = \left[\!\sqrt{x^2 + y^2}, \operatorname{atan2}(y, x)\right]\]</p>
 
 <aside class="sidenote">
+<hr class="sidenote-ruler">
+
 <p><sup class="ref-mark"><a href="#fnref6" id="sidenote6" title="where \(\operatorname{atan2}\) is the arcus tangent function of two arguments \(y\) and \(x\), which expresses the quadrant of the angle accurately.[6] The inverse relationship is given by:"><span class="left-bracket">[</span>6<span class="right-bracket">]</span></a></sup>This is provided as the <span class="code"><code id="atan">atan()</code></span> function in OpenGL ES. <a class="footnote-backref" href="#fnref6" title="where \(\operatorname{atan2}\) is the arcus tangent function of two arguments \(y\) and \(x\), which expresses the quadrant of the angle accurately.[6] The inverse relationship is given by:">&#8617;&#65038;</a></p>
 </aside>
 
@@ -997,6 +1009,8 @@ end <span class="hljs-keyword">for</span>
 <p>In the case of non-polynomial models, there is no simple relationship between the parameters of one model and the parameters of another. Therefore, analytical methods are not applicable. Instead, the parameters can be estimated with successive evaluation techniques such as Newton&#8211;Raphson approximation.</p>
 
 <aside class="sidenote">
+<hr class="sidenote-ruler">
+
 <p><sup class="ref-mark"><a href="#fnref7" id="sidenote7" title="Using Matlab&#8217;s fitnlm() function, we obtained the following coefficients for Brown&#8217;s model:[7]"><span class="left-bracket">[</span>7<span class="right-bracket">]</span></a></sup>The complete Matlab code is given in Appendix <a href="#chap-matlab" title="B Matlab program">B</a>. <a class="footnote-backref" href="#fnref7" title="Using Matlab&#8217;s fitnlm() function, we obtained the following coefficients for Brown&#8217;s model:[7]">&#8617;&#65038;</a></p>
 </aside>
 
@@ -1391,6 +1405,8 @@ Built-in/Manual</th>
 </figure>
 
 <aside class="sidenote">
+<hr class="sidenote-ruler">
+
 <p><sup class="ref-mark"><a href="#fnref8" id="sidenote8" title="To perform a forward mapping transformation, we iterate through each vertex position in the grid, transform it, and update the position. To this end, the Grid class provides an abstract interface (figure 5.4b). The transform() method takes a functor class as input. A functor class, in this context, is merely a wrapper class for a function on vertex positions.[8] By implementing the transformation as such a class, we can pass it to the Grid class to perform transformation. (The vertex positions themselves are represented by a Point class with an x attribute and a y attribute.)"><span class="left-bracket">[</span>8<span class="right-bracket">]</span></a></sup>Our functor classes are implemented as <em>function objects</em>, that is, they overload the <span class="code"><code id="operator">operator()</code></span> operator. C++11 also provides support for anonymous functions in the form of lambda expressions (<a href="#stroustrup13-cpp-lang" title="Bjarne Stroustrup. The C++ Programming Language. Addison-Wesley, 4 edition, 2013.">Stroustrup 2013</a>), but these are difficult to compose in the way outlined in section <a href="#sec-implementationcpbb" title="5.5 Strategy 2: CPBB">5.5</a>. <a class="footnote-backref" href="#fnref8" title="To perform a forward mapping transformation, we iterate through each vertex position in the grid, transform it, and update the position. To this end, the Grid class provides an abstract interface (figure 5.4b). The transform() method takes a functor class as input. A functor class, in this context, is merely a wrapper class for a function on vertex positions.[8] By implementing the transformation as such a class, we can pass it to the Grid class to perform transformation. (The vertex positions themselves are represented by a Point class with an x attribute and a y attribute.)">&#8617;&#65038;</a></p>
 </aside>
 
@@ -1752,6 +1768,8 @@ vec4 c8 = color(s_texture, v4);</code>
 <p>The code was executed on a MacBook Air 13&#8221; 2011 model with a 1,7 <abbr title="gigahertz">GHz</abbr> Intel Core i5 processor, 4 <abbr class="acronym" title="gigabyte">GB</abbr> 1333 <abbr title="megahertz">MHz</abbr> DDR3 <abbr class="acronym" title="Random Access Memory">RAM</abbr>, and a Intel HD Graphics 3000 graphics card with 384 <abbr class="acronym" title="megabyte">MB</abbr> memory, running <abbr class="acronym" title="Operating System 10">OS X</abbr> Yosemite 10.10.4.</p>
 
 <aside class="sidenote">
+<hr class="sidenote-ruler">
+
 <p><sup class="ref-mark"><a href="#fnref9" id="sidenote9" title="Our test image is a photograph of \(700 \times 700\) pixels (figure 6.1).[9] It has a grid-like structure, which makes it easy to gauge the effects of the transformation. It is also rich in detail, which makes it possible to spot aliasing effects."><span class="left-bracket">[</span>9<span class="right-bracket">]</span></a></sup>Figure <a href="#fig-testimage" title="Figure 6.1: Test image">6.1</a> is an excerpt from the picture &#8220;Many Lovers&#8221; by Thomas Hawk, which is released under Creative Commons at <a class="url" href="http://www.flickr.com/photos/thomashawk/102065939/" target="_blank" title="Open flickr.com in a new window">http://www.flickr.com/photos/thomashawk/102065939/</a>. <a class="footnote-backref" href="#fnref9" title="Our test image is a photograph of \(700 \times 700\) pixels (figure 6.1).[9] It has a grid-like structure, which makes it easy to gauge the effects of the transformation. It is also rich in detail, which makes it possible to spot aliasing effects.">&#8617;&#65038;</a></p>
 </aside>
 
@@ -2066,6 +2084,8 @@ glTexImage2D(GL_TEXTURE_2D, <span class="hljs-number">0</span>, GL_RGBA,
 
 <blockquote>
 <aside class="sidenote">
+<hr class="sidenote-ruler">
+
 <p><sup class="ref-mark"><a href="#fnref10" id="sidenote10" title="OpenCL and OpenGL are both powerful toolsets, but no one has ever called them simple. Getting the two to work together is one of the most complex programming tasks I can think of &#8230; I can&#8217;t think of a harder topic related to OpenCL.[10]"><span class="left-bracket">[</span>10<span class="right-bracket">]</span></a></sup><a href="#scarpino12-opencl" title="Matthew Scarpino. OpenCL in Action. Manning, 2012.">Scarpino (2012)</a>, chapter 16: &#8220;Textures and renderbuffers&#8221;, <abbr title="page">p.</abbr> 349. <a class="footnote-backref" href="#fnref10" title="OpenCL and OpenGL are both powerful toolsets, but no one has ever called them simple. Getting the two to work together is one of the most complex programming tasks I can think of &#8230; I can&#8217;t think of a harder topic related to OpenCL.[10]">&#8617;&#65038;</a></p>
 </aside>
 
@@ -2111,6 +2131,8 @@ glTexImage2D(GL_TEXTURE_2D, <span class="hljs-number">0</span>, GL_RGBA,
 <p>This will generate a Makefile (using <span class="code"><code id="qmake-2">qmake</code></span>), run the Makefile, and then execute the resulting application.</p>
 
 <aside class="sidenote">
+<hr class="sidenote-ruler">
+
 <p><sup class="ref-mark"><a href="#fnref11" id="sidenote11" title="The code is freely available under the MIT License.[11]"><span class="left-bracket">[</span>11<span class="right-bracket">]</span></a></sup><a class="url" href="http://opensource.org/licenses/MIT" target="_blank" title="Open opensource.org in a new window">http://opensource.org/licenses/<abbr class="acronym" title="Massachusetts Institute of Technology">MIT</abbr></a>. <a class="footnote-backref" href="#fnref11" title="The code is freely available under the MIT License.[11]">&#8617;&#65038;</a></p>
 </aside>
 

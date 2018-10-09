@@ -1,9 +1,9 @@
-var abbr = require('../json/abbrev.json')
+var abbr = require('../json/abbrev.json');
 
-var abbrev = {}
+var abbrev = {};
 
-abbrev.getAbbreviations = function () {
-  return abbr
-}
+abbrev.getAbbreviations = function() {
+  return abbr;
+};
 
-module.exports = abbrev
+module.exports = abbrev;

@@ -1,9 +1,16 @@
-abbr, abbr[title], abbr[data-original-title] {
+/* @import url("minion.css"); */
+@import url("stix.css");
+/* @import url("libertine.css"); */
+
+abbr,
+abbr[title],
+abbr[data-original-title] {
     border-bottom: none;
     text-decoration: none;
 }
 
-abbr.acronym, .caps {
+abbr.acronym,
+.caps {
     font-variant: oldstyle-nums small-caps;
     letter-spacing: 0.1em;
     text-transform: lowercase;
@@ -41,7 +48,9 @@ pre .caps {
     letter-spacing: 0;
 }
 
-a, a:hover, a:focus {
+a,
+a:hover,
+a:focus {
     /* color: #337ab7; */
     /* border-bottom: 1px solid #000; */
     /* border-bottom: 1pt solid rgba(0, 0, 0, 0.8); */
@@ -113,7 +122,7 @@ blockquote footer {
 }
 
 blockquote footer:before {
-  content: '\2013\00A0';
+    content: "\2013\00A0";
 }
 
 body {
@@ -122,14 +131,18 @@ body {
     /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Lato, "Open Sans", Avenir, "Avenir Next", "Myriad Set Pro", "Myriad Pro", Myriad, Ubuntu, "Bitstream Vera Sans", "DejaVu Sans", Helvetica, Arial, Tahoma, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important; */
     /* font-size: 105% !important; */
     /* color: #333 !important; */
-    font-family: "STIX Two Web", "STIX Two Text", Times, "Times Roman", "Times New Roman", "Lora Web", Lora, "Crimson Text", Crimson, "PT Serif", "Iowan Old Style", Iowan, "Iowan Web", Georgia, Constantia, Cambria, Charter, "Hoefler Text", Utopia, Marion, Cochin, "Palatino Linotype", Palatino, Baskerville, serif !important;
-    /* font-family: "Minion Web", "Minion Pro", "Minion Std", Minion, "Crimson Text", "ETBembo", "ETBembo LF", "STIX Two Web", "STIX Two Text", Charter, "PT Serif", Georgia, "Iowan Old Style", Iowan, "Iowan Web", "Hoefler Text", "Libre Baskerville", Baskerville, Cambria, Constantia, Utopia, Marion, Cochin, "Palatino Linotype", Palatino, serif !important; */
+    /* font-family: "STIX Two Web", "STIX Two Text", Times, "Times Roman", "Times New Roman", "Lora Web", Lora, "Crimson Text", Crimson, "PT Serif", "Iowan Old Style", Iowan, "Iowan Web", Georgia, Constantia, Cambria, Charter, "Hoefler Text", Utopia, Marion, Cochin, "Palatino Linotype", Palatino, Baskerville, serif !important; */
+    /* font-family: "Minion Web", "Minion Pro", "Minion Std", Minion, */
+    /*     "Crimson Text", "ETBembo", "ETBembo LF", "STIX Two Web", "STIX Two Text", */
+    /*     Charter, "PT Serif", Georgia, "Iowan Old Style", Iowan, "Iowan Web", */
+    /*     "Hoefler Text", "Libre Baskerville", Baskerville, Cambria, Constantia, */
+    /*     Utopia, Marion, Cochin, "Palatino Linotype", Palatino, serif !important; */
     /* font-size: 120% !important; */
     /* font-size: 115% !important; */
     /* font-size: 132% !important; */
-    font-size: 145% !important;
+    /* font-size: 145% !important; */
     font-variant: common-ligatures oldstyle-nums;
-    line-height: 1.4;
+    /* line-height: 1.4; */
     /* line-height: 1.5; */
     /* line-height: 1.55; */
     margin-bottom: 2em;
@@ -140,7 +153,8 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-.h-entry > header, .e-content > * {
+.h-entry > header,
+.e-content > * {
     margin-left: auto;
     margin-right: auto;
     max-width: 740px;
@@ -149,20 +163,28 @@ body {
     width: 100%;
 }
 
-code, kbd, samp, tt {
+code,
+kbd,
+samp,
+tt {
     white-space: pre-wrap;
 }
 
-code, kbd, samp, tt, pre {
+code,
+kbd,
+samp,
+tt,
+pre {
     /* background-color: #f9f9f9; */
     background-color: rgba(0, 0, 0, 0.05);
     border-radius: 0;
     border: none;
     color: inherit;
-    font-family: "Consolas Web", Consolas, Menlo, Monaco, "Liberation Mono", "Latin Modern Mono", Courier, monospace !important;
+    /* font-family: "Consolas Web", Consolas, Menlo, Monaco, "Liberation Mono", */
+    /*     "Latin Modern Mono", Courier, monospace !important; */
     /* font-size: 0.83em !important; */
     /* font-size: 0.8em !important; */
-    font-size: 0.7em !important;
+    /* font-size: 0.7em !important; */
     font-variant: normal;
     -moz-osx-font-smoothing: auto;
 }
@@ -176,11 +198,31 @@ figure {
     margin-top: 1em;
 }
 
-h1, h2, h3, h4, h5, h6, nav, button, input, kbd, textarea, .modal {
-    font-family: "Myriad Web", "Myriad Pro", "Myriad Std", Myriad, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", "PT Sans", "Droid Sans", "Open Sans", Arial, Helvetica, Lato, Avenir, "Avenir Next", Futura, "Gill Sans MT", "Gill Sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, sans-serif !important;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+nav,
+button,
+input,
+kbd,
+textarea,
+.modal {
+    /* font-family: "Myriad Web", "Myriad Pro", "Myriad Std", Myriad, -apple-system, */
+    /*     BlinkMacSystemFont, "Segoe UI", "Noto Sans", "PT Sans", "Droid Sans", */
+    /*     "Open Sans", Arial, Helvetica, Lato, Avenir, "Avenir Next", Futura, */
+    /*     "Gill Sans MT", "Gill Sans", "Lucida Grande", "Lucida Sans Unicode", */
+    /*     "Lucida Sans", Geneva, sans-serif !important; */
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     /* color: #333; */
     /* color: #23527c; */
     color: inherit;
@@ -190,9 +232,24 @@ h1, h2, h3, h4, h5, h6 {
     margin: 1em 0 15px;
 }
 
-h1 a, h2 a, h3 a, h4 a, h5 a, h6 a,
-h1 a:link, h2 a:link, h3 a:link, h4 a:link, h5 a:link, h6 a:link,
-h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a,
+h1 a:link,
+h2 a:link,
+h3 a:link,
+h4 a:link,
+h5 a:link,
+h6 a:link,
+h1 a:hover,
+h2 a:hover,
+h3 a:hover,
+h4 a:hover,
+h5 a:hover,
+h6 a:hover {
     border: none;
     color: inherit;
 }
@@ -213,7 +270,8 @@ header a {
     text-decoration: none !important;
 }
 
-header h1, header h2 {
+header h1,
+header h2 {
     font-style: normal;
     padding: 0;
     text-align: center;
@@ -351,11 +409,13 @@ kbd {
     -moz-border-top-colors: none;
 }
 
-kbd .fa, kbd .glyphicon {
+kbd .fa,
+kbd .glyphicon {
     color: inherit !important;
 }
 
-mark, .mark {
+mark,
+.mark {
     color: inherit;
     background-color: rgba(39, 243, 106, 0.1); /* #e8fef0 */
     padding: 0;
@@ -379,7 +439,8 @@ nav a {
     border: none !important;
 }
 
-nav, .navbar-default {
+nav,
+.navbar-default {
     border: none;
     background-color: inherit;
 }
@@ -409,22 +470,29 @@ pre {
     overflow: hidden;
 }
 
-pre code, pre kbd, pre samt, pre tt {
+pre code,
+pre kbd,
+pre samt,
+pre tt {
     border: none;
     font-size: 1em !important;
 }
 
-sub, sup {
+sub,
+sup {
     font-variant: normal;
     font-weight: inherit;
 }
 
-sup a, sub a, .footnote-backref {
+sup a,
+sub a,
+.footnote-backref {
     border: none !important;
     text-decoration: none !important;
 }
 
-.footnote-ref, .footnote-backref {
+.footnote-ref,
+.footnote-backref {
     color: #666;
 }
 
@@ -447,33 +515,41 @@ s:hover {
     text-decoration: none;
 }
 
-table, .table {
+table,
+.table {
     margin: 1em auto;
     width: auto;
 }
 
-time, .author {
+time,
+.author {
     /* color: rgba(0, 0, 0, 0.44); */
     margin-top: 0em;
     font-weight: normal;
 }
 
-article ul, #toc ul {
+article ul,
+#toc ul {
     list-style-type: none;
 }
 
-article ul > li, #toc ul > li {
+article ul > li,
+#toc ul > li {
     text-indent: 0 !important;
 }
 
-article ul > li:before, #toc ul > li:before {
+article ul > li:before,
+#toc ul > li:before {
     color: rgba(0, 0, 0, 0.6);
     content: "\2022";
     margin-left: -0.9em;
     position: absolute;
 }
 
-.fa, .glyphicon, nav a, nav a:hover {
+.fa,
+.glyphicon,
+nav a,
+nav a:hover {
     border: none;
     color: rgba(0, 0, 0, 0.5);
 }
@@ -499,7 +575,8 @@ article ul > li:before, #toc ul > li:before {
     padding: 1em;
 }
 
-.pull-quote.left, .pull-quote.right {
+.pull-quote.left,
+.pull-quote.right {
     padding: 0.5em;
     width: 10em;
 }
@@ -533,7 +610,8 @@ article ul > li:before, #toc ul > li:before {
     font-weight: normal;
 }
 
-.hljs-name .hljs-builtin-name, .hljs-keyword {
+.hljs-name .hljs-builtin-name,
+.hljs-keyword {
     color: #a71d5d;
     font-weight: normal;
 }
@@ -583,7 +661,8 @@ header {
 }
 
 /* TODO: remove the actual HTML elements */
-header .header-anchor, header .collapse-button {
+header .header-anchor,
+header .collapse-button {
     display: none;
 }
 
@@ -596,7 +675,8 @@ header p {
     margin-top: 1em !important;
 }
 
-.spoiler, .spoiler * {
+.spoiler,
+.spoiler * {
     background-color: #f2f2f2;
     color: #f2f2f2 !important;
     /* transition: 2.5s; */
@@ -609,7 +689,9 @@ header p {
 }
 */
 
-s *, s *:before, s *:after {
+s *,
+s *:before,
+s *:after {
     padding-left: 0 !important;
     padding-right: 0 !important;
 }
@@ -666,17 +748,13 @@ Bootstrap provides four classes (configurable with Less):
 */
 
 @media (max-width: 768px) {
-    .h-entry > header, .e-content > * {
+    .h-entry > header,
+    .e-content > * {
         max-width: 640px;
     }
 }
 
 @media (max-width: 767px) {
-    body {
-        font-size: 130% !important;
-        line-height: 1.3;
-    }
-
     nav > div {
         padding: 0 !important;
     }
@@ -689,13 +767,15 @@ Bootstrap provides four classes (configurable with Less):
         float: right;
     }
 
-    .left, .right {
+    .left,
+    .right {
         float: none;
         margin: 0 auto 0.7em auto !important;
     }
 
     /* does this belong in indent.css? */
-    html body .e-content .left + p, html body .e-content .right + p {
+    html body .e-content .left + p,
+    html body .e-content .right + p {
         text-indent: 0 !important;
     }
 }
@@ -775,7 +855,8 @@ time .time:before {
     padding-right: 0.3em;
 }
 
-button .glyphicon, button .fa {
+button .glyphicon,
+button .fa {
     color: inherit !important;
 }
 
@@ -795,52 +876,68 @@ input {
     border-left-width: 5px;
     border-radius: 3px;
 }
+
 .bs-callout h4 {
     margin-top: 0;
     margin-bottom: 5px;
 }
+
 .bs-callout p:last-child {
     margin-bottom: 0;
 }
+
 .bs-callout code {
     border-radius: 3px;
 }
-.bs-callout+.bs-callout {
+
+.bs-callout + .bs-callout {
     margin-top: -5px;
 }
+
 .bs-callout-default {
     border-left-color: #777;
 }
+
 .bs-callout-default h4 {
     color: #777;
 }
+
 .bs-callout-primary {
     border-left-color: #428bca;
 }
+
 .bs-callout-primary h4 {
     color: #428bca;
 }
+
 .bs-callout-success {
     border-left-color: #5cb85c;
 }
+
 .bs-callout-success h4 {
     color: #5cb85c;
 }
+
 .bs-callout-danger {
     border-left-color: #d9534f;
 }
+
 .bs-callout-danger h4 {
     color: #d9534f;
 }
+
 .bs-callout-warning {
     border-left-color: #f0ad4e;
 }
+
 .bs-callout-warning h4 {
     color: #f0ad4e;
 }
+
 .bs-callout-info {
     border-left-color: #5bc0de;
 }
+
 .bs-callout-info h4 {
     color: #5bc0de;
 }
@@ -868,7 +965,7 @@ input {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    -webkit-appearance: none
+    -webkit-appearance: none;
 }
 
 .pre .btn.clippy {
@@ -898,8 +995,10 @@ input {
     width: 16px;
 }
 
-.code:hover .btn.clippy, .code .btn.clippy:focus,
-.pre:hover .btn.clippy, .pre .btn.clippy:focus {
+.code:hover .btn.clippy,
+.code .btn.clippy:focus,
+.pre:hover .btn.clippy,
+.pre .btn.clippy:focus {
     opacity: 1;
 }
 
@@ -949,7 +1048,8 @@ a .code .btn.clippy {
     display: none;
 }
 
-ul, ol {
+ul,
+ol {
     padding-left: 1.3em;
 }
 
@@ -992,7 +1092,9 @@ ol > li:before {
 }
 
 @keyframes blinker {
-    50% { opacity: 0; }
+    50% {
+        opacity: 0;
+    }
 }
 
 #endnotes .footnotes-sep,
@@ -1018,7 +1120,8 @@ ol > li:before {
     display: none;
 }
 
-.tag, .tag-list li {
+.tag,
+.tag-list li {
     border-color: #ccc #ccc #bbb;
     border-radius: 3px;
     border-style: solid;
@@ -1027,11 +1130,17 @@ ol > li:before {
     padding: 0px 4px;
 }
 
-.colon, .semicolon, .questionmark, .exclamationmark, .closeparen, .closebracket {
+.colon,
+.semicolon,
+.questionmark,
+.exclamationmark,
+.closeparen,
+.closebracket {
     margin-left: 0.05em;
 }
 
-.openparen, .openbracket {
+.openparen,
+.openbracket {
     margin-right: 0.05em;
 }
 
@@ -1040,7 +1149,8 @@ ol > li:before {
 /*     margin-right: 0.1em; */
 /* } */
 
-.emdash:before, .emdash:after {
+.emdash:before,
+.emdash:after {
     content: "\200A";
 }
 
@@ -1048,7 +1158,9 @@ ol > li:before {
 /*     border: 1px solid blue; */
 /* } */
 
-#personer h3, #links h2, #linker h2 {
+#personer h3,
+#links h2,
+#linker h2 {
     clear: both;
 }
 
@@ -1059,18 +1171,49 @@ code {
 }
 */
 
-.sidenote, figcaption {
+.sidenote,
+figcaption {
     line-height: 1.3;
 }
 
 .sidenote {
-    border-top: 1px solid #ccc;
+    /* border-top: 1px solid #ccc; */
     clear: both;
     float: right;
     font-size: 80%;
     margin: 0.3em -9em 0.5em 1em;
     padding-top: 0.6em;
+    text-align: left;
     width: 8em;
+}
+
+.sidenote p {
+    position: relative;
+}
+
+.sidenote .sidenote-ruler {
+    border-top: 1px solid #ccc;
+    display: block;
+    margin: 0;
+    margin-bottom: 0.5em;
+    margin-left: -0.3em;
+    /* margin-left: -0.5em; */
+    max-width: 5em;
+    padding: 0;
+}
+
+.sidenote .sidenote-ruler:before {
+    content: normal;
+}
+
+.sidenote .ref-mark {
+    margin-right: 0.2em;
+    /* position: absolute; */
+    /* width: 20px; */
+    /* text-align: right; */
+    /* left: -20px; */
+    /* padding-right: 0.15em; */
+    /* padding-top: 1em; */
 }
 
 .sidenote blockquote {
@@ -1085,11 +1228,8 @@ code {
     margin-top: 0em;
 }
 
-.sidenote .ref-mark {
-    margin-right: 0.2em;
-}
-
-.sidenote .left-bracket, .sidenote .right-bracket {
+.sidenote .left-bracket,
+.sidenote .right-bracket {
     display: none;
 }
 
@@ -1118,6 +1258,10 @@ code {
         padding-top: 0;
     }
 
+    .sidenote .sidenote-ruler {
+        display: none;
+    }
+
     .sidenote p:last-child {
         margin-bottom: 0;
     }
@@ -1140,10 +1284,12 @@ code {
 }
 
 @media (max-width: 480px) {
-    .sidenote, .sidenotes .sidenote {
+    .sidenote,
+    .sidenotes .sidenote {
         display: none;
     }
-    .endnotes, .sidenotes .endnotes {
+    .endnotes,
+    .sidenotes .endnotes {
         display: block !important;
     }
 }
@@ -1157,7 +1303,8 @@ code {
 /*     content: ", "; */
 /* } */
 
-iframe {
+iframe,
+video {
     display: block;
     margin: 1.3em auto;
 }

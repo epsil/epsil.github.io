@@ -1,4 +1,9 @@
-.e-content h1, .e-content h2, .e-content h3, .e-content h4, .e-content h5, .e-content h6 {
+.e-content h1,
+.e-content h2,
+.e-content h3,
+.e-content h4,
+.e-content h5,
+.e-content h6 {
     font-size: 0.9em !important;
     font-style: normal;
     font-weight: bold;

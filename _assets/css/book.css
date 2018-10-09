@@ -1,4 +1,5 @@
-blockquote, pre {
+blockquote,
+pre {
     background: inherit;
     border: none;
     margin-left: 1.3em;
@@ -9,12 +10,18 @@ blockquote blockquote {
     margin-left: 1.3em;
 }
 
-code, .kbd, samp, tt {
+code,
+.kbd,
+samp,
+tt {
     background: inherit;
     padding: 0;
 }
 
-code, .kbd, samp, tt {
+code,
+.kbd,
+samp,
+tt {
     font-size: 0.75em !important;
 }
 
@@ -26,7 +33,8 @@ code, .kbd, samp, tt {
     top: 0px;
 }
 
-.e-content .code .btn, .e-content .pre .btn {
+.e-content .code .btn,
+.e-content .pre .btn {
     background: #fff;
 }
 
@@ -38,3 +46,8 @@ code, .kbd, samp, tt {
     padding-top: 0.5em !important;
     margin-top: 1em !important;
 }
+
+/* code:hover, */
+/* pre:hover { */
+/*     background-color: #f9f9f9; */
+/* } */

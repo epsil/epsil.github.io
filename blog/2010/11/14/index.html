@@ -131,6 +131,8 @@ find . -name &lt;<span class="caps">PATTERN</span>&gt; -print0 | xargs -0 rm</co
 </div>
 
 <aside class="sidenote">
+<hr class="sidenote-ruler">
+
 <p><sup class="ref-mark"><a href="#fnref1" id="sidenote1" title="Den f&#248;rste eksekverer rm via find. Den siste bruker opsjonen -print0 for &#229; terminere filnavn med \0 istedenfor linjeskift, og rm gj&#248;res oppmerksom p&#229; dette med opsjonen -0. Begge programmer m&#229; alts&#229; tilpasses for &#229; kunne samarbeide om spesielle filnavn.[1]"><span class="left-bracket">[</span>1<span class="right-bracket">]</span></a></sup>Fortrinnet med <span class="code"><code id="n0-3">\0</code></span>-metoden er at den h&#229;ndterer de mest <em>outrerte</em> filnavn, selv navn som inneholder linjeskift! Jeg visste ikke at det var mulig f&#248;r jeg leste <span class="code"><code id="man-find">man find</code></span>, men <span class="code"><code id="touch-some">touch 'some\</code></span> + <kbd title="Enter">&#8629;</kbd> + <span class="code"><code id="file">file'</code></span> vil lage en slik fil. (Bytt ut &#171;<span class="code"><code id="touch">touch</code></span>&#187; med &#171;<span class="code"><code id="rm-4">rm</code></span>&#187; for &#229; slette filen.) <a class="footnote-backref" href="#fnref1" title="Den f&#248;rste eksekverer rm via find. Den siste bruker opsjonen -print0 for &#229; terminere filnavn med \0 istedenfor linjeskift, og rm gj&#248;res oppmerksom p&#229; dette med opsjonen -0. Begge programmer m&#229; alts&#229; tilpasses for &#229; kunne samarbeide om spesielle filnavn.[1]">&#8617;&#65038;</a></p>
 </aside>
 

@@ -15,5 +15,5 @@ else
 fi
 TASK="-  $TASK"
 echo "$TASK" >> $FILE
-git --no-pager diff -U0
+# git --no-pager diff -U0
 git commit -a -m "Edited offline"
