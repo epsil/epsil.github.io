@@ -1,4 +1,4 @@
-@import url("../fonts/stix.css");
+@import url("stix.css");
 @import url("book.css");
 
 .e-content a,
@@ -13,12 +13,8 @@
 }
 
 body {
-    font-family: "STIX Two Web", "STIX Two Text", "Minion Web", "Minion Pro",
-        "Minion Std", Minion, "Crimson Text", "ETBembo", "ETBembo LF", Charter,
-        "PT Serif", Georgia, "Iowan Old Style", Iowan, "Iowan Web",
-        "Hoefler Text", "Libre Baskerville", Baskerville, Cambria, Constantia,
-        Utopia, Marion, Cochin, "Palatino Linotype", Palatino, serif !important;
     font-size: 125% !important;
+    line-height: 1.4;
 }
 
 h1,

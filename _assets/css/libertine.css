@@ -1,6 +1,6 @@
 @import url("../fonts/libertine.css");
 @import url("../fonts/biolinum.css");
-@import url("../fonts/inconsolata.css");
+@import url("../fonts/ubuntu.css");
 
 body {
     font-family: "Linux Libertine", "Linux Libertine O", "Minion Web",
@@ -37,7 +37,7 @@ kbd,
 samp,
 tt,
 pre {
-    font-family: Inconsolata, "Consolas Web", Consolas, "Ubuntu Mono",
+    font-family: "Ubuntu Mono", "Consolas Web", Consolas, Inconsolata,
         "Noto Mono", "Liberation Mono", "DejaVu Sans Mono", "Andale Mono", Menlo,
         Monaco, Courier, monospace !important;
     font-size: 0.8em !important;

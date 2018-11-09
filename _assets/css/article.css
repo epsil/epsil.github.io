@@ -1,6 +1,7 @@
 @import url("italic.css");
 
-header a {
+header .p-name a,
+header .author a {
     border: none;
 }
 

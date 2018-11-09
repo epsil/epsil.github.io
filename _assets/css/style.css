@@ -439,6 +439,11 @@ nav a {
     border: none !important;
 }
 
+.navbar-left a,
+.navbar-right a {
+    font-weight: bold;
+}
+
 nav,
 .navbar-default {
     border: none;
