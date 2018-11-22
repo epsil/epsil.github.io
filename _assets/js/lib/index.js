@@ -62,8 +62,8 @@ function moveToHashOnLoad(hash) {
   moveToHash(hash);
   $(function() {
     moveToHash(hash);
-    var hasImages = $('.e-content img').length > 0;
-    var hasTables = $('.e-content table').length > 0;
+    var hasImages = $('article img').length > 0;
+    var hasTables = $('article table').length > 0;
     var hasDynamicElements = hasImages || hasTables;
     if (hasDynamicElements) {
       setTimeout(function() {
@@ -325,6 +325,7 @@ function loadData() {
   var extensions = ['.md', '.txt', '.md.asc', '.md.gpg', '.asc', '.gpg'];
 
   var filename = URI(window.location.href).filename();
+  filename = filename.replace(/#[^#]*$/, '');
   filename = filename.replace(/\.html$/, '');
 
   if (filename && filename !== names[0]) {

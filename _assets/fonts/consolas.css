@@ -1,0 +1,27 @@
+@font-face {
+    font-family: "Consolas Web";
+    src: url("consolab.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Consolas Web";
+    src: url("consolaz.ttf") format("truetype");
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Consolas Web";
+    src: url("consolai.ttf") format("truetype");
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Consolas Web";
+    src: url("consola.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}

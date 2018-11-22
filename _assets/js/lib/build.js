@@ -189,9 +189,9 @@ function referencesEntries(entry) {
   var title = entry.title;
   var summary =
     entry.title || entry.summary || entry.subtitle || entry.abstract;
-  // summary = ''
+  // summary = '';
   if (summary) {
-    // var render = true
+    // var render = true;
     var render = false;
     summary = getSummary(path, title, summary, render);
   }

@@ -39,14 +39,16 @@ collapse.unique = function(fn) {
   var results = [];
   return function(arg) {
     var result = fn(arg);
-    if (results.indexOf(result.valueOf()) >= 0) {
+    var containsResult = results.indexOf(result.valueOf()) >= 0;
+    if (containsResult) {
       var i = 1;
-      var newresult = '';
+      var newResult = '';
       do {
         i++;
-        newresult = result + '-' + i;
-      } while (results.indexOf(newresult.valueOf()) >= 0);
-      result = newresult;
+        newResult = result + '-' + i;
+        containsResult = results.indexOf(newResult.valueOf()) >= 0;
+      } while (containsResult);
+      result = newResult;
     }
     results.push(result.valueOf());
     return result;
@@ -186,11 +188,11 @@ collapse.addCollapsibleListItem = function(options) {
         prev
           .text()
           .trim()
-          .match(/(\.\.\.|\u2026)$/)
+          .match(/\[(\.\.\.|\u2026)\]$/)
       ) {
         li.addClass('collapse');
         var text = ul[0].previousSibling.nodeValue;
-        text = text.replace(/\s*(\.\.\.|\u2026)\s*$/, '');
+        text = text.replace(/\s*\[(\.\.\.|\u2026)\]\s*$/, '');
         ul[0].previousSibling.nodeValue = text;
       }
       collapse.addButton(li, ul, true, listId + '-list');
@@ -300,11 +302,11 @@ collapse.addButton = function(header, section, prepend, sectionId) {
     header
       .text()
       .trim()
-      .match(/(\.\.\.|\u2026)$/)
+      .match(/\[(\.\.\.|\u2026)\]$/)
   ) {
     header.addClass('collapse');
     var html = header.html();
-    html = html.replace(/\s*(&nbsp;)*(\.\.\.|\u2026)\s*/g, '');
+    html = html.replace(/\s*(&nbsp;)*\[(\.\.\.|\u2026)\]\s*/g, '');
     header.html(html);
     button = header.find('.collapse-button');
   }

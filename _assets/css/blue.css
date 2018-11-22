@@ -2,7 +2,8 @@ code,
 kbd,
 samp,
 tt,
-pre {
+pre,
+.pre pre {
     background-color: rgba(0, 128, 255, 0.08);
 }
 

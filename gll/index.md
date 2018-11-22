@@ -5,7 +5,9 @@ abstract: How to implement a general parser combinator framework which handles l
 lang: en
 icon: favicon.ico
 indent: true
-stylesheet: /_assets/css/libertine.css
+stylesheet:
+  - /_assets/css/libertine.css
+  - /_assets/css/oreilly.css
 url: https://epsil.github.io/gll/
 ---
 
@@ -70,7 +72,7 @@ Simple parser combinators
 
 Let us start by defining some terms. A *parser* is a function that takes a string as input and returns a *parse result*. A parse result is either a *success* or a *failure*. (All our parsers will work on strings, but one could easily define parsers working on a stream of symbols or tokens.)
 
-A *parser combinator* is a function that takes parsers as input and returns a new parser. In other words, it's a higher-order function, taking functions as input and returning another function as output. Using parser combinators, we can build bigger parsers out of smaller parsers.
+A *parser combinator* is a function that takes parsers as input and returns a new parser. In other words, it's a higher-order function, taking functions as input and returning another function as output. Using parser combinators, we can build larger parsers out of smaller parsers.
 
 First we will define data types for parse results. A successful result contains two values: a value and the current string position. The value can for example be an abstract syntax tree, while the position is represented as the rest of the string. A failing result just contains the position where the parser failed, which can be used for error reporting.
 
@@ -81,7 +83,7 @@ First we will define data types for parse results. A successful result contains 
 
 This Racket code defines `success` and `failure` as constructor functions for parse results. For example, we can create a successful result with the expression `(success val rest)`, and a failure with `(failure rest)`. We can also *pattern match* against these expressions, which will be demonstrated later. The `#:transparent` option makes the values printable.
 
-First, we look at a trivial parser that accepts any input and returns a successful result containing some predefined value. For creating such parsers, we define the function `succeed`, which takes the predefined value as a parameter. (This very common function is also known as "empty", "epsilon", "result", "yield", or "return".)
+First, we look at a trivial parser that accepts any input and returns a successful result containing some predefined value. For creating such parsers, we define the function `succeed`, which takes the predefined value as a parameter. (This common function is also known as "empty", "epsilon", "result", "yield", or "return".)
 
 ```scheme
 (define (succeed val)
@@ -120,7 +122,7 @@ We can create a parser for matching, say, `"foo"` with `(string "foo")`. If the 
 (failure "bar")
 ```
 
-The functions `succeed` and `string` could be regarded as very basic "parser generators": both create parsers on the basis of a given specification. The parsers they create are often called *terminal parsers*, because they match against a terminal expression in the grammar. All the terminal parsers in this article work on strings, but one could easily modify them to accept a stream of symbols or tokens.
+The functions `succeed` and `string` could be regarded as basic "parser generators": both create parsers on the basis of a given specification. The parsers they create are often called *terminal parsers*, because they match against a terminal expression in the grammar. All the terminal parsers in this article work on strings, but one could easily modify them to accept a stream of symbols or tokens.
 
 Now that we have some basic parsers, it is time to combine them. The first combinator is the *alternatives combinator*, which chooses between alternative parsers. It returns a combined parser that tries each alternative in turn until one of them matches.
 
@@ -704,7 +706,7 @@ Now we can create a trampoline, pass it to a parser along with a continuation, a
 (failure "")
 ```
 
-Of course, this is not a very convenient interface, so we will redefine the `run-parser` function to return the successful results as a lazy stream. To that end, we first define a `make-stream` convenience macro, which lets us use the stream constructor `stream-cons` in a simpler manner. The `stream-cons` function takes two expressions, one for producing the first element and one for producing the rest of the stream. Our `make-stream` macro just takes a single expression for producing the stream, which is easier in case multiple results are produced.
+Of course, this is not the most convenient interface, so we will redefine the `run-parser` function to return the successful results as a lazy stream. To that end, we first define a `make-stream` convenience macro, which lets us use the stream constructor `stream-cons` in a simpler manner. The `stream-cons` function takes two expressions, one for producing the first element and one for producing the rest of the stream. Our `make-stream` macro just takes a single expression for producing the stream, which is easier in case multiple results are produced.
 
 ```scheme
 (define-syntax-rule (make-stream body ...)
@@ -895,7 +897,7 @@ For more information, follow the references:
 
 -   [*Structure and Interpretation of Computer Programs*](https://mitpress.mit.edu/sicp/full-text/book/book.html) (HTML), second edition, Harold Abelson and Gerald Jay Sussman, The Massachusetts Institute of Technology, 1996. The example grammar is from section 4.3.2, "[Examples of Nondeterministic Programs: Parsing natural language](http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-28.html#%_sec_Temp_618)", while the memoization wrapper is outlined in exercise 3.27 from section 3.3.3, "[Representing Tables](http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-22.html#%_thm_3.27)". Note that an updated and [unofficial HTML5 version](http://sarabander.github.io/sicp/) of the book offers a vastly improved reading experience on modern devices. {#abelson96-sicp}
 -   "[Memoization in Top-Down Parsing](http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.14.3000)" (PDF), Mark Johnson, Brown University, 1995. Published in *Computational Linguistics*, Volume 21, Number 3. Covers regular memoization, continuation-passing style, and memoization of continuation-passing style functions. {#johnson95-memoization}
--   "[Generalized Parser Combinators](http://www.cs.uwm.edu/~dspiewak/papers/generalized-parser-combinators.pdf)" (PDF), Daniel Spiewak, University of Wisconsin, 2010. Implemented as the [gll-combinators](https://github.com/djspiewak/gll-combinators) Scala library, using continuation-passing style and trampolined dispatch. Offers a very accessible introduction to the GLL algorithm. {#spiewak10-generalized}
+-   "[Generalized Parser Combinators](http://www.cs.uwm.edu/~dspiewak/papers/generalized-parser-combinators.pdf)" (PDF), Daniel Spiewak, University of Wisconsin, 2010. Implemented as the [gll-combinators](https://github.com/djspiewak/gll-combinators) Scala library, using continuation-passing style and trampolined dispatch. Offers an accessible introduction to the GLL algorithm. {#spiewak10-generalized}
 -   [*Parsing Techniques: A Practical Guide*](http://dickgrune.com/Books/PTAPG_2nd_Edition/), second edition, Dick Grune and Ceriel J. H. Jacobs, Springer, 2008. Chapter 11 contains a richly illustrated description of generalized LL parsing. {#grune08-parsing}
 -   "[GLL Parsing](http://ldta.info/2009/ldta2009proceedings.pdf)" (PDF), Adrian Johnstone and Elizabeth Scott, University of London, 2009. Published in *Proceedings of LDTA*. Explains the GLL algorithm in abstract terms. {#johnstone09-gll}
 -   "[Modelling GLL Parser Implementations](http://link.springer.com/chapter/10.1007%2F978-3-642-19440-5_4)", Adrian Johnstone and Elizabeth Scott, University of London, 2011. Lecture Notes in *Computer Science*, Volume 6563. Models an implementation of the GLL algorithm in a theoretical language. {#johnstone11-modelling}

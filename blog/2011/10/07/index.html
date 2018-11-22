@@ -39,7 +39,7 @@
 </ul>
 
 <ul class="nav nav-pills navbar-right">
-<li role="presentation"><a href="../../../../tmp/clipboard/" target="_blank" title="Kopier til Markdown"><i class="fa fa-clipboard"></i></a>
+<li role="presentation"><a href="../../../../tmp/clipboard/" target="_blank" title="Kopier til Markdown"><span class="clipboard-logo-grey"></span></a>
 </li>
 
 <li role="presentation"><a href="https://github.com/epsil/epsil.github.io/blob/master/blog/2011/10/07/index.md" target="_blank" title="Vis p&#229; GitHub"><i class="fa fa-github"></i></a>
@@ -48,7 +48,7 @@
 <li role="presentation"><a href="https://github.com/epsil/epsil.github.io/edit/master/blog/2011/10/07/index.md" target="_blank" title="Rediger p&#229; GitHub"><i class="fa fa-edit"></i></a>
 </li>
 
-<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/raw/master/blog/2011/10/07/index.md" target="_blank" title="Vis Markdown-kilde"><i class="fa fa-download"></i></a>
+<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/raw/master/blog/2011/10/07/index.md" target="_blank" title="Vis Markdown-kilde" type="text/plain"><span class="markdown-logo-grey"></span></a>
 </li>
 
 <li role="presentation"><a data-toggle="collapse" href="#toc" id="toc-button" title="Innhold"><i class="fa fa-list"></i></a>
@@ -68,11 +68,18 @@
 
 <article class="h-entry" id="main">
 <header>
-<h1 class="p-name"><a class="u-uid u-url" href="https://epsil.github.io/blog/2011/10/07/" rel="bookmark" target="_blank" title="Permalink">Closures i Lisp</a>
+<h1 class="p-name"><a class="u-uid u-url" href="https://epsil.github.io/blog/2011/10/07/" rel="bookmark" target="_blank" title="Permalink">
+<p>Closures i Lisp</p></a>
 </h1>
 
-<p class="author"><a class="p-author h-card" href="https://epsil.github.io/" target="_blank" title="Open epsil.github.io in a new window">Vegard &#216;ye</a> &#8226; <time class="dt-published" datetime="2011-10-07">2011-10-07</time></p>
-</header>
+<p class="author"><a class="p-author h-card" href="https://epsil.github.io/" target="_blank" title="Open epsil.github.io in a new window"></a>
+</p>
+
+<p><a class="p-author h-card" href="https://epsil.github.io/" target="_blank" title="Open epsil.github.io in a new window">Vegard &#216;ye</a>
+</p>
+<a class="p-author h-card" href="https://epsil.github.io/" target="_blank" title="Open epsil.github.io in a new window"></a> &#8226; <time class="dt-published" datetime="2011-10-07">2011-10-07</time>
+<p>
+</p></header>
 
 <section class="e-content sidenotes">
 <section>
@@ -97,42 +104,42 @@
 <p>Det er i prinsippet mulig &#229; bruke lambdaer som et fundament for videre programmering. Det klassiske <a href="http://mitpress.mit.edu/sicp/full-text/book/book.html" target="_blank" title="Open mitpress.mit.edu in a new window"><em><abbr class="acronym" title="Structure and Interpretation of Computer Programs"><span class="caps">SICP</span></abbr></em></a>-eksemplet er &#229; definere <span class="code"><code id="cons">cons</code></span>, <span class="code"><code id="car">car</code></span> og <span class="code"><code id="cdr">cdr</code></span> p&#229; denne m&#229;ten,<sup class="footnote-ref"><a href="#fn2" id="fnref2" title="http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-14.html#%_sec_2.1.3"><span class="left-bracket">[</span>2<span class="right-bracket">]</span></a></sup> som vi kan tenke p&#229; som Lisp-sjargong for <span class="code"><code id="pair">pair</code></span>, <span class="code"><code id="first">first</code></span> og <span class="code"><code id="second">second</code></span>. La <span class="code"><code id="pair-2">pair</code></span> v&#230;re en funksjon som returnerer et par med verdier, <span class="code"><code id="first-2">first</code></span> returnere den f&#248;rste verdien til paret, og <span class="code"><code id="second-2">second</code></span> returnere den andre:</p>
 
 <div class="pre">
-<pre id="pair-foo-bar-par-av-foo-og-bar-first-pair-foo-bar-foo-second-pair-foo-bar-bar">
-<code class="language-scheme">&gt; (<span class="hljs-name">pair</span> <span class="hljs-string">"foo"</span> <span class="hljs-string">"bar"</span>)
-#&lt;par av <span class="hljs-string">"foo"</span> og <span class="hljs-string">"bar"</span>&gt;
+<pre class="language-scheme" id="pair-foo-bar-par-av-foo-og-bar-first-pair-foo-bar-foo-second-pair-foo-bar-bar">
+<code class="language-scheme">&gt; <span class="token punctuation">(</span><span class="token function">pair</span> <span class="token string">"foo"</span> <span class="token string">"bar"</span><span class="token punctuation">)</span>
+#&lt;par av <span class="token string">"foo"</span> og <span class="token string">"bar"</span>&gt;
 
-&gt; (<span class="hljs-name">first</span> (<span class="hljs-name">pair</span> <span class="hljs-string">"foo"</span> <span class="hljs-string">"bar"</span>))
-<span class="hljs-string">"foo"</span>
+&gt; <span class="token punctuation">(</span><span class="token function">first</span> <span class="token punctuation">(</span><span class="token function">pair</span> <span class="token string">"foo"</span> <span class="token string">"bar"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token string">"foo"</span>
 
-&gt; (<span class="hljs-name">second</span> (<span class="hljs-name">pair</span> <span class="hljs-string">"foo"</span> <span class="hljs-string">"bar"</span>))
-<span class="hljs-string">"bar"</span></code>
+&gt; <span class="token punctuation">(</span><span class="token function">second</span> <span class="token punctuation">(</span><span class="token function">pair</span> <span class="token string">"foo"</span> <span class="token string">"bar"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token string">"bar"</span></code>
 </pre>
 </div>
 
 <p>Den vanlige m&#229;ten &#229; implementere dette p&#229; ville v&#230;re &#229; konstruere en listestruktur &#8211; et stykke data &#8211; med <span class="code"><code id="pair-3">pair</code></span>, og s&#229; la <span class="code"><code id="first-3">first</code></span> og <span class="code"><code id="second-3">second</code></span> hente ut riktig element fra strukturen. <em><abbr class="acronym" title="Structure and Interpretation of Computer Programs"><span class="caps">SICP</span></abbr></em> sin fremgangsm&#229;te er derimot &#229; implementere paret som en <em>prosedyre</em>:</p>
 
 <div class="pre">
-<pre id="define-pair-x-y-lambda-m-cond-m-1-x-m-2-y-define-first-z-z-1-define-second-z-z-2">
-<code class="language-scheme">(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> (<span class="hljs-name">pair</span> x y)
-  (<span class="hljs-name"><span class="hljs-builtin-name">lambda</span></span> (m)
-    (<span class="hljs-name"><span class="hljs-builtin-name">cond</span></span>
-     ((<span class="hljs-name"><span class="hljs-builtin-name">=</span></span> m <span class="hljs-number">1</span>) x)
-     ((<span class="hljs-name"><span class="hljs-builtin-name">=</span></span> m <span class="hljs-number">2</span>) y))))
+<pre class="language-scheme" id="define-pair-x-y-lambda-m-cond-m-1-x-m-2-y-define-first-z-z-1-define-second-z-z-2">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token function">pair</span> x y<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span>m<span class="token punctuation">)</span>
+    <span class="token punctuation">(</span><span class="token keyword">cond</span>
+     <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token operator">=</span> m <span class="token number">1</span><span class="token punctuation">)</span> x<span class="token punctuation">)</span>
+     <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token operator">=</span> m <span class="token number">2</span><span class="token punctuation">)</span> y<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> (<span class="hljs-name">first</span> z)
-  (<span class="hljs-name">z</span> <span class="hljs-number">1</span>))
+<span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token function">first</span> z<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token function">z</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> (<span class="hljs-name">second</span> z)
-  (<span class="hljs-name">z</span> <span class="hljs-number">2</span>))</code>
+<span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token function">second</span> z<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token function">z</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
 </pre>
 </div>
 
 <p>Her returnerer <span class="code"><code id="pair-4">pair</code></span> en anonym funksjon (som lages med <span class="code"><code id="lambda-2">lambda</code></span> i Lisp). Denne funksjonen inneholder argumentene til <span class="code"><code id="pair-5">pair</code></span>:</p>
 
 <div class="pre">
-<pre id="pair-foo-bar-prosedyre-som-inneholder-foo-og-bar">
-<code class="language-scheme">&gt; (<span class="hljs-name">pair</span> <span class="hljs-string">"foo"</span> <span class="hljs-string">"bar"</span>)
-#&lt;prosedyre som inneholder <span class="hljs-string">"foo"</span> og <span class="hljs-string">"bar"</span>&gt;</code>
+<pre class="language-scheme" id="pair-foo-bar-prosedyre-som-inneholder-foo-og-bar">
+<code class="language-scheme">&gt; <span class="token punctuation">(</span><span class="token function">pair</span> <span class="token string">"foo"</span> <span class="token string">"bar"</span><span class="token punctuation">)</span>
+#&lt;prosedyre som inneholder <span class="token string">"foo"</span> og <span class="token string">"bar"</span>&gt;</code>
 </pre>
 </div>
 

@@ -15,3 +15,33 @@ header h1,
 header h1 a {
     color: #fff;
 }
+
+body nav,
+body .navbar-default {
+    color: #ffffff !important;
+}
+
+.nav a,
+.nav li a,
+.nav li a .fa,
+.nav li a:focus,
+.nav li > a:focus .fa,
+.nav input,
+nav a,
+nav li a,
+nav .form-control,
+nav .form-control::-moz-placeholder,
+#toc li:before,
+#toc li a {
+    color: #ffffff !important;
+}
+
+.markdown-logo-grey,
+nav a:hover .markdown-logo-grey {
+    background-image: url("../img/markdown/markdown-white.svg");
+}
+
+nav a .clipboard-logo-grey,
+nav a:hover .clipboard-logo-grey {
+    background-image: url("../img/clippy/clippy-white.svg");
+}

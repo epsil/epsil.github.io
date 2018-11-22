@@ -58,7 +58,7 @@ MathJax.Hub.Config({
 </ul>
 
 <ul class="nav nav-pills navbar-right">
-<li role="presentation"><a href="../tmp/clipboard/" target="_blank" title="Copy to Markdown"><i class="fa fa-clipboard"></i></a>
+<li role="presentation"><a href="../tmp/clipboard/" target="_blank" title="Copy to Markdown"><span class="clipboard-logo-grey"></span></a>
 </li>
 
 <li role="presentation"><a href="https://github.com/epsil/epsil.github.io/blob/master/fisheye/index.md" target="_blank" title="View on GitHub"><i class="fa fa-github"></i></a>
@@ -67,7 +67,7 @@ MathJax.Hub.Config({
 <li role="presentation"><a href="https://github.com/epsil/epsil.github.io/edit/master/fisheye/index.md" target="_blank" title="Edit on GitHub"><i class="fa fa-edit"></i></a>
 </li>
 
-<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/raw/master/fisheye/index.md" target="_blank" title="Get Markdown source"><i class="fa fa-download"></i></a>
+<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/raw/master/fisheye/index.md" target="_blank" title="Get Markdown source" type="text/plain"><span class="markdown-logo-grey"></span></a>
 </li>
 
 <li role="presentation"><a data-toggle="collapse" href="#toc" id="toc-button" title="Contents"><i class="fa fa-list"></i></a>
@@ -90,7 +90,7 @@ MathJax.Hub.Config({
 <li><a href="#abstract" title="Abstract">Abstract</a>
 </li>
 
-<li><a href="#changelog" title="Changelog">Changelog &#8230;</a>
+<li><a href="#changelog" title="Changelog &#8230;">Changelog &#8230;</a>
 </li>
 </ul>
 </li>
@@ -322,13 +322,26 @@ MathJax.Hub.Config({
 
 <article class="h-entry" id="main">
 <header>
-<h1 class="p-name"><a class="u-uid u-url" href="https://epsil.github.io/fisheye/" rel="bookmark" target="_blank" title="Permalink">Accelerating nonlinear image transformations with OpenGL ES</a>
+<h1 class="p-name"><a class="u-uid u-url" href="https://epsil.github.io/fisheye/" rel="bookmark" target="_blank" title="Permalink">
+<p>Accelerating nonlinear image transformations with OpenGL ES</p></a>
 </h1>
 
-<p class="author"><a class="p-author h-card" href="https://epsil.github.io/" target="_blank" title="Open epsil.github.io in a new window">Vegard &#216;ye</a>
+<p class="author"><a class="p-author h-card" href="https://epsil.github.io/" target="_blank" title="Open epsil.github.io in a new window"></a>
 </p>
 
-<p class="p-summary">A study on fish-eye undistortion.</p>
+<p><a class="p-author h-card" href="https://epsil.github.io/" target="_blank" title="Open epsil.github.io in a new window">Vegard &#216;ye</a>
+</p>
+<a class="p-author h-card" href="https://epsil.github.io/" target="_blank" title="Open epsil.github.io in a new window"></a>
+<p>
+</p>
+
+<p class="p-summary">
+</p>
+
+<p>A study on fish-eye undistortion.</p>
+
+<p>
+</p>
 </header>
 
 <section class="e-content sidenotes">
@@ -365,7 +378,7 @@ MathJax.Hub.Config({
 </section>
 
 <section id="changelog">
-<h3 class=""><a aria-hidden="true" class="header-anchor" href="#changelog" title="Changelog"></a>Changelog<a aria-controls="changelog-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#changelog-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h3>
+<h3><a aria-hidden="true" class="header-anchor" href="#changelog" title="Changelog &#8230;"></a>Changelog &#8230;<a aria-controls="changelog-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#changelog-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h3>
 
 <div class="collapse in" id="changelog-section">
 <table class="table table-striped table-bordered table-hover">
@@ -975,14 +988,14 @@ July 2015</p>
 <p>Algorithm 1: Newton&#8211;Raphson approximation</p>
 
 <div class="pre">
-<pre id="r-td-initial-estimate-from-table-for-n-0-to-n-do-refine-estimate-r-r-1-k-1-r2-k-2-r4-k-3-r6-d-2-k-1-r-4-k-2-r3-6-k-3-r5-end-for-return-r-final-estimate">
-<code class="language-python">r &lt;- T(d) <span class="hljs-comment"># initial estimate from table</span>
-<span class="hljs-keyword">for</span> n = <span class="hljs-number">0</span> to N do
-  <span class="hljs-comment"># refine estimate</span>
-  r &lt;- r - (<span class="hljs-number">1</span> + k_1 * r^<span class="hljs-number">2</span> + k_2 * r^<span class="hljs-number">4</span> + \k_3 * r^<span class="hljs-number">6</span> - d)
-         / (<span class="hljs-number">2</span> * k_1 * r + <span class="hljs-number">4</span> * k_2 * r^<span class="hljs-number">3</span> + <span class="hljs-number">6</span> * k_3 * r^<span class="hljs-number">5</span>)
-end <span class="hljs-keyword">for</span>
-<span class="hljs-keyword">return</span> r <span class="hljs-comment"># final estimate</span></code>
+<pre class="language-python" id="r-td-initial-estimate-from-table-for-n-0-to-n-do-refine-estimate-r-r-1-k-1-r2-k-2-r4-k-3-r6-d-2-k-1-r-4-k-2-r3-6-k-3-r5-end-for-return-r-final-estimate">
+<code class="language-python">r <span class="token operator">&lt;</span><span class="token operator">-</span> T<span class="token punctuation">(</span>d<span class="token punctuation">)</span> <span class="token comment"># initial estimate from table</span>
+<span class="token keyword">for</span> n <span class="token operator">=</span> <span class="token number">0</span> to N do
+  <span class="token comment"># refine estimate</span>
+  r <span class="token operator">&lt;</span><span class="token operator">-</span> r <span class="token operator">-</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">+</span> k_1 <span class="token operator">*</span> r<span class="token operator">^</span><span class="token number">2</span> <span class="token operator">+</span> k_2 <span class="token operator">*</span> r<span class="token operator">^</span><span class="token number">4</span> <span class="token operator">+</span> \k_3 <span class="token operator">*</span> r<span class="token operator">^</span><span class="token number">6</span> <span class="token operator">-</span> d<span class="token punctuation">)</span>
+         <span class="token operator">/</span> <span class="token punctuation">(</span><span class="token number">2</span> <span class="token operator">*</span> k_1 <span class="token operator">*</span> r <span class="token operator">+</span> <span class="token number">4</span> <span class="token operator">*</span> k_2 <span class="token operator">*</span> r<span class="token operator">^</span><span class="token number">3</span> <span class="token operator">+</span> <span class="token number">6</span> <span class="token operator">*</span> k_3 <span class="token operator">*</span> r<span class="token operator">^</span><span class="token number">5</span><span class="token punctuation">)</span>
+end <span class="token keyword">for</span>
+<span class="token keyword">return</span> r <span class="token comment"># final estimate</span></code>
 </pre>
 </div>
 </blockquote>
@@ -1275,10 +1288,10 @@ Built-in/Manual</th>
 <p>Algorithm 2: Coordinate conversion</p>
 
 <div class="pre">
-<pre id="x-y-2s-1-2-2t-1-2-convert-to-vertex-space-x-y-fx-y-transform-coordinate-s-t-x-2-1-2-y-2-1-2-convert-to-texture-space">
-<code class="language-python">[x, y] &lt;- [<span class="hljs-number">2</span>(s - <span class="hljs-number">1</span>/<span class="hljs-number">2</span>), <span class="hljs-number">2</span>(t - <span class="hljs-number">1</span>/<span class="hljs-number">2</span>)] <span class="hljs-comment"># convert to vertex space</span>
-[x<span class="hljs-string">', y'</span>] &lt;- F([x, y]) <span class="hljs-comment"># transform coordinate</span>
-[s<span class="hljs-string">', t'</span>] &lt;- [x<span class="hljs-string">'/2 + 1/2, y'</span>/<span class="hljs-number">2</span> + <span class="hljs-number">1</span>/<span class="hljs-number">2</span>] <span class="hljs-comment"># convert to texture space</span></code>
+<pre class="language-python" id="x-y-2s-1-2-2t-1-2-convert-to-vertex-space-x-y-fx-y-transform-coordinate-s-t-x-2-1-2-y-2-1-2-convert-to-texture-space">
+<code class="language-python"><span class="token punctuation">[</span>x<span class="token punctuation">,</span> y<span class="token punctuation">]</span> <span class="token operator">&lt;</span><span class="token operator">-</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">(</span>s <span class="token operator">-</span> <span class="token number">1</span><span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">(</span>t <span class="token operator">-</span> <span class="token number">1</span><span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token comment"># convert to vertex space</span>
+<span class="token punctuation">[</span>x<span class="token string">', y'</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span><span class="token operator">-</span> F<span class="token punctuation">(</span><span class="token punctuation">[</span>x<span class="token punctuation">,</span> y<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment"># transform coordinate</span>
+<span class="token punctuation">[</span>s<span class="token string">', t'</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span><span class="token operator">-</span> <span class="token punctuation">[</span>x<span class="token string">'/2 + 1/2, y'</span><span class="token operator">/</span><span class="token number">2</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token comment"># convert to texture space</span></code>
 </pre>
 </div>
 </blockquote>
@@ -1460,15 +1473,15 @@ Built-in/Manual</th>
 <p>Listing 5.1: Pass-through vertex shader</p>
 
 <div class="pre">
-<pre id="attribute-vec2-a-texcoord-attribute-vec4-a-position-varying-vec2-v-texcoord-void-main-gl-position-a-position-v-texcoord-a-texcoord">
-<code class="language-c">attribute vec2 a_texcoord;
-attribute vec4 a_position;
-varying vec2 v_texcoord;
+<pre class="language-c" id="attribute-vec2-a-texcoord-attribute-vec4-a-position-varying-vec2-v-texcoord-void-main-gl-position-a-position-v-texcoord-a-texcoord">
+<code class="language-c">attribute vec2 a_texcoord<span class="token punctuation">;</span>
+attribute vec4 a_position<span class="token punctuation">;</span>
+varying vec2 v_texcoord<span class="token punctuation">;</span>
 
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
-    gl_Position = a_position;
-    v_texcoord = a_texcoord;
-}</code>
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    gl_Position <span class="token operator">=</span> a_position<span class="token punctuation">;</span>
+    v_texcoord <span class="token operator">=</span> a_texcoord<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code>
 </pre>
 </div>
 </blockquote>
@@ -1480,13 +1493,13 @@ varying vec2 v_texcoord;
 <p>Listing 5.2: Texture sampling fragment shader</p>
 
 <div class="pre">
-<pre id="varying-vec2-v-texcoord-uniform-sampler2d-s-texture-void-main-gl-fragcolor-texture2ds-texture-v-texcoord">
-<code class="language-c">varying vec2 v_texcoord;
-uniform sampler2D s_texture;
+<pre class="language-c" id="varying-vec2-v-texcoord-uniform-sampler2d-s-texture-void-main-gl-fragcolor-texture2ds-texture-v-texcoord">
+<code class="language-c">varying vec2 v_texcoord<span class="token punctuation">;</span>
+uniform sampler2D s_texture<span class="token punctuation">;</span>
 
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
-    gl_FragColor = texture2D(s_texture, v_texcoord);
-}</code>
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    gl_FragColor <span class="token operator">=</span> <span class="token function">texture2D</span><span class="token punctuation">(</span>s_texture<span class="token punctuation">,</span> v_texcoord<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code>
 </pre>
 </div>
 </blockquote>
@@ -1526,20 +1539,20 @@ uniform sampler2D s_texture;
 <p>Listing 5.3: Transformation in the vertex shader</p>
 
 <div class="pre">
-<pre id="attribute-vec2-a-texcoord-attribute-vec4-a-position-varying-vec2-v-texcoord-fish-eye-transformation-vec4-transformvec4-pos-void-main-gl-position-transforma-position-v-texcoord-a-texcoord">
-<code class="language-c">attribute vec2 a_texcoord;
-attribute vec4 a_position;
-varying vec2 v_texcoord;
+<pre class="language-c" id="attribute-vec2-a-texcoord-attribute-vec4-a-position-varying-vec2-v-texcoord-fish-eye-transformation-vec4-transformvec4-pos-void-main-gl-position-transforma-position-v-texcoord-a-texcoord">
+<code class="language-c">attribute vec2 a_texcoord<span class="token punctuation">;</span>
+attribute vec4 a_position<span class="token punctuation">;</span>
+varying vec2 v_texcoord<span class="token punctuation">;</span>
 
-<span class="hljs-comment">// fish-eye transformation</span>
-<span class="hljs-function">vec4 <span class="hljs-title">transform</span><span class="hljs-params">(vec4 pos)</span> </span>{
-    ...
-}
+<span class="token comment">// fish-eye transformation</span>
+vec4 <span class="token function">transform</span><span class="token punctuation">(</span>vec4 pos<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
-    gl_Position = transform(a_position);
-    v_texcoord = a_texcoord;
-}</code>
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    gl_Position <span class="token operator">=</span> <span class="token function">transform</span><span class="token punctuation">(</span>a_position<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    v_texcoord <span class="token operator">=</span> a_texcoord<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code>
 </pre>
 </div>
 </blockquote>
@@ -1559,33 +1572,33 @@ varying vec2 v_texcoord;
 <p>Listing 5.4: Transformation in the fragment shader</p>
 
 <div class="pre">
-<pre id="varying-vec2-v-texcoord-uniform-sampler2d-s-texture-texture-coordinates-to-vertex-positions-vec2-texcoordtoposvec2-tex-vertex-positions-to-texture-coordinates-vec2-postotexcoordvec2-pos-fish-eye-transformation-vec2-fisheyevec2-pos-transformation-function-vec2-transformvec2-tex-return-postotexcoordfisheyetexcoordtopostex-void-main-gl-fragcolor-texture2ds-texture-transformv-texcoord">
-<code class="language-c">varying vec2 v_texcoord;
-uniform sampler2D s_texture;
+<pre class="language-c" id="varying-vec2-v-texcoord-uniform-sampler2d-s-texture-texture-coordinates-to-vertex-positions-vec2-texcoordtoposvec2-tex-vertex-positions-to-texture-coordinates-vec2-postotexcoordvec2-pos-fish-eye-transformation-vec2-fisheyevec2-pos-transformation-function-vec2-transformvec2-tex-return-postotexcoordfisheyetexcoordtopostex-void-main-gl-fragcolor-texture2ds-texture-transformv-texcoord">
+<code class="language-c">varying vec2 v_texcoord<span class="token punctuation">;</span>
+uniform sampler2D s_texture<span class="token punctuation">;</span>
 
-<span class="hljs-comment">// texture coordinates to vertex positions</span>
-<span class="hljs-function">vec2 <span class="hljs-title">texcoordtopos</span><span class="hljs-params">(vec2 tex)</span> </span>{
-    ...
-}
+<span class="token comment">// texture coordinates to vertex positions</span>
+vec2 <span class="token function">texcoordtopos</span><span class="token punctuation">(</span>vec2 tex<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-comment">// vertex positions to texture coordinates</span>
-<span class="hljs-function">vec2 <span class="hljs-title">postotexcoord</span><span class="hljs-params">(vec2 pos)</span> </span>{
-    ...
-}
+<span class="token comment">// vertex positions to texture coordinates</span>
+vec2 <span class="token function">postotexcoord</span><span class="token punctuation">(</span>vec2 pos<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-comment">// fish-eye transformation</span>
-<span class="hljs-function">vec2 <span class="hljs-title">fisheye</span><span class="hljs-params">(vec2 pos)</span> </span>{
-    ...
-}
+<span class="token comment">// fish-eye transformation</span>
+vec2 <span class="token function">fisheye</span><span class="token punctuation">(</span>vec2 pos<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-comment">// transformation function</span>
-<span class="hljs-function">vec2 <span class="hljs-title">transform</span><span class="hljs-params">(vec2 tex)</span> </span>{
-    <span class="hljs-keyword">return</span> postotexcoord(fisheye(texcoordtopos(tex)));
-}
+<span class="token comment">// transformation function</span>
+vec2 <span class="token function">transform</span><span class="token punctuation">(</span>vec2 tex<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">postotexcoord</span><span class="token punctuation">(</span><span class="token function">fisheye</span><span class="token punctuation">(</span><span class="token function">texcoordtopos</span><span class="token punctuation">(</span>tex<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
-    gl_FragColor = texture2D(s_texture, transform(v_texcoord));
-}</code>
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    gl_FragColor <span class="token operator">=</span> <span class="token function">texture2D</span><span class="token punctuation">(</span>s_texture<span class="token punctuation">,</span> <span class="token function">transform</span><span class="token punctuation">(</span>v_texcoord<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code>
 </pre>
 </div>
 </blockquote>
@@ -1601,19 +1614,19 @@ uniform sampler2D s_texture;
 <p>Listing 5.5: Texture sampling function</p>
 
 <div class="pre">
-<pre id="vec4-colorsampler2d-texture-vec2-pos-ifposx-00-posy-00-posx-10-posy-10-return-vec410-10-10-10-white-else-return-texture2dtexture-pos-void-main-gl-fragcolor-colors-texture-transformv-texcoord">
-<code class="language-c"><span class="hljs-function">vec4 <span class="hljs-title">color</span><span class="hljs-params">(sampler2D texture, vec2 pos)</span> </span>{
-    <span class="hljs-keyword">if</span>(pos.x &lt; <span class="hljs-number">0.0</span> || pos.y &lt; <span class="hljs-number">0.0</span> ||
-       pos.x &gt; <span class="hljs-number">1.0</span> || pos.y &gt; <span class="hljs-number">1.0</span>) {
-        <span class="hljs-keyword">return</span> vec4(<span class="hljs-number">1.0</span>, <span class="hljs-number">1.0</span>, <span class="hljs-number">1.0</span>, <span class="hljs-number">1.0</span>); <span class="hljs-comment">// white</span>
-    } <span class="hljs-keyword">else</span> {
-        <span class="hljs-keyword">return</span> texture2D(texture, pos);
-    }
-}
+<pre class="language-c" id="vec4-colorsampler2d-texture-vec2-pos-ifposx-00-posy-00-posx-10-posy-10-return-vec410-10-10-10-white-else-return-texture2dtexture-pos-void-main-gl-fragcolor-colors-texture-transformv-texcoord">
+<code class="language-c">vec4 <span class="token function">color</span><span class="token punctuation">(</span>sampler2D texture<span class="token punctuation">,</span> vec2 pos<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>pos<span class="token punctuation">.</span>x <span class="token operator">&lt;</span> <span class="token number">0.0</span> <span class="token operator">||</span> pos<span class="token punctuation">.</span>y <span class="token operator">&lt;</span> <span class="token number">0.0</span> <span class="token operator">||</span>
+       pos<span class="token punctuation">.</span>x <span class="token operator">&gt;</span> <span class="token number">1.0</span> <span class="token operator">||</span> pos<span class="token punctuation">.</span>y <span class="token operator">&gt;</span> <span class="token number">1.0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">vec4</span><span class="token punctuation">(</span><span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token number">1.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// white</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">texture2D</span><span class="token punctuation">(</span>texture<span class="token punctuation">,</span> pos<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
-    gl_FragColor = color(s_texture, transform(v_texcoord));
-}</code>
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    gl_FragColor <span class="token operator">=</span> <span class="token function">color</span><span class="token punctuation">(</span>s_texture<span class="token punctuation">,</span> <span class="token function">transform</span><span class="token punctuation">(</span>v_texcoord<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code>
 </pre>
 </div>
 </blockquote>
@@ -1633,14 +1646,14 @@ uniform sampler2D s_texture;
 <p>Listing 5.6: Neighbor coordinates</p>
 
 <div class="pre">
-<pre id="vec2-v0-vec2v-texcoordx-px-20-v-texcoordy-px-20-vec2-v1-vec2v-texcoordx-v-texcoordy-px-20-vec2-v8-vec2v-texcoordx-px-20-v-texcoordy-px-20">
-<code class="language-c">vec2 v0 = vec2(v_texcoord.x - px/<span class="hljs-number">2.0</span>,
-               v_texcoord.y + px/<span class="hljs-number">2.0</span>);
-vec2 v1 = vec2(v_texcoord.x,
-               v_texcoord.y + px/<span class="hljs-number">2.0</span>);
-...
-vec2 v8 = vec2(v_texcoord.x + px/<span class="hljs-number">2.0</span>,
-               v_texcoord.y - px/<span class="hljs-number">2.0</span>);</code>
+<pre class="language-c" id="vec2-v0-vec2v-texcoordx-px-20-v-texcoordy-px-20-vec2-v1-vec2v-texcoordx-v-texcoordy-px-20-vec2-v8-vec2v-texcoordx-px-20-v-texcoordy-px-20">
+<code class="language-c">vec2 v0 <span class="token operator">=</span> <span class="token function">vec2</span><span class="token punctuation">(</span>v_texcoord<span class="token punctuation">.</span>x <span class="token operator">-</span> px<span class="token operator">/</span><span class="token number">2.0</span><span class="token punctuation">,</span>
+               v_texcoord<span class="token punctuation">.</span>y <span class="token operator">+</span> px<span class="token operator">/</span><span class="token number">2.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+vec2 v1 <span class="token operator">=</span> <span class="token function">vec2</span><span class="token punctuation">(</span>v_texcoord<span class="token punctuation">.</span>x<span class="token punctuation">,</span>
+               v_texcoord<span class="token punctuation">.</span>y <span class="token operator">+</span> px<span class="token operator">/</span><span class="token number">2.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+vec2 v8 <span class="token operator">=</span> <span class="token function">vec2</span><span class="token punctuation">(</span>v_texcoord<span class="token punctuation">.</span>x <span class="token operator">+</span> px<span class="token operator">/</span><span class="token number">2.0</span><span class="token punctuation">,</span>
+               v_texcoord<span class="token punctuation">.</span>y <span class="token operator">-</span> px<span class="token operator">/</span><span class="token number">2.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code>
 </pre>
 </div>
 </blockquote>
@@ -1654,11 +1667,11 @@ vec2 v8 = vec2(v_texcoord.x + px/<span class="hljs-number">2.0</span>,
 <p>Listing 5.7: Transformed coordinates</p>
 
 <div class="pre">
-<pre id="v0-transformv0-v1-transformv1-v8-transformv8">
-<code class="language-c">v0 = transform(v0);
-v1 = transform(v1);
-...
-v8 = transform(v8);</code>
+<pre class="language-c" id="v0-transformv0-v1-transformv1-v8-transformv8">
+<code class="language-c">v0 <span class="token operator">=</span> <span class="token function">transform</span><span class="token punctuation">(</span>v0<span class="token punctuation">)</span><span class="token punctuation">;</span>
+v1 <span class="token operator">=</span> <span class="token function">transform</span><span class="token punctuation">(</span>v1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+v8 <span class="token operator">=</span> <span class="token function">transform</span><span class="token punctuation">(</span>v8<span class="token punctuation">)</span><span class="token punctuation">;</span></code>
 </pre>
 </div>
 </blockquote>
@@ -1672,11 +1685,11 @@ v8 = transform(v8);</code>
 <p>Listing 5.8: Transformed coordinates</p>
 
 <div class="pre">
-<pre id="vec4-c0-colors-texture-v0-vec4-c1-colors-texture-v1-vec4-c8-colors-texture-v4">
-<code class="language-c">vec4 c0 = color(s_texture, v0);
-vec4 c1 = color(s_texture, v1);
-...
-vec4 c8 = color(s_texture, v4);</code>
+<pre class="language-c" id="vec4-c0-colors-texture-v0-vec4-c1-colors-texture-v1-vec4-c8-colors-texture-v4">
+<code class="language-c">vec4 c0 <span class="token operator">=</span> <span class="token function">color</span><span class="token punctuation">(</span>s_texture<span class="token punctuation">,</span> v0<span class="token punctuation">)</span><span class="token punctuation">;</span>
+vec4 c1 <span class="token operator">=</span> <span class="token function">color</span><span class="token punctuation">(</span>s_texture<span class="token punctuation">,</span> v1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+vec4 c8 <span class="token operator">=</span> <span class="token function">color</span><span class="token punctuation">(</span>s_texture<span class="token punctuation">,</span> v4<span class="token punctuation">)</span><span class="token punctuation">;</span></code>
 </pre>
 </div>
 </blockquote>
@@ -1692,14 +1705,14 @@ vec4 c8 = color(s_texture, v4);</code>
 <p>Listing 5.9: Filtering function</p>
 
 <div class="pre">
-<pre id="vec4-filter9vec4-c1-vec4-c2-vec4-c9-mat3-kernel-float-div-return-c1-kernel00-c2-kernel01-c9-kernel22-div">
-<code class="language-c"><span class="hljs-function">vec4 <span class="hljs-title">filter9</span><span class="hljs-params">(vec4 c1, vec4 c2, ..., vec4 c9,
-             mat3 kernel, <span class="hljs-keyword">float</span> div)</span> </span>{
-    <span class="hljs-keyword">return</span> (c1 * kernel[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] +
-            c2 * kernel[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>] +
-            ...
-            c9 * kernel[<span class="hljs-number">2</span>][<span class="hljs-number">2</span>]) / div;
-}</code>
+<pre class="language-c" id="vec4-filter9vec4-c1-vec4-c2-vec4-c9-mat3-kernel-float-div-return-c1-kernel00-c2-kernel01-c9-kernel22-div">
+<code class="language-c">vec4 <span class="token function">filter9</span><span class="token punctuation">(</span>vec4 c1<span class="token punctuation">,</span> vec4 c2<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span> vec4 c9<span class="token punctuation">,</span>
+             mat3 kernel<span class="token punctuation">,</span> <span class="token keyword">float</span> div<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>c1 <span class="token operator">*</span> kernel<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">+</span>
+            c2 <span class="token operator">*</span> kernel<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span>
+            <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+            c9 <span class="token operator">*</span> kernel<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">/</span> div<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code>
 </pre>
 </div>
 </blockquote>
@@ -1713,13 +1726,13 @@ vec4 c8 = color(s_texture, v4);</code>
 <p>Listing 5.10: Filtering function</p>
 
 <div class="pre">
-<pre id="vec4-gaussian9vec4-c1-vec4-c2-vec4-c9-mat3-kernel-mat310-20-10-20-40-20-10-20-10-return-filter9c1-c2-c9-kernel-160">
-<code class="language-c"><span class="hljs-function">vec4 <span class="hljs-title">gaussian9</span><span class="hljs-params">(vec4 c1, vec4 c2, ..., vec4 c9)</span> </span>{
-    mat3 kernel = mat3(<span class="hljs-number">1.0</span>, <span class="hljs-number">2.0</span>, <span class="hljs-number">1.0</span>,
-                       <span class="hljs-number">2.0</span>, <span class="hljs-number">4.0</span>, <span class="hljs-number">2.0</span>,
-                       <span class="hljs-number">1.0</span>, <span class="hljs-number">2.0</span>, <span class="hljs-number">1.0</span>);
-    <span class="hljs-keyword">return</span> filter9(c1, c2, ..., c9, kernel, <span class="hljs-number">16.0</span>);
-}</code>
+<pre class="language-c" id="vec4-gaussian9vec4-c1-vec4-c2-vec4-c9-mat3-kernel-mat310-20-10-20-40-20-10-20-10-return-filter9c1-c2-c9-kernel-160">
+<code class="language-c">vec4 <span class="token function">gaussian9</span><span class="token punctuation">(</span>vec4 c1<span class="token punctuation">,</span> vec4 c2<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span> vec4 c9<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    mat3 kernel <span class="token operator">=</span> <span class="token function">mat3</span><span class="token punctuation">(</span><span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token number">2.0</span><span class="token punctuation">,</span> <span class="token number">1.0</span><span class="token punctuation">,</span>
+                       <span class="token number">2.0</span><span class="token punctuation">,</span> <span class="token number">4.0</span><span class="token punctuation">,</span> <span class="token number">2.0</span><span class="token punctuation">,</span>
+                       <span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token number">2.0</span><span class="token punctuation">,</span> <span class="token number">1.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token function">filter9</span><span class="token punctuation">(</span>c1<span class="token punctuation">,</span> c2<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span> c9<span class="token punctuation">,</span> kernel<span class="token punctuation">,</span> <span class="token number">16.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code>
 </pre>
 </div>
 </blockquote>
@@ -1735,17 +1748,17 @@ vec4 c8 = color(s_texture, v4);</code>
 <p>Listing 5.11: Distance measure</p>
 
 <div class="pre">
-<pre id="radius-float-distance-return-lengthtexcoordtoposv-texcoord-maximum-transformed-width-height-float-distance2-vec2-vx-absfisheyetexcoordtoposv-texcoord-return-maxvxx-vxy">
-<code class="language-c"><span class="hljs-comment">// radius</span>
-<span class="hljs-function"><span class="hljs-keyword">float</span> <span class="hljs-title">distance</span><span class="hljs-params">()</span> </span>{
-    <span class="hljs-keyword">return</span> length(texcoordtopos(v_texcoord));
-}
+<pre class="language-c" id="radius-float-distance-return-lengthtexcoordtoposv-texcoord-maximum-transformed-width-height-float-distance2-vec2-vx-absfisheyetexcoordtoposv-texcoord-return-maxvxx-vxy">
+<code class="language-c"><span class="token comment">// radius</span>
+<span class="token keyword">float</span> <span class="token function">distance</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">length</span><span class="token punctuation">(</span><span class="token function">texcoordtopos</span><span class="token punctuation">(</span>v_texcoord<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-comment">// maximum transformed width/height</span>
-<span class="hljs-function"><span class="hljs-keyword">float</span> <span class="hljs-title">distance2</span><span class="hljs-params">()</span> </span>{
-    vec2 vx = <span class="hljs-built_in">abs</span>(fisheye(texcoordtopos(v_texcoord)));
-    <span class="hljs-keyword">return</span> max(vx.x, vx.y);
-}</code>
+<span class="token comment">// maximum transformed width/height</span>
+<span class="token keyword">float</span> <span class="token function">distance2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    vec2 vx <span class="token operator">=</span> <span class="token function">abs</span><span class="token punctuation">(</span><span class="token function">fisheye</span><span class="token punctuation">(</span><span class="token function">texcoordtopos</span><span class="token punctuation">(</span>v_texcoord<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token function">max</span><span class="token punctuation">(</span>vx<span class="token punctuation">.</span>x<span class="token punctuation">,</span> vx<span class="token punctuation">.</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code>
 </pre>
 </div>
 </blockquote>
@@ -1759,13 +1772,13 @@ vec4 c8 = color(s_texture, v4);</code>
 <p>Listing 5.12: Adaptive interpolation</p>
 
 <div class="pre">
-<pre id="float-r-distance-ifr-08-gl-fragcolor-sharpen9c0-c1-c8-else-gl-fragcolor-gaussian9c0-c1-c8">
-<code class="language-c"><span class="hljs-keyword">float</span> r = distance();
-<span class="hljs-keyword">if</span>(r &gt; <span class="hljs-number">0.8</span>) {
-    gl_FragColor = sharpen9(c0, c1, ..., c8);
-} <span class="hljs-keyword">else</span> {
-    gl_FragColor = gaussian9(c0, c1, ..., c8);
-}</code>
+<pre class="language-c" id="float-r-distance-ifr-08-gl-fragcolor-sharpen9c0-c1-c8-else-gl-fragcolor-gaussian9c0-c1-c8">
+<code class="language-c"><span class="token keyword">float</span> r <span class="token operator">=</span> <span class="token function">distance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span>r <span class="token operator">&gt;</span> <span class="token number">0.8</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    gl_FragColor <span class="token operator">=</span> <span class="token function">sharpen9</span><span class="token punctuation">(</span>c0<span class="token punctuation">,</span> c1<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span> c8<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    gl_FragColor <span class="token operator">=</span> <span class="token function">gaussian9</span><span class="token punctuation">(</span>c0<span class="token punctuation">,</span> c1<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span> c8<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code>
 </pre>
 </div>
 </blockquote>
@@ -1837,13 +1850,13 @@ vec4 c8 = color(s_texture, v4);</code>
 <p>Listing 6.1: Reloading the image</p>
 
 <div class="pre">
-<pre id="gluint-id-0-gldeletetextures1-id-glteximage2dgl-texture-2d-0-gl-rgba-imgheight-imgwidth-0-gl-rgba-gl-unsigned-byte-imgconstbits">
-<code class="language-c">GLuint id = <span class="hljs-number">0</span>;
-glDeleteTextures(<span class="hljs-number">1</span>, &amp;id);
-glTexImage2D(GL_TEXTURE_2D, <span class="hljs-number">0</span>, GL_RGBA,
-             img.height(), img.width(),
-             <span class="hljs-number">0</span>, GL_RGBA, GL_UNSIGNED_BYTE,
-             img.constBits());</code>
+<pre class="language-c" id="gluint-id-0-gldeletetextures1-id-glteximage2dgl-texture-2d-0-gl-rgba-imgheight-imgwidth-0-gl-rgba-gl-unsigned-byte-imgconstbits">
+<code class="language-c">GLuint id <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token function">glDeleteTextures</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">glTexImage2D</span><span class="token punctuation">(</span>GL_TEXTURE_2D<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> GL_RGBA<span class="token punctuation">,</span>
+             img<span class="token punctuation">.</span><span class="token function">height</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> img<span class="token punctuation">.</span><span class="token function">width</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+             <span class="token number">0</span><span class="token punctuation">,</span> GL_RGBA<span class="token punctuation">,</span> GL_UNSIGNED_BYTE<span class="token punctuation">,</span>
+             img<span class="token punctuation">.</span><span class="token function">constBits</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code>
 </pre>
 </div>
 </blockquote>
@@ -2187,68 +2200,68 @@ glTexImage2D(GL_TEXTURE_2D, <span class="hljs-number">0</span>, GL_RGBA,
 <p>Matlab program for estimating model parameters:</p>
 
 <div class="pre">
-<pre id="nonlinear-regression-barrel-distortion-r-d-fr-u-reference-barrel-x-x-05-x2-x-linspace01-logref-bx-b1-log1-b2-x-lognlm-fitnlmxbarrelxlogref-10-10-logarithmic-model-s-10-lambda-17-s-lognlmcoefficientsestimate1-lambda-lognlmcoefficientsestimate2-logmodel-x-s-log1-lambda-x-polynomial-model-pmodel-bx-b1-b2-x-b3-x2-b4-x3-b5-x4-pnlm-fitnlmxlogmodelxpmodel-05-10-001-0001-00001-trigonometric-model-trigmodel-bx-tanb1-x-2-tanb1-2-trignlm-fitnlmxlogmodelxtrigmodel-01-division-model-divnlm-fitnlmxlogmodelxdivmodel-10-pincushion-distortion-r-u-fr-d-reference-pincushion-r-abs-sqrt10-20-r-10-exponential-model-expmodel-x-expx-s-1-lambda-polynomial-model-pmodelinv-bx-x-1-b1-x2-b2-x4-b3-x6-pnlminv-fitnlmxexpmodelxpmodelinv-10-10-10-trigonometric-model-omega-trignlmcoefficientsestimate1-trigmodelinv-x-1-omega-atan2-x-tanomega-2-plot-models-plotxxxbarrelxxpincushionxxlogmodelxxexpmodelx-xpredictpnlm-xxpredictpnlminv-xxpredicttrignlm-x-xtrigmodelinvxxpredictdivnlm-x-legendxbarrelpincushionlogmodelexpmodelpmodel-pmodelinvtrigmodeltrigmodelinvdivmodel-axis00-10-00-10">
-<code class="language-matlab"><span class="hljs-comment">%% Nonlinear regression</span>
+<pre class="language-matlab" id="nonlinear-regression-barrel-distortion-r-d-fr-u-reference-barrel-x-x-05-x2-x-linspace01-logref-bx-b1-log1-b2-x-lognlm-fitnlmxbarrelxlogref-10-10-logarithmic-model-s-10-lambda-17-s-lognlmcoefficientsestimate1-lambda-lognlmcoefficientsestimate2-logmodel-x-s-log1-lambda-x-polynomial-model-pmodel-bx-b1-b2-x-b3-x2-b4-x3-b5-x4-pnlm-fitnlmxlogmodelxpmodel-05-10-001-0001-00001-trigonometric-model-trigmodel-bx-tanb1-x-2-tanb1-2-trignlm-fitnlmxlogmodelxtrigmodel-01-division-model-divnlm-fitnlmxlogmodelxdivmodel-10-pincushion-distortion-r-u-fr-d-reference-pincushion-r-abs-sqrt10-20-r-10-exponential-model-expmodel-x-expx-s-1-lambda-polynomial-model-pmodelinv-bx-x-1-b1-x2-b2-x4-b3-x6-pnlminv-fitnlmxexpmodelxpmodelinv-10-10-10-trigonometric-model-omega-trignlmcoefficientsestimate1-trigmodelinv-x-1-omega-atan2-x-tanomega-2-plot-models-plotxxxbarrelxxpincushionxxlogmodelxxexpmodelx-xpredictpnlm-xxpredictpnlminv-xxpredicttrignlm-x-xtrigmodelinvxxpredictdivnlm-x-legendxbarrelpincushionlogmodelexpmodelpmodel-pmodelinvtrigmodeltrigmodelinvdivmodel-axis00-10-00-10">
+<code class="language-matlab"><span class="token comment">%% Nonlinear regression</span>
 
-<span class="hljs-comment">%% Barrel distortion: r_d = f(r_u)</span>
+<span class="token comment">%% Barrel distortion: r_d = f(r_u)</span>
 
-<span class="hljs-comment">% Reference</span>
+<span class="token comment">% Reference</span>
 
-barrel = @(x) x - <span class="hljs-number">0.5</span> * x.^<span class="hljs-number">2</span>;
-x = <span class="hljs-built_in">linspace</span>(<span class="hljs-number">0</span>,<span class="hljs-number">1</span>)';
-logRef = @(b,x) b(<span class="hljs-number">1</span>) * <span class="hljs-built_in">log</span>(<span class="hljs-number">1</span> + b(<span class="hljs-number">2</span>) * x);
-logNlm = fitnlm(x,barrel(x),logRef ,[<span class="hljs-number">1.0</span> <span class="hljs-number">1.0</span>])
+barrel <span class="token operator">=</span> <span class="token operator">@</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> x <span class="token operator">-</span> <span class="token number">0.5</span> <span class="token operator">*</span> x<span class="token operator">.^</span><span class="token number">2</span><span class="token punctuation">;</span>
+x <span class="token operator">=</span> <span class="token function">linspace</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">'</span><span class="token punctuation">;</span>
+logRef <span class="token operator">=</span> <span class="token operator">@</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span>x<span class="token punctuation">)</span> <span class="token function">b</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token function">log</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">+</span> <span class="token function">b</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">*</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+logNlm <span class="token operator">=</span> <span class="token function">fitnlm</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span><span class="token function">barrel</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span>logRef <span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">1.0</span> <span class="token number">1.0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 
-<span class="hljs-comment">% Logarithmic model</span>
+<span class="token comment">% Logarithmic model</span>
 
-<span class="hljs-comment">% s = 1.0;</span>
-<span class="hljs-comment">% lambda = 1.7;</span>
-s = logNlm.Coefficients.Estimate(<span class="hljs-number">1</span>);
-lambda = logNlm.Coefficients.Estimate(<span class="hljs-number">2</span>);
-logModel = @(x) s * <span class="hljs-built_in">log</span>(<span class="hljs-number">1</span> + lambda * x);
+<span class="token comment">% s = 1.0;</span>
+<span class="token comment">% lambda = 1.7;</span>
+s <span class="token operator">=</span> logNlm<span class="token punctuation">.</span>Coefficients<span class="token punctuation">.</span><span class="token function">Estimate</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+lambda <span class="token operator">=</span> logNlm<span class="token punctuation">.</span>Coefficients<span class="token punctuation">.</span><span class="token function">Estimate</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+logModel <span class="token operator">=</span> <span class="token operator">@</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> s <span class="token operator">*</span> <span class="token function">log</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">+</span> lambda <span class="token operator">*</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">% Polynomial model</span>
+<span class="token comment">% Polynomial model</span>
 
-pModel = @(b,x) b(<span class="hljs-number">1</span>) + b(<span class="hljs-number">2</span>) * x + b(<span class="hljs-number">3</span>) * x.^<span class="hljs-number">2</span> +
-                b(<span class="hljs-number">4</span>) * x.^<span class="hljs-number">3</span> + b(<span class="hljs-number">5</span>) * x.^<span class="hljs-number">4</span>;
-pNlm = fitnlm(x,logModel(x),pModel ,[<span class="hljs-number">0.5</span>; <span class="hljs-number">1.0</span>; <span class="hljs-number">0.01</span>; <span class="hljs-number">0.001</span>; <span class="hljs-number">0.0001</span>])
+pModel <span class="token operator">=</span> <span class="token operator">@</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span>x<span class="token punctuation">)</span> <span class="token function">b</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token function">b</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">*</span> x <span class="token operator">+</span> <span class="token function">b</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span> <span class="token operator">*</span> x<span class="token operator">.^</span><span class="token number">2</span> <span class="token operator">+</span>
+                <span class="token function">b</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token operator">*</span> x<span class="token operator">.^</span><span class="token number">3</span> <span class="token operator">+</span> <span class="token function">b</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token operator">*</span> x<span class="token operator">.^</span><span class="token number">4</span><span class="token punctuation">;</span>
+pNlm <span class="token operator">=</span> <span class="token function">fitnlm</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span><span class="token function">logModel</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span>pModel <span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">0.5</span><span class="token punctuation">;</span> <span class="token number">1.0</span><span class="token punctuation">;</span> <span class="token number">0.01</span><span class="token punctuation">;</span> <span class="token number">0.001</span><span class="token punctuation">;</span> <span class="token number">0.0001</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 
-<span class="hljs-comment">% Trigonometric model</span>
+<span class="token comment">% Trigonometric model</span>
 
-trigModel = @(b,x) <span class="hljs-built_in">tan</span>(b(<span class="hljs-number">1</span>) * x) / (<span class="hljs-number">2</span> * <span class="hljs-built_in">tan</span>(b(<span class="hljs-number">1</span>) / <span class="hljs-number">2</span>));
-trigNlm = fitnlm(x,logModel(x),trigModel ,[<span class="hljs-number">0.1</span>])
+trigModel <span class="token operator">=</span> <span class="token operator">@</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span>x<span class="token punctuation">)</span> <span class="token function">tan</span><span class="token punctuation">(</span><span class="token function">b</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> x<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token punctuation">(</span><span class="token number">2</span> <span class="token operator">*</span> <span class="token function">tan</span><span class="token punctuation">(</span><span class="token function">b</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+trigNlm <span class="token operator">=</span> <span class="token function">fitnlm</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span><span class="token function">logModel</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span>trigModel <span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">0.1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 
-<span class="hljs-comment">% Division model</span>
+<span class="token comment">% Division model</span>
 
-divNlm = fitnlm(x,logModel(x),divModel ,[<span class="hljs-number">1.0</span>])
+divNlm <span class="token operator">=</span> <span class="token function">fitnlm</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span><span class="token function">logModel</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span>divModel <span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">1.0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 
-<span class="hljs-comment">%% Pincushion distortion: r_u = f(r_d)</span>
+<span class="token comment">%% Pincushion distortion: r_u = f(r_d)</span>
 
-<span class="hljs-comment">% Reference</span>
-pincushion = @(r) <span class="hljs-built_in">abs</span>(-<span class="hljs-built_in">sqrt</span>(<span class="hljs-number">1.0</span> - <span class="hljs-number">2.0</span> * r) + <span class="hljs-number">1.0</span>);
+<span class="token comment">% Reference</span>
+pincushion <span class="token operator">=</span> <span class="token operator">@</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span> <span class="token function">abs</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token function">sqrt</span><span class="token punctuation">(</span><span class="token number">1.0</span> <span class="token operator">-</span> <span class="token number">2.0</span> <span class="token operator">*</span> r<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">% Exponential model</span>
-expModel = @(x) (<span class="hljs-built_in">exp</span>(x / s) - <span class="hljs-number">1</span>) / lambda;
+<span class="token comment">% Exponential model</span>
+expModel <span class="token operator">=</span> <span class="token operator">@</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token function">exp</span><span class="token punctuation">(</span>x <span class="token operator">/</span> s<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">/</span> lambda<span class="token punctuation">;</span>
 
-<span class="hljs-comment">% Polynomial model</span>
+<span class="token comment">% Polynomial model</span>
 
-pModelInv = @(b,x) x .* (<span class="hljs-number">1</span> + b(<span class="hljs-number">1</span>) * x.^<span class="hljs-number">2</span> + b(<span class="hljs-number">2</span>) * x.^<span class="hljs-number">4</span> +
-                         b(<span class="hljs-number">3</span>) * x.^<span class="hljs-number">6</span>);
-pNlmInv = fitnlm(x,expModel(x),pModelInv ,[<span class="hljs-number">1.0</span>; <span class="hljs-number">1.0</span>; <span class="hljs-number">1.0</span>])
+pModelInv <span class="token operator">=</span> <span class="token operator">@</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span>x<span class="token punctuation">)</span> x <span class="token operator">.*</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">+</span> <span class="token function">b</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> x<span class="token operator">.^</span><span class="token number">2</span> <span class="token operator">+</span> <span class="token function">b</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">*</span> x<span class="token operator">.^</span><span class="token number">4</span> <span class="token operator">+</span>
+                         <span class="token function">b</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span> <span class="token operator">*</span> x<span class="token operator">.^</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+pNlmInv <span class="token operator">=</span> <span class="token function">fitnlm</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span><span class="token function">expModel</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span>pModelInv <span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">1.0</span><span class="token punctuation">;</span> <span class="token number">1.0</span><span class="token punctuation">;</span> <span class="token number">1.0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 
-<span class="hljs-comment">% Trigonometric model</span>
+<span class="token comment">% Trigonometric model</span>
 
-omega = trigNlm.Coefficients.Estimate(<span class="hljs-number">1</span>);
-trigModelInv = @(x) <span class="hljs-number">1</span>/omega * <span class="hljs-built_in">atan</span>(<span class="hljs-number">2</span> * x * <span class="hljs-built_in">tan</span>(omega/<span class="hljs-number">2</span>));
+omega <span class="token operator">=</span> trigNlm<span class="token punctuation">.</span>Coefficients<span class="token punctuation">.</span><span class="token function">Estimate</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+trigModelInv <span class="token operator">=</span> <span class="token operator">@</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token number">1</span><span class="token operator">/</span>omega <span class="token operator">*</span> <span class="token function">atan</span><span class="token punctuation">(</span><span class="token number">2</span> <span class="token operator">*</span> x <span class="token operator">*</span> <span class="token function">tan</span><span class="token punctuation">(</span>omega<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">%% Plot models</span>
+<span class="token comment">%% Plot models</span>
 
-plot(x,x,x,barrel(x),x,pincushion(x),x,logModel(x),x,expModel(x),
-     x,predict(pNlm ,x),x,predict(pNlmInv ,x),x,predict(trigNlm ,x),
-     x,trigModelInv(x),x,predict(divNlm ,x));
-legend(<span class="hljs-string">'x'</span>,<span class="hljs-string">'barrel'</span>,<span class="hljs-string">'pincushion'</span>,<span class="hljs-string">'logModel'</span>,<span class="hljs-string">'expModel'</span>,<span class="hljs-string">'pModel'</span>,
-       <span class="hljs-string">'pModelInv'</span>,<span class="hljs-string">'trigModel'</span>,<span class="hljs-string">'trigModelInv'</span>,<span class="hljs-string">'divModel'</span>);
-axis([<span class="hljs-number">0.0</span> <span class="hljs-number">1.0</span> <span class="hljs-number">0.0</span> <span class="hljs-number">1.0</span>]);</code>
+<span class="token function">plot</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>x<span class="token punctuation">,</span>x<span class="token punctuation">,</span><span class="token function">barrel</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span>x<span class="token punctuation">,</span><span class="token function">pincushion</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span>x<span class="token punctuation">,</span><span class="token function">logModel</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span>x<span class="token punctuation">,</span><span class="token function">expModel</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span>
+     x<span class="token punctuation">,</span><span class="token function">predict</span><span class="token punctuation">(</span>pNlm <span class="token punctuation">,</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span>x<span class="token punctuation">,</span><span class="token function">predict</span><span class="token punctuation">(</span>pNlmInv <span class="token punctuation">,</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span>x<span class="token punctuation">,</span><span class="token function">predict</span><span class="token punctuation">(</span>trigNlm <span class="token punctuation">,</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span>
+     x<span class="token punctuation">,</span><span class="token function">trigModelInv</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span>x<span class="token punctuation">,</span><span class="token function">predict</span><span class="token punctuation">(</span>divNlm <span class="token punctuation">,</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">legend</span><span class="token punctuation">(</span><span class="token string">'x'</span><span class="token punctuation">,</span><span class="token string">'barrel'</span><span class="token punctuation">,</span><span class="token string">'pincushion'</span><span class="token punctuation">,</span><span class="token string">'logModel'</span><span class="token punctuation">,</span><span class="token string">'expModel'</span><span class="token punctuation">,</span><span class="token string">'pModel'</span><span class="token punctuation">,</span>
+       <span class="token string">'pModelInv'</span><span class="token punctuation">,</span><span class="token string">'trigModel'</span><span class="token punctuation">,</span><span class="token string">'trigModelInv'</span><span class="token punctuation">,</span><span class="token string">'divModel'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">axis</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0.0</span> <span class="token number">1.0</span> <span class="token number">0.0</span> <span class="token number">1.0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code>
 </pre>
 </div>
 </div>

@@ -11,8 +11,8 @@ var emoji = require('markdown-it-emoji');
 var mathjax = require('markdown-it-mathjax');
 var abbr = require('markdown-it-abbr');
 var container = require('markdown-it-container');
-var hljs = require('highlight.js');
 var _ = require('lodash');
+var prism = require('./prism');
 var preprocessor = require('./preprocessor');
 var Reference = require('./reference');
 var abbrev = require('./abbrev');
@@ -31,7 +31,7 @@ function markdown(str, opts) {
     references: Reference.extractReferencesFromMarkdown(str)
   });
   str = md.render(str, env);
-  str = markdown.highlightInline(str).trim();
+  // str = markdown.highlightInline(str).trim();
   if (opts && opts.inline && str.match(/^<p>/) && str.match(/<\/p>$/)) {
     str = str.substring(3, str.length - 4);
   }
@@ -51,36 +51,36 @@ markdown.env = function(env) {
   return env;
 };
 
-markdown.highlightBlock = function(str, lang) {
-  if (lang && hljs.getLanguage(lang)) {
-    try {
-      return hljs.highlight(lang, str, true).value;
-    } catch (__) {}
-  }
-  return '';
-};
+// markdown.highlightBlock = function(str, lang) {
+//   if (lang && hljs.getLanguage(lang)) {
+//     try {
+//       return hljs.highlight(lang, str, true).value;
+//     } catch (__) {}
+//   }
+//   return '';
+// };
 
-markdown.highlightInline = function(str) {
-  return util.dojQuery(str, function(body) {
-    body.find('code[class]').each(function() {
-      var code = $(this);
-      var pre = code.parent();
-      if (pre.prop('tagName') === 'PRE') {
-        return;
-      }
-      var lang = code.attr('class');
-      if (lang && hljs.getLanguage(lang)) {
-        try {
-          code.removeClass(lang);
-          code.addClass('language-' + lang);
-          var str = code.text().trim();
-          var html = hljs.highlight(lang, str, false).value;
-          code.html(html);
-        } catch (__) {}
-      }
-    });
-  });
-};
+// markdown.highlightInline = function(str) {
+//   return util.dojQuery(str, function(body) {
+//     body.find('code[class]').each(function() {
+//       var code = $(this);
+//       var pre = code.parent();
+//       if (pre.prop('tagName') === 'PRE') {
+//         return;
+//       }
+//       var lang = code.attr('class');
+//       if (lang && hljs.getLanguage(lang)) {
+//         try {
+//           code.removeClass(lang);
+//           code.addClass('language-' + lang);
+//           var str = code.text().trim();
+//           var html = hljs.highlight(lang, str, false).value;
+//           code.html(html);
+//         } catch (__) {}
+//       }
+//     });
+//   });
+// };
 
 markdown.defaults = {
   html: true, // Enable HTML tags in source
@@ -88,12 +88,12 @@ markdown.defaults = {
   linkify: true, // Autoconvert URL-like text to links
 
   // Enable some language-neutral replacement + quotes beautification
-  typographer: true,
+  typographer: true
 
   // Highlighter function. Should return escaped HTML,
   // or '' if the source string is not changed and should be escaped externally.
   // If result starts with <pre..., internal wrapper is skipped.
-  highlight: markdown.highlightBlock
+  // highlight: markdown.highlightBlock
 };
 
 markdown.options = function(opts) {
@@ -164,6 +164,7 @@ markdown.plugins = function(md, opts) {
     md = md.use(mathjax());
   }
   md = md.use(abbr);
+  md = md.use(prism);
   return md;
 };
 

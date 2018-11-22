@@ -39,7 +39,7 @@
 </ul>
 
 <ul class="nav nav-pills navbar-right">
-<li role="presentation"><a href="../../../../tmp/clipboard/" target="_blank" title="Kopier til Markdown"><i class="fa fa-clipboard"></i></a>
+<li role="presentation"><a href="../../../../tmp/clipboard/" target="_blank" title="Kopier til Markdown"><span class="clipboard-logo-grey"></span></a>
 </li>
 
 <li role="presentation"><a href="https://github.com/epsil/epsil.github.io/blob/master/blog/2010/11/14/index.md" target="_blank" title="Vis p&#229; GitHub"><i class="fa fa-github"></i></a>
@@ -48,7 +48,7 @@
 <li role="presentation"><a href="https://github.com/epsil/epsil.github.io/edit/master/blog/2010/11/14/index.md" target="_blank" title="Rediger p&#229; GitHub"><i class="fa fa-edit"></i></a>
 </li>
 
-<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/raw/master/blog/2010/11/14/index.md" target="_blank" title="Vis Markdown-kilde"><i class="fa fa-download"></i></a>
+<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/raw/master/blog/2010/11/14/index.md" target="_blank" title="Vis Markdown-kilde" type="text/plain"><span class="markdown-logo-grey"></span></a>
 </li>
 
 <li role="presentation"><a data-toggle="collapse" href="#toc" id="toc-button" title="Innhold"><i class="fa fa-list"></i></a>
@@ -75,11 +75,18 @@
 
 <article class="h-entry" id="main">
 <header>
-<h1 class="p-name"><a class="u-uid u-url" href="https://epsil.github.io/blog/2010/11/14/" rel="bookmark" target="_blank" title="Permalink">Bruke <span class="code"><code id="grep-3">grep</code></span> og <span class="code"><code id="find-3">find</code></span></a>
+<h1 class="p-name"><a class="u-uid u-url" href="https://epsil.github.io/blog/2010/11/14/" rel="bookmark" target="_blank" title="Permalink">
+<p>Bruke <span class="code"><code id="grep-3">grep</code></span> og <span class="code"><code id="find-3">find</code></span></p></a>
 </h1>
 
-<p class="author"><a class="p-author h-card" href="https://epsil.github.io/" target="_blank" title="Open epsil.github.io in a new window">Vegard &#216;ye</a> &#8226; <time class="dt-published" datetime="2010-11-14">2010-11-14</time></p>
-</header>
+<p class="author"><a class="p-author h-card" href="https://epsil.github.io/" target="_blank" title="Open epsil.github.io in a new window"></a>
+</p>
+
+<p><a class="p-author h-card" href="https://epsil.github.io/" target="_blank" title="Open epsil.github.io in a new window">Vegard &#216;ye</a>
+</p>
+<a class="p-author h-card" href="https://epsil.github.io/" target="_blank" title="Open epsil.github.io in a new window"></a> &#8226; <time class="dt-published" datetime="2010-11-14">2010-11-14</time>
+<p>
+</p></header>
 
 <section class="e-content sidenotes">
 <section id="grep">
@@ -90,16 +97,16 @@
 <p>For &#229; s&#248;ke i filenes <em>innhold</em>, kan man bruke <span class="code"><code id="grep-5">grep</code></span>:</p>
 
 <div class="pre">
-<pre id="grep-ri-test">
-<code class="language-bash">grep -Ri <span class="hljs-string">"test"</span> .</code>
+<pre class="language-bash" id="grep-ri-test">
+<code class="language-bash"><span class="token function">grep</span> -Ri <span class="token string">"test"</span> <span class="token keyword">.</span></code>
 </pre>
 </div>
 
 <p>Dette s&#248;ker rekursivt (<span class="code"><code id="r">-R</code></span>) og case-insensitivt (<span class="code"><code id="i-3">-i</code></span>) etter teksten <span class="code"><code id="test">"test"</code></span> i den gjeldende mappen (<span class="code"><code id="n-6">.</code></span>). Hvis man <em>bare</em> vil s&#248;ke i, si, <span class="code"><code id="txt">.txt</code></span>-filer, kan man bruke <span class="code"><code id="include">--include</code></span>-opsjonen:</p>
 
 <div class="pre">
-<pre id="grep-ri-includetxt-test">
-<code class="language-bash">grep -Ri --include=<span class="hljs-string">"*.txt"</span> <span class="hljs-string">"test"</span> .</code>
+<pre class="language-bash" id="grep-ri-includetxt-test">
+<code class="language-bash"><span class="token function">grep</span> -Ri --include<span class="token operator">=</span><span class="token string">"*.txt"</span> <span class="token string">"test"</span> <span class="token keyword">.</span></code>
 </pre>
 </div>
 
@@ -116,17 +123,17 @@
 <p>For &#229; s&#248;ke i filenes <em>filnavn</em>, kan man bruke <span class="code"><code id="find-5">find</code></span>. Merk at hvis man skal bruke <span class="code"><code id="find-6">find</code></span> sammen med <abbr title="for eksempel">f.eks.</abbr> <span class="code"><code id="rm">rm</code></span> p&#229; filnavn som inneholder mellomrom, m&#229; man ta visse <a href="http://stackoverflow.com/questions/9612090/how-to-loop-through-file-names-returned-by-find#9612232" target="_blank" title="Open stackoverflow.com in a new window">forh&#229;ndsregler</a>. Den mest opplagte besvergelsen ville v&#230;re:</p>
 
 <div class="pre">
-<pre id="find-name-pattern-xargs-rm">
-<code class="language-bash">find . -name &lt;PATTERN&gt; | xargs rm</code>
+<pre class="language-bash" id="find-name-pattern-xargs-rm">
+<code class="language-bash"><span class="token function">find</span> <span class="token keyword">.</span> -name <span class="token operator">&lt;</span><span class="caps">PATTERN</span><span class="token operator">&gt;</span> <span class="token operator">|</span> <span class="token function">xargs</span> <span class="token function">rm</span></code>
 </pre>
 </div>
 
 <p>Men dette fungerer alts&#229; bare p&#229; filnavn uten mellomrom. For mer kronglete filer m&#229; man bruke en av disse:</p>
 
 <div class="pre">
-<pre id="find-name-pattern-exec-rm-find-name-pattern-print0-xargs-0-rm">
-<code class="language-bash">find . -name &lt;PATTERN&gt; -<span class="hljs-built_in">exec</span> rm {} \;
-find . -name &lt;<span class="caps">PATTERN</span>&gt; -print0 | xargs -0 rm</code>
+<pre class="language-bash" id="find-name-pattern-exec-rm-find-name-pattern-print0-xargs-0-rm">
+<code class="language-bash"><span class="token function">find</span> <span class="token keyword">.</span> -name <span class="token operator">&lt;</span><span class="caps">PATTERN</span><span class="token operator">&gt;</span> -exec <span class="token function">rm</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> \<span class="token punctuation">;</span>
+<span class="token function">find</span> <span class="token keyword">.</span> -name <span class="token operator">&lt;</span><span class="caps">PATTERN</span><span class="token operator">&gt;</span> -print0 <span class="token operator">|</span> <span class="token function">xargs</span> -0 <span class="token function">rm</span></code>
 </pre>
 </div>
 

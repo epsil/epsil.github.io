@@ -39,7 +39,7 @@
 </ul>
 
 <ul class="nav nav-pills navbar-right">
-<li role="presentation"><a href="../../../../tmp/clipboard/" target="_blank" title="Kopier til Markdown"><i class="fa fa-clipboard"></i></a>
+<li role="presentation"><a href="../../../../tmp/clipboard/" target="_blank" title="Kopier til Markdown"><span class="clipboard-logo-grey"></span></a>
 </li>
 
 <li role="presentation"><a href="https://github.com/epsil/epsil.github.io/blob/master/blog/2007/11/26/index.md" target="_blank" title="Vis p&#229; GitHub"><i class="fa fa-github"></i></a>
@@ -48,7 +48,7 @@
 <li role="presentation"><a href="https://github.com/epsil/epsil.github.io/edit/master/blog/2007/11/26/index.md" target="_blank" title="Rediger p&#229; GitHub"><i class="fa fa-edit"></i></a>
 </li>
 
-<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/raw/master/blog/2007/11/26/index.md" target="_blank" title="Vis Markdown-kilde"><i class="fa fa-download"></i></a>
+<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/raw/master/blog/2007/11/26/index.md" target="_blank" title="Vis Markdown-kilde" type="text/plain"><span class="markdown-logo-grey"></span></a>
 </li>
 
 <li role="presentation"><a data-toggle="collapse" href="#toc" id="toc-button" title="Innhold"><i class="fa fa-list"></i></a>
@@ -87,11 +87,18 @@
 
 <article class="h-entry" id="main">
 <header>
-<h1 class="p-name"><a class="u-uid u-url" href="https://epsil.github.io/blog/2007/11/26/" rel="bookmark" target="_blank" title="Permalink">Fordeler med Emacs</a>
+<h1 class="p-name"><a class="u-uid u-url" href="https://epsil.github.io/blog/2007/11/26/" rel="bookmark" target="_blank" title="Permalink">
+<p>Fordeler med Emacs</p></a>
 </h1>
 
-<p class="author"><a class="p-author h-card" href="https://epsil.github.io/" target="_blank" title="Open epsil.github.io in a new window">Vegard &#216;ye</a> &#8226; <time class="dt-published" datetime="2007-11-26">2007-11-26</time></p>
-</header>
+<p class="author"><a class="p-author h-card" href="https://epsil.github.io/" target="_blank" title="Open epsil.github.io in a new window"></a>
+</p>
+
+<p><a class="p-author h-card" href="https://epsil.github.io/" target="_blank" title="Open epsil.github.io in a new window">Vegard &#216;ye</a>
+</p>
+<a class="p-author h-card" href="https://epsil.github.io/" target="_blank" title="Open epsil.github.io in a new window"></a> &#8226; <time class="dt-published" datetime="2007-11-26">2007-11-26</time>
+<p>
+</p></header>
 
 <section class="e-content sidenotes">
 <section>
@@ -153,25 +160,25 @@
 <h2><a aria-hidden="true" class="header-anchor" href="#automatisk-innrykk" title="Automatisk innrykk"></a>Automatisk innrykk<a aria-controls="automatisk-innrykk-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#automatisk-innrykk-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h2>
 
 <div class="collapse in" id="automatisk-innrykk-section">
-<p>N&#229;r vi er inne p&#229; innrykk: En av de <em>virkelig</em> uunnv&#230;rlige funksjonene til Emacs i programmeringssammenheng er dens automatiske innrykking, og da tenker jeg ikke p&#229; de &#171;forsiktige forslagene&#187; som andre editorer som regel kommer med. Det de fleste editorer gj&#248;r kan beskrives slik: Dersom det siste tegnet p&#229; den gjeldende linjen <abbr title="for eksempel">f.eks.</abbr> er en <span class="code"><code class="language-cpp" id="n-3">{</code></span> og man trykker <kbd title="Enter">&#8629;</kbd>, vil den neste linjen rykkes inn med en tabulator, to mellomrom eller fire mellomrom ekstra, alt ettersom. Dersom det siste tegnet <em>ikke</em> er et slikt spesialtegn, f&#229;r den neste linjen det samme innrykket som den forrige. Alts&#229;: Innrykket &#171;deles ut&#187; n&#229;r brukeren taster <kbd title="Enter">&#8629;</kbd>.</p>
+<p>N&#229;r vi er inne p&#229; innrykk: En av de <em>virkelig</em> uunnv&#230;rlige funksjonene til Emacs i programmeringssammenheng er dens automatiske innrykking, og da tenker jeg ikke p&#229; de &#171;forsiktige forslagene&#187; som andre editorer som regel kommer med. Det de fleste editorer gj&#248;r kan beskrives slik: Dersom det siste tegnet p&#229; den gjeldende linjen <abbr title="for eksempel">f.eks.</abbr> er en <span class="code"><code class="cpp" id="n-3">{</code></span> og man trykker <kbd title="Enter">&#8629;</kbd>, vil den neste linjen rykkes inn med en tabulator, to mellomrom eller fire mellomrom ekstra, alt ettersom. Dersom det siste tegnet <em>ikke</em> er et slikt spesialtegn, f&#229;r den neste linjen det samme innrykket som den forrige. Alts&#229;: Innrykket &#171;deles ut&#187; n&#229;r brukeren taster <kbd title="Enter">&#8629;</kbd>.</p>
 
-<p>I og for seg er dette en ressursbesparende og elegant m&#229;te &#229; h&#229;ndtere innrykk p&#229;. Men den har en svakhet: Man kan ikke be linjen om &#229; se p&#229; linjen over seg, som <abbr title="for eksempel">f.eks.</abbr> slutter med en <span class="code"><code class="language-cpp" id="n-4">{</code></span>, og rykke inn seg selv tilsvarende. Det ekstra innrykket linjen har, fikk den da brukeren tastet <kbd title="Enter">&#8629;</kbd> &#8211; og hvis brukeren gjorde noe annet smart, som &#229; bruke piltastene i stedet, s&#229; f&#229;r ikke linjen riktig innrykk. Det f&#229;r ikke de etterf&#248;lgende linjene heller, siden de &#171;etteraper&#187; hverandre og dermed ender opp med det samme, feilaktige innrykket som den f&#248;rste linjen. Vel, s&#229; lenge man gj&#248;r det editoren &#171;vil&#187; man skal gj&#248;re, alts&#229; trykke <kbd title="Enter">&#8629;</kbd>, g&#229;r ting stort sett greit. Men n&#229;r man begynner &#229; kopiere og lime inn kode, kan problemer oppst&#229;.</p>
+<p>I og for seg er dette en ressursbesparende og elegant m&#229;te &#229; h&#229;ndtere innrykk p&#229;. Men den har en svakhet: Man kan ikke be linjen om &#229; se p&#229; linjen over seg, som <abbr title="for eksempel">f.eks.</abbr> slutter med en <span class="code"><code class="cpp" id="n-4">{</code></span>, og rykke inn seg selv tilsvarende. Det ekstra innrykket linjen har, fikk den da brukeren tastet <kbd title="Enter">&#8629;</kbd> &#8211; og hvis brukeren gjorde noe annet smart, som &#229; bruke piltastene i stedet, s&#229; f&#229;r ikke linjen riktig innrykk. Det f&#229;r ikke de etterf&#248;lgende linjene heller, siden de &#171;etteraper&#187; hverandre og dermed ender opp med det samme, feilaktige innrykket som den f&#248;rste linjen. Vel, s&#229; lenge man gj&#248;r det editoren &#171;vil&#187; man skal gj&#248;re, alts&#229; trykke <kbd title="Enter">&#8629;</kbd>, g&#229;r ting stort sett greit. Men n&#229;r man begynner &#229; kopiere og lime inn kode, kan problemer oppst&#229;.</p>
 
 <p>Dette er et problem. Det <em>siste</em> i hvert fall jeg vil bruke mye tid p&#229; n&#229;r jeg sitter og koder, er &#229; rette opp i innrykkene til koden. <em>Hvis</em> det blir n&#248;dvendig &#229; ordne innrykket til linjen man befinner seg p&#229;, s&#229; b&#248;r det kunne gj&#248;res med <em>ett</em> enkelt tastetrykk &#8211; <abbr title="det vil si">dvs.</abbr> uten &#229; sette inn det riktige antall tabulatorer eller mellomrom <em>selv</em>.</p>
 
 <p>Emacs har en slik tast: <kbd title="Tab">&#8633;</kbd>. Denne tasten setter <em>ikke</em> inn en tabulator ved mark&#248;ren (selv om man naturligvis kan gj&#248;re d&#233;t hvis man har behov for det), men rykker inn linjen mark&#248;ren befinner seg p&#229; med utgangspunkt i den foreg&#229;ende linjen. Det vil si at dersom man roter til innrykket til linjen man befinner seg p&#229;, kan man trykke <kbd title="Tab">&#8633;</kbd> for &#229; komme tilbake til &#171;riktig&#187; innrykk. Dette <em>kunne</em> ha v&#230;rt katastrofalt dersom brukeren og Emacs hadde ulike meninger om hva som utgj&#248;r &#171;riktig&#187; innrykk, men innrykkingsrutinen i Emacs er <em>gjennomtenkt</em> (og konfigurerbar). Se <abbr title="for eksempel">f.eks.</abbr> p&#229; f&#248;lgende C+&#177;kode:</p>
 
 <div class="pre">
-<pre id="iffoo-bar-baz-quux-cout-foo-bar-baz-quux">
-<code class="language-cpp"><span class="hljs-keyword">if</span>(foo == <span class="hljs-string">"bar"</span> &amp;&amp;
-   baz == <span class="hljs-string">"quux"</span>) {
-  <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"foo, bar, "</span>
-       &lt;&lt; <span class="hljs-string">"baz, quux"</span>;
-}</code>
+<pre class="language-cpp" id="iffoo-bar-baz-quux-cout-foo-bar-baz-quux">
+<code class="language-cpp"><span class="token keyword">if</span><span class="token punctuation">(</span>foo <span class="token operator">==</span> <span class="token string">"bar"</span> <span class="token operator">&amp;&amp;</span>
+   baz <span class="token operator">==</span> <span class="token string">"quux"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  cout <span class="token operator">&lt;&lt;</span> <span class="token string">"foo, bar, "</span>
+       <span class="token operator">&lt;&lt;</span> <span class="token string">"baz, quux"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code>
 </pre>
 </div>
 
-<p>Her rykkes innholdet i <span class="code"><code class="language-cpp" id="if"><span class="hljs-keyword">if</span></code></span>-setningen inn, og den smarte h&#229;ndteringen av str&#248;moperatoren (<span class="code"><code class="language-cpp" id="n-5">&lt;&lt;</code></span>) gj&#248;r det uproblematisk &#229; &#171;<span class="code"><code class="language-cpp" id="cout"><span class="hljs-built_in">cout</span></code></span>-e&#187; tekst som g&#229;r over mer enn en linje. For &#248;vrig har Emacs ogs&#229; en kommando som ordner innrykket til alle linjene i det markerte omr&#229;det.</p>
+<p>Her rykkes innholdet i <span class="code"><code class="cpp" id="if">if</code></span>-setningen inn, og den smarte h&#229;ndteringen av str&#248;moperatoren (<span class="code"><code class="cpp" id="n-5">&lt;&lt;</code></span>) gj&#248;r det uproblematisk &#229; &#171;<span class="code"><code class="cpp" id="cout">cout</code></span>-e&#187; tekst som g&#229;r over mer enn en linje. For &#248;vrig har Emacs ogs&#229; en kommando som ordner innrykket til alle linjene i det markerte omr&#229;det.</p>
 </div>
 </section>
 

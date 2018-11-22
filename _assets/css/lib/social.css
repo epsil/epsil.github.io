@@ -84,6 +84,10 @@
 .e-content a[href*="docs/"]:before,
 .e-content a[href*="documentation."]:before,
 .e-content a[href*="documentation/"]:before,
+.e-content a[href*="tutorial."]:before,
+.e-content a[href*="tutorial/"]:before,
+.e-content a[href*="tutorials."]:before,
+.e-content a[href*="tutorials/"]:before,
 .e-content a[href*="manual."]:before,
 .e-content a[href*="manual/"]:before,
 .e-content a[href*="help."]:before,
@@ -226,6 +230,7 @@
 }
 
 /* GitHub*/
+.e-content a[href*="git."]:before,
 .e-content a[href*="github.com"]:before,
 .e-content a[href*="github.io"]:before {
     content: "\f09b"; /* fa-github */
@@ -453,9 +458,12 @@
 
 .e-content a[href*="imgur.com"]:before,
 .e-content a[href$=".bmp"]:before,
+.e-content a[href$=".eps"]:before,
 .e-content a[href$=".jpg"]:before,
 .e-content a[href$=".jpeg"]:before,
-.e-content a[href$=".png"]:before {
+.e-content a[href$=".png"]:before,
+.e-content a[href$=".svg"]:before,
+.e-content a[href$=".tiff"]:before {
     content: "\f1c5"; /* fa-file-image-o */
 }
 

@@ -22,6 +22,7 @@ page.root = function() {
 page.path = function() {
   var base = page.root();
   var href = window.location.href;
+  href = href.replace(/#[^#]*$/, '');
   href = href.replace(/[^/]*.html?$/i, '');
   return '/' + href.replace(base, '');
 };

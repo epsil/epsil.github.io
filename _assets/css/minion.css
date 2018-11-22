@@ -15,7 +15,7 @@ samp,
 tt,
 pre {
     font-family: "Consolas Web", Consolas, Menlo, Monaco, "Liberation Mono",
-        "Latin Modern Mono", Courier, monospace !important;
+        "Fira Mono", "Latin Modern Mono", Courier, monospace !important;
     font-size: 0.7em !important;
 }
 

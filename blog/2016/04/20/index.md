@@ -4,7 +4,10 @@ abstract: How to run Bash scripts from Windows' command prompt and extend it wit
 date: 2016-04-20
 cover-image: tron.jpg
 lang: en
-stylesheet: style.css
+stylesheet:
+  - /_assets/css/stix.css
+  - /_assets/css/blue.css
+  - style.css
 ---
 
 The following setup allows one to run Bash scripts from Windows' command prompt. It also augments it with common Unix commands like `cp`, `rm` and `mv`, which is useful if these are ingrained into muscle memory.

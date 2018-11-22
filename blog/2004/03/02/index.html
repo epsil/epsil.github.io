@@ -39,7 +39,7 @@
 </ul>
 
 <ul class="nav nav-pills navbar-right">
-<li role="presentation"><a href="../../../../tmp/clipboard/" target="_blank" title="Kopier til Markdown"><i class="fa fa-clipboard"></i></a>
+<li role="presentation"><a href="../../../../tmp/clipboard/" target="_blank" title="Kopier til Markdown"><span class="clipboard-logo-grey"></span></a>
 </li>
 
 <li role="presentation"><a href="https://github.com/epsil/epsil.github.io/blob/master/blog/2004/03/02/index.md" target="_blank" title="Vis p&#229; GitHub"><i class="fa fa-github"></i></a>
@@ -48,7 +48,7 @@
 <li role="presentation"><a href="https://github.com/epsil/epsil.github.io/edit/master/blog/2004/03/02/index.md" target="_blank" title="Rediger p&#229; GitHub"><i class="fa fa-edit"></i></a>
 </li>
 
-<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/raw/master/blog/2004/03/02/index.md" target="_blank" title="Vis Markdown-kilde"><i class="fa fa-download"></i></a>
+<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/raw/master/blog/2004/03/02/index.md" target="_blank" title="Vis Markdown-kilde" type="text/plain"><span class="markdown-logo-grey"></span></a>
 </li>
 
 <li role="presentation"><a data-toggle="collapse" href="#toc" id="toc-button" title="Innhold"><i class="fa fa-list"></i></a>
@@ -88,11 +88,18 @@
 
 <article class="h-entry" id="main">
 <header>
-<h1 class="p-name"><a class="u-uid u-url" href="https://epsil.github.io/blog/2004/03/02/" rel="bookmark" target="_blank" title="Permalink">Hvorfor unng&#229; egendefinerte rullefelt</a>
+<h1 class="p-name"><a class="u-uid u-url" href="https://epsil.github.io/blog/2004/03/02/" rel="bookmark" target="_blank" title="Permalink">
+<p>Hvorfor unng&#229; egendefinerte rullefelt</p></a>
 </h1>
 
-<p class="author"><a class="p-author h-card" href="https://epsil.github.io/" target="_blank" title="Open epsil.github.io in a new window">Vegard &#216;ye</a> &#8226; <time class="dt-published" datetime="2004-03-02">2004-03-02</time></p>
-</header>
+<p class="author"><a class="p-author h-card" href="https://epsil.github.io/" target="_blank" title="Open epsil.github.io in a new window"></a>
+</p>
+
+<p><a class="p-author h-card" href="https://epsil.github.io/" target="_blank" title="Open epsil.github.io in a new window">Vegard &#216;ye</a>
+</p>
+<a class="p-author h-card" href="https://epsil.github.io/" target="_blank" title="Open epsil.github.io in a new window"></a> &#8226; <time class="dt-published" datetime="2004-03-02">2004-03-02</time>
+<p>
+</p></header>
 
 <section class="e-content sidenotes">
 <section>
@@ -117,7 +124,7 @@
 <p>N&#229;r en nettside er for h&#248;y eller bred til &#229; f&#229; plass innenfor visningsomr&#229;det, skal nettleseren tilby en mekanisme som lar brukeren bestemme hvilket utsnitt av siden som skal vises &#8211; vanligvis ved hjelp av s&#229;kalt rulling eller &#171;scrolling&#187;.</p>
 
 <blockquote>
-<p><strong>Merk at <a href="http://www.w3.org/TR/CSS21/" target="_blank" title="Open w3.org in a new window"><abbr class="acronym" title="Cascading Style Sheets"><span class="caps">CSS</span></abbr> 2.1-spesifikasjonen</a> ikke sier noe om hva slags mekanisme som skal tas i bruk for &#229; rulle p&#229; en gitt plattform. Ved &#229; sette <a href="http://www.w3.org/TR/CSS21/visufx.html#propdef-overflow" target="_blank" title="Open w3.org in a new window"><span class="code"><code class="language-css" id="overflow"><span class="hljs-selector-tag">overflow</span></code></span></a>-egenskapen til verdien <span class="code"><code class="language-css" id="scroll"><span class="hljs-selector-tag">scroll</span></code></span> angir man riktignok rulling, men man har ikke sagt noe konkret om hvordan denne rullingen skal muliggj&#248;res rent praktisk. Rullefelt er her &#233;n mulig styringsmekanisme &#8211; piltaster og musehjul er andre.</strong>
+<p><strong>Merk at <a href="http://www.w3.org/TR/CSS21/" target="_blank" title="Open w3.org in a new window"><abbr class="acronym" title="Cascading Style Sheets"><span class="caps">CSS</span></abbr> 2.1-spesifikasjonen</a> ikke sier noe om hva slags mekanisme som skal tas i bruk for &#229; rulle p&#229; en gitt plattform. Ved &#229; sette <a href="http://www.w3.org/TR/CSS21/visufx.html#propdef-overflow" target="_blank" title="Open w3.org in a new window"><span class="code"><code class="css" id="overflow">overflow</code></span></a>-egenskapen til verdien <span class="code"><code class="css" id="scroll">scroll</code></span> angir man riktignok rulling, men man har ikke sagt noe konkret om hvordan denne rullingen skal muliggj&#248;res rent praktisk. Rullefelt er her &#233;n mulig styringsmekanisme &#8211; piltaster og musehjul er andre.</strong>
 </p>
 </blockquote>
 </div>
@@ -132,19 +139,19 @@
 <p>Egenskapene det er snakk om, er disse:</p>
 
 <ul class="collapse in">
-<li id="scrollbar-3dlight-color-item"><a aria-controls="scrollbar-3dlight-color-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#scrollbar-3dlight-color-item-section" role="button"></a><span class="code"><code class="language-css" id="scrollbar-3dlight-color"><span class="hljs-selector-tag">scrollbar-3dlight-color</span></code></span><span class="collapse in" id="scrollbar-3dlight-color-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+<li id="scrollbar-3dlight-color-item"><a aria-controls="scrollbar-3dlight-color-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#scrollbar-3dlight-color-item-section" role="button"></a><span class="code"><code class="css" id="scrollbar-3dlight-color">scrollbar-3dlight-color</code></span><span class="collapse in" id="scrollbar-3dlight-color-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
 
-<li id="scrollbar-arrow-color-item"><a aria-controls="scrollbar-arrow-color-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#scrollbar-arrow-color-item-section" role="button"></a><span class="code"><code class="language-css" id="scrollbar-arrow-color"><span class="hljs-selector-tag">scrollbar-arrow-color</span></code></span><span class="collapse in" id="scrollbar-arrow-color-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+<li id="scrollbar-arrow-color-item"><a aria-controls="scrollbar-arrow-color-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#scrollbar-arrow-color-item-section" role="button"></a><span class="code"><code class="css" id="scrollbar-arrow-color">scrollbar-arrow-color</code></span><span class="collapse in" id="scrollbar-arrow-color-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
 
-<li id="scrollbar-base-color-item"><a aria-controls="scrollbar-base-color-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#scrollbar-base-color-item-section" role="button"></a><span class="code"><code class="language-css" id="scrollbar-base-color"><span class="hljs-selector-tag">scrollbar-base-color</span></code></span><span class="collapse in" id="scrollbar-base-color-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+<li id="scrollbar-base-color-item"><a aria-controls="scrollbar-base-color-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#scrollbar-base-color-item-section" role="button"></a><span class="code"><code class="css" id="scrollbar-base-color">scrollbar-base-color</code></span><span class="collapse in" id="scrollbar-base-color-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
 
-<li id="scrollbar-darkshadow-color-item"><a aria-controls="scrollbar-darkshadow-color-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#scrollbar-darkshadow-color-item-section" role="button"></a><span class="code"><code class="language-css" id="scrollbar-darkshadow-color"><span class="hljs-selector-tag">scrollbar-darkshadow-color</span></code></span><span class="collapse in" id="scrollbar-darkshadow-color-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+<li id="scrollbar-darkshadow-color-item"><a aria-controls="scrollbar-darkshadow-color-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#scrollbar-darkshadow-color-item-section" role="button"></a><span class="code"><code class="css" id="scrollbar-darkshadow-color">scrollbar-darkshadow-color</code></span><span class="collapse in" id="scrollbar-darkshadow-color-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
 
-<li id="scrollbar-face-color-item"><a aria-controls="scrollbar-face-color-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#scrollbar-face-color-item-section" role="button"></a><span class="code"><code class="language-css" id="scrollbar-face-color"><span class="hljs-selector-tag">scrollbar-face-color</span></code></span><span class="collapse in" id="scrollbar-face-color-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+<li id="scrollbar-face-color-item"><a aria-controls="scrollbar-face-color-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#scrollbar-face-color-item-section" role="button"></a><span class="code"><code class="css" id="scrollbar-face-color">scrollbar-face-color</code></span><span class="collapse in" id="scrollbar-face-color-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
 
-<li id="scrollbar-highlight-color-item"><a aria-controls="scrollbar-highlight-color-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#scrollbar-highlight-color-item-section" role="button"></a><span class="code"><code class="language-css" id="scrollbar-highlight-color"><span class="hljs-selector-tag">scrollbar-highlight-color</span></code></span><span class="collapse in" id="scrollbar-highlight-color-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+<li id="scrollbar-highlight-color-item"><a aria-controls="scrollbar-highlight-color-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#scrollbar-highlight-color-item-section" role="button"></a><span class="code"><code class="css" id="scrollbar-highlight-color">scrollbar-highlight-color</code></span><span class="collapse in" id="scrollbar-highlight-color-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
 
-<li id="scrollbar-shadow-color-item"><a aria-controls="scrollbar-shadow-color-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#scrollbar-shadow-color-item-section" role="button"></a><span class="code"><code class="language-css" id="scrollbar-shadow-color"><span class="hljs-selector-tag">scrollbar-shadow-color</span></code></span><span class="collapse in" id="scrollbar-shadow-color-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+<li id="scrollbar-shadow-color-item"><a aria-controls="scrollbar-shadow-color-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#scrollbar-shadow-color-item-section" role="button"></a><span class="code"><code class="css" id="scrollbar-shadow-color">scrollbar-shadow-color</code></span><span class="collapse in" id="scrollbar-shadow-color-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
 </ul>
 
 <p>&#197; bruke disse egenskapene resulterer ikke bare i et brudd p&#229; standardene, men gir deg ironisk nok ogs&#229; <em>mindre</em> kontroll over nettsidens framtreden. Utvidelsene er nemlig bare st&#248;ttet i et f&#229;tall nettlesere, og er i tillegg praktisk talt umulig &#229; implementere p&#229; mange plattformer. Utformer man sidene sine rundt det premisset at rullefeltenes utseende m&#229; f&#248;lge stilen p&#229; siden, er man alts&#229; <em>garantert</em> at designet vil sl&#229; sprekker p&#229; flesteparten av plattformene, der utvidelsene ikke st&#248;ttes!</p>
@@ -194,7 +201,7 @@
 <figcaption>Figur 4. Rulling innenfor visningsomr&#229;det. Fra 2Advanced Studios.</figcaption>
 </figure>
 
-<p>Til slutt kommer noen ord om rulling innenfor visningsomr&#229;det, eller &#171;inline scrolling&#187; som det gjerne heter i sjargongen. Det er alts&#229; snakk om at deler av nettsiden er utstyrt med egne mekanismer for rulling, enten det skyldes bruk av <a href="http://www.unrealized.org/les_guide/html/unnga_frames/" target="_blank" title="Open unrealized.org in a new window">rammer</a> (&#171;frames&#187;), <abbr class="acronym" title="Cascading Style Sheets"><span class="caps">CSS</span></abbr>-egenskapen <span class="code"><code class="language-css" id="overflow-2"><span class="hljs-selector-tag">overflow</span></code></span> eller Flash. Ogs&#229; dette gj&#248;r sidene vanskeligere &#229; bruke, av navigeringsmessige &#229;rsaker. Slike sideelementer krever stort sett at man velger dem med pekeren, og dermed &#248;kes klikkingen betraktelig. Samtidig &#248;kes ogs&#229; risikoen for <em>feilklikking</em>, fordi rullefeltene ofte befinner seg side om side med lenker og andre interaktive elementer. S&#230;rlig for folk som bruker styreplate, er det praktisk at klikkingen reduseres til et minimum.</p>
+<p>Til slutt kommer noen ord om rulling innenfor visningsomr&#229;det, eller &#171;inline scrolling&#187; som det gjerne heter i sjargongen. Det er alts&#229; snakk om at deler av nettsiden er utstyrt med egne mekanismer for rulling, enten det skyldes bruk av <a href="http://www.unrealized.org/les_guide/html/unnga_frames/" target="_blank" title="Open unrealized.org in a new window">rammer</a> (&#171;frames&#187;), <abbr class="acronym" title="Cascading Style Sheets"><span class="caps">CSS</span></abbr>-egenskapen <span class="code"><code class="css" id="overflow-2">overflow</code></span> eller Flash. Ogs&#229; dette gj&#248;r sidene vanskeligere &#229; bruke, av navigeringsmessige &#229;rsaker. Slike sideelementer krever stort sett at man velger dem med pekeren, og dermed &#248;kes klikkingen betraktelig. Samtidig &#248;kes ogs&#229; risikoen for <em>feilklikking</em>, fordi rullefeltene ofte befinner seg side om side med lenker og andre interaktive elementer. S&#230;rlig for folk som bruker styreplate, er det praktisk at klikkingen reduseres til et minimum.</p>
 
 <p>I tillegg er det bare mulig &#229; rulle ett element om gangen, noe som betyr at det ikke er mulig &#229; rulle hele siden (visningsomr&#229;det) med piltastene eller musehjulet n&#229;r et sideelement er valgt. For &#229; g&#229; tilbake til &#229; rulle hele nettsiden, m&#229; man alts&#229; bruke pekeren enda en gang for &#229; velge rullefeltene til visningsomr&#229;det. Derfor b&#248;r rulling innenfor visningsomr&#229;det brukes sparsommelig, fordi det medf&#248;rer et avbrudd i den tradisjonelle m&#229;ten &#229; navigere p&#229;.</p>
 </section>
