@@ -79,7 +79,7 @@ require('prismjs/components/prism-jsx.js');
 // require('prismjs/components/prism-lolcode.js');
 // require('prismjs/components/prism-lua.js');
 // require('prismjs/components/prism-makefile.js');
-// require('prismjs/components/prism-markdown.js');
+require('prismjs/components/prism-markdown.js');
 // require('prismjs/components/prism-markup-templating.js');
 // require('prismjs/components/prism-markup.js');
 // require('prismjs/components/prism-matlab.js');

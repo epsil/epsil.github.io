@@ -2,6 +2,7 @@
 title: Spesielle tall i matematikken
 date: 2002-06-03
 mathjax: true
+stylesheet: /_assets/css/palatino.css
 ---
 
 Fra de tidligste tider har menneskene lagt merke til geometriske former i naturen. Grekerne gjorde geometrien til en formell vitenskap med presise definisjoner og regler ca. år 300 f.Kr. Hovedårsaken til dette var at tallæren hadde gitt opphav til selvmotsigelser og paradokser, og derfor ble ansett som utilstrekkelig på mange områder.

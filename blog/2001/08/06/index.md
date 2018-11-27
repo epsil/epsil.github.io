@@ -1,7 +1,9 @@
 ---
 title: Tilleggsfunksjoner på Nokia 3210
 date: 2001-08-06
-stylesheet: /_assets/css/book.css
+stylesheet:
+  - /_assets/css/ibmplexsans.css
+  - /_assets/css/book.css
 ---
 
 Datakabel

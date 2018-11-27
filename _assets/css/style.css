@@ -1,6 +1,6 @@
 /* @import url("minion.css"); */
-/* @import url("stix.css"); */
-@import url("libertine.css");
+@import url("stix.css");
+/* @import url("libertine.css"); */
 
 abbr,
 abbr[title],
@@ -462,16 +462,20 @@ nav,
     color: #000000 !important;
 }
 
-nav a:hover .markdown-logo-grey {
+nav a .markdown-logo {
+    background-image: url("../img/markdown/markdown-grey.svg");
+}
+
+nav a:hover .markdown-logo {
     background-image: url("../img/markdown/markdown.svg");
 }
 
-nav a .clipboard-logo-grey {
+nav a .clipboard-logo {
     background-image: url("../img/clippy/clippy-grey.svg");
     vertical-align: 0.1em;
 }
 
-nav a:hover .clipboard-logo-grey {
+nav a:hover .clipboard-logo {
     background-image: url("../img/clippy/clippy.svg");
 }
 
@@ -1369,4 +1373,17 @@ video {
 
 #footnotediv p:last-child {
     margin-bottom: 0;
+}
+
+code .token,
+pre .token {
+    background-color: transparent !important;
+}
+
+nav .search {
+    font-size: 1.5em;
+}
+
+nav .search li {
+    margin-top: 0.5em;
 }

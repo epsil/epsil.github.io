@@ -136,9 +136,17 @@ module.exports={
     "href": "/blog/2007/10/09/",
     "title": "AUCTeX p\u00e5 Windows"
   },
+  "BASH": {
+    "href": "/blog/2016/04/20/",
+    "title": "Running Bash scripts on Windows"
+  },
   "BLOG": {
     "href": "/blog/",
-    "title": "Blog"
+    "title": "Blog posts"
+  },
+  "BLOG POSTS": {
+    "href": "/blog/",
+    "title": "Blog posts"
   },
   "BRUENE I K\u00d6NIGSBERG": {
     "href": "/blog/2010/11/21/",
@@ -268,6 +276,10 @@ module.exports={
     "href": "/blog/2014/05/13/",
     "title": "Hvordan skrive til en NTFS-disk p\u00e5 OS X"
   },
+  "HTTPS://EPSIL.GITHUB.IO/BLOG/2016/04/20/": {
+    "href": "/blog/2016/04/20/",
+    "title": "Running Bash scripts on Windows"
+  },
   "HTTPS://EPSIL.GITHUB.IO/GLL/": {
     "href": "/gll/",
     "title": "General Parser Combinators in Racket"
@@ -327,6 +339,18 @@ module.exports={
   "KLONE HARDDISK": {
     "href": "/blog/2010/11/27/",
     "title": "Klone harddisk"
+  },
+  "KOMMANDOLINJE": {
+    "href": "/blog/2016/04/20/",
+    "title": "Running Bash scripts on Windows"
+  },
+  "KOMMANDOLINJEN": {
+    "href": "/blog/2016/04/20/",
+    "title": "Running Bash scripts on Windows"
+  },
+  "KOMMANDOLINJEVERKT\u00d8Y": {
+    "href": "/blog/2016/04/20/",
+    "title": "Running Bash scripts on Windows"
   },
   "KOMPRIMERE PROFILMAPPEN TIL FIREFOX": {
     "href": "/blog/2014/12/27/",
@@ -464,6 +488,10 @@ module.exports={
     "href": "/blog/2007/11/29/",
     "title": "Tastaturmakroer i Emacs"
   },
+  "TERMINAL": {
+    "href": "/blog/2016/04/20/",
+    "title": "Running Bash scripts on Windows"
+  },
   "TERMINAL\u00d8KT": {
     "href": "/blog/2011/11/03/",
     "title": "Terminal\u00f8kt"
@@ -515,6 +543,10 @@ module.exports={
   "XML OG XHTML": {
     "href": "/blog/2004/02/03/",
     "title": "XML og XHTML"
+  },
+  "Z SHELL": {
+    "href": "/blog/2016/04/20/",
+    "title": "Running Bash scripts on Windows"
   }
 }
 

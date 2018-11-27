@@ -422,9 +422,17 @@ module.exports={
     "href": "/blog/2007/10/09/",
     "title": "AUCTeX p\u00e5 Windows"
   },
+  "BASH": {
+    "href": "/blog/2016/04/20/",
+    "title": "Running Bash scripts on Windows"
+  },
   "BLOG": {
     "href": "/blog/",
-    "title": "Blog"
+    "title": "Blog posts"
+  },
+  "BLOG POSTS": {
+    "href": "/blog/",
+    "title": "Blog posts"
   },
   "BRUENE I K\u00d6NIGSBERG": {
     "href": "/blog/2010/11/21/",
@@ -554,6 +562,10 @@ module.exports={
     "href": "/blog/2014/05/13/",
     "title": "Hvordan skrive til en NTFS-disk p\u00e5 OS X"
   },
+  "HTTPS://EPSIL.GITHUB.IO/BLOG/2016/04/20/": {
+    "href": "/blog/2016/04/20/",
+    "title": "Running Bash scripts on Windows"
+  },
   "HTTPS://EPSIL.GITHUB.IO/GLL/": {
     "href": "/gll/",
     "title": "General Parser Combinators in Racket"
@@ -613,6 +625,18 @@ module.exports={
   "KLONE HARDDISK": {
     "href": "/blog/2010/11/27/",
     "title": "Klone harddisk"
+  },
+  "KOMMANDOLINJE": {
+    "href": "/blog/2016/04/20/",
+    "title": "Running Bash scripts on Windows"
+  },
+  "KOMMANDOLINJEN": {
+    "href": "/blog/2016/04/20/",
+    "title": "Running Bash scripts on Windows"
+  },
+  "KOMMANDOLINJEVERKT\u00d8Y": {
+    "href": "/blog/2016/04/20/",
+    "title": "Running Bash scripts on Windows"
   },
   "KOMPRIMERE PROFILMAPPEN TIL FIREFOX": {
     "href": "/blog/2014/12/27/",
@@ -750,6 +774,10 @@ module.exports={
     "href": "/blog/2007/11/29/",
     "title": "Tastaturmakroer i Emacs"
   },
+  "TERMINAL": {
+    "href": "/blog/2016/04/20/",
+    "title": "Running Bash scripts on Windows"
+  },
   "TERMINAL\u00d8KT": {
     "href": "/blog/2011/11/03/",
     "title": "Terminal\u00f8kt"
@@ -801,6 +829,10 @@ module.exports={
   "XML OG XHTML": {
     "href": "/blog/2004/02/03/",
     "title": "XML og XHTML"
+  },
+  "Z SHELL": {
+    "href": "/blog/2016/04/20/",
+    "title": "Running Bash scripts on Windows"
   }
 }
 
@@ -1329,7 +1361,7 @@ $.fn.addCollapsibleSections.defaults = collapse.defaults;
 
 module.exports = collapse;
 
-},{"bootstrap":26,"jquery":149,"string":398}],9:[function(require,module,exports){
+},{"bootstrap":26,"jquery":149,"string":399}],9:[function(require,module,exports){
 var matter = require('gray-matter');
 var md5 = require('md5');
 var typogr = require('typogr');
@@ -1548,7 +1580,7 @@ function compile(data, path) {
 
 module.exports = compile;
 
-},{"../json/settings.json":5,"../templates/body":23,"../templates/document":24,"../templates/index":25,"./markdown":13,"./social":19,"./util":22,"gray-matter":58,"lodash":277,"md5":370,"typogr":399,"urijs":402}],10:[function(require,module,exports){
+},{"../json/settings.json":5,"../templates/body":23,"../templates/document":24,"../templates/index":25,"./markdown":13,"./social":19,"./util":22,"gray-matter":58,"lodash":277,"md5":370,"typogr":400,"urijs":403}],10:[function(require,module,exports){
 var $ = require('jquery');
 
 var figure = {};
@@ -2252,7 +2284,7 @@ $(function() {
   loadData();
 });
 
-},{"./collapse":8,"./compile":9,"./page":14,"./reference":17,"./util":22,"datatables":57,"jquery":149,"md5":370,"openpgp":375,"urijs":402}],13:[function(require,module,exports){
+},{"./collapse":8,"./compile":9,"./page":14,"./reference":17,"./util":22,"datatables":57,"jquery":149,"md5":370,"openpgp":375,"urijs":403}],13:[function(require,module,exports){
 var $ = require('jquery');
 var markdownit = require('markdown-it');
 var attr = require('markdown-it-attrs');
@@ -2286,9 +2318,12 @@ function markdown(str, opts) {
     references: Reference.extractReferencesFromMarkdown(str)
   });
   str = md.render(str, env);
+  str = str.trim();
   // str = markdown.highlightInline(str).trim();
   if (opts && opts.inline && str.match(/^<p>/) && str.match(/<\/p>$/)) {
-    str = str.substring(3, str.length - 4);
+    var beg = '<p>'.length;
+    var end = '</p>'.length;
+    str = str.substring(beg, str.length - end);
   }
   return str;
 }
@@ -2519,7 +2554,7 @@ page.hashArgsCount = function() {
 
 module.exports = page;
 
-},{"jquery":149,"urijs":402}],15:[function(require,module,exports){
+},{"jquery":149,"urijs":403}],15:[function(require,module,exports){
 var header = require('../json/header.json');
 var footer = require('../json/footer.json');
 
@@ -2634,7 +2669,7 @@ require('prismjs/components/prism-jsx.js');
 // require('prismjs/components/prism-lolcode.js');
 // require('prismjs/components/prism-lua.js');
 // require('prismjs/components/prism-makefile.js');
-// require('prismjs/components/prism-markdown.js');
+require('prismjs/components/prism-markdown.js');
 // require('prismjs/components/prism-markup-templating.js');
 // require('prismjs/components/prism-markup.js');
 // require('prismjs/components/prism-matlab.js');
@@ -2712,7 +2747,7 @@ require('prismjs/plugins/line-highlight/prism-line-highlight.js');
 
 module.exports = prism;
 
-},{"markdown-it-prism":300,"prismjs/components/prism-bash.js":376,"prismjs/components/prism-c.js":377,"prismjs/components/prism-cpp.js":378,"prismjs/components/prism-csharp.js":379,"prismjs/components/prism-css-extras.js":380,"prismjs/components/prism-css.js":381,"prismjs/components/prism-haskell.js":382,"prismjs/components/prism-java.js":383,"prismjs/components/prism-javascript.js":384,"prismjs/components/prism-jsx.js":385,"prismjs/components/prism-powershell.js":386,"prismjs/components/prism-python.js":387,"prismjs/components/prism-r.js":388,"prismjs/components/prism-scheme.js":389,"prismjs/components/prism-typescript.js":390,"prismjs/components/prism-yaml.js":391,"prismjs/plugins/line-highlight/prism-line-highlight.js":392}],17:[function(require,module,exports){
+},{"markdown-it-prism":300,"prismjs/components/prism-bash.js":376,"prismjs/components/prism-c.js":377,"prismjs/components/prism-cpp.js":378,"prismjs/components/prism-csharp.js":379,"prismjs/components/prism-css-extras.js":380,"prismjs/components/prism-css.js":381,"prismjs/components/prism-haskell.js":382,"prismjs/components/prism-java.js":383,"prismjs/components/prism-javascript.js":384,"prismjs/components/prism-jsx.js":385,"prismjs/components/prism-markdown.js":386,"prismjs/components/prism-powershell.js":387,"prismjs/components/prism-python.js":388,"prismjs/components/prism-r.js":389,"prismjs/components/prism-scheme.js":390,"prismjs/components/prism-typescript.js":391,"prismjs/components/prism-yaml.js":392,"prismjs/plugins/line-highlight/prism-line-highlight.js":393}],17:[function(require,module,exports){
 var stringSimilarity = require('string-similarity');
 var page = require('./page');
 var sort = require('./sort');
@@ -3072,7 +3107,7 @@ Reference.renderLinkList = function(refs, ordered) {
 
 module.exports = Reference;
 
-},{"../json/references.json":4,"./page":14,"./sort":20,"jquery":149,"lodash":277,"string-similarity":394,"urijs":402}],18:[function(require,module,exports){
+},{"../json/references.json":4,"./page":14,"./sort":20,"jquery":149,"lodash":277,"string-similarity":395,"urijs":403}],18:[function(require,module,exports){
 // Semantic sections
 //
 // Inspired by Pandoc's --section-divs option:
@@ -3327,7 +3362,7 @@ $.fn.twitter = social.twitter;
 
 module.exports = social;
 
-},{"../json/settings.json":5,"jquery":149,"urijs":402}],20:[function(require,module,exports){
+},{"../json/settings.json":5,"jquery":149,"urijs":403}],20:[function(require,module,exports){
 /**
  * Stable sort, preserving the original order when possible.
  * @param {Array} arr - The array to sort.
@@ -4589,7 +4624,7 @@ $.fn.removeAriaHidden = util.removeAriaHidden;
 
 module.exports = util;
 
-},{"./reference":17,"clipboard":50,"jquery":149,"moment":374,"string":398,"urijs":402}],23:[function(require,module,exports){
+},{"./reference":17,"clipboard":50,"jquery":149,"moment":374,"string":399,"urijs":403}],23:[function(require,module,exports){
 var Handlebars = require('handlebars');
 var markdown = require('../lib/markdown');
 var util = require('../lib/util');
@@ -4621,19 +4656,19 @@ var body =
   // '<li role="presentation"><a href="{{twitter}}" title="{{text twitter-title}}"><i class="fa fa-twitter-square"></i></a></li>\n' +
   // '<li role="presentation"><a href="{{linkedin}}" title="{{text linkedin-title}}"><i class="fa fa-linkedin-square"></i></a></li>\n' +
   // '<li role="presentation"><a href="{{mail}}" title="{{text mail-title}}"><i class="fa fa-envelope"></i></a></li>\n' +
-  '<li role="presentation"><a href="/tmp/clipboard/" target="_blank" title="{{text clipboard-title}}"><span class="clipboard-logo-grey"></span></a></li>\n' +
+  '<li role="presentation"><a href="/tmp/clipboard/" target="_blank" title="{{text clipboard-title}}"><span class="clipboard-logo"></span></a></li>\n' +
   '{{#if github-repo}}' +
   '<li role="presentation"><a href="{{github}}" title="{{text github-repo-title}}"><i class="fa fa-github"></i></a></li>\n' +
   '<li role="presentation"><a href="{{github-edit}}" title="{{text github-edit-title}}"><i class="fa fa-edit"></i></a></li>\n' +
   // '<li role="presentation"><a href="{{github-history}}" title="{{text github-history-title}}"><i class="fa fa-history"></i></a></li>\n' +
-  '<li role="presentation"><a href="{{github-raw}}" title="{{text markdown-title}}" type="text/plain"><span class="markdown-logo-grey"></span></a></li>\n' +
+  '<li role="presentation"><a href="{{github-raw}}" title="{{text markdown-title}}" type="text/plain"><span class="markdown-logo"></span></a></li>\n' +
   '{{else}}' +
   '{{#if bitbucket-repo}}' +
   '<li role="presentation"><a href="{{bitbucket}}" title="{{text bitbucket-repo-title}}"><i class="fa fa-edit"></i></a></li>\n' +
   // '<li role="presentation"><a href="{{bitbucket-history}}" title="{{text bitbucket-history-title}}"><i class="fa fa-history"></i></a></li>\n' +
-  '<li role="presentation"><a href="{{file}}" title="{{text markdown-title}}" type="text/plain"><span class="markdown-logo-grey"></span></a></li>\n' +
+  '<li role="presentation"><a href="{{file}}" title="{{text markdown-title}}" type="text/plain"><span class="markdown-logo"></span></a></li>\n' +
   '{{else}}' +
-  '<li role="presentation"><a href="{{file}}" title="{{text markdown-title}}" type="text/plain"><span class="markdown-logo-grey"></span></a></li>\n' +
+  '<li role="presentation"><a href="{{file}}" title="{{text markdown-title}}" type="text/plain"><span class="markdown-logo"></span></a></li>\n' +
   '{{/if}}' +
   '{{/if}}' +
   '{{#if toc}}' +
@@ -85353,7 +85388,7 @@ function markdownItPrism(markdownit, useroptions) {
 
 exports.default = markdownItPrism;
 module.exports = exports['default'];
-},{"prismjs":393}],301:[function(require,module,exports){
+},{"prismjs":394}],301:[function(require,module,exports){
 // Process ~subscript~
 
 'use strict';
@@ -119359,6 +119394,127 @@ Prism.hooks.add('after-tokenize', function (env) {
 }(Prism));
 
 },{}],386:[function(require,module,exports){
+Prism.languages.markdown = Prism.languages.extend('markup', {});
+Prism.languages.insertBefore('markdown', 'prolog', {
+	'blockquote': {
+		// > ...
+		pattern: /^>(?:[\t ]*>)*/m,
+		alias: 'punctuation'
+	},
+	'code': [
+		{
+			// Prefixed by 4 spaces or 1 tab
+			pattern: /^(?: {4}|\t).+/m,
+			alias: 'keyword'
+		},
+		{
+			// `code`
+			// ``code``
+			pattern: /``.+?``|`[^`\n]+`/,
+			alias: 'keyword'
+		}
+	],
+	'title': [
+		{
+			// title 1
+			// =======
+
+			// title 2
+			// -------
+			pattern: /\w+.*(?:\r?\n|\r)(?:==+|--+)/,
+			alias: 'important',
+			inside: {
+				punctuation: /==+$|--+$/
+			}
+		},
+		{
+			// # title 1
+			// ###### title 6
+			pattern: /(^\s*)#+.+/m,
+			lookbehind: true,
+			alias: 'important',
+			inside: {
+				punctuation: /^#+|#+$/
+			}
+		}
+	],
+	'hr': {
+		// ***
+		// ---
+		// * * *
+		// -----------
+		pattern: /(^\s*)([*-])(?:[\t ]*\2){2,}(?=\s*$)/m,
+		lookbehind: true,
+		alias: 'punctuation'
+	},
+	'list': {
+		// * item
+		// + item
+		// - item
+		// 1. item
+		pattern: /(^\s*)(?:[*+-]|\d+\.)(?=[\t ].)/m,
+		lookbehind: true,
+		alias: 'punctuation'
+	},
+	'url-reference': {
+		// [id]: http://example.com "Optional title"
+		// [id]: http://example.com 'Optional title'
+		// [id]: http://example.com (Optional title)
+		// [id]: <http://example.com> "Optional title"
+		pattern: /!?\[[^\]]+\]:[\t ]+(?:\S+|<(?:\\.|[^>\\])+>)(?:[\t ]+(?:"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'|\((?:\\.|[^)\\])*\)))?/,
+		inside: {
+			'variable': {
+				pattern: /^(!?\[)[^\]]+/,
+				lookbehind: true
+			},
+			'string': /(?:"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'|\((?:\\.|[^)\\])*\))$/,
+			'punctuation': /^[\[\]!:]|[<>]/
+		},
+		alias: 'url'
+	},
+	'bold': {
+		// **strong**
+		// __strong__
+
+		// Allow only one line break
+		pattern: /(^|[^\\])(\*\*|__)(?:(?:\r?\n|\r)(?!\r?\n|\r)|.)+?\2/,
+		lookbehind: true,
+		inside: {
+			'punctuation': /^\*\*|^__|\*\*$|__$/
+		}
+	},
+	'italic': {
+		// *em*
+		// _em_
+
+		// Allow only one line break
+		pattern: /(^|[^\\])([*_])(?:(?:\r?\n|\r)(?!\r?\n|\r)|.)+?\2/,
+		lookbehind: true,
+		inside: {
+			'punctuation': /^[*_]|[*_]$/
+		}
+	},
+	'url': {
+		// [example](http://example.com "Optional title")
+		// [example] [id]
+		pattern: /!?\[[^\]]+\](?:\([^\s)]+(?:[\t ]+"(?:\\.|[^"\\])*")?\)| ?\[[^\]\n]*\])/,
+		inside: {
+			'variable': {
+				pattern: /(!?\[)[^\]]+(?=\]$)/,
+				lookbehind: true
+			},
+			'string': {
+				pattern: /"(?:\\.|[^"\\])*"(?=\)$)/
+			}
+		}
+	}
+});
+
+Prism.languages.markdown['bold'].inside['url'] = Prism.languages.markdown['url'];
+Prism.languages.markdown['italic'].inside['url'] = Prism.languages.markdown['url'];
+Prism.languages.markdown['bold'].inside['italic'] = Prism.languages.markdown['italic'];
+Prism.languages.markdown['italic'].inside['bold'] = Prism.languages.markdown['bold'];
+},{}],387:[function(require,module,exports){
 Prism.languages.powershell = {
 	'comment': [
 		{
@@ -119415,7 +119571,7 @@ Prism.languages.powershell.string[0].inside.boolean = Prism.languages.powershell
 Prism.languages.powershell.string[0].inside.variable = Prism.languages.powershell.variable;
 Prism.languages.powershell.string[0].inside.function.inside = Prism.languages.powershell;
 
-},{}],387:[function(require,module,exports){
+},{}],388:[function(require,module,exports){
 Prism.languages.python = {
 	'comment': {
 		pattern: /(^|[^\\])#.*/,
@@ -119446,7 +119602,7 @@ Prism.languages.python = {
 	'punctuation': /[{}[\];(),.:]/
 };
 
-},{}],388:[function(require,module,exports){
+},{}],389:[function(require,module,exports){
 Prism.languages.r = {
 	'comment': /#.*/,
 	'string': {
@@ -119469,7 +119625,7 @@ Prism.languages.r = {
 	'operator': /->?>?|<(?:=|<?-)?|[>=!]=?|::?|&&?|\|\|?|[+*\/^$@~]/,
 	'punctuation': /[(){}\[\],;]/
 };
-},{}],389:[function(require,module,exports){
+},{}],390:[function(require,module,exports){
 Prism.languages.scheme = {
 	'comment' : /;.*/,
 	'string' :  {
@@ -119499,7 +119655,7 @@ Prism.languages.scheme = {
 	},
 	'punctuation' : /[()]/
 };
-},{}],390:[function(require,module,exports){
+},{}],391:[function(require,module,exports){
 Prism.languages.typescript = Prism.languages.extend('javascript', {
 	// From JavaScript Prism keyword list and TypeScript language spec: https://github.com/Microsoft/TypeScript/blob/master/doc/spec.md#221-reserved-words
 	'keyword': /\b(?:as|async|await|break|case|catch|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally|for|from|function|get|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|set|static|super|switch|this|throw|try|typeof|var|void|while|with|yield|module|declare|constructor|namespace|abstract|require|type)\b/,
@@ -119507,7 +119663,7 @@ Prism.languages.typescript = Prism.languages.extend('javascript', {
 });
 
 Prism.languages.ts = Prism.languages.typescript;
-},{}],391:[function(require,module,exports){
+},{}],392:[function(require,module,exports){
 Prism.languages.yaml = {
 	'scalar': {
 		pattern: /([\-:]\s*(?:![^\s]+)?[ \t]*[|>])[ \t]*(?:((?:\r?\n|\r)[ \t]+)[^\r\n]+(?:\2[^\r\n]+)*)/,
@@ -119554,7 +119710,7 @@ Prism.languages.yaml = {
 	'punctuation': /---|[:[\]{}\-,|>?]|\.\.\./
 };
 
-},{}],392:[function(require,module,exports){
+},{}],393:[function(require,module,exports){
 (function(){
 
 if (typeof self === 'undefined' || !self.Prism || !self.document || !document.querySelector) {
@@ -119736,7 +119892,7 @@ Prism.hooks.add('complete', function completeHook(env) {
 	});
 
 })();
-},{}],393:[function(require,module,exports){
+},{}],394:[function(require,module,exports){
 (function (global){
 
 /* **********************************************
@@ -120614,7 +120770,7 @@ Prism.languages.js = Prism.languages.javascript;
 
 })();
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],394:[function(require,module,exports){
+},{}],395:[function(require,module,exports){
 var _forEach = require('lodash/forEach');
 var _map = require('lodash/map');
 var _every = require('lodash/every');
@@ -120736,7 +120892,7 @@ function findBestMatch(mainString, targetStrings) {
   }
 }
 
-},{"lodash/every":260,"lodash/flattenDeep":261,"lodash/forEach":262,"lodash/map":278,"lodash/maxBy":279}],395:[function(require,module,exports){
+},{"lodash/every":260,"lodash/flattenDeep":261,"lodash/forEach":262,"lodash/map":278,"lodash/maxBy":279}],396:[function(require,module,exports){
 function count(self, substr) {
   var count = 0
   var pos = self.indexOf(substr)
@@ -120750,7 +120906,7 @@ function count(self, substr) {
 }
 
 module.exports = count
-},{}],396:[function(require,module,exports){
+},{}],397:[function(require,module,exports){
 function splitLeft(self, sep, maxSplit, limit) {
 
   if (typeof maxSplit === 'undefined') {
@@ -120779,7 +120935,7 @@ function splitLeft(self, sep, maxSplit, limit) {
 
 module.exports = splitLeft;
 
-},{}],397:[function(require,module,exports){
+},{}],398:[function(require,module,exports){
 function splitRight(self, sep, maxSplit, limit) {
 
   if (typeof maxSplit === 'undefined') {
@@ -120812,7 +120968,7 @@ function splitRight(self, sep, maxSplit, limit) {
 
 module.exports = splitRight;
 
-},{}],398:[function(require,module,exports){
+},{}],399:[function(require,module,exports){
 /*
 string.js - Copyright (C) 2012-2014, JP Richardson <jprichardson@gmail.com>
 */
@@ -121922,7 +122078,7 @@ string.js - Copyright (C) 2012-2014, JP Richardson <jprichardson@gmail.com>
 
 }).call(this);
 
-},{"./_count":395,"./_splitLeft":396,"./_splitRight":397}],399:[function(require,module,exports){
+},{"./_count":396,"./_splitLeft":397,"./_splitRight":398}],400:[function(require,module,exports){
  /*!
   * typogr.js
   * Copyright(c) 2011 Eugene Kalinin
@@ -122453,7 +122609,7 @@ string.js - Copyright (C) 2012-2014, JP Richardson <jprichardson@gmail.com>
 
 }(this));
 
-},{}],400:[function(require,module,exports){
+},{}],401:[function(require,module,exports){
 /*!
  * URI.js - Mutating URLs
  * IPv6 Support
@@ -122640,7 +122796,7 @@ string.js - Copyright (C) 2012-2014, JP Richardson <jprichardson@gmail.com>
   };
 }));
 
-},{}],401:[function(require,module,exports){
+},{}],402:[function(require,module,exports){
 /*!
  * URI.js - Mutating URLs
  * Second Level Domain (SLD) Support
@@ -122887,7 +123043,7 @@ string.js - Copyright (C) 2012-2014, JP Richardson <jprichardson@gmail.com>
   return SLD;
 }));
 
-},{}],402:[function(require,module,exports){
+},{}],403:[function(require,module,exports){
 /*!
  * URI.js - Mutating URLs
  *
@@ -125188,7 +125344,7 @@ string.js - Copyright (C) 2012-2014, JP Richardson <jprichardson@gmail.com>
   return URI;
 }));
 
-},{"./IPv6":400,"./SecondLevelDomains":401,"./punycode":403}],403:[function(require,module,exports){
+},{"./IPv6":401,"./SecondLevelDomains":402,"./punycode":404}],404:[function(require,module,exports){
 (function (global){
 /*! https://mths.be/punycode v1.4.0 by @mathias */
 ;(function(root) {

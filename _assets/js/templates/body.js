@@ -29,19 +29,19 @@ var body =
   // '<li role="presentation"><a href="{{twitter}}" title="{{text twitter-title}}"><i class="fa fa-twitter-square"></i></a></li>\n' +
   // '<li role="presentation"><a href="{{linkedin}}" title="{{text linkedin-title}}"><i class="fa fa-linkedin-square"></i></a></li>\n' +
   // '<li role="presentation"><a href="{{mail}}" title="{{text mail-title}}"><i class="fa fa-envelope"></i></a></li>\n' +
-  '<li role="presentation"><a href="/tmp/clipboard/" target="_blank" title="{{text clipboard-title}}"><span class="clipboard-logo-grey"></span></a></li>\n' +
+  '<li role="presentation"><a href="/tmp/clipboard/" target="_blank" title="{{text clipboard-title}}"><span class="clipboard-logo"></span></a></li>\n' +
   '{{#if github-repo}}' +
   '<li role="presentation"><a href="{{github}}" title="{{text github-repo-title}}"><i class="fa fa-github"></i></a></li>\n' +
   '<li role="presentation"><a href="{{github-edit}}" title="{{text github-edit-title}}"><i class="fa fa-edit"></i></a></li>\n' +
   // '<li role="presentation"><a href="{{github-history}}" title="{{text github-history-title}}"><i class="fa fa-history"></i></a></li>\n' +
-  '<li role="presentation"><a href="{{github-raw}}" title="{{text markdown-title}}" type="text/plain"><span class="markdown-logo-grey"></span></a></li>\n' +
+  '<li role="presentation"><a href="{{github-raw}}" title="{{text markdown-title}}" type="text/plain"><span class="markdown-logo"></span></a></li>\n' +
   '{{else}}' +
   '{{#if bitbucket-repo}}' +
   '<li role="presentation"><a href="{{bitbucket}}" title="{{text bitbucket-repo-title}}"><i class="fa fa-edit"></i></a></li>\n' +
   // '<li role="presentation"><a href="{{bitbucket-history}}" title="{{text bitbucket-history-title}}"><i class="fa fa-history"></i></a></li>\n' +
-  '<li role="presentation"><a href="{{file}}" title="{{text markdown-title}}" type="text/plain"><span class="markdown-logo-grey"></span></a></li>\n' +
+  '<li role="presentation"><a href="{{file}}" title="{{text markdown-title}}" type="text/plain"><span class="markdown-logo"></span></a></li>\n' +
   '{{else}}' +
-  '<li role="presentation"><a href="{{file}}" title="{{text markdown-title}}" type="text/plain"><span class="markdown-logo-grey"></span></a></li>\n' +
+  '<li role="presentation"><a href="{{file}}" title="{{text markdown-title}}" type="text/plain"><span class="markdown-logo"></span></a></li>\n' +
   '{{/if}}' +
   '{{/if}}' +
   '{{#if toc}}' +

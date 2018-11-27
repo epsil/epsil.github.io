@@ -31,9 +31,12 @@ function markdown(str, opts) {
     references: Reference.extractReferencesFromMarkdown(str)
   });
   str = md.render(str, env);
+  str = str.trim();
   // str = markdown.highlightInline(str).trim();
   if (opts && opts.inline && str.match(/^<p>/) && str.match(/<\/p>$/)) {
-    str = str.substring(3, str.length - 4);
+    var beg = '<p>'.length;
+    var end = '</p>'.length;
+    str = str.substring(beg, str.length - end);
   }
   return str;
 }

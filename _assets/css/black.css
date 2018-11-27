@@ -36,12 +36,12 @@ nav .form-control::-moz-placeholder,
     color: #ffffff !important;
 }
 
-.markdown-logo-grey,
-nav a:hover .markdown-logo-grey {
+.markdown-logo,
+nav a:hover .markdown-logo {
     background-image: url("../img/markdown/markdown-white.svg");
 }
 
-nav a .clipboard-logo-grey,
-nav a:hover .clipboard-logo-grey {
+nav a .clipboard-logo,
+nav a:hover .clipboard-logo {
     background-image: url("../img/clippy/clippy-white.svg");
 }

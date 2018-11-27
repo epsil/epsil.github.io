@@ -8,6 +8,14 @@ stylesheet:
   - /_assets/css/stix.css
   - /_assets/css/blue.css
   - style.css
+url: https://epsil.github.io/blog/2016/04/20/
+references:
+  Bash: .
+  Z Shell: .
+  Terminal: .
+  Kommandolinje: .
+  Kommandolinjen: .
+  Kommandolinjeverktøy: .
 ---
 
 The following setup allows one to run Bash scripts from Windows' command prompt. It also augments it with common Unix commands like `cp`, `rm` and `mv`, which is useful if these are ingrained into muscle memory.

@@ -105,7 +105,3 @@ header {
 #email:before {
     content: "\f1fa"; /* fa-at */
 }
-
-.collapse-button {
-    display: none;
-}

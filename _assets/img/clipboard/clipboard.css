@@ -1,6 +1,4 @@
-.clipboard-logo,
-.clipboard-logo-grey,
-.clipboard-logo-white {
+.clipboard-logo {
     background-size: contain;
     background-position: 50%;
     background-repeat: no-repeat;
@@ -10,9 +8,7 @@
     line-height: 1;
 }
 
-.clipboard-logo:before,
-.clipboard-logo-grey:before,
-.clipboard-logo-white:before {
+.clipboard-logo:before {
     content: "\00a0";
 }
 
@@ -20,10 +16,10 @@
     background-image: url("clipboard.svg");
 }
 
-.clipboard-logo-grey {
+.clipboard-logo.grey {
     background-image: url("clipboard-grey.svg");
 }
 
-.clipboard-logo-white {
+.clipboard-logo.white {
     background-image: url("clipboard-white.svg");
 }
