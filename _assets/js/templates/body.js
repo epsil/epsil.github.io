@@ -34,14 +34,14 @@ var body =
   '<li role="presentation"><a href="{{github}}" title="{{text github-repo-title}}"><i class="fa fa-github"></i></a></li>\n' +
   '<li role="presentation"><a href="{{github-edit}}" title="{{text github-edit-title}}"><i class="fa fa-edit"></i></a></li>\n' +
   // '<li role="presentation"><a href="{{github-history}}" title="{{text github-history-title}}"><i class="fa fa-history"></i></a></li>\n' +
-  '<li role="presentation"><a href="{{github-raw}}" title="{{text markdown-title}}" type="text/plain"><span class="markdown-logo"></span></a></li>\n' +
+  '<li role="presentation"><a href="{{github-raw}}" title="{{text markdown-title}}" type="text/plain"><span class="markdown-mark"></span></a></li>\n' +
   '{{else}}' +
   '{{#if bitbucket-repo}}' +
   '<li role="presentation"><a href="{{bitbucket}}" title="{{text bitbucket-repo-title}}"><i class="fa fa-edit"></i></a></li>\n' +
   // '<li role="presentation"><a href="{{bitbucket-history}}" title="{{text bitbucket-history-title}}"><i class="fa fa-history"></i></a></li>\n' +
-  '<li role="presentation"><a href="{{file}}" title="{{text markdown-title}}" type="text/plain"><span class="markdown-logo"></span></a></li>\n' +
+  '<li role="presentation"><a href="{{file}}" title="{{text markdown-title}}" type="text/plain"><span class="markdown-mark"></span></a></li>\n' +
   '{{else}}' +
-  '<li role="presentation"><a href="{{file}}" title="{{text markdown-title}}" type="text/plain"><span class="markdown-logo"></span></a></li>\n' +
+  '<li role="presentation"><a href="{{file}}" title="{{text markdown-title}}" type="text/plain"><span class="markdown-mark"></span></a></li>\n' +
   '{{/if}}' +
   '{{/if}}' +
   '{{#if toc}}' +

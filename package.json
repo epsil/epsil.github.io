@@ -18,6 +18,7 @@
     "bundle": "npm run browser && npm run lint",
     "minify": "uglifyjs js/wiki.js -o js/wiki.js",
     "http": "http-server -p 8000",
+    "http2": "http-server -p 4567",
     "live": "live-server",
     "start": "npm run open && npm run server",
     "server": "live-server --port=8000 --ignore=npm-debug.log --no-browser",

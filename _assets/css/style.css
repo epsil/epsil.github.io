@@ -1,5 +1,5 @@
-/* @import url("minion.css"); */
-@import url("stix.css");
+@import url("minion.css");
+/* @import url("stix.css"); */
 /* @import url("libertine.css"); */
 
 abbr,
@@ -167,7 +167,7 @@ code,
 kbd,
 samp,
 tt {
-    white-space: pre-wrap;
+    white-space: pre-wrap !important;
 }
 
 code,
@@ -460,23 +460,6 @@ nav,
 .nav > li > a:focus .fa {
     background-color: inherit;
     color: #000000 !important;
-}
-
-nav a .markdown-logo {
-    background-image: url("../img/markdown/markdown-grey.svg");
-}
-
-nav a:hover .markdown-logo {
-    background-image: url("../img/markdown/markdown.svg");
-}
-
-nav a .clipboard-logo {
-    background-image: url("../img/clippy/clippy-grey.svg");
-    vertical-align: 0.1em;
-}
-
-nav a:hover .clipboard-logo {
-    background-image: url("../img/clippy/clippy.svg");
 }
 
 .e-content p {
@@ -1386,4 +1369,12 @@ nav .search {
 
 nav .search li {
     margin-top: 0.5em;
+}
+
+nav .search li:last-child {
+    padding-bottom: 0.5em;
+}
+
+.markdown-mark {
+    font-size: 0.87em;
 }

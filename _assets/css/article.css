@@ -1,5 +1,10 @@
 @import url("italic.css");
 
+header h1,
+header h2 {
+    font-family: inherit !important;
+}
+
 header .p-name a,
 header .author a {
     border: none;

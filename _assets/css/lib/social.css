@@ -236,11 +236,6 @@
     content: "\f09b"; /* fa-github */
 }
 
-/* Gitlab */
-.e-content a[href*="gitlab.com"]:before {
-    content: "\f296";
-}
-
 /* Google+ */
 .e-content a[href*="plus.google.com"]:before {
     content: "\f0d5";

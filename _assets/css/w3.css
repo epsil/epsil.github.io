@@ -149,13 +149,3 @@ nav .form-control::-moz-placeholder,
     content: "\2022";
     font-family: inherit;
 }
-
-.markdown-logo,
-nav a:hover .markdown-logo {
-    background-image: url("../img/markdown/markdown-white.svg");
-}
-
-nav a .clipboard-logo,
-nav a:hover .clipboard-logo {
-    background-image: url("../img/clippy/clippy-white.svg");
-}

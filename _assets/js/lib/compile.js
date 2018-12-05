@@ -158,9 +158,11 @@ function typogrify(text) {
 }
 
 function links(view, path) {
-  view.content = util.dojQuery(view.content, function(body) {
-    body.relativizeUrls(path);
-  });
+  if (view.plain !== true) {
+    view.content = util.dojQuery(view.content, function(body) {
+      body.relativizeUrls(path);
+    });
+  }
   return view;
 }
 

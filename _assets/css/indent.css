@@ -90,6 +90,7 @@ body .indent p {
 .indent tt,
 .indent pre {
     /* font-size: 0.75em !important; */
+    text-shadow: none;
 }
 
 .indent .pre {
