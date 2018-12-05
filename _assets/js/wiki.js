@@ -562,6 +562,14 @@ module.exports={
     "href": "/blog/2014/05/13/",
     "title": "Hvordan skrive til en NTFS-disk p\u00e5 OS X"
   },
+  "HTTP://SHH.THATHOST.COM/TEXT/WEBSIKKERHET-MER-ENN-BRANNMUR-OG-KRYPTERING.TXT": {
+    "href": "/tmp/websikkerhet/",
+    "title": "Websikkerhet"
+  },
+  "HTTP://WWW.COMPUTERWORLD.NO/CWI.NSF/ALLE/5D86305CE1B6BD4AC1256A7300275537": {
+    "href": "/tmp/websikkerhet/",
+    "title": "Websikkerhet"
+  },
   "HTTPS://EPSIL.GITHUB.IO/BLOG/2016/04/20/": {
     "href": "/blog/2016/04/20/",
     "title": "Running Bash scripts on Windows"
@@ -758,6 +766,10 @@ module.exports={
     "href": "/blog/2002/06/03/",
     "title": "Spesielle tall i matematikken"
   },
+  "SQL INJECTION": {
+    "href": "/tmp/websikkerhet/",
+    "title": "Websikkerhet"
+  },
   "STARTE GOLLUM MED `LAUNCHD`": {
     "href": "/blog/2013/12/20/",
     "title": "Starte Gollum med launchd"
@@ -817,6 +829,14 @@ module.exports={
   "VIRTUELL ARM FOR FUNKSJONSHEMMEDE": {
     "href": "/tunge/",
     "title": "Virtuell arm for funksjonshemmede"
+  },
+  "WEBSIKKERHET": {
+    "href": "/tmp/websikkerhet/",
+    "title": "Websikkerhet"
+  },
+  "WEBSIKKERHET: MER ENN BRANNMUR OG KRYPTERING": {
+    "href": "/tmp/websikkerhet/",
+    "title": "Websikkerhet"
   },
   "WHY FUNCTIONAL PROGRAMMING MATTERS: HASKELL TRANSLATION": {
     "href": "/blog/2012/04/16/",
