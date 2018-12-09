@@ -7,11 +7,11 @@ author-url: "mailto:shh@thathost.com"
 institute: "shh@thathost.com eller shh@heimdall.no"
 date: 2001-06-12
 emoji: false
+autolink_bare_uris: false
 indent: true
 url: http://www.computerworld.no/cwi.nsf/Alle/5D86305CE1B6BD4AC1256A7300275537
 stylesheet:
-  - /_assets/css/article.css
-  - /_assets/css/libertine.css
+  - /_assets/css/medium.css
 references:
   "http://shh.thathost.com/text/websikkerhet-mer-enn-brannmur-og-kryptering.txt": .
   "SQL injection": .
