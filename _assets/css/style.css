@@ -191,6 +191,10 @@ pre,
     -moz-osx-font-smoothing: auto;
 }
 
+a code {
+    padding-bottom: 0;
+}
+
 dd {
     margin-left: 1em;
 }
@@ -451,7 +455,8 @@ nav a {
 nav,
 .navbar-default {
     border: none;
-    background-color: inherit;
+    /* background-color: inherit; */
+    background-color: #ffffff;
 }
 
 .nav > li > a:hover,
@@ -1377,4 +1382,22 @@ nav .search li:last-child {
 
 .markdown-mark {
     font-size: 0.87em;
+}
+
+.italic-quotes blockquote,
+.italic-quotes q {
+    font-style: italic;
+}
+
+.italic-quotes blockquote em,
+.italic-quotes q em,
+.italic-quotes .q em {
+    font-style: normal;
+}
+
+.italic-quotes q:before,
+.italic-quotes q:after,
+.italic-quotes .q:before,
+.italic-quotes .q:after {
+    content: normal;
 }

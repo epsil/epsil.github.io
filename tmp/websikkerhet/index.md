@@ -10,8 +10,7 @@ emoji: false
 autolink_bare_uris: false
 indent: true
 url: http://www.computerworld.no/cwi.nsf/Alle/5D86305CE1B6BD4AC1256A7300275537
-stylesheet:
-  - /_assets/css/medium.css
+stylesheet: /_assets/css/medium.css
 references:
   "http://shh.thathost.com/text/websikkerhet-mer-enn-brannmur-og-kryptering.txt": .
   "SQL injection": .
@@ -86,7 +85,7 @@ Passordet er uvesentlig, jeg taster noe bare for å komme meg forbi det dumme Ja
 
 Den årvåkne leser vil nå umiddelbart se hva de merkelige tegnene etter «ole» skulle bety: Først en fnutt som avslutter strengen før den egentlig skulle avsluttes, og dermed åpner for et par bindestreker som ifølge SQL92 kommenterer bort resten av linja. Vi har lurt innloggingsrutinen til å droppe passordtesten. «Velkommen, Ole Martin Pedersen.» Wow! Suksess!
 
-Sett med en inntrengers øyne er dette selvsagt flott, fantastisk og halleluja. Neste post på programmet er å stjele penger, opptre på vegne av Ole Martin, eller ringe 1000-tipset i Dagbladet. Eller var det VG? Og glem for all del ikke at det tradisjonelle og velrennomerte sikkerhetsfirmaet «Super Safe AS» overså denne og liknende feil.
+Sett med en inntrengers øyne er dette selvsagt flott, fantastisk og halleluja. Neste post på programmet er å stjele penger, opptre på vegne av Ole Martin, eller ringe 1000-tipset i Dagbladet. Eller var det VG? Og glem for all del ikke at det tradisjonelle og velrenommerte sikkerhetsfirmaet «Super Safe AS» overså denne og liknende feil.
 
 ---
 

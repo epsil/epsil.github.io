@@ -8,7 +8,7 @@
 <meta content="Sverre H. Huseby" name="author">
 <meta content="2001-06-12" name="date">
 <meta content="Publisert i Computerworld nr. 47, juni 2001" name="description">
-<meta content="07cc9447fac33c0a2141f837113261fe" name="md5">
+<meta content="fbb798cee642e151189a308f4a7eb25d" name="md5">
 <meta content="text/css" http-equiv="Content-Style-Type">
 <meta content="width=device-width, initial-scale=1" name="viewport">
 <meta content="Websikkerhet" name="DC.Title">
@@ -131,7 +131,7 @@
 </pre>
 </div>
 
-<p><span class="code"><code id="n3e">%3E</code></span> er koden for et st&#248;rre-enn-tegn (<span class="code"><code id="n-24">&gt;</code></span>), mens plussene koder mellomrom. Begge if&#248;lge reglene for <abbr class="acronym" title="Uniform Resource Locator"><span class="caps">URL</span></abbr>-koding, som b&#248;r v&#230;re kjent for enhver webutvikler.</p>
+<p><span class="code"><code id="n3e">%3E</code></span> er koden for et st&#248;rre-enn-tegn (<span class="code"><code id="n-22">&gt;</code></span>), mens plussene koder mellomrom. Begge if&#248;lge reglene for <abbr class="acronym" title="Uniform Resource Locator"><span class="caps">URL</span></abbr>-koding, som b&#248;r v&#230;re kjent for enhver webutvikler.</p>
 
 <p>Det morsomme er at denne gangen f&#229;r jeg ut over 200 navn, hvorav langt de fleste ikke h&#248;rer hjemme i kategorien &#171;Fris&#248;rer&#187;. Tilsynelatende f&#229;r jeg ut alle medlemmene, og jeg er temmelig sikker p&#229; at jeg har klart &#229; lure databasen til &#229; kj&#248;re f&#248;lgende:</p>
 
@@ -164,7 +164,7 @@
 </pre>
 </div>
 
-<p>En dot (<span class="code"><code id="n-25">.</code></span>) angir her strengkonkatenering. Tanken er at denne sp&#248;rringen skal plukke ut brukeren med matchende brukernavn og passord, og at ingen brukere vil returneres hvis brukernavnet eller passordet er feil.</p>
+<p>En dot (<span class="code"><code id="n-23">.</code></span>) angir her strengkonkatenering. Tanken er at denne sp&#248;rringen skal plukke ut brukeren med matchende brukernavn og passord, og at ingen brukere vil returneres hvis brukernavnet eller passordet er feil.</p>
 
 <p>Et f&#229;tall av leserne vil n&#229; humre litt. Kun et f&#229;tall, if&#248;lge min erfaring. Jeg vet om en mengde folk med alt fra selvl&#230;rt til doktorgrad i informatikk som ikke ville le av dette. Hva er problemet (hvis vi ser bort fra klartekstpassordene, som er fy-fy i seg selv)? Jo, la meg n&#229; starte med &#229; gjette p&#229; et brukernavn. Vi snakker om tusenvis av norske brukere. Sannsynligheten er stor for at noen velger &#229; kalle seg &#171;ole&#187;. Eller &#171;per&#187;. Eller &#171;sverre&#187;, for den saks skyld. Men vi holder oss til &#171;ole&#187;. P&#229; innloggingsbildet taster jeg:</p>
 
@@ -186,7 +186,7 @@ Passord:      foo</code>
 
 <p>Den &#229;rv&#229;kne leser vil n&#229; umiddelbart se hva de merkelige tegnene etter &#171;ole&#187; skulle bety: F&#248;rst en fnutt som avslutter strengen f&#248;r den egentlig skulle avsluttes, og dermed &#229;pner for et par bindestreker som if&#248;lge <span class="caps">SQL92</span> kommenterer bort resten av linja. Vi har lurt innloggingsrutinen til &#229; droppe passordtesten. &#171;Velkommen, Ole Martin Pedersen.&#187; Wow! Suksess!</p>
 
-<p>Sett med en inntrengers &#248;yne er dette selvsagt flott, fantastisk og halleluja. Neste post p&#229; programmet er &#229; stjele penger, opptre p&#229; vegne av Ole Martin, eller ringe 1000-tipset i Dagbladet. Eller var det <span class="caps">VG</span>? Og glem for all del ikke at det tradisjonelle og velrennomerte sikkerhetsfirmaet &#171;Super Safe <abbr class="acronym" title="aksjeselskap"><span class="caps">AS</span></abbr>&#187; overs&#229; denne og liknende feil.</p>
+<p>Sett med en inntrengers &#248;yne er dette selvsagt flott, fantastisk og halleluja. Neste post p&#229; programmet er &#229; stjele penger, opptre p&#229; vegne av Ole Martin, eller ringe 1000-tipset i Dagbladet. Eller var det <span class="caps">VG</span>? Og glem for all del ikke at det tradisjonelle og velrenommerte sikkerhetsfirmaet &#171;Super Safe <abbr class="acronym" title="aksjeselskap"><span class="caps">AS</span></abbr>&#187; overs&#229; denne og liknende feil.</p>
 
 <hr>
 

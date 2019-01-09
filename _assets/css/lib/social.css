@@ -44,12 +44,6 @@
     content: "\f1b2"; /* fa-cube */
 }
 
-/* .onion */
-.e-content a[href*=".i2p"]:before,
-.e-content a[href*=".onion"]:before {
-    content: "\f21b"; /* fa-user-secret */
-}
-
 /* Blog */
 .e-content a[href*="blog."]:before,
 .e-content a[href*="blogs."]:before,
@@ -73,6 +67,13 @@
 .e-content a[href*="quranexplorer."]:before,
 .e-content a[href*="sutra."]:before {
     content: "\f02d"; /* fa-book */
+}
+
+/* GitHub*/
+.e-content a[href*="git."]:before,
+.e-content a[href*="github.com"]:before,
+.e-content a[href*="github.io"]:before {
+    content: "\f09b"; /* fa-github */
 }
 
 /* Documentation */
@@ -227,13 +228,6 @@
 /* Foursquare */
 .e-content a[href*="foursquare.com"]:before {
     content: "\f180";
-}
-
-/* GitHub*/
-.e-content a[href*="git."]:before,
-.e-content a[href*="github.com"]:before,
-.e-content a[href*="github.io"]:before {
-    content: "\f09b"; /* fa-github */
 }
 
 /* Google+ */
@@ -1220,6 +1214,7 @@
 }
 
 /* onion */
+.e-content a[href*=".i2p"]:before,
 .e-content a[href*=".exit/"]:before,
 .e-content a[href$=".exit"]:before,
 .e-content a[href*=".onion/"]:before,

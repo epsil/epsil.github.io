@@ -10,6 +10,12 @@ a:hover {
     background-color: #e0d6eb;
 }
 
+a.image,
+a.image:hover {
+    background-color: transparent;
+    border: none;
+}
+
 body {
     font-size: 125% !important;
     line-height: 1.35;
@@ -39,12 +45,17 @@ textarea,
 a,
 strong,
 b {
-    font-size: 0.85em;
+    font-size: 0.8em;
+}
+
+strong a {
+    font-size: 1em;
 }
 
 a code {
     font-size: 0.9em !important;
     font-weight: normal;
+    padding-bottom: 0.07em;
 }
 
 code,

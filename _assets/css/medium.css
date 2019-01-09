@@ -1,5 +1,5 @@
 @import url("../fonts/charter.css");
-/* @import url("../fonts/itccharter.css"); */
+/* @import url("../fonts/pro/itccharter.css"); */
 @import url("../fonts/ibmplexsans.css");
 
 abbr.acronym,
@@ -13,6 +13,10 @@ blockquote {
     border-left: 3px solid #000;
     margin-left: -20px;
     font-style: italic;
+}
+
+blockquote blockquote {
+    margin-left: 0;
 }
 
 blockquote em {
@@ -30,6 +34,19 @@ body {
     line-height: 1.5;
 }
 
+figcaption,
+header,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Avenir, "Avenir Next", "Gill Sans MT", "Gill Sans", "Lucida Grande",
+        "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif !important;
+}
+
 header,
 h1,
 h2,
@@ -38,9 +55,6 @@ h4,
 h5,
 h6 {
     color: inherit;
-    font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
-        Avenir, "Avenir Next", "Gill Sans MT", "Gill Sans", "Lucida Grande",
-        "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif !important;
     font-style: normal;
     font-weight: bold;
     /* margin-bottom: -0.25em !important; */
@@ -54,9 +68,13 @@ pre {
     font-size: 0.8em !important;
 }
 
+header {
+    margin-bottom: 2em;
+}
+
 header,
 header * {
-    /* text-align: left !important; */
+    text-align: left !important;
 }
 
 h1 {
@@ -99,6 +117,10 @@ article ul {
     /* margin-top: 1em; */
 }
 
+.author, .p-summary {
+    font-size: 0.9em;
+}
+
 @media (max-width: 767px) {
     body {
         font-size: 111% !important;
@@ -117,3 +139,39 @@ article ul {
 /*     max-height: 500px; */
 /*     transition: max-height 2s; */
 /* } */
+
+.e-content ul.collapse a.collapse-button:before {
+    color: #666 !important;
+}
+
+.e-content ul a.collapse-button,
+.e-content ul a.collapse-button:before,
+.e-content ul a.collapse-button[aria-expanded="true"]:before {
+    color: #333 !important;
+}
+
+.e-content ul a.collapse-button:before {
+    content: "\f055"; /* fa-plus-circle */
+    font-size: 0.45em;
+    font-family: FontAwesome !important;
+    vertical-align: middle;
+}
+
+.e-content ul a.collapse-button[aria-expanded="true"]:before {
+    content: "\f111"; /* fa-circle */
+    font-size: 0.27em;
+    font-family: FontAwesome !important;
+}
+
+.e-content ul a.collapse-button {
+    padding-right: 0.66em !important;
+    transition: padding-right 0s;
+}
+
+.e-content ul a.collapse-button[aria-expanded="true"] {
+    padding-right: 0.75em !important;
+}
+
+.e-content ul a.collapse-button[aria-expanded="true"] {
+    transition: padding-right 0s;
+}

@@ -1,6 +1,9 @@
+@import url("svbtle.css");
+
 body {
+    color: inherit !important;
     font-family: sans-serif !important;
-    font-size: 90% !important;
+    font-size: 100% !important;
     line-height: 1.3;
 }
 

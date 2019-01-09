@@ -378,8 +378,12 @@ function main() {
     var output = process.argv[3] || htmlfile(input);
     convert(input, output);
   } else {
-    var files = glob.sync('**/' + settings.index).sort();
-    var files2 = glob.sync('**/' + settings.index + '.asc').sort();
+    var files = glob
+      .sync('**/' + settings.index, { ignore: 'node_modules/**' })
+      .sort();
+    var files2 = glob
+      .sync('**/' + settings.index + '.asc', { ignore: 'node_modules/**' })
+      .sort();
     files = files.concat(files2);
     buildPromise(files).then(function() {
       return referencesPromise(files);
