@@ -1,0 +1,31 @@
+@font-face {
+    font-family: "Ubuntu Light";
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+    src: url("Ubuntu-L.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Ubuntu Light";
+    font-style: italic;
+    font-weight: normal;
+    font-display: swap;
+    src: url("Ubuntu-LI.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Ubuntu Light";
+    font-style: italic;
+    font-weight: bold;
+    font-display: swap;
+    src: url("Ubuntu-MI.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Ubuntu Condensed";
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+    src: url("Ubuntu-C.ttf") format("truetype");
+}

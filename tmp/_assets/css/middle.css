@@ -1,0 +1,124 @@
+blockquote {
+    border-left: 5px solid rgba(0, 0, 0, 0.1);
+    /* color: #555; */
+    color: inherit;
+    font-size: 1em;
+    margin: 1em 0 1em 0;
+    padding-left: 20px;
+    padding: 0 0 0 20px;
+}
+
+code,
+kbd,
+samp,
+tt,
+pre,
+.pre pre {
+    /* background-color: #f9f9f9; */
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 0;
+    border: none;
+    color: inherit;
+    /* font-family: "Consolas Web", Consolas, Menlo, Monaco, "Liberation Mono", */
+    /*     "Latin Modern Mono", Courier, monospace !important; */
+    /* font-size: 0.83em !important; */
+    /* font-size: 0.8em !important; */
+    /* font-size: 0.7em !important; */
+    font-variant: normal;
+    text-shadow: 0 1px white;
+    -moz-osx-font-smoothing: auto;
+}
+
+.code,
+.pre {
+    font-size: 90% !important;
+}
+
+code,
+.kbd,
+samp,
+tt {
+    padding: 2px 4px;
+}
+
+pre,
+.pre pre {
+    margin: 1em 0;
+    padding: 1em;
+}
+
+.e-content .code .btn,
+.e-content .pre .btn {
+    background-color: #eee;
+    background-image: linear-gradient(#fcfcfc, #eee);
+}
+
+/* blockquote, */
+/* pre, */
+/* .pre pre { */
+/*     background: inherit; */
+/*     border: none; */
+/*     margin-left: 1.3em; */
+/*     padding: 0; */
+/* } */
+
+/* blockquote blockquote { */
+/*     margin-left: 1.3em; */
+/* } */
+
+/* code, */
+/* .kbd, */
+/* samp, */
+/* tt { */
+/*     background: inherit; */
+/*     padding: 0; */
+/* } */
+
+/* code, */
+/* .kbd, */
+/* samp, */
+/* tt { */
+/*     /\* font-size: 0.75em !important; *\/ */
+/* } */
+
+/* .pre code { */
+/*     font-size: 1em !important; */
+/* } */
+
+/* .e-content .pre .btn { */
+/*     top: 0px; */
+/* } */
+
+/* .e-content .code .btn, */
+/* .e-content .pre .btn { */
+/*     background: #fff; */
+/* } */
+
+/* .pull-quote { */
+/*     border-top: 1px solid #555 !important; */
+/*     border-bottom: none; */
+/*     margin-bottom: 0; */
+/*     padding-bottom: 0; */
+/*     padding-top: 0.5em !important; */
+/*     margin-top: 1em !important; */
+/* } */
+
+/* /\* code:hover, *\/ */
+/* /\* pre:hover { *\/ */
+/* /\*     background-color: #f9f9f9; *\/ */
+/* /\* } *\/ */
+
+h1 + div > .pre:first-child pre,
+h2 + div > .pre:first-child pre,
+h3 + div > .pre:first-child pre,
+h4 + div > .pre:first-child pre,
+h5 + div > .pre:first-child pre,
+h6 + div > .pre:first-child pre,
+h1 + div > section > .pre:first-child pre,
+h2 + div > section > .pre:first-child pre,
+h3 + div > section > .pre:first-child pre,
+h4 + div > section > .pre:first-child pre,
+h5 + div > section > .pre:first-child pre,
+h6 + div > section > .pre:first-child pre {
+    padding-top: 1em;
+}

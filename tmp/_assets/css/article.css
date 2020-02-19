@@ -1,0 +1,28 @@
+@import url("italic.css");
+
+header h1,
+header h2 {
+    font-family: inherit !important;
+}
+
+header .p-name a,
+header .author a {
+    border: none;
+}
+
+header .p-name {
+    border-top: 3px solid #666;
+    padding-top: 0.5em;
+}
+
+header .p-name + h2 {
+    border-top: 1px solid #666;
+    margin-top: 0.5em;
+    padding-top: 0.5em;
+}
+
+header .author {
+    border-top: 1px solid #666;
+    font-style: italic;
+    padding-top: 0.5em;
+}

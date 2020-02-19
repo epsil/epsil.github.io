@@ -1,0 +1,18 @@
+@import url("github.css");
+
+abbr.acronym,
+.caps {
+    font-variant: normal;
+    letter-spacing: inherit;
+    text-transform: none;
+}
+
+body {
+    font-family: Arial, "Helvetica Neue", Helvetica, "Arial Unicode",
+        "Arial Unicode MS", "Segoe UI", "Inter UI", Avenir, "Avenir Next",
+        -apple-system, BlinkMacSystemFont, "IBM Plex Sans", "Gill Sans MT",
+        "Gill Sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans",
+        Geneva, sans-serif !important;
+    font-size: 94% !important;
+    line-height: 1.3;
+}

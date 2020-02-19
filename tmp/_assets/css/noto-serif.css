@@ -1,0 +1,27 @@
+@import url("../fonts/noto-serif.css");
+
+body {
+    font-family: "Noto Serif", "Droid Serif", "Utopia", "ITC Charter", Charter,
+        "Bitstream Charter", "Charis SIL", Georgia, "Minion Web", "Minion Pro",
+        "Minion Std", Minion, "PT Serif", "STIX Two Web", "STIX Two Text",
+        "Iowan Old Style", Iowan, "Iowan Web", "Crimson Text", "Hoefler Text",
+        Cambria, Constantia, Utopia, Marion, Cochin, "Palatino Linotype",
+        Palatino, Baskerville, serif !important;
+    font-size: 123% !important;
+    line-height: 1.55;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: inherit !important;
+}
+
+@media (max-width: 767px) {
+    body {
+        font-size: 111% !important;
+    }
+}

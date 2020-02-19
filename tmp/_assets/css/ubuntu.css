@@ -1,0 +1,22 @@
+@import url("../fonts/ubuntu.css");
+@import url("github.css");
+
+body {
+    font-family: "Ubuntu", "Ubuntu Light", "Segoe UI", -apple-system,
+        BlinkMacSystemFont, "Myriad Web", "Myriad Pro", "Myriad Std", Myriad,
+        "Helvetica Neue", Helvetica, Arial, "Arial Unicode", Avenir,
+        "Avenir Next", "Gill Sans MT", "Gill Sans", "Lucida Grande",
+        "Lucida Sans Unicode", "Lucida Sans", Geneva, sans-serif !important;
+    font-size: 145% !important;
+}
+
+code,
+kbd,
+samp,
+tt,
+pre {
+    font-family: "Ubuntu Mono", "Consolas Web", Consolas, Inconsolata,
+        "Source Code Pro", "Noto Mono", "Liberation Mono", "DejaVu Sans Mono",
+        "Andale Mono", Menlo, "Fira Mono", Monaco, Courier, monospace !important;
+    font-size: 1em !important;
+}

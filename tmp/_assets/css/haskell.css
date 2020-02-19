@@ -1,0 +1,16 @@
+@import url("stix.css");
+@import url("oreilly.css");
+/* @import url("../fonts/hasklig.css"); */
+@import url("../fonts/fira-code.css");
+
+code,
+kbd,
+samp,
+tt,
+pre {
+    font-family: "Fira Code", "Fira Mono", Hasklig, "Ubuntu Mono",
+        "Consolas Web", Consolas, Inconsolata, "Source Code Pro", "Noto Mono",
+        "Liberation Mono", "DejaVu Sans Mono", "Andale Mono", Menlo, "Fira Mono",
+        Monaco, Courier, monospace !important;
+    font-size: 0.8em !important;
+}

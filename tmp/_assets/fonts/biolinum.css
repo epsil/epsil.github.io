@@ -1,0 +1,23 @@
+@font-face {
+    font-family: "Linux Biolinum";
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+    src: url("LinBiolinum_Rah.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Linux Biolinum";
+    font-style: normal;
+    font-weight: bold;
+    font-display: swap;
+    src: url("LinBiolinum_RBah.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Linux Biolinum";
+    font-style: italic;
+    font-weight: normal;
+    font-display: swap;
+    src: url("LinBiolinum_RIah.ttf") format("truetype");
+}

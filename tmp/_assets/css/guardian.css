@@ -1,0 +1,46 @@
+@import url("merriweather.css");
+
+a,
+a:hover {
+    color: rgb(171, 6, 19);
+}
+
+a:hover {
+    border-color: rgb(171, 6, 19);
+}
+
+body {
+    color: #121212 !important;
+    font-weight: 400;
+    font-size: 105% !important;
+    line-height: 1.55;
+}
+
+.h-entry > header,
+.e-content > * {
+    max-width: 660px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header {
+    font-family: inherit !important;
+}
+
+.p-name {
+    font-size: 2em;
+}
+
+.p-summary {
+    font-size: 1em;
+    font-weight: bold;
+    text-align: left;
+}
+
+::selection {
+    background-color: #ffe500;
+}

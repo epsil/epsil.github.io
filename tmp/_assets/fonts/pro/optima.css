@@ -1,0 +1,39 @@
+@font-face {
+    font-family: "Optima";
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+    src: url("Optima-Normal.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Optima";
+    font-style: normal;
+    font-weight: bold;
+    font-display: swap;
+    src: url("Optima-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Optima";
+    font-style: italic;
+    font-weight: normal;
+    font-display: swap;
+    src: url("Optima-Italic.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Optima";
+    font-style: italic;
+    font-weight: bold;
+    font-display: swap;
+    src: url("Optima-BoldItalic.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Optima";
+    font-style: normal;
+    font-weight: bolder;
+    font-display: swap;
+    src: url("Optima-Black.ttf") format("truetype");
+}

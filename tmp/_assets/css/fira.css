@@ -1,0 +1,32 @@
+@import url("../fonts/fira.css");
+@import url("../fonts/fira-code.css");
+
+body {
+    font-family: "Fira Sans", "Inter UI", "IBM Plex Sans", "IBM Plex Serif",
+        "Linux Libertine", "Linux Libertine O", "Minion Web", "Minion Pro",
+        "Minion Std", Minion, "Crimson Text", "ETBembo", "ETBembo LF",
+        "STIX Two Web", "STIX Two Text", Charter, "PT Serif", Georgia,
+        "Iowan Old Style", Iowan, "Iowan Web", "Hoefler Text",
+        "Libre Baskerville", Baskerville, Cambria, Constantia, Utopia, Marion,
+        Cochin, "Palatino Linotype", Palatino, serif !important;
+    font-size: 115% !important;
+    line-height: 1.7;
+}
+
+code,
+kbd,
+samp,
+tt,
+pre {
+    font-family: "Fira Code", "Fira Mono", Hasklig, "Ubuntu Mono",
+        "Consolas Web", Consolas, Inconsolata, "Source Code Pro", "Noto Mono",
+        "Liberation Mono", "DejaVu Sans Mono", "Andale Mono", Menlo, "Fira Mono",
+        Monaco, Courier, monospace !important;
+    font-size: 0.9em !important;
+}
+
+@media (max-width: 767px) {
+    body {
+        font-size: 105% !important;
+    }
+}

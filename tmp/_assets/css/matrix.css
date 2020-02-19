@@ -1,0 +1,33 @@
+body {
+    /* background-color: darkgreen !important; */
+    /* background-color: #1e5d26 !important; */
+    background-color: #133f19 !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    color: #fff !important;
+}
+
+hr {
+    color: inherit;
+}
+
+em {
+    /* white-space: pre; */
+}
+
+#epilogue {
+    background-color: red;
+    padding-top: 0.1em;
+    padding-bottom: 5em;
+}
+
+#epilogue h2 {
+    display: none;
+}
+
+abbr.acronym,
+.caps {
+    font-variant: oldstyle-nums small-caps;
+    letter-spacing: 0.1em;
+    text-transform: lowercase;
+}
