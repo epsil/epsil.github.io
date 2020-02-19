@@ -1,0 +1,14 @@
+@import url("light.css");
+
+blockquote,
+pre,
+.pre pre {
+    background: inherit;
+    border: none;
+    margin-left: 1.3em;
+    padding: 0;
+}
+
+blockquote blockquote {
+    margin-left: 1.3em;
+}

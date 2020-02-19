@@ -1,0 +1,185 @@
+@import url("charter.css");
+@import url("../fonts/ibm-plex-sans.css");
+@import url("../fonts/ubuntu-mono.css");
+@import url("middle.css");
+
+blockquote {
+    border-left: 3px solid #000;
+    margin-left: -20px;
+    font-style: italic;
+}
+
+blockquote blockquote {
+    margin-left: 0;
+}
+
+blockquote cite,
+blockquote em {
+    font-style: normal;
+}
+
+.pull-quote,
+pull.quote blockquote {
+    border: none !important;
+}
+
+body {
+    color: #222 !important;
+}
+
+code,
+kbd,
+samp,
+tt,
+pre {
+    font-family: "Ubuntu Mono", "Consolas Web", Consolas, Inconsolata,
+        "Source Code Pro", "Noto Mono", "Liberation Mono", "DejaVu Sans Mono",
+        "Andale Mono", Menlo, "Fira Mono", Monaco, Courier, monospace !important;
+    font-size: 0.9em !important;
+}
+
+figcaption,
+header,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "IBM Plex Sans", "Fira Sans", "IBM Plex Serif",
+        "Linux Libertine", "Linux Libertine O", "Minion Web", "Minion Pro",
+        "Minion Std", Minion, "Crimson Text", "ETBembo", "ETBembo LF",
+        "STIX Two Web", "STIX Two Text", Charter, "PT Serif", Georgia,
+        "Iowan Old Style", Iowan, "Iowan Web", "Hoefler Text",
+        "Libre Baskerville", Baskerville, Cambria, Constantia, Utopia, Marion,
+        Cochin, "Palatino Linotype", Palatino, serif !important;
+}
+
+header,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: inherit;
+    font-style: normal;
+    font-weight: bold;
+    /* margin-bottom: -0.25em !important; */
+}
+
+header {
+    margin-bottom: 2em;
+}
+
+header,
+header * {
+    text-align: left !important;
+}
+
+header h1 {
+    font-size: 200%;
+}
+
+header h2 {
+    margin-top: 0.2em;
+}
+
+h1 {
+    font-size: 175%;
+}
+
+h2 {
+    font-size: 140%;
+}
+
+h3 {
+    font-size: 110% !important;
+}
+
+.e-content li {
+    /* margin-bottom: 1em; */
+    /* margin-top: 1em; */
+}
+
+hr {
+    border: none;
+    color: rgba(0, 0, 0, 0.6);
+    padding: 0.5em 0;
+    text-align: center;
+}
+
+hr:before {
+    content: "...";
+    /* content: "\2766"; /\* fleuron: floral heart *\/ */
+    letter-spacing: 0.6em;
+    position: relative;
+    text-align: center;
+    /* top: -1em; */
+    top: -0.8em;
+}
+
+article ol,
+article ul {
+    /* margin-bottom: 1em; */
+    /* margin-top: 1em; */
+}
+
+.author,
+.p-summary {
+    font-size: 0.9em;
+}
+
+/* nav { */
+/*     max-height: 3px; */
+/*     overflow: hidden; */
+/*     transition: max-height 5s; */
+/* } */
+
+/* nav:hover { */
+/*     max-height: 500px; */
+/*     transition: max-height 2s; */
+/* } */
+
+/* .e-content ul.collapse a.collapse-button:before { */
+/*     color: #666 !important; */
+/* } */
+
+/* .e-content ul a.collapse-button, */
+/* .e-content ul a.collapse-button:before, */
+/* .e-content ul a.collapse-button[aria-expanded="true"]:before { */
+/*     color: #333 !important; */
+/* } */
+
+/* .e-content ul a.collapse-button:before { */
+/*     content: "\f055"; /\* fa-plus-circle *\/ */
+/*     font-size: 0.45em; */
+/*     font-family: FontAwesome !important; */
+/*     vertical-align: middle; */
+/* } */
+
+/* .e-content ul a.collapse-button[aria-expanded="true"]:before { */
+/*     content: "\f111"; /\* fa-circle *\/ */
+/*     font-size: 0.27em; */
+/*     font-family: FontAwesome !important; */
+/* } */
+
+/* .e-content ul a.collapse-button { */
+/*     padding-right: 0.66em !important; */
+/*     transition: padding-right 0s; */
+/* } */
+
+/* .e-content ul a.collapse-button[aria-expanded="true"] { */
+/*     padding-right: 0.75em !important; */
+/* } */
+
+/* .e-content ul a.collapse-button[aria-expanded="true"] { */
+/*     transition: padding-right 0s; */
+/* } */
+
+@media (max-width: 767px) {
+    body {
+        font-size: 111% !important;
+        line-height: 1.6;
+    }
+}

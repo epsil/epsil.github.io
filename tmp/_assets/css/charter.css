@@ -1,0 +1,34 @@
+/* @import url("../fonts/charter.css"); */
+@import url("../fonts/pro/itc-charter.css");
+
+abbr.acronym,
+.caps {
+    font-variant: normal;
+    letter-spacing: inherit;
+    text-transform: none;
+}
+
+body {
+    font-family: "ITC Charter", Charter, "Bitstream Charter", "Minion Web",
+        "Minion Pro", "Minion Std", Minion, "Charis SIL", "PT Serif",
+        "STIX Two Web", "STIX Two Text", Georgia, "Iowan Old Style", Iowan,
+        "Iowan Web", "Crimson Text", "Hoefler Text", Cambria, Constantia, Utopia,
+        Marion, Cochin, "Palatino Linotype", Palatino, Baskerville, serif !important;
+    font-size: 131% !important;
+    line-height: 1.5;
+}
+
+code,
+kbd,
+samp,
+tt,
+pre {
+    /* font-size: 0.8em !important; */
+    font-size: 0.9em !important;
+}
+
+@media (max-width: 767px) {
+    body {
+        font-size: 111% !important;
+    }
+}

@@ -1,0 +1,122 @@
+@import url("fira.css");
+
+a,
+a:hover {
+    border-bottom: 2px solid rgba(58, 45, 114, 0.7);
+}
+
+a:hover {
+    border-color: rgb(196, 88, 20);
+}
+
+body {
+    font-size: 100% !important;
+}
+
+header,
+header * {
+    text-align: left !important;
+}
+
+header h1 {
+    font-size: 2.5em;
+    line-height: 1 !important;
+}
+
+header h1,
+header h2 {
+    font-style: italic;
+}
+
+h1 {
+    color: rgb(58, 45, 114);
+    font-size: 2.5em;
+}
+
+h2 {
+    color: rgb(196, 88, 20);
+    font-size: 1.7em;
+}
+
+h3 {
+    color: #737373;
+    font-size: 1.3em !important;
+}
+
+.p-summary {
+    font-size: 1em;
+    font-weight: bold;
+    line-height: inherit !important;
+}
+
+/* .h-entry .header-anchor { */
+/*     color: rgb(58, 45, 114) !important; */
+/* } */
+
+.h-entry .header-anchor:hover {
+    color: rgb(196, 88, 20) !important;
+}
+
+sup.footnote-ref {
+    font-size: 1em;
+    top: 0;
+    vertical-align: baseline;
+}
+
+sup.footnote-ref:before {
+    content: "\00A0";
+}
+
+.footnote-ref .left-bracket,
+.footnote-ref .right-bracket {
+    display: inline;
+}
+
+.e-content ul a.collapse-button,
+.e-content ul a.collapse-button:before,
+.e-content ul.collapse a.collapse-button:before,
+.e-content ul a.collapse-button[aria-expanded="true"]:before {
+    color: rgb(58, 45, 114) !important;
+}
+
+.e-content ul.collapse a.collapse-button:before {
+    color: rgb(58, 45, 114) !important;
+}
+
+.e-content ul a.collapse-button,
+.e-content ul a.collapse-button:before,
+.e-content ul a.collapse-button[aria-expanded="true"]:before {
+    color: rgb(58, 45, 114) !important;
+}
+
+/* .e-content ul a.collapse-button:before { */
+/*     content: "\f055"; /\* fa-plus-circle *\/ */
+/*     font-size: 0.45em; */
+/*     font-family: FontAwesome !important; */
+/*     vertical-align: middle; */
+/* } */
+
+/* .e-content ul a.collapse-button[aria-expanded="true"]:before { */
+/*     content: "\f111"; /\* fa-circle *\/ */
+/*     font-size: 0.27em; */
+/*     font-family: FontAwesome !important; */
+/* } */
+
+/* .e-content ul a.collapse-button { */
+/*     padding-right: 0.66em !important; */
+/*     transition: padding-right 0s; */
+/* } */
+
+/* .e-content ul a.collapse-button[aria-expanded="true"] { */
+/*     padding-right: 0.75em !important; */
+/* } */
+
+/* .e-content ul a.collapse-button[aria-expanded="true"] { */
+/*     transition: padding-right 0s; */
+/* } */
+
+@media (max-width: 767px) {
+    body {
+        font-size: 100% !important;
+    }
+}

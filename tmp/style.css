@@ -1,0 +1,178 @@
+h1, h2, h3, h4, h5, h6 {
+    font-family: Chomsky, "Old London", "Cloister Black", sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6, .q, .q-color {
+    /* color: darkred; */
+    /* color: darkgreen; */
+    /* color: darkblue; */
+    /* color: indigo; */
+    /* color: #005253; */
+    /* color: #006768; */
+    /* color: #003d3e; */
+    /* color: #002868; */
+    /* color: #392bff; */
+    /* color: #0700cc; */
+    color: #563d7c;
+}
+
+.font-weight-bold {
+    font-weight: bold;
+}
+
+.code button {
+    display: none !important;
+}
+
+/*
+body {
+    font-family: Chomsky, sans-serif !important;
+}
+*/
+
+b, strong, .q, [title=q] {
+    font-size: bold;
+    font-size: 0.9em !important;
+    font-family: Chomsky, "Old London", "Cloister Black", sans-serif !important;
+    /* font-weight: bold; */
+}
+
+.gothic {
+    font-family: Chomsky, "Old London", "Cloister Black", sans-serif !important;
+    font-weight: normal;
+}
+
+.q {
+    white-space: pre;
+}
+
+code .q, pre .q {
+    font-size: 1.13em !important;
+}
+
+.epigraph {
+    border: none;
+}
+
+/*
+.epigraph {
+    border: none;
+    font-style: italic;
+}
+
+.epigraph pre {
+    font-style: normal;
+}
+
+.epigraph em, .epigraph cite, .epigraph strong {
+    font-style: normal;
+}
+*/
+
+.riddle {
+    border: none;
+    font-family: "Comic Runes" !important;
+    text-align: center;
+}
+
+#logo-for-q {
+    line-height: 3;
+    font-size: 300%;
+}
+
+#logo-for-q h3 {
+    font-size: 3em !important;
+}
+
+.red {
+    color: red;
+}
+
+.maroon {
+    color: maroon;
+}
+
+.coral {
+    color: coral;
+}
+
+.darkorange {
+    color: darkorange;
+}
+
+.orange {
+    color: orange;
+}
+
+.orangered {
+    color: orangered;
+}
+
+.lightorange {
+    color: lightorange;
+}
+
+.gold {
+    color: gold;
+}
+
+.yellow {
+    color: yellow;
+}
+
+.olive {
+    color: olive;
+}
+
+.green {
+    color: green;
+}
+
+.aqua {
+    color: aqua;
+}
+
+.teal {
+    color: teal;
+}
+
+.dodgerblue {
+    color: dodgerblue;
+}
+
+.blue {
+    color: blue;
+}
+
+.navy {
+    color: navy;
+}
+
+.indigo {
+    color: indigo;
+}
+
+.darkslateblue {
+    color: darkslateblue;
+}
+
+.purple {
+    color: purple;
+}
+
+.fuchsia {
+    color: fuchsia;
+}
+
+blockquote blockquote {
+    border: none;
+}
+
+blockquote.riddle {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.amp, .and {
+    font-variant: oldstyle-nums small-caps;
+}

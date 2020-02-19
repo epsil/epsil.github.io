@@ -1,0 +1,31 @@
+@font-face {
+    font-family: "Minion Web";
+    font-style: normal;
+    font-weight: bold;
+    font-display: swap;
+    src: url("MinionPro-Bold.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Minion Web";
+    font-style: italic;
+    font-weight: bold;
+    font-display: swap;
+    src: url("MinionPro-BoldIt.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Minion Web";
+    font-style: italic;
+    font-weight: normal;
+    font-display: swap;
+    src: url("MinionPro-It.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Minion Web";
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+    src: url("MinionPro-Regular.otf") format("opentype");
+}

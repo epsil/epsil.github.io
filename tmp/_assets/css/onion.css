@@ -1,0 +1,20 @@
+@import url("merriweather.css");
+
+abbr.acronym,
+.caps {
+    font-variant: normal;
+    letter-spacing: inherit;
+    text-transform: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+header * {
+    font-family: inherit !important;
+    font-weight: inherit !important;
+}

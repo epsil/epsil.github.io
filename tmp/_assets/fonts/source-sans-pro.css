@@ -1,0 +1,155 @@
+@font-face {
+    font-family: "Source Sans Pro";
+    font-style: normal;
+    font-weight: 200;
+    font-stretch: normal;
+    font-display: swap;
+    src: url("SourceSansPro-ExtraLight.eot") format("embedded-opentype"),
+        url("SourceSansPro-ExtraLight.ttf.woff2") format("woff2"),
+        url("SourceSansPro-ExtraLight.otf.woff") format("woff"),
+        url("SourceSansPro-ExtraLight.otf") format("opentype"),
+        url("SourceSansPro-ExtraLight.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Source Sans Pro";
+    font-style: italic;
+    font-weight: 200;
+    font-stretch: normal;
+    font-display: swap;
+    src: url("SourceSansPro-ExtraLightIt.eot") format("embedded-opentype"),
+        url("SourceSansPro-ExtraLightIt.ttf.woff2") format("woff2"),
+        url("SourceSansPro-ExtraLightIt.otf.woff") format("woff"),
+        url("SourceSansPro-ExtraLightIt.otf") format("opentype"),
+        url("SourceSansPro-ExtraLightIt.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Source Sans Pro";
+    font-style: normal;
+    font-weight: 300;
+    font-stretch: normal;
+    font-display: swap;
+    src: url("SourceSansPro-Light.eot") format("embedded-opentype"),
+        url("SourceSansPro-Light.ttf.woff2") format("woff2"),
+        url("SourceSansPro-Light.otf.woff") format("woff"),
+        url("SourceSansPro-Light.otf") format("opentype"),
+        url("SourceSansPro-Light.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Source Sans Pro";
+    font-style: italic;
+    font-weight: 300;
+    font-stretch: normal;
+    font-display: swap;
+    src: url("SourceSansPro-LightIt.eot") format("embedded-opentype"),
+        url("SourceSansPro-LightIt.ttf.woff2") format("woff2"),
+        url("SourceSansPro-LightIt.otf.woff") format("woff"),
+        url("SourceSansPro-LightIt.otf") format("opentype"),
+        url("SourceSansPro-LightIt.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Source Sans Pro";
+    font-style: normal;
+    font-weight: 400;
+    font-stretch: normal;
+    font-display: swap;
+    src: url("SourceSansPro-Regular.eot") format("embedded-opentype"),
+        url("SourceSansPro-Regular.ttf.woff2") format("woff2"),
+        url("SourceSansPro-Regular.otf.woff") format("woff"),
+        url("SourceSansPro-Regular.otf") format("opentype"),
+        url("SourceSansPro-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Source Sans Pro";
+    font-style: italic;
+    font-weight: 400;
+    font-stretch: normal;
+    font-display: swap;
+    src: url("SourceSansPro-It.eot") format("embedded-opentype"),
+        url("SourceSansPro-It.ttf.woff2") format("woff2"),
+        url("SourceSansPro-It.otf.woff") format("woff"),
+        url("SourceSansPro-It.otf") format("opentype"),
+        url("SourceSansPro-It.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Source Sans Pro";
+    font-style: normal;
+    font-weight: 600;
+    font-stretch: normal;
+    font-display: swap;
+    src: url("SourceSansPro-Semibold.eot") format("embedded-opentype"),
+        url("SourceSansPro-Semibold.ttf.woff2") format("woff2"),
+        url("SourceSansPro-Semibold.otf.woff") format("woff"),
+        url("SourceSansPro-Semibold.otf") format("opentype"),
+        url("SourceSansPro-Semibold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Source Sans Pro";
+    font-style: italic;
+    font-weight: 600;
+    font-stretch: normal;
+    font-display: swap;
+    src: url("SourceSansPro-SemiboldIt.eot") format("embedded-opentype"),
+        url("SourceSansPro-SemiboldIt.ttf.woff2") format("woff2"),
+        url("SourceSansPro-SemiboldIt.otf.woff") format("woff"),
+        url("SourceSansPro-SemiboldIt.otf") format("opentype"),
+        url("SourceSansPro-SemiboldIt.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Source Sans Pro";
+    font-style: normal;
+    font-weight: 700;
+    font-stretch: normal;
+    font-display: swap;
+    src: url("SourceSansPro-Bold.eot") format("embedded-opentype"),
+        url("SourceSansPro-Bold.ttf.woff2") format("woff2"),
+        url("SourceSansPro-Bold.otf.woff") format("woff"),
+        url("SourceSansPro-Bold.otf") format("opentype"),
+        url("SourceSansPro-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Source Sans Pro";
+    font-style: italic;
+    font-weight: 700;
+    font-stretch: normal;
+    font-display: swap;
+    src: url("SourceSansPro-BoldIt.eot") format("embedded-opentype"),
+        url("SourceSansPro-BoldIt.ttf.woff2") format("woff2"),
+        url("SourceSansPro-BoldIt.otf.woff") format("woff"),
+        url("SourceSansPro-BoldIt.otf") format("opentype"),
+        url("SourceSansPro-BoldIt.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Source Sans Pro";
+    font-style: normal;
+    font-weight: 900;
+    font-stretch: normal;
+    font-display: swap;
+    src: url("SourceSansPro-Black.eot") format("embedded-opentype"),
+        url("SourceSansPro-Black.ttf.woff2") format("woff2"),
+        url("SourceSansPro-Black.otf.woff") format("woff"),
+        url("SourceSansPro-Black.otf") format("opentype"),
+        url("SourceSansPro-Black.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Source Sans Pro";
+    font-style: italic;
+    font-weight: 900;
+    font-stretch: normal;
+    font-display: swap;
+    src: url("SourceSansPro-BlackIt.eot") format("embedded-opentype"),
+        url("SourceSansPro-BlackIt.ttf.woff2") format("woff2"),
+        url("SourceSansPro-BlackIt.otf.woff") format("woff"),
+        url("SourceSansPro-BlackIt.otf") format("opentype"),
+        url("SourceSansPro-BlackIt.ttf") format("truetype");
+}

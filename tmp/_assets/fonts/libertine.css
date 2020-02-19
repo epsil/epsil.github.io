@@ -1,0 +1,31 @@
+@font-face {
+    font-family: "Linux Libertine";
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+    src: url("LinLibertine_Rah.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Linux Libertine";
+    font-style: normal;
+    font-weight: bold;
+    font-display: swap;
+    src: url("LinLibertine_RBah.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Linux Libertine";
+    font-style: italic;
+    font-weight: normal;
+    font-display: swap;
+    src: url("LinLibertine_RIah.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Linux Libertine";
+    font-style: italic;
+    font-weight: bold;
+    font-display: swap;
+    src: url("LinLibertine_RBIah.ttf") format("truetype");
+}

@@ -1,0 +1,34 @@
+/* @import url("ubuntu-light.css"); */
+@import url("ubuntu-mono.css");
+
+@font-face {
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+    src: url("Ubuntu-R.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: bold;
+    font-display: swap;
+    src: url("Ubuntu-B.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Ubuntu";
+    font-style: italic;
+    font-weight: normal;
+    font-display: swap;
+    src: url("Ubuntu-RI.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Ubuntu";
+    font-style: italic;
+    font-weight: bold;
+    font-display: swap;
+    src: url("Ubuntu-BI.ttf") format("truetype");
+}

@@ -1,0 +1,31 @@
+@font-face {
+    font-family: "ITC Charter";
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+    src: url("chari___.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "ITC Charter";
+    font-style: normal;
+    font-weight: bold;
+    font-display: swap;
+    src: url("charbib_.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "ITC Charter";
+    font-style: italic;
+    font-weight: normal;
+    font-display: swap;
+    src: url("charii__.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "ITC Charter";
+    font-style: italic;
+    font-weight: bold;
+    font-display: swap;
+    src: url("charbibi.ttf") format("truetype");
+}

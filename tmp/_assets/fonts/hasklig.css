@@ -1,0 +1,31 @@
+@font-face {
+    font-family: "Hasklig";
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+    src: url("Hasklig-Regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Hasklig";
+    font-style: normal;
+    font-weight: bold;
+    font-display: swap;
+    src: url("Hasklig-Bold.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Hasklig";
+    font-style: italic;
+    font-weight: normal;
+    font-display: swap;
+    src: url("Hasklig-It.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Hasklig";
+    font-style: italic;
+    font-weight: bold;
+    font-display: swap;
+    src: url("Hasklig-BoldIt.otf") format("opentype");
+}

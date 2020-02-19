@@ -1,0 +1,31 @@
+@font-face {
+    font-family: "Viking Middle Runes";
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+    src: url("viking_middle_runes.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Viking Middle Runes";
+    font-style: italic;
+    font-weight: normal;
+    font-display: swap;
+    src: url("viking_middle_runes.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Viking Middle Runes";
+    font-style: normal;
+    font-weight: bold;
+    font-display: swap;
+    src: url("viking_middle_runes_bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Viking Middle Runes";
+    font-style: italic;
+    font-weight: bold;
+    font-display: swap;
+    src: url("viking_middle_runes.ttf") format("truetype");
+}

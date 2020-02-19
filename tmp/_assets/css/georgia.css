@@ -1,0 +1,41 @@
+@import url("../fonts/pro/georgia.css");
+
+body {
+    font-family: Georgia, serif !important;
+    font-size: 120% !important;
+    line-height: 1.45;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+nav,
+button,
+input,
+kbd,
+textarea,
+.modal {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue",
+        Helvetica, Arial, "Arial Unicode", "Arial Unicode MS", "Inter UI",
+        Avenir, "Avenir Next", "IBM Plex Sans", "Gill Sans MT", "Gill Sans",
+        "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva,
+        sans-serif !important;
+}
+
+code,
+kbd,
+samp,
+tt,
+pre {
+    font-size: 0.8em !important;
+}
+
+@media (max-width: 767px) {
+    body {
+        font-size: 110% !important;
+        line-height: 1.45;
+    }
+}

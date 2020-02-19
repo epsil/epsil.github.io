@@ -1,0 +1,31 @@
+@font-face {
+    font-family: "Cambria";
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+    src: local("Cambria"), url("cambria.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Cambria";
+    font-style: normal;
+    font-weight: bold;
+    font-display: swap;
+    src: local("Cambria Bold"), url("cambriab.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Cambria";
+    font-style: italic;
+    font-weight: normal;
+    font-display: swap;
+    src: local("Cambria Italic"), url("cambriai.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Cambria";
+    font-style: italic;
+    font-weight: bold;
+    font-display: swap;
+    src: local("Cambria Bold Italic"), url("cambriaz.ttf") format("truetype");
+}

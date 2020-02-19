@@ -1,0 +1,37 @@
+@import url("medium.css");
+@import url("oreilly.css");
+@import url("../fonts/fira-code.css");
+
+blockquote {
+    font-style: normal;
+}
+
+blockquote cite,
+blockquote em {
+    font-style: italic;
+}
+
+code,
+kbd,
+samp,
+tt,
+pre {
+    font-family: "Fira Code", "Fira Mono", Hasklig, "Ubuntu Mono",
+        "Consolas Web", Consolas, Inconsolata, "Source Code Pro", "Noto Mono",
+        "Liberation Mono", "DejaVu Sans Mono", "Andale Mono", Menlo, "Fira Mono",
+        Monaco, Courier, monospace !important;
+    /* font-size: 0.85em !important; */
+    font-size: 0.82em !important;
+}
+
+header,
+header * {
+    text-align: center !important;
+}
+
+@media (max-width: 767px) {
+    body {
+        font-size: 111% !important;
+        line-height: 1.5;
+    }
+}

@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "restricted area"
+AuthUserFile /media/sdv1/home/vegardye/www/vegardye.ananke.feralhosting.com/public_html/wiki/.htpasswd
+require valid-user

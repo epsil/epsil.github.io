@@ -1,0 +1,31 @@
+@font-face {
+    font-family: "Myriad Web";
+    font-style: normal;
+    font-weight: bold;
+    font-display: swap;
+    src: url("MyriadPro-Bold.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Myriad Web";
+    font-style: italic;
+    font-weight: bold;
+    font-display: swap;
+    src: url("MyriadPro-BoldIt.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Myriad Web";
+    font-style: italic;
+    font-weight: normal;
+    font-display: swap;
+    src: url("MyriadPro-It.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Myriad Web";
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+    src: url("MyriadPro-Regular.otf") format("opentype");
+}

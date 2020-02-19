@@ -1,0 +1,11 @@
+@import url("svbtle.css");
+@import url("../fonts/inter-ui.css");
+
+body {
+    color: inherit !important;
+    font-family: "Inter UI", "Fira Sans", "Helvetica Neue", Helvetica, Arial,
+        "Arial Unicode", "Arial Unicode MS", "Segoe UI", "Inter UI", Avenir,
+        "Avenir Next", -apple-system, BlinkMacSystemFont, "IBM Plex Sans",
+        "Gill Sans MT", "Gill Sans", "Lucida Grande", "Lucida Sans Unicode",
+        "Lucida Sans", Geneva, sans-serif !important;
+}
