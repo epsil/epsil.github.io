@@ -303,3 +303,7 @@ html body .e-content a[href*="urantia."]:before {
     color: #777;
     content: "\f02d" !important; /* fa-book */
 }
+
+a.secret {
+    border: none;
+}
