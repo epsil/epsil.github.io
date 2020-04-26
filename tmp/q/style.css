@@ -247,9 +247,13 @@ blockquote {
     font-size: 0.8em;
 }
 
+/*
+
 html body .e-content a[href]:before {
     content: normal !important;
 }
+
+*/
 
 /* Hints */
 
@@ -292,6 +296,7 @@ a[href='http://tron.fandom.com/wiki/Quorra'] {
 
 /* Books */
 
+html body a.book:before,
 html body a[href="#qabalah"]:before,
 html body .e-content a[href="#qabalah"]:before,
 html body a[href*="bible."]:before,
@@ -306,4 +311,22 @@ html body .e-content a[href*="urantia."]:before {
 
 a.secret {
     border: none;
+}
+
+h1 {
+    text-align: center;
+}
+
+
+html body .e-content a[href]:before {
+    content: normal;
+}
+
+a.book {
+    border: none;
+}
+
+html body a.book:before {
+    color: #777;
+    content: "\f02d" !important; /* fa-book */
 }
