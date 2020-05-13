@@ -309,6 +309,24 @@ html body .e-content a[href*="urantia."]:before {
     content: "\f02d" !important; /* fa-book */
 }
 
+<!--
+
+a.hidden {
+    border: none;
+}
+
+-->
+
+.border-0,
+a.border-0 {
+    border: none;
+}
+
+.text-nounderline,
+a.text-nounderline {
+    border: none;
+}
+
 a.secret {
     border: none;
 }
@@ -329,4 +347,8 @@ a.book {
 html body a.book:before {
     color: #777;
     content: "\f02d" !important; /* fa-book */
+}
+
+.e-content a.location:before {
+    content: "\f041" !important; /* fa-map-marker */
 }
