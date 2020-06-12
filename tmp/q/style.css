@@ -352,3 +352,15 @@ html body a.book:before {
 .e-content a.location:before {
     content: "\f041" !important; /* fa-map-marker */
 }
+
+code.q {
+    font-style: normal !important;
+}
+
+hr:before {
+    content: normal;
+}
+
+.abstract {
+    margin-bottom: 3em;
+}
