@@ -13,7 +13,7 @@ h1, h2, h3, h4, h5, h6, .q, .q-color {
     /* color: #002868; */
     /* color: #392bff; */
     /* color: #0700cc; */
-    color: #563d7c;
+    /* color: #563d7c; */
 }
 
 .font-weight-bold {
@@ -363,4 +363,12 @@ hr:before {
 
 .abstract {
     margin-bottom: 3em;
+}
+
+code {
+    white-space: nowrap !important;
+}
+
+pre code {
+    white-space: pre-wrap !important;
 }
