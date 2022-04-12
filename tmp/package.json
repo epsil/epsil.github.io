@@ -148,7 +148,7 @@
     "string-similarity": "^1.2.0",
     "tidy-html5": "^0.1.1",
     "typogr": "^0.6.8",
-    "urijs": "^1.19.1"
+    "urijs": "^1.19.11"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
