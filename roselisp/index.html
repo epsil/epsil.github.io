@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="no" prefix="og: http://ogp.me/ns#">
+<head>
+<title>Roselisp</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="no-referrer" name="referrer">
+<meta content="noindex" name="robots">
+<meta content="Vegard &#216;ye" name="author">
+<meta content="dc4e51f77a5b606cb398a6c9299199f2" name="md5">
+<meta content="text/css" http-equiv="Content-Style-Type">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<meta content="Roselisp" name="DC.Title">
+<meta content="Vegard &#216;ye" name="DC.Creator">
+<meta content="no" name="DC.Language">
+<meta content="text/html" name="DC.Format">
+<meta content="Roselisp" property="og:title">
+<meta content="no" name="og:locale">
+<meta content="article" property="og:type">
+<meta content="https://epsil.github.io/roselisp/" property="og:url">
+<meta content="Vegards blogg" property="og:site_name">
+<meta content="summary" name="twitter:card">
+<meta content="@github" name="twitter:site">
+<meta content="Roselisp" name="twitter:title">
+<link href="../favicon.ico" rel="icon" type="image/x-icon">
+<link href="../apple-touch-icon.png" rel="apple-touch-icon">
+<link href="../_assets/css/wiki.css" rel="stylesheet">
+<link href="index.md" rel="alternate" title="Markdown" type="text/markdown">
+<link href="style.css" rel="stylesheet" type="text/css">
+<script src="../_assets/js/wiki.js">
+</script>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+<div class="container-fluid topbar">
+<ul class="nav nav-pills navbar-left">
+<li role="presentation"><a href="../" title="G&#229; hjem"><i class="fa fa-home"></i></a>
+</li>
+</ul>
+
+<ul class="nav nav-pills navbar-right">
+<li role="presentation"><a href="../tmp/clipboard/" target="_blank" title="Kopier til Markdown"><span class="clipboard-logo"></span></a>
+</li>
+
+<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/blob/master/roselisp/index.md" target="_blank" title="Vis p&#229; GitHub"><i class="fa fa-github"></i></a>
+</li>
+
+<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/edit/master/roselisp/index.md" target="_blank" title="Rediger p&#229; GitHub"><i class="fa fa-edit"></i></a>
+</li>
+
+<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/raw/master/roselisp/index.md" target="_blank" title="Vis Markdown-kilde" type="text/plain"><span class="markdown-mark"></span></a>
+</li>
+
+<li role="presentation"><a data-toggle="collapse" href="#toc" id="toc-button" title="Innhold"><i class="fa fa-list"></i></a>
+</li>
+</ul>
+
+<form action="https://www.google.com/search" class="navbar-form" method="get" target="_blank">
+<div class="form-group" style="display: inline;">
+<div class="input-group" style="display: table;"><span class="input-group-addon" style="width: 1%;"><span class="glyphicon glyphicon-search"></span></span> <input accesskey="." autocomplete="off" class="form-control" name="q" title="S&#248;k" type="text"></div>
+</div>
+</form>
+</div>
+
+<div class="collapse" id="toc">
+<ul>
+<li><a href="#usage" title="Usage">Usage</a>
+</li>
+
+<li><a href="#installation" title="Installation">Installation</a>
+</li>
+
+<li><a href="#design" title="Design">Design</a>
+</li>
+
+<li><a href="#license" title="License">License</a>
+</li>
+
+<li><a href="#credits" title="Credits">Credits</a>
+</li>
+</ul>
+</div>
+</nav>
+
+<article class="h-entry" id="main">
+<header>
+<h1 class="p-name"><a class="u-uid u-url" href="https://epsil.github.io/roselisp/" rel="bookmark" target="_blank" title="Permalink">Roselisp</a>
+</h1>
+
+<p class="author"><a class="p-author h-card" href="https://epsil.github.io/" target="_blank" title="Open epsil.github.io in a new window">Vegard &#216;ye</a>
+</p>
+</header>
+
+<section class="e-content sidenotes">
+<section>
+<p>Roselisp is a Scheme-like Lisp implementation that compiles to JavaScript. Roselisp is self-hosted and provides both a Lisp interpreter and a Lisp compiler, as well as a simple decompiler for translating from JavaScript to Roselisp.</p>
+
+<p>Roselisp is named after the <a href="https://en.wikipedia.org/wiki/Rose_tree" target="_blank" title="Open en.wikipedia.org in a new window"><em>rose tree</em></a> data structure, which plays a core part in Roselisp&#8217;s design.</p>
+
+<p>Roselisp is free software and is licensed under the <span class="caps">MPL</span> license. The <span class="caps">MPL</span> is a library license that permits Roselisp to be linked with both free code and proprietary code.</p>
+</section>
+
+<section id="usage">
+<h2><a aria-hidden="true" class="header-anchor" href="#usage" title="Usage"></a>Usage<a aria-controls="usage-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#usage-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h2>
+
+<div class="collapse in" id="usage-section">
+<p>Roselisp is most easily <a href="#installation" title="Installation">installed</a> through <span class="caps">NPM</span>. Once Roselisp is installed, one can start an interactive session with:</p>
+
+<div class="pre">
+<pre id="roselisp">
+<code>roselisp</code>
+</pre>
+</div>
+
+<p>To interpret a Roselisp file:</p>
+
+<div class="pre">
+<pre id="roselisp-filescm">
+<code>roselisp file.scm</code>
+</pre>
+</div>
+
+<p>To compile a Roselisp file to JavaScript code:</p>
+
+<div class="pre">
+<pre id="roselisp-c-filescm">
+<code>roselisp -c file.scm</code>
+</pre>
+</div>
+
+<p>To decompile a JavaScript file to Roselisp code:</p>
+
+<div class="pre">
+<pre id="roselisp-d-filejs">
+<code>roselisp -d file.js</code>
+</pre>
+</div>
+</div>
+</section>
+
+<section id="installation">
+<h2><a aria-hidden="true" class="header-anchor" href="#installation" title="Installation"></a>Installation<a aria-controls="installation-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#installation-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h2>
+
+<div class="collapse in" id="installation-section">
+<p>To install Roselisp globally:</p>
+
+<div class="pre">
+<pre id="npm-install-g-roselisp">
+<code>npm install -g roselisp</code>
+</pre>
+</div>
+
+<p>This command might require <span class="code"><code id="sudo">sudo</code></span>:</p>
+
+<div class="pre">
+<pre id="sudo-npm-install-g-roselisp">
+<code>sudo npm install -g roselisp</code>
+</pre>
+</div>
+
+<p>To install Roselisp locally, as a library:</p>
+
+<div class="pre">
+<pre id="npm-install-save-roselisp">
+<code>npm install --save roselisp</code>
+</pre>
+</div>
+
+<p>It is also possible to fetch the latest source code from GitHub and install it with <span class="code"><code id="npm-link">npm link</code></span>.</p>
+</div>
+</section>
+
+<section id="design">
+<h2><a aria-hidden="true" class="header-anchor" href="#design" title="Design"></a>Design<a aria-controls="design-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#design-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h2>
+
+<div class="collapse in" id="design-section">
+<p>Roselisp aims to be a classical Scheme implementation, reusing established Lisp conventions rather than inventing its own. Since it is still a work in progress, we refer to it as &#8220;Scheme-similar&#8221; for the time being. Roselisp is inspired by, and seeks commonality with, other Scheme implementations like Racket and Guile. However, as it is also inspired by Common Lisp, Clojure and Emacs Lisp, it has something of a heterodox flavor.</p>
+</div>
+</section>
+
+<section id="license">
+<h2><a aria-hidden="true" class="header-anchor" href="#license" title="License"></a>License<a aria-controls="license-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#license-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h2>
+
+<div class="collapse in" id="license-section">
+<p>Roselisp is licensed under the Mozilla Public License 2.0 (<span class="caps">MPL</span> 2.0).</p>
+
+<p>For more on the <span class="caps">MPL</span>, see the <a href="https://www.mozilla.org/en-US/MPL/2.0/FAQ/#copyleft-scope" target="_blank" title="Open mozilla.org in a new window"><span class="caps">MPL</span> 2.0 <span class="caps">FAQ</span></a>.</p>
+</div>
+</section>
+
+<section id="credits">
+<h2><a aria-hidden="true" class="header-anchor" href="#credits" title="Credits"></a>Credits<a aria-controls="credits-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#credits-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h2>
+
+<div class="collapse in" id="credits-section">
+<p>Roselisp is written by Vegard &#216;ye.</p>
+</div>
+</section>
+</section>
+</article>
+</body>
+</html>
