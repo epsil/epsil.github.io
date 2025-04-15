@@ -1,0 +1,35 @@
+@import url("georgia.css");
+
+body {
+    color: rgb(51, 51, 51) !important;
+    font-family: Georgia, "Linux Libertine", "Linux Libertine O", "ITC Charter",
+        Charter, "Iowan Old Style", Iowan, "Iowan Web", "Minion Web",
+        "Minion Pro", "Minion Std", Minion, "Crimson Text", "ETBembo",
+        "ETBembo LF", "STIX Two Web", "STIX Two Text", "PT Serif",
+        "Hoefler Text", "Libre Baskerville", Baskerville, Cambria, Constantia,
+        Utopia, Marion, Cochin, "Palatino Linotype", Palatino, serif !important;
+    font-size: 119% !important;
+    line-height: 1.45;
+}
+
+.h-entry > header,
+.e-content > * {
+    max-width: 640px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header {
+    font-family: inherit !important;
+}
+
+@media (max-width: 767px) {
+    body {
+        font-size: 105% !important;
+        line-height: 1.3;
+    }
+}
