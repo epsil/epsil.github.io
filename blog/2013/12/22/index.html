@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="no" prefix="og: http://ogp.me/ns#">
+<head>
+<title>Last.fm Search Links</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="no-referrer" name="referrer">
+<meta content="noindex" name="robots">
+<meta content="Vegard &#216;ye" name="author">
+<meta content="2013-12-22" name="date">
+<meta content="122f5f90da4289cd541ce26379fb147c" name="md5">
+<meta content="text/css" http-equiv="Content-Style-Type">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<meta content="Last.fm Search Links" name="DC.Title">
+<meta content="Vegard &#216;ye" name="DC.Creator">
+<meta content="2013-12-22" name="DC.Date">
+<meta content="no" name="DC.Language">
+<meta content="text/html" name="DC.Format">
+<meta content="Last.fm Search Links" property="og:title">
+<meta content="no" name="og:locale">
+<meta content="article" property="og:type">
+<meta content="https://epsil.github.io/blog/2013/12/22/" property="og:url">
+<meta content="Vegards blogg" property="og:site_name">
+<meta content="summary" name="twitter:card">
+<meta content="@github" name="twitter:site">
+<meta content="Last.fm Search Links" name="twitter:title">
+<link href="../../../../favicon.ico" rel="icon" type="image/x-icon">
+<link href="../../../../apple-touch-icon.png" rel="apple-touch-icon">
+<link href="../../../../_assets/css/wiki.css" rel="stylesheet">
+<link href="index.md" rel="alternate" title="Markdown" type="text/markdown">
+<script src="../../../../_assets/js/wiki.js">
+</script>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+<div class="container-fluid topbar">
+<ul class="nav nav-pills navbar-left">
+<li role="presentation"><a href="../../../../" title="G&#229; hjem"><i class="fa fa-home"></i></a>
+</li>
+</ul>
+
+<ul class="nav nav-pills navbar-right">
+<li role="presentation"><a href="../../../../tmp/clipboard/" target="_blank" title="Kopier til Markdown"><span class="clipboard-logo"></span></a>
+</li>
+
+<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/blob/master/blog/2013/12/22/index.md" target="_blank" title="Vis p&#229; GitHub"><i class="fa fa-github"></i></a>
+</li>
+
+<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/edit/master/blog/2013/12/22/index.md" target="_blank" title="Rediger p&#229; GitHub"><i class="fa fa-edit"></i></a>
+</li>
+
+<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/raw/master/blog/2013/12/22/index.md" target="_blank" title="Vis Markdown-kilde" type="text/plain"><span class="markdown-mark"></span></a>
+</li>
+
+<li role="presentation"><a data-toggle="collapse" href="#toc" id="toc-button" title="Innhold"><i class="fa fa-list"></i></a>
+</li>
+</ul>
+
+<form action="https://www.google.com/search" class="navbar-form" method="get" target="_blank">
+<div class="form-group" style="display: inline;">
+<div class="input-group" style="display: table;"><span class="input-group-addon" style="width: 1%;"><span class="glyphicon glyphicon-search"></span></span> <input accesskey="." autocomplete="off" class="form-control" name="q" title="S&#248;k" type="text"></div>
+</div>
+</form>
+</div>
+
+<div id="toc-placeholder">
+</div>
+</nav>
+
+<article class="h-entry" id="main">
+<header>
+<h1 class="p-name"><a class="u-uid u-url" href="https://epsil.github.io/blog/2013/12/22/" rel="bookmark" target="_blank" title="Permalink"></a><a href="http://Last.fm" target="_blank" title="Open Last.fm in a new window">Last.fm</a> Search Links</h1>
+
+<p class="author"><a class="p-author h-card" href="https://epsil.github.io/" target="_blank" title="Open epsil.github.io in a new window">Vegard &#216;ye</a> &#8226; <time class="dt-published" datetime="2013-12-22">2013-12-22</time></p>
+</header>
+
+<section class="e-content sidenotes">
+<section>
+<p><a href="http://userscripts.org/scripts/show/20252" target="_blank" title="Open userscripts.org in a new window">Last.fm Search Links</a> er et nyttig skript for diverse musikknettsteder. Dessverre har den siste offisielle versjonen (2012.12.09) problemer med <a href="http://rateyourmusic.com/" target="_blank" title="Open rateyourmusic.com in a new window">Rate Your Music</a>. En uoffisiell <a href="http://userscripts.org/topics/131464" target="_blank" title="Open userscripts.org in a new window">versjon 2013.09.10</a> gj&#248;r noen endringer:</p>
+
+<div class="pre">
+<pre class="language-javascript" id="rym-artist-url-http-wwwrateyourmusiccom-artist-w-i-mainpathdivprofilehir-searchrymsearch">
+<code class="language-javascript"><span class="token punctuation">{</span>       <span class="token comment">// rym artist</span>
+        url<span class="token punctuation">:</span><span class="token regex">/^http:\/\/(?:www\.)?rateyourmusic\.com\/artist\/[\w#!:.?+=&amp;%@!\-]+\/?$/i</span><span class="token punctuation">,</span>
+        mainPath<span class="token punctuation">:</span><span class="token string">"div.profilehir"</span><span class="token punctuation">,</span>
+        search<span class="token punctuation">:</span>rymSearch
+<span class="token punctuation">}</span><span class="token punctuation">,</span></code>
+</pre>
+</div>
+
+<p>Men n&#229; har Rate Your Music endret <abbr class="acronym" title="HyperText Markup Language"><span class="caps">HTML</span></abbr>-koden igjen, s&#229; dette virker ikke lenger. Det f&#248;lgende ser ut til &#229; fungere:</p>
+
+<div class="pre">
+<pre class="language-javascript" id="rym-artist-url-http-wwwrateyourmusiccom-artist-w-i-mainpathdivsection-artist-name-searchrymsearch-rym-album-url-http-wwwrateyourmusiccom-release-w-w-w-i-searchrymsearch-mainpathdivcontent-artistpathtablealbum-info-aartist-albumpathdivalbum-title-placepathdivalbum-title">
+<code class="language-javascript"><span class="token punctuation">{</span>       <span class="token comment">// rym artist</span>
+        url<span class="token punctuation">:</span><span class="token regex">/^http:\/\/(?:www\.)?rateyourmusic\.com\/artist\/[\w#!:.?+=&amp;%@!\-]+\/?$/i</span><span class="token punctuation">,</span>
+        mainPath<span class="token punctuation">:</span><span class="token string">"div.section_artist_name"</span><span class="token punctuation">,</span>
+        search<span class="token punctuation">:</span>rymSearch
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">{</span>       <span class="token comment">// rym album</span>
+        url<span class="token punctuation">:</span><span class="token regex">/^http:\/\/(?:www\.)?rateyourmusic\.com\/release\/\w+\/[\w#!:.?+=&amp;%@!\-]+\/[\w#!:.?+=&amp;%@!\-]+\/?$/i</span><span class="token punctuation">,</span>
+        search<span class="token punctuation">:</span>rymSearch<span class="token punctuation">,</span>
+        mainPath<span class="token punctuation">:</span><span class="token string">"div#content"</span><span class="token punctuation">,</span>
+        artistPath<span class="token punctuation">:</span><span class="token string">"table.album_info a.artist"</span><span class="token punctuation">,</span>
+        albumPath<span class="token punctuation">:</span><span class="token string">"div.album_title"</span><span class="token punctuation">,</span>
+        placePath<span class="token punctuation">:</span><span class="token string">"div.album_title"</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span></code>
+</pre>
+</div>
+
+<hr>
+
+<p><strong>Oppdatering 2015-04-29:</strong> En bruker ved navn <a href="http://userscripts-mirror.org/topics/131464.html" target="_blank" title="Open userscripts-mirror.org in a new window">rocketman</a> har vedlikeholdt koden.</p>
+</section>
+</section>
+</article>
+</body>
+</html>

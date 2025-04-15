@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="no" prefix="og: http://ogp.me/ns#">
+<head>
+<title>Testing med Selenium</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="no-referrer" name="referrer">
+<meta content="noindex" name="robots">
+<meta content="Vegard &#216;ye" name="author">
+<meta content="2015-12-10" name="date">
+<meta content="Hvordan kombinere Selenium, mocha og chai." name="description">
+<meta content="6de469cb41a354fe6b13b40e3f2af329" name="md5">
+<meta content="text/css" http-equiv="Content-Style-Type">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<meta content="Testing med Selenium" name="DC.Title">
+<meta content="Vegard &#216;ye" name="DC.Creator">
+<meta content="2015-12-10" name="DC.Date">
+<meta content="Hvordan kombinere Selenium, mocha og chai." name="DC.Description">
+<meta content="no" name="DC.Language">
+<meta content="text/html" name="DC.Format">
+<meta content="Testing med Selenium" property="og:title">
+<meta content="Hvordan kombinere Selenium, mocha og chai." property="og:description">
+<meta content="no" name="og:locale">
+<meta content="article" property="og:type">
+<meta content="https://epsil.github.io/blog/2015/12/10/" property="og:url">
+<meta content="Vegards blogg" property="og:site_name">
+<meta content="https://epsil.github.io/blog/2015/12/10/selenium.png" property="og:image">
+<meta content="summary" name="twitter:card">
+<meta content="@github" name="twitter:site">
+<meta content="Testing med Selenium" name="twitter:title">
+<meta content="Hvordan kombinere Selenium, mocha og chai." name="twitter:description">
+<meta content="https://epsil.github.io/blog/2015/12/10/selenium.png" name="twitter:image">
+<link href="../../../../favicon.ico" rel="icon" type="image/x-icon">
+<link href="selenium.png" rel="apple-touch-icon">
+<link href="../../../../_assets/css/wiki.css" rel="stylesheet">
+<link href="index.md" rel="alternate" title="Markdown" type="text/markdown">
+<link href="style.css" rel="stylesheet" type="text/css">
+<script src="../../../../_assets/js/wiki.js">
+</script>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+<div class="container-fluid topbar">
+<ul class="nav nav-pills navbar-left">
+<li role="presentation"><a href="../../../../" title="G&#229; hjem"><i class="fa fa-home"></i></a>
+</li>
+</ul>
+
+<ul class="nav nav-pills navbar-right">
+<li role="presentation"><a href="../../../../tmp/clipboard/" target="_blank" title="Kopier til Markdown"><span class="clipboard-logo"></span></a>
+</li>
+
+<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/blob/master/blog/2015/12/10/index.md" target="_blank" title="Vis p&#229; GitHub"><i class="fa fa-github"></i></a>
+</li>
+
+<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/edit/master/blog/2015/12/10/index.md" target="_blank" title="Rediger p&#229; GitHub"><i class="fa fa-edit"></i></a>
+</li>
+
+<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/raw/master/blog/2015/12/10/index.md" target="_blank" title="Vis Markdown-kilde" type="text/plain"><span class="markdown-mark"></span></a>
+</li>
+
+<li role="presentation"><a data-toggle="collapse" href="#toc" id="toc-button" title="Innhold"><i class="fa fa-list"></i></a>
+</li>
+</ul>
+
+<form action="https://www.google.com/search" class="navbar-form" method="get" target="_blank">
+<div class="form-group" style="display: inline;">
+<div class="input-group" style="display: table;"><span class="input-group-addon" style="width: 1%;"><span class="glyphicon glyphicon-search"></span></span> <input accesskey="." autocomplete="off" class="form-control" name="q" title="S&#248;k" type="text"></div>
+</div>
+</form>
+</div>
+
+<div class="collapse" id="toc">
+<ul>
+<li><a href="#selenium" title="Selenium">Selenium</a>
+</li>
+
+<li><a href="#selenium-webdriver" title="selenium-webdriver">selenium-webdriver</a>
+</li>
+
+<li><a href="#chromedriver" title="ChromeDriver">ChromeDriver</a>
+</li>
+
+<li><a href="#installasjon" title="Installasjon">Installasjon</a>
+</li>
+
+<li><a href="#filstruktur" title="Filstruktur">Filstruktur</a>
+</li>
+
+<li><a href="#testjs" title="test.js">test.js</a>
+</li>
+
+<li><a href="#testjs-del-2" title="test.js, del 2">test.js, del 2</a>
+</li>
+
+<li><a href="#testjs-del-3" title="test.js, del 3">test.js, del 3</a>
+</li>
+
+<li><a href="#linker" title="Linker">Linker</a>
+</li>
+</ul>
+</div>
+</nav>
+
+<article class="h-entry" id="main">
+<header>
+<figure style="width: 159px;"><a class="image" href="steria.svg" title="View steria.svg in full screen"><img alt="" src="steria.svg" width="150"></a>
+</figure>
+
+<h1 class="p-name"><a class="u-uid u-url" href="https://epsil.github.io/blog/2015/12/10/" rel="bookmark" target="_blank" title="Permalink">Testing med Selenium</a>
+</h1>
+
+<p class="author"><a class="p-author h-card" href="https://epsil.github.io/" target="_blank" title="Open epsil.github.io in a new window">Vegard &#216;ye</a> &#8226; <time class="dt-published" datetime="2015-12-10">2015-12-10</time></p>
+
+<p class="p-summary">Hvordan kombinere Selenium, mocha og chai.</p>
+
+<figure class="u-photo" style="width: 109px;"><a class="image" href="selenium.png" title="View selenium.png in full screen"><img alt="" src="selenium.png" width="100"></a>
+</figure>
+</header>
+
+<section class="e-content sidenotes">
+<section id="selenium">
+<h2><a aria-hidden="true" class="header-anchor" href="#selenium" title="Selenium"></a>Selenium<a aria-controls="selenium-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#selenium-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h2>
+
+<div class="collapse in" id="selenium-section">
+<ul class="collapse in">
+<li id="testrammeverk-for-webapplikasjoner-item"><a aria-controls="testrammeverk-for-webapplikasjoner-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#testrammeverk-for-webapplikasjoner-item-section" role="button"></a>Testrammeverk for webapplikasjoner<span class="collapse in" id="testrammeverk-for-webapplikasjoner-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+
+<li id="skrevet-i-java-item"><a aria-controls="skrevet-i-java-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#skrevet-i-java-item-section" role="button"></a>Skrevet i Java<span class="collapse in" id="skrevet-i-java-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+
+<li id="gjor-det-mulig-a-lage-makroer-for-en-nettleser-item"><a aria-controls="gjor-det-mulig-a-lage-makroer-for-en-nettleser-list" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#gjor-det-mulig-a-lage-makroer-for-en-nettleser-list" role="button"></a>Gj&#248;r det mulig &#229; lage makroer for en nettleser
+
+<ul class="collapse in" id="gjor-det-mulig-a-lage-makroer-for-en-nettleser-list">
+<li id="apne-en-adresse-item"><a aria-controls="apne-en-adresse-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#apne-en-adresse-item-section" role="button"></a>&#197;pne en adresse<span class="collapse in" id="apne-en-adresse-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+
+<li id="finne-et-element-item"><a aria-controls="finne-et-element-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#finne-et-element-item-section" role="button"></a>Finne et element<span class="collapse in" id="finne-et-element-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+
+<li id="klikke-pa-elementet-item"><a aria-controls="klikke-pa-elementet-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#klikke-pa-elementet-item-section" role="button"></a>Klikke p&#229; elementet<span class="collapse in" id="klikke-pa-elementet-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+
+<li id="-3-item"><a aria-controls="-3-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#-3-item-section" role="button"></a>&#8230;<span class="collapse in" id="-3-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+</ul>
+<a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+</ul>
+</div>
+</section>
+
+<section id="selenium-webdriver">
+<h2><a aria-hidden="true" class="header-anchor" href="#selenium-webdriver" title="selenium-webdriver"></a>selenium-webdriver<a aria-controls="selenium-webdriver-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#selenium-webdriver-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h2>
+
+<div class="collapse in" id="selenium-webdriver-section">
+<ul class="collapse in">
+<li id="javascript-grensesnitt-for-selenium-item"><a aria-controls="javascript-grensesnitt-for-selenium-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#javascript-grensesnitt-for-selenium-item-section" role="button"></a>JavaScript-grensesnitt for Selenium<span class="collapse in" id="javascript-grensesnitt-for-selenium-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+
+<li id="kan-kombineres-med-andre-javascript-biblioteker-item"><a aria-controls="kan-kombineres-med-andre-javascript-biblioteker-list" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#kan-kombineres-med-andre-javascript-biblioteker-list" role="button"></a>Kan kombineres med andre JavaScript-biblioteker:
+
+<ul class="collapse in" id="kan-kombineres-med-andre-javascript-biblioteker-list">
+<li id="mocha-item"><a aria-controls="mocha-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#mocha-item-section" role="button"></a>mocha<span class="collapse in" id="mocha-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+
+<li id="chai-chai-as-promised-item"><a aria-controls="chai-chai-as-promised-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#chai-chai-as-promised-item-section" role="button"></a>chai, chai-as-promised<span class="collapse in" id="chai-chai-as-promised-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+</ul>
+<a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+
+<li id="installeres-med-npm-item"><a aria-controls="installeres-med-npm-list" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#installeres-med-npm-list" role="button"></a>Installeres med <abbr title="Node Package Manager">npm</abbr>:
+
+<ul class="collapse in" id="installeres-med-npm-list">
+<li id="npm-install-selenium-webdriver-item"><a aria-controls="npm-install-selenium-webdriver-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#npm-install-selenium-webdriver-item-section" role="button"></a><span class="code"><code id="npm-install-selenium-webdriver">npm install selenium-webdriver</code></span><span class="collapse in" id="npm-install-selenium-webdriver-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+</ul>
+<a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+</ul>
+</div>
+</section>
+
+<section id="chromedriver">
+<h2><a aria-hidden="true" class="header-anchor" href="#chromedriver" title="ChromeDriver"></a>ChromeDriver<a aria-controls="chromedriver-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#chromedriver-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h2>
+
+<div class="collapse in" id="chromedriver-section">
+<ul class="collapse in">
+<li id="oppretter-forbindelse-til-chrome-instans-item"><a aria-controls="oppretter-forbindelse-til-chrome-instans-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#oppretter-forbindelse-til-chrome-instans-item-section" role="button"></a>Oppretter forbindelse til Chrome-instans<span class="collapse in" id="oppretter-forbindelse-til-chrome-instans-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+
+<li id="kan-installeres-med-npm-eller-lastes-ned-separat-item"><a aria-controls="kan-installeres-med-npm-eller-lastes-ned-separat-list" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#kan-installeres-med-npm-eller-lastes-ned-separat-list" role="button"></a>Kan installeres med <abbr title="Node Package Manager">npm</abbr> eller lastes ned separat:
+
+<ul class="collapse in" id="kan-installeres-med-npm-eller-lastes-ned-separat-list">
+<li id="httpsitesgooglecomachromiumorgchromedriver-item"><a aria-controls="httpsitesgooglecomachromiumorgchromedriver-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#httpsitesgooglecomachromiumorgchromedriver-item-section" role="button"></a><a class="url" href="http://sites.google.com/a/chromium.org/chromedriver/" target="_blank" title="Open sites.google.com in a new window">http://sites.google.com/a/chromium.org/chromedriver/</a><span class="collapse in" id="httpsitesgooglecomachromiumorgchromedriver-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+
+<li id="chromedriverexe-ma-ligge-i-path-item"><a aria-controls="chromedriverexe-ma-ligge-i-path-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#chromedriverexe-ma-ligge-i-path-item-section" role="button"></a><span class="code"><code id="chromedriverexe">ChromeDriver.exe</code></span> m&#229; ligge i <span class="code"><code id="path-2">PATH</code></span><span class="collapse in" id="chromedriverexe-ma-ligge-i-path-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+</ul>
+<a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+</ul>
+</div>
+</section>
+
+<section id="installasjon">
+<h2><a aria-hidden="true" class="header-anchor" href="#installasjon" title="Installasjon"></a>Installasjon<a aria-controls="installasjon-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#installasjon-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h2>
+
+<div class="collapse in" id="installasjon-section">
+<ol>
+<li><abbr title="Node Package Manager">npm</abbr>
+<ul class="collapse in">
+<li id="httpnodejsorg-item"><a aria-controls="httpnodejsorg-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#httpnodejsorg-item-section" role="button"></a><a class="url" href="http://nodejs.org/" target="_blank" title="Open nodejs.org in a new window">http://nodejs.org/</a><span class="collapse in" id="httpnodejsorg-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+</ul>
+</li>
+
+<li>ChromeDriver
+
+<ul class="collapse in">
+<li id="httpsitesgooglecomachromiumorgchromedriver-2-item"><a aria-controls="httpsitesgooglecomachromiumorgchromedriver-2-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#httpsitesgooglecomachromiumorgchromedriver-2-item-section" role="button"></a><a class="url" href="http://sites.google.com/a/chromium.org/chromedriver/" target="_blank" title="Open sites.google.com in a new window">http://sites.google.com/a/chromium.org/chromedriver/</a><span class="collapse in" id="httpsitesgooglecomachromiumorgchromedriver-2-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+</ul></li>
+
+<li>selenium-webdriver
+
+<ul class="collapse in">
+<li id="npm-install-selenium-webdriver-2-item"><a aria-controls="npm-install-selenium-webdriver-2-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#npm-install-selenium-webdriver-2-item-section" role="button"></a><span class="code"><code id="npm-install-selenium-webdriver-2">npm install selenium-webdriver</code></span><span class="collapse in" id="npm-install-selenium-webdriver-2-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+</ul></li>
+
+<li>Mocha
+
+<ul class="collapse in">
+<li id="npm-install-g-mocha-item"><a aria-controls="npm-install-g-mocha-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#npm-install-g-mocha-item-section" role="button"></a><span class="code"><code id="npm-install-g-mocha">npm install -g mocha</code></span><span class="collapse in" id="npm-install-g-mocha-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+</ul></li>
+
+<li>Chai
+
+<ul class="collapse in">
+<li id="npm-install-chai-item"><a aria-controls="npm-install-chai-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#npm-install-chai-item-section" role="button"></a><span class="code"><code id="npm-install-chai">npm install chai</code></span><span class="collapse in" id="npm-install-chai-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+
+<li id="npm-install-chai-as-promised-item"><a aria-controls="npm-install-chai-as-promised-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#npm-install-chai-as-promised-item-section" role="button"></a><span class="code"><code id="npm-install-chai-as-promised">npm install chai-as-promised</code></span><span class="collapse in" id="npm-install-chai-as-promised-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+</ul></li>
+</ol>
+</div>
+</section>
+
+<section id="filstruktur">
+<h2><a aria-hidden="true" class="header-anchor" href="#filstruktur" title="Filstruktur"></a>Filstruktur<a aria-controls="filstruktur-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#filstruktur-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h2>
+
+<div class="collapse in" id="filstruktur-section">
+<div class="pre">
+<pre id="test-testjs-node-modules-selenium-webdriver-chai-chai-as-promised-">
+<code>test/
+|-- test.js
+`-- node_modules/
+    |-- selenium_webdriver/
+    |-- chai/
+    |-- chai-as-promised/
+    `-- ...</code>
+</pre>
+</div>
+
+<p>Kj&#248;res med:</p>
+
+<div class="pre">
+<pre id="mocha-testjs">
+<code>mocha test.js</code>
+</pre>
+</div>
+</div>
+</section>
+
+<section id="testjs">
+<h2><a aria-hidden="true" class="header-anchor" href="#testjs" title="test.js"></a><a href="test.js">test.js</a><a aria-controls="testjs-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#testjs-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a>
+</h2>
+
+<div class="collapse in" id="testjs-section">
+<div class="pre">
+<pre class="language-javascript" id="var-selenium-requireselenium-webdriver-var-chai-requirechai-chaiuserequirechai-as-promised-var-expect-chaiexpect-beforefunction-thistimeout60000-thisdriver-new-seleniumbuilder-withcapabilitiesseleniumcapabilitieschrome-build-return-thisdrivergetwindowhandle-afterfunction-return-thisdriverquit-describecomponent-function-">
+<code class="language-javascript"><span class="token keyword">var</span> selenium <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'selenium-webdriver'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> chai <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'chai'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+chai<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'chai-as-promised'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> expect <span class="token operator">=</span> chai<span class="token punctuation">.</span>expect<span class="token punctuation">;</span>
+
+<span class="token function">before</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">timeout</span><span class="token punctuation">(</span><span class="token number">60000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>driver <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">selenium<span class="token punctuation">.</span>Builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">withCapabilities</span><span class="token punctuation">(</span>selenium<span class="token punctuation">.</span>Capabilities<span class="token punctuation">.</span><span class="token function">chrome</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>driver<span class="token punctuation">.</span><span class="token function">getWindowHandle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">after</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>driver<span class="token punctuation">.</span><span class="token function">quit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">'Component'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code>
+</pre>
+</div>
+</div>
+</section>
+
+<section id="testjs-del-2">
+<h2><a aria-hidden="true" class="header-anchor" href="#testjs-del-2" title="test.js, del 2"></a><a href="test.js">test.js</a>, del 2<a aria-controls="testjs-del-2-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#testjs-del-2-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h2>
+
+<div class="collapse in" id="testjs-del-2-section">
+<div class="pre">
+<pre class="language-javascript" id="describecomponent-function-beforeeachfunction-aftereachfunction-itshould-work-as-expected-function-selenium-test-code-here">
+<code class="language-javascript"><span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">'Component'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">beforeEach</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// ...</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token function">afterEach</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// ...</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token function">it</span><span class="token punctuation">(</span><span class="token string">'should work as expected'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Selenium test code here</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code>
+</pre>
+</div>
+
+<p>Resultat:</p>
+
+<ul class="collapse in">
+<li id="component-should-work-as-expected-item"><a aria-controls="component-should-work-as-expected-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#component-should-work-as-expected-item-section" role="button"></a>Component should work as expected: &#10004;<span class="collapse in" id="component-should-work-as-expected-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+</ul>
+</div>
+</section>
+
+<section id="testjs-del-3">
+<h2><a aria-hidden="true" class="header-anchor" href="#testjs-del-3" title="test.js, del 3"></a><a href="test.js">test.js</a>, del 3<a aria-controls="testjs-del-3-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#testjs-del-3-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h2>
+
+<div class="collapse in" id="testjs-del-3-section">
+<div class="pre">
+<pre class="language-javascript" id="describesearch-field-function-itshould-clear-when-selected-function-thisdrivergethttp-var-searchfield-thisdriverfindelement-css-searchfield-searchfieldclick-return-expectsearchfieldgettexttoeventuallyequal">
+<code class="language-javascript"><span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">'Search field'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">it</span><span class="token punctuation">(</span><span class="token string">'should clear when selected'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>driver<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'http://...'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> searchField <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>driver<span class="token punctuation">.</span><span class="token function">findElement</span><span class="token punctuation">(</span><span class="token punctuation">{</span> css<span class="token punctuation">:</span> <span class="token string">'#searchField'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    searchField<span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token function">expect</span><span class="token punctuation">(</span>searchField<span class="token punctuation">.</span><span class="token function">getText</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>to<span class="token punctuation">.</span>eventually<span class="token punctuation">.</span><span class="token function">equal</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code>
+</pre>
+</div>
+
+<p>Resultat:</p>
+
+<ul class="collapse in">
+<li id="search-field-should-clear-when-selected-item"><a aria-controls="search-field-should-clear-when-selected-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#search-field-should-clear-when-selected-item-section" role="button"></a>Search field should clear when selected: &#10004;<span class="collapse in" id="search-field-should-clear-when-selected-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+</ul>
+</div>
+</section>
+
+<section id="linker">
+<h2><a aria-hidden="true" class="header-anchor" href="#linker" title="Linker"></a>Linker<a aria-controls="linker-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#linker-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h2>
+
+<div class="collapse in" id="linker-section">
+<ul class="collapse in">
+<li id="testjs-item"><a aria-controls="testjs-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#testjs-item-section" role="button"></a><a href="test.js">test.js</a><span class="collapse in" id="testjs-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+
+<li id="getting-started-with-selenium-webdriver-for-nodejs-item"><a aria-controls="getting-started-with-selenium-webdriver-for-nodejs-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#getting-started-with-selenium-webdriver-for-nodejs-item-section" role="button"></a><a href="http://bites.goodeggs.com/posts/selenium-webdriver-nodejs-tutorial/" target="_blank" title="Open bites.goodeggs.com in a new window">Getting started with Selenium Webdriver for node.js</a><span class="collapse in" id="getting-started-with-selenium-webdriver-for-nodejs-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+
+<li id="selenium-with-nodejs-and-mocha-item"><a aria-controls="selenium-with-nodejs-and-mocha-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#selenium-with-nodejs-and-mocha-item-section" role="button"></a><a href="http://simpleprogrammer.com/2014/02/03/selenium-with-node-js/" target="_blank" title="Open simpleprogrammer.com in a new window">Selenium With Node.js and Mocha</a><span class="collapse in" id="selenium-with-nodejs-and-mocha-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+</ul>
+</div>
+</section>
+</section>
+</article>
+</body>
+</html>

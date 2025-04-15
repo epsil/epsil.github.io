@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="no" prefix="og: http://ogp.me/ns#">
+<head>
+<title>Closures i Lisp</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="no-referrer" name="referrer">
+<meta content="noindex" name="robots">
+<meta content="Vegard &#216;ye" name="author">
+<meta content="2011-10-07" name="date">
+<meta content="9111a090f43fb624f5114b1577e42a16" name="md5">
+<meta content="text/css" http-equiv="Content-Style-Type">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<meta content="Closures i Lisp" name="DC.Title">
+<meta content="Vegard &#216;ye" name="DC.Creator">
+<meta content="2011-10-07" name="DC.Date">
+<meta content="no" name="DC.Language">
+<meta content="text/html" name="DC.Format">
+<meta content="Closures i Lisp" property="og:title">
+<meta content="no" name="og:locale">
+<meta content="article" property="og:type">
+<meta content="https://epsil.github.io/blog/2011/10/07/" property="og:url">
+<meta content="Vegards blogg" property="og:site_name">
+<meta content="summary" name="twitter:card">
+<meta content="@github" name="twitter:site">
+<meta content="Closures i Lisp" name="twitter:title">
+<link href="../../../../favicon.ico" rel="icon" type="image/x-icon">
+<link href="../../../../apple-touch-icon.png" rel="apple-touch-icon">
+<link href="../../../../_assets/css/wiki.css" rel="stylesheet">
+<link href="index.md" rel="alternate" title="Markdown" type="text/markdown">
+<script src="../../../../_assets/js/wiki.js">
+</script>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+<div class="container-fluid topbar">
+<ul class="nav nav-pills navbar-left">
+<li role="presentation"><a href="../../../../" title="G&#229; hjem"><i class="fa fa-home"></i></a>
+</li>
+</ul>
+
+<ul class="nav nav-pills navbar-right">
+<li role="presentation"><a href="../../../../tmp/clipboard/" target="_blank" title="Kopier til Markdown"><span class="clipboard-logo"></span></a>
+</li>
+
+<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/blob/master/blog/2011/10/07/index.md" target="_blank" title="Vis p&#229; GitHub"><i class="fa fa-github"></i></a>
+</li>
+
+<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/edit/master/blog/2011/10/07/index.md" target="_blank" title="Rediger p&#229; GitHub"><i class="fa fa-edit"></i></a>
+</li>
+
+<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/raw/master/blog/2011/10/07/index.md" target="_blank" title="Vis Markdown-kilde" type="text/plain"><span class="markdown-mark"></span></a>
+</li>
+
+<li role="presentation"><a data-toggle="collapse" href="#toc" id="toc-button" title="Innhold"><i class="fa fa-list"></i></a>
+</li>
+</ul>
+
+<form action="https://www.google.com/search" class="navbar-form" method="get" target="_blank">
+<div class="form-group" style="display: inline;">
+<div class="input-group" style="display: table;"><span class="input-group-addon" style="width: 1%;"><span class="glyphicon glyphicon-search"></span></span> <input accesskey="." autocomplete="off" class="form-control" name="q" title="S&#248;k" type="text"></div>
+</div>
+</form>
+</div>
+
+<div id="toc-placeholder">
+</div>
+</nav>
+
+<article class="h-entry" id="main">
+<header>
+<h1 class="p-name"><a class="u-uid u-url" href="https://epsil.github.io/blog/2011/10/07/" rel="bookmark" target="_blank" title="Permalink">Closures i Lisp</a>
+</h1>
+
+<p class="author"><a class="p-author h-card" href="https://epsil.github.io/" target="_blank" title="Open epsil.github.io in a new window">Vegard &#216;ye</a> &#8226; <time class="dt-published" datetime="2011-10-07">2011-10-07</time></p>
+</header>
+
+<section class="e-content sidenotes">
+<section>
+<blockquote>
+<p>In the remotest regions, beyond the Functional Kingdoms, lies a fabled realm called Lambda the Ultimate. In this place it is said that there are no nouns at all, only verbs! There are &#8220;things&#8221; there, but all things are created from verbs, even the very integers for counting lambs, which are the most popular form of trading currency there, if the rumors speak truth. The number zero is simply <span class="code"><code id="lambda">lambda()</code></span>, and 1 is <span class="code"><code id="lambdalambda">lambda(lambda())</code></span>, 2 is <span class="code"><code id="lambdalambdalambda">lambda(lambda(lambda()))</code></span>, and so on. Every single Thing in this legendary region, be it noun, verb or otherwise, is constructed from the primal verb &#8220;lambda&#8221;.</p>
+
+<aside class="sidenote">
+<hr class="sidenote-ruler">
+
+<p><sup class="ref-mark"><a href="#fnref1" id="sidenote1" title="Steve Yegge: Execution in the Kingdom of Nouns[1]"><span class="left-bracket">[</span>1<span class="right-bracket">]</span></a></sup><a class="url" href="http://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html" target="_blank" title="Open steve-yegge.blogspot.com in a new window">http://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html</a> <a class="footnote-backref" href="#fnref1" title="Steve Yegge: Execution in the Kingdom of Nouns[1]">&#8617;&#65038;</a></p>
+</aside>
+
+<footer>Steve Yegge: <cite><a href="http://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html" target="_blank" title="Open steve-yegge.blogspot.com in a new window">Execution in the Kingdom of Nouns</a></cite><sup class="footnote-ref"><a href="#fn1" id="fnref1" title="http://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html"><span class="left-bracket">[</span>1<span class="right-bracket">]</span></a></sup></footer>
+</blockquote>
+
+<aside class="sidenote">
+<hr class="sidenote-ruler">
+
+<p><sup class="ref-mark"><a href="#fnref2" id="sidenote2" title="Det er i prinsippet mulig &#229; bruke lambdaer som et fundament for videre programmering. Det klassiske SICP-eksemplet er &#229; definere cons, car og cdr p&#229; denne m&#229;ten,[2] som vi kan tenke p&#229; som Lisp-sjargong for pair, first og second. La pair v&#230;re en funksjon som returnerer et par med verdier, first returnere den f&#248;rste verdien til paret, og second returnere den andre:"><span class="left-bracket">[</span>2<span class="right-bracket">]</span></a></sup><a class="url" href="http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-14.html#%25_sec_2.1.3" target="_blank" title="Open mitpress.mit.edu in a new window">http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-14.html#%_sec_2.1.3</a> <a class="footnote-backref" href="#fnref2" title="Det er i prinsippet mulig &#229; bruke lambdaer som et fundament for videre programmering. Det klassiske SICP-eksemplet er &#229; definere cons, car og cdr p&#229; denne m&#229;ten,[2] som vi kan tenke p&#229; som Lisp-sjargong for pair, first og second. La pair v&#230;re en funksjon som returnerer et par med verdier, first returnere den f&#248;rste verdien til paret, og second returnere den andre:">&#8617;&#65038;</a></p>
+</aside>
+
+<p>Det er i prinsippet mulig &#229; bruke lambdaer som et fundament for videre programmering. Det klassiske <a href="http://mitpress.mit.edu/sicp/full-text/book/book.html" target="_blank" title="Open mitpress.mit.edu in a new window"><em><abbr class="acronym" title="Structure and Interpretation of Computer Programs"><span class="caps">SICP</span></abbr></em></a>-eksemplet er &#229; definere <span class="code"><code id="cons">cons</code></span>, <span class="code"><code id="car">car</code></span> og <span class="code"><code id="cdr">cdr</code></span> p&#229; denne m&#229;ten,<sup class="footnote-ref"><a href="#fn2" id="fnref2" title="http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-14.html#%_sec_2.1.3"><span class="left-bracket">[</span>2<span class="right-bracket">]</span></a></sup> som vi kan tenke p&#229; som Lisp-sjargong for <span class="code"><code id="pair">pair</code></span>, <span class="code"><code id="first">first</code></span> og <span class="code"><code id="second">second</code></span>. La <span class="code"><code id="pair-2">pair</code></span> v&#230;re en funksjon som returnerer et par med verdier, <span class="code"><code id="first-2">first</code></span> returnere den f&#248;rste verdien til paret, og <span class="code"><code id="second-2">second</code></span> returnere den andre:</p>
+
+<div class="pre">
+<pre class="language-scheme" id="pair-foo-bar-par-av-foo-og-bar-first-pair-foo-bar-foo-second-pair-foo-bar-bar">
+<code class="language-scheme">&gt; <span class="token punctuation">(</span><span class="token function">pair</span> <span class="token string">"foo"</span> <span class="token string">"bar"</span><span class="token punctuation">)</span>
+#&lt;par av <span class="token string">"foo"</span> og <span class="token string">"bar"</span>&gt;
+
+&gt; <span class="token punctuation">(</span><span class="token function">first</span> <span class="token punctuation">(</span><span class="token function">pair</span> <span class="token string">"foo"</span> <span class="token string">"bar"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token string">"foo"</span>
+
+&gt; <span class="token punctuation">(</span><span class="token function">second</span> <span class="token punctuation">(</span><span class="token function">pair</span> <span class="token string">"foo"</span> <span class="token string">"bar"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token string">"bar"</span></code>
+</pre>
+</div>
+
+<p>Den vanlige m&#229;ten &#229; implementere dette p&#229; ville v&#230;re &#229; konstruere en listestruktur &#8211; et stykke data &#8211; med <span class="code"><code id="pair-3">pair</code></span>, og s&#229; la <span class="code"><code id="first-3">first</code></span> og <span class="code"><code id="second-3">second</code></span> hente ut riktig element fra strukturen. <em><abbr class="acronym" title="Structure and Interpretation of Computer Programs"><span class="caps">SICP</span></abbr></em> sin fremgangsm&#229;te er derimot &#229; implementere paret som en <em>prosedyre</em>:</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-pair-x-y-lambda-m-cond-m-1-x-m-2-y-define-first-z-z-1-define-second-z-z-2">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token function">pair</span> x y<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span>m<span class="token punctuation">)</span>
+    <span class="token punctuation">(</span><span class="token keyword">cond</span>
+     <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token operator">=</span> m <span class="token number">1</span><span class="token punctuation">)</span> x<span class="token punctuation">)</span>
+     <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token operator">=</span> m <span class="token number">2</span><span class="token punctuation">)</span> y<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token function">first</span> z<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token function">z</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token function">second</span> z<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token function">z</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>Her returnerer <span class="code"><code id="pair-4">pair</code></span> en anonym funksjon (som lages med <span class="code"><code id="lambda-2">lambda</code></span> i Lisp). Denne funksjonen inneholder argumentene til <span class="code"><code id="pair-5">pair</code></span>:</p>
+
+<div class="pre">
+<pre class="language-scheme" id="pair-foo-bar-prosedyre-som-inneholder-foo-og-bar">
+<code class="language-scheme">&gt; <span class="token punctuation">(</span><span class="token function">pair</span> <span class="token string">"foo"</span> <span class="token string">"bar"</span><span class="token punctuation">)</span>
+#&lt;prosedyre som inneholder <span class="token string">"foo"</span> og <span class="token string">"bar"</span>&gt;</code>
+</pre>
+</div>
+
+<p>Det <span class="code"><code id="first-4">first</code></span> og <span class="code"><code id="second-4">second</code></span> s&#229; gj&#248;r, er &#229; kalle prosedyren med et bestemt argument slik at den f&#248;rste eller andre verdien returneres. Dermed vil <span class="code"><code id="first-pair-foo-bar">(first (pair "foo" "bar"))</code></span> fortsatt gi <span class="code"><code id="foo">"foo"</code></span>, og <span class="code"><code id="second-pair-foo-bar">(second (pair "foo" "bar"))</code></span> gi <span class="code"><code id="bar">"bar"</code></span>. P&#229; papiret en helt adekvat implementasjon.</p>
+
+<aside class="sidenote">
+<hr class="sidenote-ruler">
+
+<p><sup class="ref-mark"><a href="#fnref3" id="sidenote3" title="Koden over forutsetter closures, dvs. at prosedyren som pair returnerer, er i stand til &#229; &#171;stikke av med&#187; argumentene til pair.[3] Dermed kan man for s&#229; vidt tenke p&#229; prosedyren som et &#171;objekt&#187;, dvs. en bunt med data og instruksjoner. (I enkelte spr&#229;k, som JavaScript og Scala, er funksjoner objekter.)"><span class="left-bracket">[</span>3<span class="right-bracket">]</span></a></sup>Hvis Lisp&#8217;en din mangler dette, kan du alltids &#171;jukse&#187; ved &#229; konstruere lambdaen som en liste og splice inn verdiene av <span class="code"><code id="x">x</code></span> og <span class="code"><code id="y">y</code></span> (forutsetter at <span class="code"><code id="x-2">x</code></span> og <span class="code"><code id="y-2">y</code></span> er immutable). <a class="footnote-backref" href="#fnref3" title="Koden over forutsetter closures, dvs. at prosedyren som pair returnerer, er i stand til &#229; &#171;stikke av med&#187; argumentene til pair.[3] Dermed kan man for s&#229; vidt tenke p&#229; prosedyren som et &#171;objekt&#187;, dvs. en bunt med data og instruksjoner. (I enkelte spr&#229;k, som JavaScript og Scala, er funksjoner objekter.)">&#8617;&#65038;</a></p>
+</aside>
+
+<p>Koden over forutsetter <em>closures</em>, <abbr title="det vil si">dvs.</abbr> at prosedyren som <span class="code"><code id="pair-6">pair</code></span> returnerer, er i stand til &#229; &#171;stikke av med&#187; argumentene til <span class="code"><code id="pair-7">pair</code></span>.<sup class="footnote-ref"><a href="#fn3" id="fnref3" title="Hvis Lisp&#8217;en din mangler dette, kan du alltids &#171;jukse&#187; ved &#229; konstruere lambdaen som en liste og splice inn verdiene av x og y (forutsetter at x og y er immutable)."><span class="left-bracket">[</span>3<span class="right-bracket">]</span></a></sup> Dermed kan man for s&#229; vidt tenke p&#229; prosedyren som et &#171;objekt&#187;, <abbr title="det vil si">dvs.</abbr> en bunt med data og instruksjoner. (I enkelte spr&#229;k, som JavaScript og Scala, <em>er</em> funksjoner objekter.)</p>
+
+<p>Denne litt alternative m&#229;ten &#229; konstruere &#171;objekter&#187; p&#229; &#8211; &#229; lage anomyme funksjoner som lukker om bindingene i et leksikalsk skop &#8211; er faktisk mye brukt i funksjonelle spr&#229;k. Google &#171;<a href="http://www.google.no/search?q=let+over+lambda" target="_blank" title="Open google.no in a new window">let over lambda</a>&#187; n&#229;r du har tid.</p>
+
+<hr class="footnotes-sep endnotes">
+</section>
+<!--
+Se [GeirGrusoms innlegg](http://www.diskusjon.no/index.php?showtopic=800754&p=18412466&st=1420&#entry18412466) over.
+-->
+
+<section class="footnotes">
+<ol class="footnotes-list endnotes">
+<li class="footnote-item" id="fn1">
+<p><a class="url" href="http://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html" target="_blank" title="Open steve-yegge.blogspot.com in a new window">http://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html</a> <a class="footnote-backref" href="#fnref1" title="Steve Yegge: Execution in the Kingdom of Nouns[1]">&#8617;&#65038;</a></p>
+</li>
+
+<li class="footnote-item" id="fn2">
+<p><a class="url" href="http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-14.html#%25_sec_2.1.3" target="_blank" title="Open mitpress.mit.edu in a new window">http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-14.html#%_sec_2.1.3</a> <a class="footnote-backref" href="#fnref2" title="Det er i prinsippet mulig &#229; bruke lambdaer som et fundament for videre programmering. Det klassiske SICP-eksemplet er &#229; definere cons, car og cdr p&#229; denne m&#229;ten,[2] som vi kan tenke p&#229; som Lisp-sjargong for pair, first og second. La pair v&#230;re en funksjon som returnerer et par med verdier, first returnere den f&#248;rste verdien til paret, og second returnere den andre:">&#8617;&#65038;</a></p>
+</li>
+
+<li class="footnote-item" id="fn3">
+<p>Hvis Lisp&#8217;en din mangler dette, kan du alltids &#171;jukse&#187; ved &#229; konstruere lambdaen som en liste og splice inn verdiene av <span class="code"><code id="x">x</code></span> og <span class="code"><code id="y">y</code></span> (forutsetter at <span class="code"><code id="x-2">x</code></span> og <span class="code"><code id="y-2">y</code></span> er immutable). <a class="footnote-backref" href="#fnref3" title="Koden over forutsetter closures, dvs. at prosedyren som pair returnerer, er i stand til &#229; &#171;stikke av med&#187; argumentene til pair.[3] Dermed kan man for s&#229; vidt tenke p&#229; prosedyren som et &#171;objekt&#187;, dvs. en bunt med data og instruksjoner. (I enkelte spr&#229;k, som JavaScript og Scala, er funksjoner objekter.)">&#8617;&#65038;</a></p>
+</li>
+</ol>
+</section>
+</section>
+</article>
+</body>
+</html>

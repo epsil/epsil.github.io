@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="no" prefix="og: http://ogp.me/ns#">
+<head>
+<title>Importere Last.fm-spilleliste inn i Spotify</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="no-referrer" name="referrer">
+<meta content="noindex" name="robots">
+<meta content="Vegard &#216;ye" name="author">
+<meta content="2013-11-23" name="date">
+<meta content="abd8f6e423bd383dfc5af458169e0c8c" name="md5">
+<meta content="text/css" http-equiv="Content-Style-Type">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<meta content="Importere Last.fm-spilleliste inn i Spotify" name="DC.Title">
+<meta content="Vegard &#216;ye" name="DC.Creator">
+<meta content="2013-11-23" name="DC.Date">
+<meta content="no" name="DC.Language">
+<meta content="text/html" name="DC.Format">
+<meta content="Importere Last.fm-spilleliste inn i Spotify" property="og:title">
+<meta content="no" name="og:locale">
+<meta content="article" property="og:type">
+<meta content="https://epsil.github.io/blog/2013/11/23/" property="og:url">
+<meta content="Vegards blogg" property="og:site_name">
+<meta content="summary" name="twitter:card">
+<meta content="@github" name="twitter:site">
+<meta content="Importere Last.fm-spilleliste inn i Spotify" name="twitter:title">
+<link href="../../../../favicon.ico" rel="icon" type="image/x-icon">
+<link href="../../../../apple-touch-icon.png" rel="apple-touch-icon">
+<link href="../../../../_assets/css/wiki.css" rel="stylesheet">
+<link href="index.md" rel="alternate" title="Markdown" type="text/markdown">
+<script src="../../../../_assets/js/wiki.js">
+</script>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+<div class="container-fluid topbar">
+<ul class="nav nav-pills navbar-left">
+<li role="presentation"><a href="../../../../" title="G&#229; hjem"><i class="fa fa-home"></i></a>
+</li>
+</ul>
+
+<ul class="nav nav-pills navbar-right">
+<li role="presentation"><a href="../../../../tmp/clipboard/" target="_blank" title="Kopier til Markdown"><span class="clipboard-logo"></span></a>
+</li>
+
+<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/blob/master/blog/2013/11/23/index.md" target="_blank" title="Vis p&#229; GitHub"><i class="fa fa-github"></i></a>
+</li>
+
+<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/edit/master/blog/2013/11/23/index.md" target="_blank" title="Rediger p&#229; GitHub"><i class="fa fa-edit"></i></a>
+</li>
+
+<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/raw/master/blog/2013/11/23/index.md" target="_blank" title="Vis Markdown-kilde" type="text/plain"><span class="markdown-mark"></span></a>
+</li>
+
+<li role="presentation"><a data-toggle="collapse" href="#toc" id="toc-button" title="Innhold"><i class="fa fa-list"></i></a>
+</li>
+</ul>
+
+<form action="https://www.google.com/search" class="navbar-form" method="get" target="_blank">
+<div class="form-group" style="display: inline;">
+<div class="input-group" style="display: table;"><span class="input-group-addon" style="width: 1%;"><span class="glyphicon glyphicon-search"></span></span> <input accesskey="." autocomplete="off" class="form-control" name="q" title="S&#248;k" type="text"></div>
+</div>
+</form>
+</div>
+
+<div id="toc-placeholder">
+</div>
+</nav>
+
+<article class="h-entry" id="main">
+<header>
+<h1 class="p-name"><a class="u-uid u-url" href="https://epsil.github.io/blog/2013/11/23/" rel="bookmark" target="_blank" title="Permalink">Importere Last.fm-spilleliste inn i Spotify</a>
+</h1>
+
+<p class="author"><a class="p-author h-card" href="https://epsil.github.io/" target="_blank" title="Open epsil.github.io in a new window">Vegard &#216;ye</a> &#8226; <time class="dt-published" datetime="2013-11-23">2013-11-23</time></p>
+</header>
+
+<section class="e-content sidenotes">
+<section>
+<ul class="collapse in">
+<li id="apne-spillelisten-i-firefox-merk-teksten-og-kopier-den-inn-i-excel-fjern-overflodige-kolonner-item"><a aria-controls="apne-spillelisten-i-firefox-merk-teksten-og-kopier-den-inn-i-excel-fjern-overflodige-kolonner-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#apne-spillelisten-i-firefox-merk-teksten-og-kopier-den-inn-i-excel-fjern-overflodige-kolonner-item-section" role="button"></a>&#197;pne spillelisten i Firefox, merk teksten og kopier den inn i Excel. Fjern overfl&#248;dige kolonner.<span class="collapse in" id="apne-spillelisten-i-firefox-merk-teksten-og-kopier-den-inn-i-excel-fjern-overflodige-kolonner-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+
+<li id="kopier-listen-inn-i-emacs-gjor-en-sok-og-erstatt-operasjon-slik-at-linjene-er-pa-formatet-artisttabtrack-item"><a aria-controls="kopier-listen-inn-i-emacs-gjor-en-sok-og-erstatt-operasjon-slik-at-linjene-er-pa-formatet-artisttabtrack-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#kopier-listen-inn-i-emacs-gjor-en-sok-og-erstatt-operasjon-slik-at-linjene-er-pa-formatet-artisttabtrack-item-section" role="button"></a>Kopier listen inn i Emacs. Gj&#248;r en s&#248;k-og-erstatt-operasjon slik at linjene er p&#229; formatet <span class="code"><code id="artisttabtrack">Artist[tab]Track</code></span>.<span class="collapse in" id="kopier-listen-inn-i-emacs-gjor-en-sok-og-erstatt-operasjon-slik-at-linjene-er-pa-formatet-artisttabtrack-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+
+<li id="lagre-dette-som-en-tekstfil-og-last-den-opp-til-nettjenesten-spotmysongscom-item"><a aria-controls="lagre-dette-som-en-tekstfil-og-last-den-opp-til-nettjenesten-spotmysongscom-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#lagre-dette-som-en-tekstfil-og-last-den-opp-til-nettjenesten-spotmysongscom-item-section" role="button"></a>Lagre dette som en tekstfil og last den opp til nettjenesten <a href="http://spotmysongs.com" target="_blank" title="Open spotmysongs.com in a new window">spotmysongs.com</a>.<span class="collapse in" id="lagre-dette-som-en-tekstfil-og-last-den-opp-til-nettjenesten-spotmysongscom-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+
+<li id="dra-den-resulterende-sporlisten-inn-i-en-ny-spilleliste-i-spotify-item"><a aria-controls="dra-den-resulterende-sporlisten-inn-i-en-ny-spilleliste-i-spotify-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#dra-den-resulterende-sporlisten-inn-i-en-ny-spilleliste-i-spotify-item-section" role="button"></a>Dra den resulterende sporlisten inn i en ny spilleliste i Spotify.<span class="collapse in" id="dra-den-resulterende-sporlisten-inn-i-en-ny-spilleliste-i-spotify-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+</ul>
+
+<p>En brukers &#171;Most Played Tracks&#187; kan v&#230;re et interessant utgangspunkt n&#229;r <a href="http://Last.fm" target="_blank" title="Open Last.fm in a new window">Last.fm</a> oppgir h&#248;y kompatibilitet.</p>
+</section>
+</section>
+</article>
+</body>
+</html>

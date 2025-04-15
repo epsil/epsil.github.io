@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="no" prefix="og: http://ogp.me/ns#">
+<head>
+<title>AUCTeX p&#229; Windows</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="no-referrer" name="referrer">
+<meta content="noindex" name="robots">
+<meta content="Vegard &#216;ye" name="author">
+<meta content="2007-10-09" name="date">
+<meta content="bb3a849e7b25f7163d492f1710ba8e6e" name="md5">
+<meta content="text/css" http-equiv="Content-Style-Type">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<meta content="AUCTeX p&#229; Windows" name="DC.Title">
+<meta content="Vegard &#216;ye" name="DC.Creator">
+<meta content="2007-10-09" name="DC.Date">
+<meta content="no" name="DC.Language">
+<meta content="text/html" name="DC.Format">
+<meta content="AUCTeX p&#229; Windows" property="og:title">
+<meta content="no" name="og:locale">
+<meta content="article" property="og:type">
+<meta content="https://epsil.github.io/blog/2007/10/09/" property="og:url">
+<meta content="Vegards blogg" property="og:site_name">
+<meta content="summary" name="twitter:card">
+<meta content="@github" name="twitter:site">
+<meta content="AUCTeX p&#229; Windows" name="twitter:title">
+<link href="../../../../favicon.ico" rel="icon" type="image/x-icon">
+<link href="../../../../apple-touch-icon.png" rel="apple-touch-icon">
+<link href="../../../../_assets/css/wiki.css" rel="stylesheet">
+<link href="index.md" rel="alternate" title="Markdown" type="text/markdown">
+<script src="../../../../_assets/js/wiki.js">
+</script>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+<div class="container-fluid topbar">
+<ul class="nav nav-pills navbar-left">
+<li role="presentation"><a href="../../../../" title="G&#229; hjem"><i class="fa fa-home"></i></a>
+</li>
+</ul>
+
+<ul class="nav nav-pills navbar-right">
+<li role="presentation"><a href="../../../../tmp/clipboard/" target="_blank" title="Kopier til Markdown"><span class="clipboard-logo"></span></a>
+</li>
+
+<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/blob/master/blog/2007/10/09/index.md" target="_blank" title="Vis p&#229; GitHub"><i class="fa fa-github"></i></a>
+</li>
+
+<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/edit/master/blog/2007/10/09/index.md" target="_blank" title="Rediger p&#229; GitHub"><i class="fa fa-edit"></i></a>
+</li>
+
+<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/raw/master/blog/2007/10/09/index.md" target="_blank" title="Vis Markdown-kilde" type="text/plain"><span class="markdown-mark"></span></a>
+</li>
+
+<li role="presentation"><a data-toggle="collapse" href="#toc" id="toc-button" title="Innhold"><i class="fa fa-list"></i></a>
+</li>
+</ul>
+
+<form action="https://www.google.com/search" class="navbar-form" method="get" target="_blank">
+<div class="form-group" style="display: inline;">
+<div class="input-group" style="display: table;"><span class="input-group-addon" style="width: 1%;"><span class="glyphicon glyphicon-search"></span></span> <input accesskey="." autocomplete="off" class="form-control" name="q" title="S&#248;k" type="text"></div>
+</div>
+</form>
+</div>
+
+<div id="toc-placeholder">
+</div>
+</nav>
+
+<article class="h-entry" id="main">
+<header>
+<h1 class="p-name"><a class="u-uid u-url" href="https://epsil.github.io/blog/2007/10/09/" rel="bookmark" target="_blank" title="Permalink"><abbr title="AUCTeX">AUCT<span class="tex-e">e</span>X</abbr> p&#229; Windows</a>
+</h1>
+
+<p class="author"><a class="p-author h-card" href="https://epsil.github.io/" target="_blank" title="Open epsil.github.io in a new window">Vegard &#216;ye</a> &#8226; <time class="dt-published" datetime="2007-10-09">2007-10-09</time></p>
+</header>
+
+<section class="e-content sidenotes">
+<section>
+<p>Jeg oppgraderte nylig til <a href="http://www.gnu.org/software/emacs/" target="_blank" title="Open gnu.org in a new window"><abbr class="acronym" title="GNU's Not Unix"><span class="caps">GNU</span></abbr> Emacs 22.1</a>, og det er i gledesrus over &#229; ha f&#229;tt <a href="http://www.gnu.org/software/auctex/preview-latex.html" target="_blank" title="Open gnu.org in a new window">preview-latex</a> til &#229; fungere at jeg skriver dette innlegget. preview-latex er et tillegg til <abbr title="LaTeX">L<span class="latex-a">a</span>T<span class="tex-e">e</span>X</abbr>-modusen til Emacs, <a href="http://www.gnu.org/software/auctex/" target="_blank" title="Open gnu.org in a new window"><abbr title="AUCTeX">AUCT<span class="tex-e">e</span>X</abbr></a>, som forh&#229;ndsviser matematiske uttrykk <em>i selve kildefilen</em>. N&#229;r jeg velger &#171;Generate previews for document&#187; fra Preview-menyen, blir bufferen min seende slik ut:</p>
+
+<figure><a class="image" href="previewlatex.png" title="View previewlatex.png in full screen"><img alt="" src="previewlatex.png"></a>
+</figure>
+
+<p>Men merk at dette lille steget over i &#171;<abbr class="acronym" title="What You See Is What You Get"><span class="caps">WYSIWYG</span></abbr>&#187; <em>ikke</em> kludrer til skriveprosessen. N&#229;r jeg beveger mark&#248;ren over uttrykkene, vises <abbr title="LaTeX">L<span class="latex-a">a</span>T<span class="tex-e">e</span>X</abbr>-koden i stedet, som kan redigeres dersom det er behov for det. S&#229; kan eventuelt en oppdatert forh&#229;ndsvisning genereres etterp&#229;, n&#229;r man har skrevet tilstrekkelig mye kode til at det er greit med en tilbakemelding p&#229; hva man faktisk &#171;har gjort&#187;. Den st&#248;rste gevinsten med preview-latex er at det er <em>mye lettere</em> &#229; f&#229; oversikt over hvor man befinner seg i dokumentet til enhver tid, og dersom man starter skrive&#248;kten med &#229; generere en forh&#229;ndsvisning, f&#229;r man en tydelig visuell tilbakemelding om hva som er nye endringer og hva dokumentet inneholdt fra f&#248;r.</p>
+
+<p>&#197; f&#229; bildest&#248;tten til <abbr class="acronym" title="GNU's Not Unix"><span class="caps">GNU</span></abbr> Emacs for Windows til &#229; fungere kan imidlertid v&#230;re en noe innfl&#248;kt aff&#230;re, for denne st&#248;tten er ikke innebygd i selve programmet. Den enkleste m&#229;ten &#229; komme i gang p&#229; er &#229; laste ned <abbr title="AUCTeX">AUCT<span class="tex-e">e</span>X</abbr> sin <a href="ftp://alpha.gnu.org/gnu/auctex/emacs+auctex-w32-2007-07-07.zip" target="_blank" title="Open alpha.gnu.org in a new window">Emacs + <abbr title="AUCTeX">AUCT<span class="tex-e">e</span>X</abbr>-pakke</a>, som inkluderer alle de n&#248;dvendige filene. Denne er det bare &#229; pakke ut et passende sted, <abbr title="for eksempel">f.eks.</abbr> <span class="code"><code id="cprogramfiler">C:\Programfiler</code></span>, i hvilket tilfelle Emacs vil f&#229; plasseringen <span class="code"><code id="cprogramfileremacs">C:\Programfiler\Emacs</code></span>. S&#229; kan man starte opp Emacs ved &#229; kj&#248;re <span class="code"><code id="cprogramfileremacsbinrunemacsexe">C:\Programfiler\Emacs\bin\runemacs.exe</code></span> (lag <abbr title="eventuelt">ev.</abbr> en snarvei til denne p&#229; skrivebordet).</p>
+
+<p>Dersom en i stedet vil gj&#248;re ting &#171;selv&#187; med utgangspunkt i <a href="http://ftp.gnu.org/pub/gnu/emacs/windows/emacs-22.1-bin-i386.zip" target="_blank" title="Open ftp.gnu.org in a new window">den offisielle Emacs-utgivelsen</a>, m&#229; en laste ned noen ekstra <span class="code"><code id="dll">.dll</code></span>-filer som plasseres i samme katalog som <span class="code"><code id="emacsexe">emacs.exe</code></span> (eller, for &#229; gj&#248;re dem tilgjengelige for andre programmer ogs&#229;, i systemkatalogen <span class="code"><code id="windowssystem">Windows\system</code></span> eller <span class="code"><code id="windowssystem32">Windows\system32</code></span>). Hvilke filer det er snakk om, er beskrevet i <abbr class="acronym" title="File Transfer Protocol"><span class="caps">FTP</span></abbr>-<abbr class="acronym" title="les meg"><span class="caps">README</span></abbr>-filen <a href="http://ftp.gnu.org/pub/gnu/emacs/windows/README" target="_blank" title="Open ftp.gnu.org in a new window"><span class="code"><code id="windows-readme">windows/README</code></span></a>, og de kan lastes ned enkeltvis fra <a href="http://gnuwin32.sourceforge.net/" target="_blank" title="Open gnuwin32.sourceforge.net in a new window">G<em>nu</em>W<em>in</em>32</a>-prosjektet.</p>
+<!--
+For 堧j𲥠ting litt enklere for folk har jeg laget en Zip-fil med alle `.dll`-filene Emacs kan nyttiggj𲥠seg av:
+-->
+
+<p>N&#229;r alt er p&#229; plass, enten man g&#229;r for pakkel&#248;sningen eller installerer <a href="http://ftp.gnu.org/pub/gnu/emacs/windows/emacs-22.1-bin-i386.zip" target="_blank" title="Open ftp.gnu.org in a new window">Emacs</a>, <span class="code"><code id="dll-2">.dll</code></span>-filene og <a href="http://ftp.gnu.org/pub/gnu/auctex/auctex-11.84.zip" target="_blank" title="Open ftp.gnu.org in a new window"><abbr title="AUCTeX">AUCT<span class="tex-e">e</span>X</abbr></a> manuelt, er det vel verdt &#229; ta en kikk p&#229; <a href="http://www.math.aau.dk/%7Edethlef/Tips/tuning.html" target="_blank" title="Open math.aau.dk in a new window">Claus Dethlefsens <abbr title="LaTeX">L<span class="latex-a">a</span>T<span class="tex-e">e</span>X</abbr>/Emacs-side</a>, som tar for seg fintilpasning med <a href="http://www.wyrdrune.com/gnuserv.html" target="_blank" title="Open wyrdrune.com in a new window">gnuserv</a> (lastes ned separat). Selv har jeg <abbr title="blant annet">bl.a.</abbr> dette i <span class="code"><code id="emacs">.emacs</code></span>-filen min:</p>
+
+<div class="pre">
+<pre class="language-lisp" id="load-gnuserv-gnuserv-start-setq-gnuserv-frame-selected-frame-add-hook-text-mode-hook-turn-on-auto-fill-add-hook-text-mode-hook-lambda-setq-show-trailing-whitespace-t-global-font-lock-mode-t-setq-default-indicate-empty-lines-t-column-number-mode-t-size-indication-mode-t-cua-mode-t-setq-cua-enable-cua-keys-nil-show-paren-mode-t-setq-show-paren-delay-0-global-hl-line-mode-t-set-face-background-hl-line-fffacd-setq-skeleton-pair-t-global-set-key-skeleton-pair-insert-maybe-global-set-key-skeleton-pair-insert-maybe-global-set-key-skeleton-pair-insert-maybe-setq-disabled-command-hook-nil-fset-yes-or-no-p-y-or-n-p-setq-visible-bell-t-setq-inhibit-startup-message-t-require-ido-ido-mode-t-load-auctexel-nil-t-t-load-preview-latexel-nil-t-t-require-tex-mik-add-hook-latex-mode-hook-latex-math-mode">
+<code class="language-lisp"><span class="token punctuation">(</span><span class="token car">load</span> <span class="token string">"gnuserv"</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token car">gnuserv-start</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">setq</span> gnuserv-frame <span class="token punctuation">(</span><span class="token car">selected-frame</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">(</span><span class="token car">add-hook</span> <span class="token quoted-symbol variable symbol">'text-mode-hook</span> <span class="token quoted-symbol variable symbol">'turn-on-auto-fill</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token car">add-hook</span> <span class="token quoted-symbol variable symbol">'text-mode-hook</span> <span class="token punctuation">'(</span><span class="token lambda"><span class="token keyword">lambda</span> <span class="token punctuation">(</span><span class="token arguments"></span><span class="token punctuation">)</span></span>
+  <span class="token punctuation">(</span><span class="token keyword">setq</span> show-trailing-whitespace <span class="token boolean">t</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token car">global-font-lock-mode</span> <span class="token boolean">t</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token car">setq-default</span> indicate-empty-lines <span class="token boolean">t</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token car">column-number-mode</span> <span class="token boolean">t</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token car">size-indication-mode</span> <span class="token boolean">t</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token car">cua-mode</span> <span class="token boolean">t</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">setq</span> cua-enable-cua-keys <span class="token boolean">nil</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token car">show-paren-mode</span> <span class="token boolean">t</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">setq</span> show-paren-delay <span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token car">global-hl-line-mode</span> <span class="token boolean">t</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token car">set-face-background</span> <span class="token quoted-symbol variable symbol">'hl-line</span> <span class="token string">"#fffacd"</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">setq</span> skeleton-pair <span class="token boolean">t</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token car">global-set-key</span> <span class="token string">"("</span> <span class="token quoted-symbol variable symbol">'skeleton-pair-insert-maybe</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token car">global-set-key</span> <span class="token string">"["</span> <span class="token quoted-symbol variable symbol">'skeleton-pair-insert-maybe</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token car">global-set-key</span> <span class="token string">"{"</span> <span class="token quoted-symbol variable symbol">'skeleton-pair-insert-maybe</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">setq</span> disabled-command-hook <span class="token boolean">nil</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token car">fset</span> <span class="token quoted-symbol variable symbol">'yes-or-no-p</span> <span class="token quoted-symbol variable symbol">'y-or-n-p</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">setq</span> visible-bell <span class="token boolean">t</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">setq</span> inhibit-startup-message <span class="token boolean">t</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">(</span><span class="token keyword">require</span> <span class="token quoted-symbol variable symbol">'ido</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token car">ido-mode</span> <span class="token boolean">t</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">(</span><span class="token car">load</span> <span class="token string">"auctex.el"</span> <span class="token boolean">nil</span> <span class="token boolean">t</span> <span class="token boolean">t</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token car">load</span> <span class="token string">"preview-latex.el"</span> <span class="token boolean">nil</span> <span class="token boolean">t</span> <span class="token boolean">t</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">require</span> <span class="token quoted-symbol variable symbol">'tex-mik</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token car">add-hook</span> <span class="token quoted-symbol variable symbol">'LaTeX-mode-hook</span> <span class="token quoted-symbol variable symbol">'LaTeX-math-mode</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>Det blir for mye &#229; g&#229; inn p&#229; hva alt dette gj&#248;r (men se bloggen <a href="http://www.emacsblog.org/" target="_blank" title="Open emacsblog.org in a new window">M-x all-things-emacs</a> for mange nybegynnertips), men de fire siste linjene laster inn <abbr title="AUCTeX">AUCT<span class="tex-e">e</span>X</abbr> og preview-latex med <abbr title="MiKTeX">MiKT<span class="tex-e">e</span>X</abbr>-oppsett og automatisk aktivering av <abbr title="AUCTeX">AUCT<span class="tex-e">e</span>X</abbr> sine mattefunksjoner n&#229;r Emacs g&#229;r inn i <abbr title="LaTeX">L<span class="latex-a">a</span>T<span class="tex-e">e</span>X</abbr>-modus.</p>
+
+<p>Dersom alt har g&#229;tt som det skulle, vil <abbr title="AUCTeX">AUCT<span class="tex-e">e</span>X</abbr> tre i kraft n&#229;r du &#229;pner en fil med endelsen <span class="code"><code id="tex">.tex</code></span>, og du kan generere forh&#229;ndsvisninger fra Preview-menyen. (Alt dette forutsetter naturligvis at du har en fungerende <abbr title="TeX">T<span class="tex-e">e</span>X</abbr>-distribusjon p&#229; systemet, som <abbr title="for eksempel">f.eks.</abbr> <a href="http://miktex.org/" target="_blank" title="Open miktex.org in a new window"><abbr title="MiKTeX">MiKT<span class="tex-e">e</span>X</abbr></a>. Merk at plasseringen til alle de kj&#248;rbare filene til <abbr title="TeX">T<span class="tex-e">e</span>X</abbr>-distribusjonen m&#229; v&#230;re oppf&#248;rt i milj&#248;variabelen <span class="code"><code id="path">PATH</code></span>, slik at <abbr title="TeX">T<span class="tex-e">e</span>X</abbr>-programmene blir tilgjengelige som <em>kommandoer</em> p&#229; kommandolinjen, for det er ved &#229; sende instruksjoner til kommandolinjen at Emacs er i stand til &#229; nyttiggj&#248;re seg av <abbr title="TeX">T<span class="tex-e">e</span>X</abbr>-distribusjonen din.)</p>
+</section>
+</section>
+</article>
+</body>
+</html>

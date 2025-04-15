@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="no" prefix="og: http://ogp.me/ns#">
+<head>
+<title>Tastaturmakroer i Emacs</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="no-referrer" name="referrer">
+<meta content="noindex" name="robots">
+<meta content="Vegard &#216;ye" name="author">
+<meta content="2007-11-29" name="date">
+<meta content="e6bcc0ec0b50b0e01539c181e4f0ca35" name="md5">
+<meta content="text/css" http-equiv="Content-Style-Type">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<meta content="Tastaturmakroer i Emacs" name="DC.Title">
+<meta content="Vegard &#216;ye" name="DC.Creator">
+<meta content="2007-11-29" name="DC.Date">
+<meta content="no" name="DC.Language">
+<meta content="text/html" name="DC.Format">
+<meta content="Tastaturmakroer i Emacs" property="og:title">
+<meta content="no" name="og:locale">
+<meta content="article" property="og:type">
+<meta content="https://epsil.github.io/blog/2007/11/29/" property="og:url">
+<meta content="Vegards blogg" property="og:site_name">
+<meta content="summary" name="twitter:card">
+<meta content="@github" name="twitter:site">
+<meta content="Tastaturmakroer i Emacs" name="twitter:title">
+<link href="../../../../favicon.ico" rel="icon" type="image/x-icon">
+<link href="../../../../apple-touch-icon.png" rel="apple-touch-icon">
+<link href="../../../../_assets/css/wiki.css" rel="stylesheet">
+<link href="index.md" rel="alternate" title="Markdown" type="text/markdown">
+<script src="../../../../_assets/js/wiki.js">
+</script>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+<div class="container-fluid topbar">
+<ul class="nav nav-pills navbar-left">
+<li role="presentation"><a href="../../../../" title="G&#229; hjem"><i class="fa fa-home"></i></a>
+</li>
+</ul>
+
+<ul class="nav nav-pills navbar-right">
+<li role="presentation"><a href="../../../../tmp/clipboard/" target="_blank" title="Kopier til Markdown"><span class="clipboard-logo"></span></a>
+</li>
+
+<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/blob/master/blog/2007/11/29/index.md" target="_blank" title="Vis p&#229; GitHub"><i class="fa fa-github"></i></a>
+</li>
+
+<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/edit/master/blog/2007/11/29/index.md" target="_blank" title="Rediger p&#229; GitHub"><i class="fa fa-edit"></i></a>
+</li>
+
+<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/raw/master/blog/2007/11/29/index.md" target="_blank" title="Vis Markdown-kilde" type="text/plain"><span class="markdown-mark"></span></a>
+</li>
+
+<li role="presentation"><a data-toggle="collapse" href="#toc" id="toc-button" title="Innhold"><i class="fa fa-list"></i></a>
+</li>
+</ul>
+
+<form action="https://www.google.com/search" class="navbar-form" method="get" target="_blank">
+<div class="form-group" style="display: inline;">
+<div class="input-group" style="display: table;"><span class="input-group-addon" style="width: 1%;"><span class="glyphicon glyphicon-search"></span></span> <input accesskey="." autocomplete="off" class="form-control" name="q" title="S&#248;k" type="text"></div>
+</div>
+</form>
+</div>
+
+<div id="toc-placeholder">
+</div>
+</nav>
+
+<article class="h-entry" id="main">
+<header>
+<h1 class="p-name"><a class="u-uid u-url" href="https://epsil.github.io/blog/2007/11/29/" rel="bookmark" target="_blank" title="Permalink">Tastaturmakroer i Emacs</a>
+</h1>
+
+<p class="author"><a class="p-author h-card" href="https://epsil.github.io/" target="_blank" title="Open epsil.github.io in a new window">Vegard &#216;ye</a> &#8226; <time class="dt-published" datetime="2007-11-29">2007-11-29</time></p>
+</header>
+
+<section class="e-content sidenotes">
+<section>
+<figure><a class="image" href="emacsmakroer.gif" title="View emacsmakroer.gif in full screen"><img alt="" src="emacsmakroer.gif"></a>
+</figure>
+
+<p>Det ovenst&#229;ende er en liten video som viser hvordan en oppgave kan utf&#248;res i <a href="http://www.gnu.org/software/emacs/" target="_blank" title="Open gnu.org in a new window"><abbr class="acronym" title="GNU's Not Unix"><span class="caps">GNU</span></abbr> Emacs</a> ved bruk av tastaturmakroer. Jeg har laget 20 identiske filer som jeg har plassert i katalogen <span class="code"><code id="dvcalendar">D:\vcalendar</code></span>. I videoen &#229;pner jeg denne katalogen og definerer en makro som &#229;pner filen under mark&#248;ren, bruker et regul&#230;rt uttrykk for &#229; s&#248;ke seg frem til <span class="code"><code id="location">LOCATION</code></span>-feltet, kopierer de to f&#248;rste tegnene (som <em>kan</em> v&#230;re kodet i quoted-printable, derfor et litt innfl&#248;kt uttrykk), s&#248;ker seg frem til <span class="code"><code id="summary">SUMMARY</code></span>-feltet, g&#229;r til slutten av linjen, setter inn et mellomrom, limer inn tegnene, lagrer filen, lukker bufferen og flytter mark&#248;ren til neste fil. Jeg utf&#248;rer s&#229; denne makroen p&#229; alle de resterende filene i katalogen, og &#229;pner til slutt en av dem for &#229; vise at den er forandret.</p>
+
+<p>Merk at den ovenst&#229;ende makroen forutsetter at hver fil bare inneholder &#233;n oppf&#248;ring. Dersom filene inneholdt flere oppf&#248;ringer, ville det ha v&#230;rt n&#248;dvendig &#229; definere <em>to</em> makroer: en som utf&#248;rer arbeidet med &#229; kopiere de to f&#248;rste tegnene i <span class="code"><code id="location-2">LOCATION</code></span>-feltet, og en som &#229;pner hver fil og &#171;looper gjennom dem&#187; med den f&#248;rste makroen. Dette er ikke veldig mye mer komplisert enn det som vises i videoen.</p>
+
+<p>For &#248;vrig har Emacs sine egne kommandoer for &#229; h&#229;ndtere quoted-printable, s&#229; i stedet for det lange regul&#230;re uttrykket jeg skriver inn for &#229; ta h&#248;yde for quoted-printable-kodede tegn &#224; la <span class="code"><code id="f8">=F8</code></span> (som ikke forekommer s&#229; tidlig i <span class="code"><code id="location-3">LOCATION</code></span>-feltet i eksemplet, s&#229; dette er bare teoretisk), kunne jeg ha konvertert fra quoted-printable til vanlig tekst, kopiert de to f&#248;rste tegnene, konvertert <span class="code"><code id="location-4">LOCATION</code></span>-feltet tilbake, limt inn tegnene i <span class="code"><code id="summary-2">SUMMARY</code></span>-feltet og konvertert dem.</p>
+
+<hr>
+
+<p>If&#248;lge folket p&#229; <span class="code"><code id="emacs-3">#emacs</code></span> har Emacs hatt tastaturmakroer siden 1975.</p>
+</section>
+</section>
+</article>
+</body>
+</html>

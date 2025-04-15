@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="no" prefix="og: http://ogp.me/ns#">
+<head>
+<title>Starte Gollum med launchd</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="no-referrer" name="referrer">
+<meta content="noindex" name="robots">
+<meta content="Vegard &#216;ye" name="author">
+<meta content="2013-12-20" name="date">
+<meta content="00fd191e67fe3dc309e22bb0c4235acf" name="md5">
+<meta content="text/css" http-equiv="Content-Style-Type">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<meta content="Starte Gollum med launchd" name="DC.Title">
+<meta content="Vegard &#216;ye" name="DC.Creator">
+<meta content="2013-12-20" name="DC.Date">
+<meta content="no" name="DC.Language">
+<meta content="text/html" name="DC.Format">
+<meta content="Starte Gollum med launchd" property="og:title">
+<meta content="no" name="og:locale">
+<meta content="article" property="og:type">
+<meta content="https://epsil.github.io/blog/2013/12/20/" property="og:url">
+<meta content="Vegards blogg" property="og:site_name">
+<meta content="summary" name="twitter:card">
+<meta content="@github" name="twitter:site">
+<meta content="Starte Gollum med launchd" name="twitter:title">
+<link href="../../../../favicon.ico" rel="icon" type="image/x-icon">
+<link href="../../../../apple-touch-icon.png" rel="apple-touch-icon">
+<link href="../../../../_assets/css/wiki.css" rel="stylesheet">
+<link href="index.md" rel="alternate" title="Markdown" type="text/markdown">
+<script src="../../../../_assets/js/wiki.js">
+</script>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+<div class="container-fluid topbar">
+<ul class="nav nav-pills navbar-left">
+<li role="presentation"><a href="../../../../" title="G&#229; hjem"><i class="fa fa-home"></i></a>
+</li>
+</ul>
+
+<ul class="nav nav-pills navbar-right">
+<li role="presentation"><a href="../../../../tmp/clipboard/" target="_blank" title="Kopier til Markdown"><span class="clipboard-logo"></span></a>
+</li>
+
+<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/blob/master/blog/2013/12/20/index.md" target="_blank" title="Vis p&#229; GitHub"><i class="fa fa-github"></i></a>
+</li>
+
+<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/edit/master/blog/2013/12/20/index.md" target="_blank" title="Rediger p&#229; GitHub"><i class="fa fa-edit"></i></a>
+</li>
+
+<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/raw/master/blog/2013/12/20/index.md" target="_blank" title="Vis Markdown-kilde" type="text/plain"><span class="markdown-mark"></span></a>
+</li>
+
+<li role="presentation"><a data-toggle="collapse" href="#toc" id="toc-button" title="Innhold"><i class="fa fa-list"></i></a>
+</li>
+</ul>
+
+<form action="https://www.google.com/search" class="navbar-form" method="get" target="_blank">
+<div class="form-group" style="display: inline;">
+<div class="input-group" style="display: table;"><span class="input-group-addon" style="width: 1%;"><span class="glyphicon glyphicon-search"></span></span> <input accesskey="." autocomplete="off" class="form-control" name="q" title="S&#248;k" type="text"></div>
+</div>
+</form>
+</div>
+
+<div id="toc-placeholder">
+</div>
+</nav>
+
+<article class="h-entry" id="main">
+<header>
+<h1 class="p-name"><a class="u-uid u-url" href="https://epsil.github.io/blog/2013/12/20/" rel="bookmark" target="_blank" title="Permalink">Starte Gollum med <span class="code"><code id="launchd">launchd</code></span></a>
+</h1>
+
+<p class="author"><a class="p-author h-card" href="https://epsil.github.io/" target="_blank" title="Open epsil.github.io in a new window">Vegard &#216;ye</a> &#8226; <time class="dt-published" datetime="2013-12-20">2013-12-20</time></p>
+</header>
+
+<section class="e-content sidenotes">
+<section>
+<p>P&#229; <abbr class="acronym" title="Operating System 10"><span class="caps">OS</span> X</abbr> startes <a href="https://github.com/gollum/gollum" target="_blank" title="Open github.com in a new window">Gollum</a> automatisk med <a href="http://www.nomachetejuggling.com/2012/05/15/personal-wiki-using-github-and-gollum-on-os-x/" target="_blank" title="Open nomachetejuggling.com in a new window"><span class="code"><code id="launchd-2">launchd</code></span></a>. Opprett en fil <span class="code"><code id="library-launchagents-compersonalwikigollumplist">~/Library/LaunchAgents/com.personalwiki.gollum.plist</code></span> (med eksklusive <a href="http://stackoverflow.com/questions/16809861/launchd-doesnt-launch-my-daemon" target="_blank" title="Open stackoverflow.com in a new window">rettigheter</a>, <abbr title="det vil si">dvs.</abbr> <span class="code"><code id="chmod-600">chmod 600</code></span>) som inneholder dette:</p>
+
+<div class="pre">
+<pre class="language-xml" id="xml-version10-encodingutf-8-doctype-plist-public-apple-dtd-plist-10-en-http-wwwapplecom-dtds-propertylist-10dtd-plist-version10-dict-keylabel-key-stringcomusergollum-string-keyprogramarguments-key-array-string-usr-bin-gollum-string-string-users-vegard-documents-wiki-string-array-keyrunatload-key-true-dict-plist">
+<code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="<span class="caps">UTF</span>-8"?&gt;</span>
+<span class="token doctype">&lt;!<span class="caps">DOCTYPE</span> plist <span class="caps">PUBLIC</span> "-//Apple//<span class="caps">DTD</span> <span class="caps">PLIST</span> 1.0//<span class="caps">EN</span>"
+"http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>plist</span> <span class="token attr-name">version</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>1.0<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dict</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>key</span><span class="token punctuation">&gt;</span></span>Label<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>key</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>string</span><span class="token punctuation">&gt;</span></span>com.user.gollum<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>string</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>key</span><span class="token punctuation">&gt;</span></span>ProgramArguments<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>key</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>array</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>string</span><span class="token punctuation">&gt;</span></span>/usr/bin/gollum<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>string</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>string</span><span class="token punctuation">&gt;</span></span>/Users/vegard/Documents/wiki<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>string</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>array</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>key</span><span class="token punctuation">&gt;</span></span>RunAtLoad<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>key</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>true</span><span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dict</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>plist</span><span class="token punctuation">&gt;</span></span></code>
+</pre>
+</div>
+
+<hr>
+
+<p><strong>Oppdatering 2016-07-29:</strong> &#197; f&#229; <a href="https://github.com/indexzero/http-server" target="_blank" title="Open github.com in a new window">http-server</a> til &#229; starte automatisk krever at man eksplisitt oppgir plasseringen til <span class="code"><code id="node">node</code></span>, for <a href="http://apple.stackexchange.com/questions/106355/setting-the-system-wide-path-environment-variable-in-mavericks" target="_blank" title="Open apple.stackexchange.com in a new window"><span class="code"><code id="launchd-3">launchd</code></span> leser ikke <span class="code"><code id="usr-local-bin">/usr/local/bin</code></span></a>. Serveren startes med Bash-skriptet <span class="code"><code id="start-httpserversh">start_httpserver.sh</code></span>:</p>
+
+<div class="pre">
+<pre class="language-bash" id="bin-bash-node-usr-local-bin-node-program-usr-local-bin-http-server-httpservernode-program-dir-cd-dirname-bash-source0-pwd-cd-dir-httpserver-p-8000">
+<code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="caps">NODE</span><span class="token operator">=</span><span class="token string">"/usr/local/bin/node"</span>
+<span class="caps">PROGRAM</span><span class="token operator">=</span><span class="token string">"/usr/local/bin/http-server"</span>
+<span class="caps">HTTPSERVER</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$<span class="caps">NODE</span></span> <span class="token variable">$<span class="caps">PROGRAM</span></span>"</span>
+<span class="caps">DIR</span><span class="token operator">=</span><span class="token string">"<span class="token variable"><span class="token variable">$(</span> <span class="token function">cd</span> <span class="token string">"$( dirname "</span>$<span class="token punctuation">{</span>BASH_SOURCE<span class="token punctuation">[</span>0<span class="token punctuation">]</span><span class="token punctuation">}</span>" <span class="token variable">)</span></span>"</span> <span class="token operator">&amp;&amp;</span> <span class="token function">pwd</span> <span class="token punctuation">)</span><span class="token string">"
+cd "</span><span class="token variable">$<span class="caps">DIR</span></span>"
+<span class="token variable">$<span class="caps">HTTPSERVER</span></span> <span class="token keyword">.</span> -p 8000</code>
+</pre>
+</div>
+
+<p>Skriptet refereres s&#229; av <span class="code"><code id="library-launchagents-compersonalwikihttpserverplist">~/Library/LaunchAgents/com.personalwiki.httpserver.plist</code></span>:</p>
+
+<div class="pre">
+<pre class="language-xml" id="xml-version10-encodingutf-8-doctype-plist-public-apple-dtd-plist-10-en-http-wwwapplecom-dtds-propertylist-10dtd-plist-version10-dict-keylabel-key-stringcomuserhttpserver-string-keyprogramarguments-key-array-string-users-vegard-documents-wiki-start-httpserversh-string-array-keyrunatload-key-true-keystandarderrorpath-key-string-tmp-mycommanderr-string-keystandardoutpath-key-string-tmp-mycommandout-string-dict-plist">
+<code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="<span class="caps">UTF</span>-8"?&gt;</span>
+<span class="token doctype">&lt;!<span class="caps">DOCTYPE</span> plist <span class="caps">PUBLIC</span> "-//Apple//<span class="caps">DTD</span> <span class="caps">PLIST</span> 1.0//<span class="caps">EN</span>"
+"http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>plist</span> <span class="token attr-name">version</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>1.0<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dict</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>key</span><span class="token punctuation">&gt;</span></span>Label<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>key</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>string</span><span class="token punctuation">&gt;</span></span>com.user.httpserver<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>string</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>key</span><span class="token punctuation">&gt;</span></span>ProgramArguments<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>key</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>array</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>string</span><span class="token punctuation">&gt;</span></span>/Users/vegard/Documents/wiki/start_httpserver.sh<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>string</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>array</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>key</span><span class="token punctuation">&gt;</span></span>RunAtLoad<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>key</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>true</span><span class="token punctuation">/&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>key</span><span class="token punctuation">&gt;</span></span>StandardErrorPath<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>key</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>string</span><span class="token punctuation">&gt;</span></span>/tmp/mycommand.err<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>string</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>key</span><span class="token punctuation">&gt;</span></span>StandardOutPath<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>key</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>string</span><span class="token punctuation">&gt;</span></span>/tmp/mycommand.out<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>string</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dict</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>plist</span><span class="token punctuation">&gt;</span></span></code>
+</pre>
+</div>
+
+<p>For &#229; kunne <a href="http://stackoverflow.com/questions/6337513/how-can-i-debug-a-launchd-script-that-doesnt-run-on-startup#answer-29926482" target="_blank" title="Open stackoverflow.com in a new window">debugge <span class="code"><code id="launchd-4">launchd</code></span></a> dersom noe skulle g&#229; galt, loggf&#248;res resultatet til <span class="code"><code id="standarderrorpath">StandardErrorPath</code></span> og <span class="code"><code id="standardoutpath">StandardOutPath</code></span>.</p>
+</section>
+</section>
+</article>
+</body>
+</html>

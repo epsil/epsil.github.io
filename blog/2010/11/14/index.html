@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="no" prefix="og: http://ogp.me/ns#">
+<head>
+<title>Bruke grep og find</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="no-referrer" name="referrer">
+<meta content="noindex" name="robots">
+<meta content="Vegard &#216;ye" name="author">
+<meta content="2010-11-14" name="date">
+<meta content="ee4d1809e7927b9131541a257af3b8dd" name="md5">
+<meta content="text/css" http-equiv="Content-Style-Type">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<meta content="Bruke grep og find" name="DC.Title">
+<meta content="Vegard &#216;ye" name="DC.Creator">
+<meta content="2010-11-14" name="DC.Date">
+<meta content="no" name="DC.Language">
+<meta content="text/html" name="DC.Format">
+<meta content="Bruke grep og find" property="og:title">
+<meta content="no" name="og:locale">
+<meta content="article" property="og:type">
+<meta content="https://epsil.github.io/blog/2010/11/14/" property="og:url">
+<meta content="Vegards blogg" property="og:site_name">
+<meta content="summary" name="twitter:card">
+<meta content="@github" name="twitter:site">
+<meta content="Bruke grep og find" name="twitter:title">
+<link href="../../../../favicon.ico" rel="icon" type="image/x-icon">
+<link href="../../../../apple-touch-icon.png" rel="apple-touch-icon">
+<link href="../../../../_assets/css/wiki.css" rel="stylesheet">
+<link href="index.md" rel="alternate" title="Markdown" type="text/markdown">
+<script src="../../../../_assets/js/wiki.js">
+</script>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+<div class="container-fluid topbar">
+<ul class="nav nav-pills navbar-left">
+<li role="presentation"><a href="../../../../" title="G&#229; hjem"><i class="fa fa-home"></i></a>
+</li>
+</ul>
+
+<ul class="nav nav-pills navbar-right">
+<li role="presentation"><a href="../../../../tmp/clipboard/" target="_blank" title="Kopier til Markdown"><span class="clipboard-logo"></span></a>
+</li>
+
+<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/blob/master/blog/2010/11/14/index.md" target="_blank" title="Vis p&#229; GitHub"><i class="fa fa-github"></i></a>
+</li>
+
+<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/edit/master/blog/2010/11/14/index.md" target="_blank" title="Rediger p&#229; GitHub"><i class="fa fa-edit"></i></a>
+</li>
+
+<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/raw/master/blog/2010/11/14/index.md" target="_blank" title="Vis Markdown-kilde" type="text/plain"><span class="markdown-mark"></span></a>
+</li>
+
+<li role="presentation"><a data-toggle="collapse" href="#toc" id="toc-button" title="Innhold"><i class="fa fa-list"></i></a>
+</li>
+</ul>
+
+<form action="https://www.google.com/search" class="navbar-form" method="get" target="_blank">
+<div class="form-group" style="display: inline;">
+<div class="input-group" style="display: table;"><span class="input-group-addon" style="width: 1%;"><span class="glyphicon glyphicon-search"></span></span> <input accesskey="." autocomplete="off" class="form-control" name="q" title="S&#248;k" type="text"></div>
+</div>
+</form>
+</div>
+
+<div class="collapse" id="toc">
+<ul>
+<li><a href="#grep" title="grep"><span class="code"><code id="grep-2">grep</code></span></a>
+</li>
+
+<li><a href="#find" title="find"><span class="code"><code id="find-2">find</code></span></a>
+</li>
+</ul>
+</div>
+</nav>
+
+<article class="h-entry" id="main">
+<header>
+<h1 class="p-name"><a class="u-uid u-url" href="https://epsil.github.io/blog/2010/11/14/" rel="bookmark" target="_blank" title="Permalink">Bruke <span class="code"><code id="grep-3">grep</code></span> og <span class="code"><code id="find-3">find</code></span></a>
+</h1>
+
+<p class="author"><a class="p-author h-card" href="https://epsil.github.io/" target="_blank" title="Open epsil.github.io in a new window">Vegard &#216;ye</a> &#8226; <time class="dt-published" datetime="2010-11-14">2010-11-14</time></p>
+</header>
+
+<section class="e-content sidenotes">
+<section id="grep">
+<h2><a aria-hidden="true" class="header-anchor" href="#grep" title="grep"></a><span class="code"><code id="grep-4">grep</code></span><a aria-controls="grep-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#grep-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a>
+</h2>
+
+<div class="collapse in" id="grep-section">
+<p>For &#229; s&#248;ke i filenes <em>innhold</em>, kan man bruke <span class="code"><code id="grep-5">grep</code></span>:</p>
+
+<div class="pre">
+<pre class="language-bash" id="grep-ri-test">
+<code class="language-bash"><span class="token function">grep</span> -Ri <span class="token string">"test"</span> <span class="token keyword">.</span></code>
+</pre>
+</div>
+
+<p>Dette s&#248;ker rekursivt (<span class="code"><code id="r">-R</code></span>) og case-insensitivt (<span class="code"><code id="i-3">-i</code></span>) etter teksten <span class="code"><code id="test">"test"</code></span> i den gjeldende mappen (<span class="code"><code id="n-6">.</code></span>). Hvis man <em>bare</em> vil s&#248;ke i, si, <span class="code"><code id="txt">.txt</code></span>-filer, kan man bruke <span class="code"><code id="include">--include</code></span>-opsjonen:</p>
+
+<div class="pre">
+<pre class="language-bash" id="grep-ri-includetxt-test">
+<code class="language-bash"><span class="token function">grep</span> -Ri --include<span class="token operator">=</span><span class="token string">"*.txt"</span> <span class="token string">"test"</span> <span class="token keyword">.</span></code>
+</pre>
+</div>
+
+<p>Det finnes ogs&#229; en <span class="code"><code id="exclude">--exclude</code></span>-opsjon for &#229; ekskludere filer fra s&#248;ket.</p>
+</div>
+</section>
+
+<section id="find">
+<h2><a aria-hidden="true" class="header-anchor" href="#find" title="find"></a><span class="code"><code id="find-4">find</code></span><a aria-controls="find-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#find-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a>
+</h2>
+
+<div class="collapse in" id="find-section">
+<section>
+<p>For &#229; s&#248;ke i filenes <em>filnavn</em>, kan man bruke <span class="code"><code id="find-5">find</code></span>. Merk at hvis man skal bruke <span class="code"><code id="find-6">find</code></span> sammen med <abbr title="for eksempel">f.eks.</abbr> <span class="code"><code id="rm">rm</code></span> p&#229; filnavn som inneholder mellomrom, m&#229; man ta visse <a href="http://stackoverflow.com/questions/9612090/how-to-loop-through-file-names-returned-by-find#9612232" target="_blank" title="Open stackoverflow.com in a new window">forh&#229;ndsregler</a>. Den mest opplagte besvergelsen ville v&#230;re:</p>
+
+<div class="pre">
+<pre class="language-bash" id="find-name-pattern-xargs-rm">
+<code class="language-bash"><span class="token function">find</span> <span class="token keyword">.</span> -name <span class="token operator">&lt;</span><span class="caps">PATTERN</span><span class="token operator">&gt;</span> <span class="token operator">|</span> <span class="token function">xargs</span> <span class="token function">rm</span></code>
+</pre>
+</div>
+
+<p>Men dette fungerer alts&#229; bare p&#229; filnavn uten mellomrom. For mer kronglete filer m&#229; man bruke en av disse:</p>
+
+<div class="pre">
+<pre class="language-bash" id="find-name-pattern-exec-rm-find-name-pattern-print0-xargs-0-rm">
+<code class="language-bash"><span class="token function">find</span> <span class="token keyword">.</span> -name <span class="token operator">&lt;</span><span class="caps">PATTERN</span><span class="token operator">&gt;</span> -exec <span class="token function">rm</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> \<span class="token punctuation">;</span>
+<span class="token function">find</span> <span class="token keyword">.</span> -name <span class="token operator">&lt;</span><span class="caps">PATTERN</span><span class="token operator">&gt;</span> -print0 <span class="token operator">|</span> <span class="token function">xargs</span> -0 <span class="token function">rm</span></code>
+</pre>
+</div>
+
+<aside class="sidenote">
+<hr class="sidenote-ruler">
+
+<p><sup class="ref-mark"><a href="#fnref1" id="sidenote1" title="Den f&#248;rste eksekverer rm via find. Den siste bruker opsjonen -print0 for &#229; terminere filnavn med \0 istedenfor linjeskift, og rm gj&#248;res oppmerksom p&#229; dette med opsjonen -0. Begge programmer m&#229; alts&#229; tilpasses for &#229; kunne samarbeide om spesielle filnavn.[1]"><span class="left-bracket">[</span>1<span class="right-bracket">]</span></a></sup>Fortrinnet med <span class="code"><code id="n0-3">\0</code></span>-metoden er at den h&#229;ndterer de mest <em>outrerte</em> filnavn, selv navn som inneholder linjeskift! Jeg visste ikke at det var mulig f&#248;r jeg leste <span class="code"><code id="man-find">man find</code></span>, men <span class="code"><code id="touch-some">touch 'some\</code></span> + <kbd title="Enter">&#8629;</kbd> + <span class="code"><code id="file">file'</code></span> vil lage en slik fil. (Bytt ut &#171;<span class="code"><code id="touch">touch</code></span>&#187; med &#171;<span class="code"><code id="rm-4">rm</code></span>&#187; for &#229; slette filen.) <a class="footnote-backref" href="#fnref1" title="Den f&#248;rste eksekverer rm via find. Den siste bruker opsjonen -print0 for &#229; terminere filnavn med \0 istedenfor linjeskift, og rm gj&#248;res oppmerksom p&#229; dette med opsjonen -0. Begge programmer m&#229; alts&#229; tilpasses for &#229; kunne samarbeide om spesielle filnavn.[1]">&#8617;&#65038;</a></p>
+</aside>
+
+<p>Den f&#248;rste eksekverer <span class="code"><code id="rm-2">rm</code></span> via <span class="code"><code id="find-7">find</code></span>. Den siste bruker opsjonen <span class="code"><code id="print0">-print0</code></span> for &#229; terminere filnavn med <span class="code"><code id="n0">\0</code></span> istedenfor linjeskift, og <span class="code"><code id="rm-3">rm</code></span> gj&#248;res oppmerksom p&#229; dette med opsjonen <span class="code"><code id="n0-2">-0</code></span>. Begge programmer m&#229; alts&#229; tilpasses for &#229; kunne samarbeide om spesielle filnavn.<sup class="footnote-ref"><a href="#fn1" id="fnref1" title="Fortrinnet med \0-metoden er at den h&#229;ndterer de mest outrerte filnavn, selv navn som inneholder linjeskift! Jeg visste ikke at det var mulig f&#248;r jeg leste man find, men touch 'some\ + &#8629; + file' vil lage en slik fil. (Bytt ut &#171;touch&#187; med &#171;rm&#187; for &#229; slette filen.)"><span class="left-bracket">[</span>1<span class="right-bracket">]</span></a></sup></p>
+
+<hr class="footnotes-sep endnotes">
+</section>
+
+<section class="footnotes">
+<ol class="footnotes-list endnotes">
+<li class="footnote-item" id="fn1">
+<p>Fortrinnet med <span class="code"><code id="n0-3">\0</code></span>-metoden er at den h&#229;ndterer de mest <em>outrerte</em> filnavn, selv navn som inneholder linjeskift! Jeg visste ikke at det var mulig f&#248;r jeg leste <span class="code"><code id="man-find">man find</code></span>, men <span class="code"><code id="touch-some">touch 'some\</code></span> + <kbd title="Enter">&#8629;</kbd> + <span class="code"><code id="file">file'</code></span> vil lage en slik fil. (Bytt ut &#171;<span class="code"><code id="touch">touch</code></span>&#187; med &#171;<span class="code"><code id="rm-4">rm</code></span>&#187; for &#229; slette filen.) <a class="footnote-backref" href="#fnref1" title="Den f&#248;rste eksekverer rm via find. Den siste bruker opsjonen -print0 for &#229; terminere filnavn med \0 istedenfor linjeskift, og rm gj&#248;res oppmerksom p&#229; dette med opsjonen -0. Begge programmer m&#229; alts&#229; tilpasses for &#229; kunne samarbeide om spesielle filnavn.[1]">&#8617;&#65038;</a></p>
+</li>
+</ol>
+</section>
+</div>
+</section>
+</section>
+</article>
+</body>
+</html>

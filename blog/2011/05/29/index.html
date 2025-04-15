@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="no" prefix="og: http://ogp.me/ns#">
+<head>
+<title>Installere GNOME 3 p&#229; Ubuntu</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="no-referrer" name="referrer">
+<meta content="noindex" name="robots">
+<meta content="Vegard &#216;ye" name="author">
+<meta content="2011-05-29" name="date">
+<meta content="5a4fb17181e91b19c9745434eba4db2b" name="md5">
+<meta content="text/css" http-equiv="Content-Style-Type">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<meta content="Installere GNOME 3 p&#229; Ubuntu" name="DC.Title">
+<meta content="Vegard &#216;ye" name="DC.Creator">
+<meta content="2011-05-29" name="DC.Date">
+<meta content="no" name="DC.Language">
+<meta content="text/html" name="DC.Format">
+<meta content="Installere GNOME 3 p&#229; Ubuntu" property="og:title">
+<meta content="no" name="og:locale">
+<meta content="article" property="og:type">
+<meta content="https://epsil.github.io/blog/2011/05/29/" property="og:url">
+<meta content="Vegards blogg" property="og:site_name">
+<meta content="summary" name="twitter:card">
+<meta content="@github" name="twitter:site">
+<meta content="Installere GNOME 3 p&#229; Ubuntu" name="twitter:title">
+<link href="../../../../favicon.ico" rel="icon" type="image/x-icon">
+<link href="../../../../apple-touch-icon.png" rel="apple-touch-icon">
+<link href="../../../../_assets/css/wiki.css" rel="stylesheet">
+<link href="index.md" rel="alternate" title="Markdown" type="text/markdown">
+<script src="../../../../_assets/js/wiki.js">
+</script>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+<div class="container-fluid topbar">
+<ul class="nav nav-pills navbar-left">
+<li role="presentation"><a href="../../../../" title="G&#229; hjem"><i class="fa fa-home"></i></a>
+</li>
+</ul>
+
+<ul class="nav nav-pills navbar-right">
+<li role="presentation"><a href="../../../../tmp/clipboard/" target="_blank" title="Kopier til Markdown"><span class="clipboard-logo"></span></a>
+</li>
+
+<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/blob/master/blog/2011/05/29/index.md" target="_blank" title="Vis p&#229; GitHub"><i class="fa fa-github"></i></a>
+</li>
+
+<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/edit/master/blog/2011/05/29/index.md" target="_blank" title="Rediger p&#229; GitHub"><i class="fa fa-edit"></i></a>
+</li>
+
+<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/raw/master/blog/2011/05/29/index.md" target="_blank" title="Vis Markdown-kilde" type="text/plain"><span class="markdown-mark"></span></a>
+</li>
+
+<li role="presentation"><a data-toggle="collapse" href="#toc" id="toc-button" title="Innhold"><i class="fa fa-list"></i></a>
+</li>
+</ul>
+
+<form action="https://www.google.com/search" class="navbar-form" method="get" target="_blank">
+<div class="form-group" style="display: inline;">
+<div class="input-group" style="display: table;"><span class="input-group-addon" style="width: 1%;"><span class="glyphicon glyphicon-search"></span></span> <input accesskey="." autocomplete="off" class="form-control" name="q" title="S&#248;k" type="text"></div>
+</div>
+</form>
+</div>
+
+<div id="toc-placeholder">
+</div>
+</nav>
+
+<article class="h-entry" id="main">
+<header>
+<h1 class="p-name"><a class="u-uid u-url" href="https://epsil.github.io/blog/2011/05/29/" rel="bookmark" target="_blank" title="Permalink">Installere <abbr class="acronym" title="GNOME GNU Network Object Model Environment"><span class="caps">GNOME</span></abbr> 3 p&#229; Ubuntu</a>
+</h1>
+
+<p class="author"><a class="p-author h-card" href="https://epsil.github.io/" target="_blank" title="Open epsil.github.io in a new window">Vegard &#216;ye</a> &#8226; <time class="dt-published" datetime="2011-05-29">2011-05-29</time></p>
+</header>
+
+<section class="e-content sidenotes">
+<section>
+<ol>
+<li>Flytt innstillingsfiler: <span class="code"><code id="mv-oldsettings">mv .[^.]* oldsettings</code></span>.</li>
+
+<li>Installer Ubuntu 11.04 til <span class="code"><code id="dev-sda5">/dev/sda5</code></span> med <span class="code"><code id="home">/home</code></span> p&#229; <span class="code"><code id="dev-sda7">/dev/sda7</code></span>.</li>
+
+<li>Sl&#229; av lyd og oppdater spr&#229;kpakker, samt sl&#229; av skjerml&#229;s.</li>
+
+<li>Legg til bruker i gruppen <span class="code"><code id="nopasswdlogin">nopasswdlogin</code></span> (<span class="code"><code id="sudo-adduser-user-nopasswdlogin">sudo adduser user nopasswdlogin</code></span>).</li>
+
+<li>Kj&#248;r <span class="code"><code id="sudo-apt-get-dist-upgrade">sudo apt-get dist-upgrade</code></span>.</li>
+
+<li>Avinstaller pakkene <span class="code"><code id="overlay-scrollbar">overlay-scrollbar</code></span> og <span class="code"><code id="liboverlay-scrollbar-01-0">liboverlay-scrollbar-0.1-0</code></span> og start p&#229; nytt.</li>
+
+<li>Legg til <abbr class="acronym" title="GNOME GNU Network Object Model Environment"><span class="caps">GNOME</span></abbr> 3-repoet med <span class="code"><code id="sudo-add-apt-repository-ppagnome3-team-gnome3">sudo add-apt-repository ppa:gnome3-team/gnome3</code></span> og kj&#248;r <span class="code"><code id="sudo-apt-get-update">sudo apt-get update</code></span> for &#229; oppdatere pakkelistene.</li>
+
+<li>Kj&#248;r <span class="code"><code id="sudo-apt-get-dist-upgrade-2">sudo apt-get dist-upgrade</code></span>.</li>
+
+<li>Installer <abbr class="acronym" title="GNOME GNU Network Object Model Environment"><span class="caps">GNOME</span></abbr> Shell med <span class="code"><code id="sudo-apt-get-install-gnome-shell">sudo apt-get install gnome-shell</code></span>, <span class="code"><code id="sudo-apt-get-install-gnome-session">sudo apt-get install gnome-session</code></span>, <span class="code"><code id="sudo-apt-get-install-gnome-themes-standard">sudo apt-get install gnome-themes-standard</code></span>, <span class="code"><code id="sudo-apt-get-install-gnome-tweak-tool">sudo apt-get install gnome-tweak-tool</code></span>.</li>
+
+<li>Start p&#229; nytt og velg &#171;Others&#187; p&#229; innloggingsskjermen. Tast inn brukernavnet manuelt og velg &#171;<abbr class="acronym" title="GNOME GNU Network Object Model Environment"><span class="caps">GNOME</span></abbr>&#187; fra listen.</li>
+
+<li>Sett opp temaer, <abbr title="et cetera">etc.</abbr> Conky installeres med <kbd title="Alt">Alt</kbd> + <kbd>F2</kbd> <span class="code"><code id="gnome-sessions-properties">gnome-sessions-properties</code></span>. Husk <span class="code"><code id="ttf-dejavu-extra">ttf-dejavu-extra</code></span> (<span class="code"><code id="sudo-apt-get-install-ttj-dejavu">sudo apt-get install ttj-dejavu</code></span>), <span class="code"><code id="evince">evince</code></span> (<span class="code"><code id="sudo-apt-get-install-evince">sudo apt-get install evince</code></span>), <span class="code"><code id="ttf-mscorefonts-installer">ttf-mscorefonts-installer</code></span>, <span class="code"><code id="texlive-full">texlive-full</code></span> (<span class="code"><code id="getnonfreefonts-sys-a-f-v">getnonfreefonts-sys -a -f -v</code></span>), <span class="code"><code id="emacs23">emacs23</code></span>, <span class="code"><code id="emacs23-common">emacs23-common</code></span>, <span class="code"><code id="emacs23-el">emacs23-el</code></span>, <span class="code"><code id="auctex">auctex</code></span>, <span class="code"><code id="git-all">git-all</code></span>.</li>
+</ol>
+</section>
+</section>
+</article>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="no" prefix="og: http://ogp.me/ns#">
+<head>
+<title>Hvordan skrive til en NTFS-disk p&#229; OS X</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="no-referrer" name="referrer">
+<meta content="noindex" name="robots">
+<meta content="Vegard &#216;ye" name="author">
+<meta content="2014-05-13" name="date">
+<meta content="6624daf274c3f7a697e89defc43b5ae2" name="md5">
+<meta content="text/css" http-equiv="Content-Style-Type">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<meta content="Hvordan skrive til en NTFS-disk p&#229; OS X" name="DC.Title">
+<meta content="Vegard &#216;ye" name="DC.Creator">
+<meta content="2014-05-13" name="DC.Date">
+<meta content="no" name="DC.Language">
+<meta content="text/html" name="DC.Format">
+<meta content="Hvordan skrive til en NTFS-disk p&#229; OS X" property="og:title">
+<meta content="no" name="og:locale">
+<meta content="article" property="og:type">
+<meta content="http://osxdaily.com/2013/10/02/enable-ntfs-write-support-mac-os-x/" property="og:url">
+<meta content="Vegards blogg" property="og:site_name">
+<meta content="summary" name="twitter:card">
+<meta content="@github" name="twitter:site">
+<meta content="Hvordan skrive til en NTFS-disk p&#229; OS X" name="twitter:title">
+<link href="../../../../favicon.ico" rel="icon" type="image/x-icon">
+<link href="../../../../apple-touch-icon.png" rel="apple-touch-icon">
+<link href="../../../../_assets/css/wiki.css" rel="stylesheet">
+<link href="index.md" rel="alternate" title="Markdown" type="text/markdown">
+<script src="../../../../_assets/js/wiki.js">
+</script>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+<div class="container-fluid topbar">
+<ul class="nav nav-pills navbar-left">
+<li role="presentation"><a href="../../../../" title="G&#229; hjem"><i class="fa fa-home"></i></a>
+</li>
+</ul>
+
+<ul class="nav nav-pills navbar-right">
+<li role="presentation"><a href="../../../../tmp/clipboard/" target="_blank" title="Kopier til Markdown"><span class="clipboard-logo"></span></a>
+</li>
+
+<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/blob/master/blog/2014/05/13/index.md" target="_blank" title="Vis p&#229; GitHub"><i class="fa fa-github"></i></a>
+</li>
+
+<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/edit/master/blog/2014/05/13/index.md" target="_blank" title="Rediger p&#229; GitHub"><i class="fa fa-edit"></i></a>
+</li>
+
+<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/raw/master/blog/2014/05/13/index.md" target="_blank" title="Vis Markdown-kilde" type="text/plain"><span class="markdown-mark"></span></a>
+</li>
+
+<li role="presentation"><a data-toggle="collapse" href="#toc" id="toc-button" title="Innhold"><i class="fa fa-list"></i></a>
+</li>
+</ul>
+
+<form action="https://www.google.com/search" class="navbar-form" method="get" target="_blank">
+<div class="form-group" style="display: inline;">
+<div class="input-group" style="display: table;"><span class="input-group-addon" style="width: 1%;"><span class="glyphicon glyphicon-search"></span></span> <input accesskey="." autocomplete="off" class="form-control" name="q" title="S&#248;k" type="text"></div>
+</div>
+</form>
+</div>
+
+<div id="toc-placeholder">
+</div>
+</nav>
+
+<article class="h-entry" id="main">
+<header>
+<h1 class="p-name"><a class="u-uid u-url" href="http://osxdaily.com/2013/10/02/enable-ntfs-write-support-mac-os-x/" rel="bookmark" target="_blank" title="Permalink">Hvordan skrive til en <abbr class="acronym" title="New Technology File System"><span class="caps">NTFS</span></abbr>-disk p&#229; <abbr class="acronym" title="Operating System 10"><span class="caps">OS</span> X</abbr></a>
+</h1>
+
+<p class="author"><a class="p-author h-card" href="https://epsil.github.io/" target="_blank" title="Open epsil.github.io in a new window">Vegard &#216;ye</a> &#8226; <time class="dt-published" datetime="2014-05-13">2014-05-13</time></p>
+</header>
+
+<section class="e-content sidenotes">
+<section>
+<p>Rediger filen <span class="code"><code id="etc-fstab">/etc/fstab</code></span>:</p>
+
+<div class="pre">
+<pre id="sudo-vi-etc-fstab">
+<code>sudo vi /etc/fstab</code>
+</pre>
+</div>
+
+<p>Legg til:</p>
+
+<div class="pre">
+<pre id="labeldrive-name-none-ntfs-rwautonobrowse">
+<code>LABEL=DRIVE_NAME none ntfs rw,auto,nobrowse</code>
+</pre>
+</div>
+
+<p>(Hvis disken har et komplisert navn, finn <abbr class="acronym" title="Universally Unique Identifier"><span class="caps">UUID</span></abbr>-en med <span class="code"><code id="diskutil-info-volumes-drivename-grep-uuid">diskutil info /Volumes/DRIVENAME | grep UUID</code></span> og skriv <span class="code"><code id="uuid">UUID=...</code></span> istedenfor.)</p>
+
+<p>Disken vil ikke vises som en vanlig disk, men kan &#229;pnes i Finder med:</p>
+
+<div class="pre">
+<pre id="open-volumes-drivename">
+<code>open /Volumes/DRIVENAME</code>
+</pre>
+</div>
+
+<p>Alternativt kan man legge til en snarvei p&#229; skrivebordet:</p>
+
+<div class="pre">
+<pre id="sudo-ln-s-volumes-drivename-desktop-drivename">
+<code>sudo ln -s /Volumes/DRIVENAME ~/Desktop/DRIVENAME</code>
+</pre>
+</div>
+
+<hr>
+
+<p><strong>Oppdatering:</strong> P&#229; <abbr class="acronym" title="Operating System 10"><span class="caps">OS</span> X</abbr> Yosemite fungerer ikke dette lenger. <s>Bruk istedenfor <a href="http://www.macbreaker.com/2014/06/how-to-enable-writing-to-ntfs-hard.html" target="_blank" title="Open macbreaker.com in a new window"><abbr class="acronym" title="New Technology File System"><span class="caps">NTFS</span></abbr>-3G</a>.</s></p>
+</section>
+</section>
+</article>
+</body>
+</html>
