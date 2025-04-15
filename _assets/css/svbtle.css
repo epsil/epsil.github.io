@@ -1,0 +1,46 @@
+@import url("medium.css");
+
+abbr.acronym,
+.caps {
+    font-variant: oldstyle-nums small-caps;
+    letter-spacing: 0.1em;
+    text-transform: lowercase;
+}
+
+body {
+    color: #4d4d4d !important;
+    font-family: "Helvetica Neue", Helvetica, Arial, "Arial Unicode",
+        "Arial Unicode MS", "Segoe UI", Avenir, "Avenir Next", -apple-system,
+        BlinkMacSystemFont, "IBM Plex Sans", "Gill Sans MT", "Gill Sans",
+        "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva,
+        sans-serif !important;
+    font-size: 113% !important;
+    line-height: 1.4;
+}
+
+blockquote {
+    border-left: 5px solid rgba(0, 0, 0, 0.1);
+    margin-left: 0;
+    font-style: normal;
+}
+
+blockquote em {
+    font-style: italic;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header {
+    color: #000000 !important;
+    font-family: inherit !important;
+}
+
+@media (max-width: 767px) {
+    body {
+        font-size: 100% !important;
+    }
+}

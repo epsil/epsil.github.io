@@ -1,0 +1,574 @@
+{
+  "10": {
+    "href": "/blog/2015/12/10/",
+    "title": "Testing med Selenium"
+  },
+  "13": {
+    "href": "/blog/2014/05/13/",
+    "title": "Hvordan skrive til en NTFS-disk p\u00e5 OS X"
+  },
+  "14": {
+    "href": "/blog/2010/11/14/",
+    "title": "Bruke grep og find"
+  },
+  "15": {
+    "href": "/blog/2015/02/15/",
+    "title": "Endre navnet p\u00e5 Google Drive-mappen"
+  },
+  "16": {
+    "href": "/blog/2012/04/16/",
+    "title": "Why Functional Programming Matters: Haskell Translation"
+  },
+  "17": {
+    "href": "/blog/2011/09/17/",
+    "title": "Manglende SATA-st\u00f8tte i Windows XP"
+  },
+  "18": {
+    "href": "/blog/2010/04/18/",
+    "title": "Bruk versjonskontroll"
+  },
+  "19": {
+    "href": "/blog/2014/09/19/",
+    "title": "Oppgradere Gollum"
+  },
+  "20": {
+    "href": "/blog/2004/03/20/",
+    "title": "Cache bakgrunnsbilder i Internet Explorer"
+  },
+  "21": {
+    "href": "/blog/2004/03/21/",
+    "title": "Flash og tilgjengelighet"
+  },
+  "22": {
+    "href": "/blog/2011/09/22/",
+    "title": "Kj\u00f8re MPD lokalt"
+  },
+  "23": {
+    "href": "/blog/2013/11/23/",
+    "title": "Importere Last.fm-spilleliste inn i Spotify"
+  },
+  "24": {
+    "href": "/blog/2010/03/24/",
+    "title": "Line\u00e6re differensialligninger med konstante koeffisienter"
+  },
+  "25": {
+    "href": "/blog/2004/02/25/",
+    "title": "Punktmerker i CSS"
+  },
+  "26": {
+    "href": "/blog/2007/11/26/",
+    "title": "Fordeler med Emacs"
+  },
+  "27": {
+    "href": "/blog/2010/02/27/",
+    "title": "Programmeringssitater"
+  },
+  "28": {
+    "href": "/blog/2013/11/28/",
+    "title": "iTerm2 som nedtrekksterminal"
+  },
+  "29": {
+    "href": "/blog/2007/11/29/",
+    "title": "Tastaturmakroer i Emacs"
+  },
+  "30": {
+    "href": "/blog/2007/10/30/",
+    "title": "The International Obfuscated C Code Contest"
+  },
+  "01": {
+    "href": "/blog/2003/05/01/",
+    "title": "Hvordan har hovedpersonene i norsk kriminallitteratur forandret seg de siste 100 \u00e5rene?"
+  },
+  "02": {
+    "href": "/blog/2004/03/02/",
+    "title": "Hvorfor unng\u00e5 egendefinerte rullefelt"
+  },
+  "03": {
+    "href": "/blog/2002/06/03/",
+    "title": "Spesielle tall i matematikken"
+  },
+  "05": {
+    "href": "/blog/2011/10/05/",
+    "title": "Konvertere gjenstridige Word-dokumenter til PDF ved UiO"
+  },
+  "06": {
+    "href": "/blog/2001/08/06/",
+    "title": "Tilleggsfunksjoner p\u00e5 Nokia 3210"
+  },
+  "07": {
+    "href": "/blog/2004/03/07/",
+    "title": "En kort historie om HTML"
+  },
+  "08": {
+    "href": "/blog/2010/04/08/",
+    "title": "Skrifter for LaTeX"
+  },
+  "09": {
+    "href": "/blog/2004/03/09/",
+    "title": "Gruppering av CSS-stilark"
+  },
+  "ABOUT": {
+    "href": "/about/",
+    "title": "About Vegard \u00d8ye"
+  },
+  "ABOUT VEGARD \u00d8YE": {
+    "href": "/about/",
+    "title": "About Vegard \u00d8ye"
+  },
+  "ACCELERATING NONLINEAR IMAGE TRANSFORMATIONS WITH OPENGL ES": {
+    "href": "/fisheye/",
+    "title": "Accelerating nonlinear image transformations with OpenGL ES"
+  },
+  "AMULE KRASJER": {
+    "href": "/blog/2014/04/05/",
+    "title": "aMule krasjer"
+  },
+  "ARTICLES": {
+    "href": "/articles/",
+    "title": "Articles"
+  },
+  "ARTICLES: BY VEGARD \u00d8YE": {
+    "href": "/articles/",
+    "title": "Articles"
+  },
+  "AUCTEX P\u00c5 WINDOWS": {
+    "href": "/blog/2007/10/09/",
+    "title": "AUCTeX p\u00e5 Windows"
+  },
+  "BASH": {
+    "href": "/blog/2016/04/20/",
+    "title": "Running Bash scripts on Windows"
+  },
+  "BLOG": {
+    "href": "/blog/",
+    "title": "Blog posts"
+  },
+  "BLOG POSTS": {
+    "href": "/blog/",
+    "title": "Blog posts"
+  },
+  "BRUENE I K\u00d6NIGSBERG": {
+    "href": "/blog/2010/11/21/",
+    "title": "Bruene i K\u00f6nigsberg"
+  },
+  "BRUK VERSJONSKONTROLL": {
+    "href": "/blog/2010/04/18/",
+    "title": "Bruk versjonskontroll"
+  },
+  "BRUKE `GREP` OG `FIND`": {
+    "href": "/blog/2010/11/14/",
+    "title": "Bruke grep og find"
+  },
+  "C++ FOR JAVA PROGRAMMERS": {
+    "href": "/blog/2012/05/14/",
+    "title": "C++ for Java Programmers"
+  },
+  "CACHE BAKGRUNNSBILDER I INTERNET EXPLORER": {
+    "href": "/blog/2004/03/20/",
+    "title": "Cache bakgrunnsbilder i Internet Explorer"
+  },
+  "CLOSURES I LISP": {
+    "href": "/blog/2011/10/07/",
+    "title": "Closures i Lisp"
+  },
+  "CUBANSK SALSA": {
+    "href": "/salsa/",
+    "title": "Cubansk salsa"
+  },
+  "DELBR\u00d8KSOPPSPALTNING": {
+    "href": "/blog/2007/10/07/",
+    "title": "Delbr\u00f8ksoppspaltning"
+  },
+  "DIA ON OS X": {
+    "href": "/blog/2015/06/25/en/",
+    "title": "Dia on OS X"
+  },
+  "DIA P\u00c5 OS X": {
+    "href": "/blog/2015/06/25/",
+    "title": "Dia p\u00e5 OS X"
+  },
+  "DOM, XPATH OG JQUERY": {
+    "href": "/blog/2012/05/05/",
+    "title": "DOM, XPath og jQuery"
+  },
+  "EN": {
+    "href": "/blog/2015/06/25/en/",
+    "title": "Dia on OS X"
+  },
+  "EN KORT HISTORIE OM HTML": {
+    "href": "/blog/2004/03/07/",
+    "title": "En kort historie om HTML"
+  },
+  "ENDRE NAVNET P\u00c5 GOOGLE DRIVE-MAPPEN": {
+    "href": "/blog/2015/02/15/",
+    "title": "Endre navnet p\u00e5 Google Drive-mappen"
+  },
+  "FIKSE `MKFS.NTFS` P\u00c5 UBUNTU": {
+    "href": "/blog/2013/12/06/",
+    "title": "Fikse mkfs.ntfs p\u00e5 Ubuntu"
+  },
+  "FISHEYE": {
+    "href": "/fisheye/",
+    "title": "Accelerating nonlinear image transformations with OpenGL ES"
+  },
+  "FLASH OG TILGJENGELIGHET": {
+    "href": "/blog/2004/03/21/",
+    "title": "Flash og tilgjengelighet"
+  },
+  "FONT": {
+    "href": "/blog/2010/04/08/",
+    "title": "Skrifter for LaTeX"
+  },
+  "FONTER": {
+    "href": "/blog/2010/04/08/",
+    "title": "Skrifter for LaTeX"
+  },
+  "FORDELER MED EMACS": {
+    "href": "/blog/2007/11/26/",
+    "title": "Fordeler med Emacs"
+  },
+  "GENERAL PARSER COMBINATORS IN RACKET": {
+    "href": "/gll/",
+    "title": "General Parser Combinators in Racket"
+  },
+  "GITAR": {
+    "href": "/gitar/",
+    "title": "Gitar"
+  },
+  "GLL": {
+    "href": "/gll/",
+    "title": "General Parser Combinators in Racket"
+  },
+  "GOLLUM OG PANDOC": {
+    "href": "/blog/2015/05/27/",
+    "title": "Gollum og Pandoc"
+  },
+  "GOOGLE DRIVE OG GIT": {
+    "href": "/blog/2014/11/16/",
+    "title": "Google Drive og Git"
+  },
+  "GREASEMONKEY-SKRIPT FOR LAST.FM": {
+    "href": "/blog/2012/05/03/",
+    "title": "Greasemonkey-skript for Last.fm"
+  },
+  "GRENSEVERDISETNINGEN": {
+    "href": "/blog/2010/11/20/",
+    "title": "Grenseverdisetningen"
+  },
+  "GRUPPERING AV CSS-STILARK": {
+    "href": "/blog/2004/03/09/",
+    "title": "Gruppering av CSS-stilark"
+  },
+  "GUI": {
+    "href": "/blog/2012/03/24/",
+    "title": "GUI-programmering med Qt"
+  },
+  "GUI-PROGRAMMERING MED QT": {
+    "href": "/blog/2012/03/24/",
+    "title": "GUI-programmering med Qt"
+  },
+  "HTTP://MACINTOSHHOWTO.COM/PDF/HOW-TO-MERGE-2-PDF-FILES-WITH-OS-X-MAVERICKS-10-9.HTML": {
+    "href": "/blog/2015/05/20/",
+    "title": "Hvordan kombinere PDF-filer p\u00e5 OS X Mavericks"
+  },
+  "HTTP://OSXDAILY.COM/2013/10/02/ENABLE-NTFS-WRITE-SUPPORT-MAC-OS-X/": {
+    "href": "/blog/2014/05/13/",
+    "title": "Hvordan skrive til en NTFS-disk p\u00e5 OS X"
+  },
+  "HTTP://SHH.THATHOST.COM/TEXT/WEBSIKKERHET-MER-ENN-BRANNMUR-OG-KRYPTERING.TXT": {
+    "href": "/tmp/websikkerhet/",
+    "title": "Websikkerhet"
+  },
+  "HTTP://WWW.COMPUTERWORLD.NO/CWI.NSF/ALLE/5D86305CE1B6BD4AC1256A7300275537": {
+    "href": "/tmp/websikkerhet/",
+    "title": "Websikkerhet"
+  },
+  "HTTPS://EPSIL.GITHUB.IO/BLOG/2016/04/20/": {
+    "href": "/blog/2016/04/20/",
+    "title": "Running Bash scripts on Windows"
+  },
+  "HTTPS://EPSIL.GITHUB.IO/GLL/": {
+    "href": "/gll/",
+    "title": "General Parser Combinators in Racket"
+  },
+  "HTTPS://PRODUCTFORUMS.GOOGLE.COM/FORUM/#!TOPIC/DRIVE/4QYBDNOWBCS": {
+    "href": "/blog/2015/02/15/",
+    "title": "Endre navnet p\u00e5 Google Drive-mappen"
+  },
+  "HTTPS://WWW.LINKEDIN.COM/IN/VEGARDOYE/": {
+    "href": "/resume/",
+    "title": "Vegard \u00d8ye\u2019s Resume"
+  },
+  "HVORDAN HAR HOVEDPERSONENE I NORSK KRIMINALLITTERATUR FORANDRET SEG DE SISTE 100 \u00c5RENE?": {
+    "href": "/blog/2003/05/01/",
+    "title": "Hvordan har hovedpersonene i norsk kriminallitteratur forandret seg de siste 100 \u00e5rene?"
+  },
+  "HVORDAN KOMBINERE PDF-FILER P\u00c5 OS X MAVERICKS": {
+    "href": "/blog/2015/05/20/",
+    "title": "Hvordan kombinere PDF-filer p\u00e5 OS X Mavericks"
+  },
+  "HVORDAN SKRIVE TIL EN NTFS-DISK P\u00c5 OS X": {
+    "href": "/blog/2014/05/13/",
+    "title": "Hvordan skrive til en NTFS-disk p\u00e5 OS X"
+  },
+  "HVORFOR UNNG\u00c5 EGENDEFINERTE RULLEFELT": {
+    "href": "/blog/2004/03/02/",
+    "title": "Hvorfor unng\u00e5 egendefinerte rullefelt"
+  },
+  "IMPORTERE LAST.FM-SPILLELISTE INN I SPOTIFY": {
+    "href": "/blog/2013/11/23/",
+    "title": "Importere Last.fm-spilleliste inn i Spotify"
+  },
+  "INDEX": {
+    "href": "/",
+    "title": "Vegard \u00d8ye"
+  },
+  "INNF\u00d8RING I VERSJONSKONTROLL": {
+    "href": "/blog/2010/04/20/",
+    "title": "Innf\u00f8ring i versjonskontroll"
+  },
+  "INSTALLERE GNOME 3 P\u00c5 UBUNTU": {
+    "href": "/blog/2011/05/29/",
+    "title": "Installere GNOME 3 p\u00e5 Ubuntu"
+  },
+  "ITERM2 SOM NEDTREKKSTERMINAL": {
+    "href": "/blog/2013/11/28/",
+    "title": "iTerm2 som nedtrekksterminal"
+  },
+  "KJ\u00d8RE FOOBAR2000 UNDER OS X": {
+    "href": "/blog/2014/02/25/",
+    "title": "Kj\u00f8re foobar2000 under OS X"
+  },
+  "KJ\u00d8RE MPD LOKALT": {
+    "href": "/blog/2011/09/22/",
+    "title": "Kj\u00f8re MPD lokalt"
+  },
+  "KLONE HARDDISK": {
+    "href": "/blog/2010/11/27/",
+    "title": "Klone harddisk"
+  },
+  "KOMMANDOLINJE": {
+    "href": "/blog/2016/04/20/",
+    "title": "Running Bash scripts on Windows"
+  },
+  "KOMMANDOLINJEN": {
+    "href": "/blog/2016/04/20/",
+    "title": "Running Bash scripts on Windows"
+  },
+  "KOMMANDOLINJEVERKT\u00d8Y": {
+    "href": "/blog/2016/04/20/",
+    "title": "Running Bash scripts on Windows"
+  },
+  "KOMPRIMERE PROFILMAPPEN TIL FIREFOX": {
+    "href": "/blog/2014/12/27/",
+    "title": "Komprimere profilmappen til Firefox"
+  },
+  "KONVERTERE GJENSTRIDIGE WORD-DOKUMENTER TIL PDF VED UIO": {
+    "href": "/blog/2011/10/05/",
+    "title": "Konvertere gjenstridige Word-dokumenter til PDF ved UiO"
+  },
+  "LAST.FM SEARCH LINKS": {
+    "href": "/blog/2013/12/22/",
+    "title": "Last.fm Search Links"
+  },
+  "LAST.FM-SORTERING I FOOBAR2000": {
+    "href": "/blog/2013/01/01/",
+    "title": "Last.fm-sortering i foobar2000"
+  },
+  "LINE\u00c6RE DIFFERENSIALLIGNINGER MED KONSTANTE KOEFFISIENTER": {
+    "href": "/blog/2010/03/24/",
+    "title": "Line\u00e6re differensialligninger med konstante koeffisienter"
+  },
+  "LYDFORSTERKER: *PROJECT 3A*": {
+    "href": "/p3a/",
+    "title": "Lydforsterker: Project 3A"
+  },
+  "MANGLENDE SATA-ST\u00d8TTE I WINDOWS XP": {
+    "href": "/blog/2011/09/17/",
+    "title": "Manglende SATA-st\u00f8tte i Windows XP"
+  },
+  "MIGRERING AV DATA TIL ADVANCED FORMAT-HARDDISK": {
+    "href": "/blog/2011/09/14/",
+    "title": "Migrering av data til Advanced Format-harddisk"
+  },
+  "MUSIKKIMPORTERINGSRUTINER": {
+    "href": "/blog/2014/01/27/",
+    "title": "Musikkimporteringsrutiner"
+  },
+  "NETTILKOBLING MED IPHONE": {
+    "href": "/blog/2015/12/05/",
+    "title": "Nettilkobling med iPhone"
+  },
+  "NYTTIGE SNARVEIER I VISUAL STUDIO": {
+    "href": "/blog/2016/05/25/",
+    "title": "Nyttige snarveier i Visual Studio"
+  },
+  "OPPGRADERE GOLLUM": {
+    "href": "/blog/2014/09/19/",
+    "title": "Oppgradere Gollum"
+  },
+  "OPPGRADERE HOMEBREW": {
+    "href": "/blog/2014/12/20/",
+    "title": "Oppgradere Homebrew"
+  },
+  "OPPGRADERE PYTHON P\u00c5 OS X": {
+    "href": "/blog/2014/01/07/",
+    "title": "Oppgradere Python p\u00e5 OS X"
+  },
+  "OPPSETT `IRSSI` OG `SCREEN`": {
+    "href": "/blog/2014/05/06/",
+    "title": "Oppsett irssi og screen"
+  },
+  "P3A": {
+    "href": "/p3a/",
+    "title": "Lydforsterker: Project 3A"
+  },
+  "PROGRAMMERINGSSITATER": {
+    "href": "/blog/2010/02/27/",
+    "title": "Programmeringssitater"
+  },
+  "PROJECTS": {
+    "href": "/projects/",
+    "title": "Vegard \u00d8ye\u2019s Projects"
+  },
+  "PUNKTMERKER I CSS": {
+    "href": "/blog/2004/02/25/",
+    "title": "Punktmerker i CSS"
+  },
+  "RESUME": {
+    "href": "/resume/",
+    "title": "Vegard \u00d8ye\u2019s Resume"
+  },
+  "ROCK STEP SWING": {
+    "href": "/swing/",
+    "title": "Rock Step Swing"
+  },
+  "ROSELISP": {
+    "href": "/roselisp/",
+    "title": "Roselisp"
+  },
+  "RUNNING BASH SCRIPTS ON WINDOWS": {
+    "href": "/blog/2016/04/20/",
+    "title": "Running Bash scripts on Windows"
+  },
+  "SALSA": {
+    "href": "/salsa/",
+    "title": "Cubansk salsa"
+  },
+  "SELENIUM": {
+    "href": "/blog/2015/12/10/",
+    "title": "Testing med Selenium"
+  },
+  "SKRIFT": {
+    "href": "/blog/2010/04/08/",
+    "title": "Skrifter for LaTeX"
+  },
+  "SKRIFTER": {
+    "href": "/blog/2010/04/08/",
+    "title": "Skrifter for LaTeX"
+  },
+  "SKRIFTER FOR LATEX": {
+    "href": "/blog/2010/04/08/",
+    "title": "Skrifter for LaTeX"
+  },
+  "SLETTE MANGLENDE FILER I ITUNES": {
+    "href": "/blog/2013/11/18/",
+    "title": "Slette manglende filer i iTunes"
+  },
+  "SNARVEIER I OS X": {
+    "href": "/blog/2014/01/17/",
+    "title": "Snarveier i OS X"
+  },
+  "SPESIELLE TALL I MATEMATIKKEN": {
+    "href": "/blog/2002/06/03/",
+    "title": "Spesielle tall i matematikken"
+  },
+  "SQL INJECTION": {
+    "href": "/tmp/websikkerhet/",
+    "title": "Websikkerhet"
+  },
+  "STARTE GOLLUM MED `LAUNCHD`": {
+    "href": "/blog/2013/12/20/",
+    "title": "Starte Gollum med launchd"
+  },
+  "SWING": {
+    "href": "/swing/",
+    "title": "Rock Step Swing"
+  },
+  "SYNKRONISERE IBOOKS OG IPAD": {
+    "href": "/blog/2014/05/07/",
+    "title": "Synkronisere iBooks og iPad"
+  },
+  "TASTATURMAKROER I EMACS": {
+    "href": "/blog/2007/11/29/",
+    "title": "Tastaturmakroer i Emacs"
+  },
+  "TERMINAL": {
+    "href": "/blog/2016/04/20/",
+    "title": "Running Bash scripts on Windows"
+  },
+  "TERMINAL\u00d8KT": {
+    "href": "/blog/2011/11/03/",
+    "title": "Terminal\u00f8kt"
+  },
+  "TESTING MED SELENIUM": {
+    "href": "/blog/2015/12/10/",
+    "title": "Testing med Selenium"
+  },
+  "THE INTERNATIONAL OBFUSCATED C CODE CONTEST": {
+    "href": "/blog/2007/10/30/",
+    "title": "The International Obfuscated C Code Contest"
+  },
+  "TILLEGGSFUNKSJONER P\u00c5 NOKIA 3210": {
+    "href": "/blog/2001/08/06/",
+    "title": "Tilleggsfunksjoner p\u00e5 Nokia 3210"
+  },
+  "TUNGE": {
+    "href": "/tunge/",
+    "title": "Virtuell arm for funksjonshemmede"
+  },
+  "VEGARD \u00d8YE": {
+    "href": "/",
+    "title": "Vegard \u00d8ye"
+  },
+  "VEGARD \u00d8YE'S PROJECTS": {
+    "href": "/projects/",
+    "title": "Vegard \u00d8ye\u2019s Projects"
+  },
+  "VEGARD \u00d8YE'S RESUME": {
+    "href": "/resume/",
+    "title": "Vegard \u00d8ye\u2019s Resume"
+  },
+  "VEGARDS JULE\u00d8NSKER 2017": {
+    "href": "/wishlist/",
+    "title": "Vegards jule\u00f8nsker 2017"
+  },
+  "VIRTUELL ARM FOR FUNKSJONSHEMMEDE": {
+    "href": "/tunge/",
+    "title": "Virtuell arm for funksjonshemmede"
+  },
+  "WEBSIKKERHET": {
+    "href": "/tmp/websikkerhet/",
+    "title": "Websikkerhet"
+  },
+  "WEBSIKKERHET: MER ENN BRANNMUR OG KRYPTERING": {
+    "href": "/tmp/websikkerhet/",
+    "title": "Websikkerhet"
+  },
+  "WHY FUNCTIONAL PROGRAMMING MATTERS: HASKELL TRANSLATION": {
+    "href": "/blog/2012/04/16/",
+    "title": "Why Functional Programming Matters: Haskell Translation"
+  },
+  "WISHLIST": {
+    "href": "/wishlist/",
+    "title": "Vegards jule\u00f8nsker 2017"
+  },
+  "XML OG XHTML": {
+    "href": "/blog/2004/02/03/",
+    "title": "XML og XHTML"
+  },
+  "Z SHELL": {
+    "href": "/blog/2016/04/20/",
+    "title": "Running Bash scripts on Windows"
+  }
+}
