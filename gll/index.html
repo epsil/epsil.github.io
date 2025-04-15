@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+<title>General Parser Combinators in Racket</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="no-referrer" name="referrer">
+<meta content="noindex" name="robots">
+<meta content="Vegard &#216;ye" name="author">
+<meta content="How to implement a general parser combinator framework which handles left-recursive and ambiguous grammars." name="description">
+<meta content="bd0b87bd4cd9fa6b30a3dbbe837c2c7b" name="md5">
+<meta content="text/css" http-equiv="Content-Style-Type">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<meta content="General Parser Combinators in Racket" name="DC.Title">
+<meta content="Vegard &#216;ye" name="DC.Creator">
+<meta content="How to implement a general parser combinator framework which handles left-recursive and ambiguous grammars." name="DC.Description">
+<meta content="en" name="DC.Language">
+<meta content="text/html" name="DC.Format">
+<meta content="General Parser Combinators in Racket" property="og:title">
+<meta content="How to implement a general parser combinator framework which handles left-recursive and ambiguous grammars." property="og:description">
+<meta content="en" name="og:locale">
+<meta content="article" property="og:type">
+<meta content="https://epsil.github.io/gll/" property="og:url">
+<meta content="Vegard&#8217;s blog" property="og:site_name">
+<meta content="summary" name="twitter:card">
+<meta content="@github" name="twitter:site">
+<meta content="General Parser Combinators in Racket" name="twitter:title">
+<meta content="How to implement a general parser combinator framework which handles left-recursive and ambiguous grammars." name="twitter:description">
+<link href="favicon.ico" rel="icon" type="image/x-icon">
+<link href="favicon.ico" rel="apple-touch-icon">
+<link href="../_assets/css/wiki.css" rel="stylesheet">
+<link href="index.md" rel="alternate" title="Markdown" type="text/markdown">
+<link href="../_assets/css/libertine.css" rel="stylesheet" type="text/css">
+<link href="../_assets/css/oreilly.css" rel="stylesheet" type="text/css">
+<script src="../_assets/js/wiki.js">
+</script>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+<div class="container-fluid topbar">
+<ul class="nav nav-pills navbar-left">
+<li role="presentation"><a href="../" title="Go home"><i class="fa fa-home"></i></a>
+</li>
+</ul>
+
+<ul class="nav nav-pills navbar-right">
+<li role="presentation"><a href="../tmp/clipboard/" target="_blank" title="Copy to Markdown"><span class="clipboard-logo"></span></a>
+</li>
+
+<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/blob/master/gll/index.md" target="_blank" title="View on GitHub"><i class="fa fa-github"></i></a>
+</li>
+
+<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/edit/master/gll/index.md" target="_blank" title="Edit on GitHub"><i class="fa fa-edit"></i></a>
+</li>
+
+<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/raw/master/gll/index.md" target="_blank" title="Get Markdown source" type="text/plain"><span class="markdown-mark"></span></a>
+</li>
+
+<li role="presentation"><a data-toggle="collapse" href="#toc" id="toc-button" title="Contents"><i class="fa fa-list"></i></a>
+</li>
+</ul>
+
+<form action="https://www.google.com/search" class="navbar-form" method="get" target="_blank">
+<div class="form-group" style="display: inline;">
+<div class="input-group" style="display: table;"><span class="input-group-addon" style="width: 1%;"><span class="glyphicon glyphicon-search"></span></span> <input accesskey="." autocomplete="off" class="form-control" name="q" title="Search" type="text"></div>
+</div>
+</form>
+</div>
+
+<div class="collapse" id="toc">
+<ul>
+<li><a href="#introduction" title="Introduction">Introduction</a>
+</li>
+
+<li><a href="#simple-parser-combinators" title="Simple parser combinators">Simple parser combinators</a>
+</li>
+
+<li><a href="#memoization" title="Memoization">Memoization</a>
+</li>
+
+<li><a href="#continuation-passing-style" title="Continuation-passing style">Continuation-passing style</a>
+</li>
+
+<li><a href="#trampoline" title="Trampoline">Trampoline</a>
+</li>
+
+<li><a href="#final-improvements" title="Final improvements">Final improvements</a>
+</li>
+
+<li><a href="#further-reading" title="Further reading">Further reading</a>
+</li>
+</ul>
+</div>
+</nav>
+
+<article class="h-entry" id="main">
+<header>
+<h1 class="p-name"><a class="u-uid u-url" href="https://epsil.github.io/gll/" rel="bookmark" target="_blank" title="Permalink">General Parser Combinators in Racket</a>
+</h1>
+
+<p class="author"><a class="p-author h-card" href="https://epsil.github.io/" target="_blank" title="Open epsil.github.io in a new window">Vegard &#216;ye</a>
+</p>
+
+<p class="p-summary">How to implement a general parser combinator framework which handles left-recursive and ambiguous grammars.</p>
+</header>
+
+<section class="e-content indent sidenotes">
+<section>
+<p>This article explains how to implement a general parser combinator framework in <a href="http://www.racket-lang.org/" target="_blank" title="Open racket-lang.org in a new window">Racket</a>, a Lisp dialect with roots in Scheme. However, the principles are not specific to Racket and could be expressed in any language; porting is outlined at the end of the article.</p>
+
+<p>All the code is <a href="https://github.com/epsil/gll" target="_blank" title="Open github.com in a new window">released freely on GitHub</a> under the <a href="LICENSE"><abbr class="acronym" title="Massachusetts Institute of Technology"><span class="caps">MIT</span></abbr> License</a>. You can <strong>download</strong> a <a href="https://github.com/epsil/gll/archive/master.zip" target="_blank" title="Open github.com in a new window">Zip file</a>, or you can <strong>clone</strong> the repository with the following command:</p>
+
+<div class="pre">
+<pre id="git-clone-https-githubcom-epsil-gllgit">
+<code>git clone https://github.com/epsil/gll.git</code>
+</pre>
+</div>
+
+<p>The repository also includes the full text of the article in <a href="https://raw.githubusercontent.com/epsil/gll/master/article/index.md" target="_blank" title="Open raw.githubusercontent.com in a new window">Markdown format</a> (<a href="http://pandoc.org/MANUAL.html#pandocs-markdown" target="_blank" title="Open pandoc.org in a new window">Pandoc flavor</a>). I welcome suggestions and improvements! Feel free to open an issue on the <a href="https://github.com/epsil/gll/issues" target="_blank" title="Open github.com in a new window">bug tracker</a>, or to <a href="https://github.com/epsil/gll" target="_blank" title="Open github.com in a new window">fork the repository</a>. You can also contact me, Vegard &#216;ye, at <span class="code"><code id="vegard-underline-oye-at-hotmail-dot-com">vegard (underline) oye (at) hotmail (dot) com</code></span>.</p>
+
+<p>The article aims to be an accessible introduction to the ideas found in the papers &#8220;<a href="#johnson95-memoization" title="&#8220;Memoization in Top-Down Parsing&#8221; (PDF), Mark Johnson, Brown University, 1995. Published in Computational Linguistics, Volume 21, Number 3. Covers regular memoization, continuation-passing style, and memoization of continuation-passing style functions.">Memoization in Top-Down Parsing</a>&#8221; by Mark Johnson and &#8220;<a href="#spiewak10-generalized" title="&#8220;Generalized Parser Combinators&#8221; (PDF), Daniel Spiewak, University of Wisconsin, 2010. Implemented as the gll-combinators Scala library, using continuation-passing style and trampolined dispatch. Offers an accessible introduction to the GLL algorithm.">Generalized Parser Combinators</a>&#8221; by Daniel Spiewak. If you are interested in the topic, I especially recommend you go on to read Spiewak&#8217;s paper. It is very good. Other reading suggestions are provided <a href="#further-reading" title="Further reading">at the end</a>.</p>
+</section>
+
+<section id="introduction">
+<h2><a aria-hidden="true" class="header-anchor" href="#introduction" title="Introduction"></a>Introduction<a aria-controls="introduction-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#introduction-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h2>
+
+<div class="collapse in" id="introduction-section">
+<p>Traditional top-down parsers cannot handle all recursive grammars, even if recursion may be the most natural way to express the language. An example is the following grammar for left-associative arithmetic on 0&#8217;s and 1&#8217;s:</p>
+
+<div class="pre">
+<pre id="expr-expr-num-expr-num-num-num-0-1">
+<code>expr -&gt; expr "+" num
+      | expr "-" num
+      | num
+ num -&gt; "0" | "1"</code>
+</pre>
+</div>
+
+<p>If we attempt to translate the first rule directly into a self-calling function, the resulting parser will never terminate; instead it enters an infinite regress before consuming any input. The traditional approaches to parsing left-recursive grammars are to rewrite the grammar or use a bottom-up parser generator.</p>
+
+<p>The parsers in this article, by contrast, can be freely composed without regard for left-recursion. Defining a parser for the above grammar is straightforward:</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-parser-expr-alt-seq-expr-string-num-seq-expr-string-num-num-define-parser-num-alt-string-0-string-1">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define</span>-parser expr
+  <span class="token punctuation">(</span><span class="token function">alt</span> <span class="token punctuation">(</span><span class="token function">seq</span> expr <span class="token punctuation">(</span><span class="token function">string</span> <span class="token string">"+"</span><span class="token punctuation">)</span> num<span class="token punctuation">)</span>
+       <span class="token punctuation">(</span><span class="token function">seq</span> expr <span class="token punctuation">(</span><span class="token function">string</span> <span class="token string">"-"</span><span class="token punctuation">)</span> num<span class="token punctuation">)</span>
+       num<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">define</span>-parser num
+  <span class="token punctuation">(</span><span class="token function">alt</span> <span class="token punctuation">(</span><span class="token function">string</span> <span class="token string">"0"</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token function">string</span> <span class="token string">"1"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>Furthermore, the parsers support ambiguity. Parse results are computed one at a time and returned as a lazy stream:</p>
+
+<div class="pre">
+<pre class="language-scheme" id="expr-10-stream">
+<code class="language-scheme">&gt; <span class="token punctuation">(</span><span class="token function">expr</span> <span class="token string">"1+0"</span><span class="token punctuation">)</span>
+#&lt;stream&gt;</code>
+</pre>
+</div>
+
+<p>The worst-case efficiency of the parser in this article is <em>O</em>(<em>n</em><sup>4</sup>), but with more efficient data structures, <em>O</em>(<em>n</em><sup>3</sup>) is achievable. Furthermore, by adorning the parsers with additional metadata, <abbr class="acronym" title="Left-to-right Left-most derivation"><span class="caps">LL</span></abbr>(1) grammars can be parsed in <em>O</em>(<em>n</em>) time. See the <a href="#further-reading" title="Further reading">references</a> for details on optimization.</p>
+
+<p>The article is organized into several stages, leading up to a complete interpreter for arithmetic expressions. To get there, the parsers will be rewritten multiple times:</p>
+
+<ol>
+<li>First, we will write a simple, <a href="#simple-parser-combinators" title="Simple parser combinators">top-down combinator framework</a>, implementing things in the <em>conventional</em> way. This won&#8217;t handle left-recursive grammars in any form, but introduces a simple syntax for composing parsers.</li>
+
+<li>Next, we will rewrite the parsers to <em><a href="#continuation-passing-style" title="Continuation-passing style">continuation-passing style</a></em>. Although functionally equivalent to the previous version, the continuations make the code more flexible and set the stage for implementing general parsers.</li>
+
+<li>We will now add support for left-recursive grammars. This is done by <em>memoizing</em> parse results and continuations, so that nothing is computed more than once. This is the most important step, and we will study it in some detail to develop our intuition.</li>
+
+<li>To optimize the code, we will add a <em><a href="#trampoline" title="Trampoline">trampoline</a></em> to store parse results and dispatch function calls. The trampoline is a shared data structure passed down from one parser to another.</li>
+
+<li>Now we have the wherewithal to implement a lazy parse process. The parsers will return a <em>stream</em> of parse results, computing the results as they are requested.</li>
+</ol>
+
+<p>The article aims to be easy to understand, but is necessarily of some length. If you are familiar with parser combinators, you can skim through the first sections. The key ideas are introduced in the section on <a href="#continuation-passing-style" title="Continuation-passing style">continuation-passing style</a>. The rest of the text deals with optimization of those ideas.</p>
+</div>
+</section>
+
+<section id="simple-parser-combinators">
+<h2><a aria-hidden="true" class="header-anchor" href="#simple-parser-combinators" title="Simple parser combinators"></a>Simple parser combinators<a aria-controls="simple-parser-combinators-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#simple-parser-combinators-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h2>
+
+<div class="collapse in" id="simple-parser-combinators-section">
+<p>Let us start by defining some terms. A <em>parser</em> is a function that takes a string as input and returns a <em>parse result</em>. A parse result is either a <em>success</em> or a <em>failure</em>. (All our parsers will work on strings, but one could easily define parsers working on a stream of symbols or tokens.)</p>
+
+<p>A <em>parser combinator</em> is a function that takes parsers as input and returns a new parser. In other words, it&#8217;s a higher-order function, taking functions as input and returning another function as output. Using parser combinators, we can build larger parsers out of smaller parsers.</p>
+
+<p>First we will define data types for parse results. A successful result contains two values: a value and the current string position. The value can for example be an abstract syntax tree, while the position is represented as the rest of the string. A failing result just contains the position where the parser failed, which can be used for error reporting.</p>
+
+<div class="pre">
+<pre class="language-scheme" id="struct-success-val-rest-transparent-struct-failure-rest-transparent">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token function">struct</span> success <span class="token punctuation">(</span><span class="token function">val</span> rest<span class="token punctuation">)</span> #:transparent<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">struct</span> failure <span class="token punctuation">(</span>rest<span class="token punctuation">)</span> #:transparent<span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>This Racket code defines <span class="code"><code id="success">success</code></span> and <span class="code"><code id="failure">failure</code></span> as constructor functions for parse results. For example, we can create a successful result with the expression <span class="code"><code id="success-val-rest">(success val rest)</code></span>, and a failure with <span class="code"><code id="failure-rest">(failure rest)</code></span>. We can also <em>pattern match</em> against these expressions, which will be demonstrated later. The <span class="code"><code id="transparent">#:transparent</code></span> option makes the values printable.</p>
+
+<p>First, we look at a trivial parser that accepts any input and returns a successful result containing some predefined value. For creating such parsers, we define the function <span class="code"><code id="succeed">succeed</code></span>, which takes the predefined value as a parameter. (This common function is also known as &#8220;empty&#8221;, &#8220;epsilon&#8221;, &#8220;result&#8221;, &#8220;yield&#8221;, or &#8220;return&#8221;.)</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-succeed-val-lambda-str-success-val-str">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token function">succeed</span> val<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span>str<span class="token punctuation">)</span>
+    <span class="token punctuation">(</span><span class="token function">success</span> val str<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>Note that <span class="code"><code id="succeed-2">succeed</code></span> returns another function <span class="code"><code id="lambda-str">(lambda (str) ...)</code></span>, that is, a parser. For example, <span class="code"><code id="succeed-3">(succeed '())</code></span> creates a parser which succeeds with the empty list:</p>
+
+<div class="pre">
+<pre class="language-scheme" id="succeed-procedure-succeed-foo-success-foo">
+<code class="language-scheme">&gt; <span class="token punctuation">(</span><span class="token function">succeed</span> <span class="token string">'</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+#&lt;procedure&gt;
+&gt; <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">succeed</span> <span class="token string">'</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token string">"foo"</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">success</span> <span class="token string">'</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token string">"foo"</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>The next step is to compare the beginning of the input against some match string. Let us create a general function <span class="code"><code id="string">string</code></span> for constructing such a parser. This function takes a matching string as input and returns a parser for matching against that string:</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-string-match-lambda-str-let-len-min-string-length-str-string-length-match-head-substring-str-0-len-tail-substring-str-len-if-equal-head-match-success-head-tail-failure-str">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token function">string</span> match<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span>str<span class="token punctuation">)</span>
+    <span class="token punctuation">(</span><span class="token keyword">let*</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">len</span> <span class="token punctuation">(</span><span class="token function">min</span> <span class="token punctuation">(</span><span class="token function">string-length</span> str<span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token function">string-length</span> match<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+           <span class="token punctuation">(</span><span class="token function">head</span> <span class="token punctuation">(</span><span class="token function">substring</span> str <span class="token number">0</span> len<span class="token punctuation">)</span><span class="token punctuation">)</span>
+           <span class="token punctuation">(</span><span class="token function">tail</span> <span class="token punctuation">(</span><span class="token function">substring</span> str len<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">(</span><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">equal?</span> head match<span class="token punctuation">)</span>
+          <span class="token punctuation">(</span><span class="token function">success</span> head tail<span class="token punctuation">)</span>
+          <span class="token punctuation">(</span><span class="token function">failure</span> str<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>We can create a parser for matching, say, <span class="code"><code id="foo-2">"foo"</code></span> with <span class="code"><code id="string-foo">(string "foo")</code></span>. If the input matches, then the parser returns a successful result where the <span class="code"><code id="foo-3">"foo"</code></span> part is consumed; otherwise it returns a failure. For example, the input <span class="code"><code id="foobar">"foobar"</code></span> gives a value of <span class="code"><code id="foo-4">"foo"</code></span> and a rest of <span class="code"><code id="bar-2">"bar"</code></span>:</p>
+
+<div class="pre">
+<pre class="language-scheme" id="string-foo-foobar-success-foo-bar-string-foo-bar-failure-bar">
+<code class="language-scheme">&gt; <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">string</span> <span class="token string">"foo"</span><span class="token punctuation">)</span> <span class="token string">"foobar"</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">success</span> <span class="token string">"foo"</span> <span class="token string">"bar"</span><span class="token punctuation">)</span>
+&gt; <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">string</span> <span class="token string">"foo"</span><span class="token punctuation">)</span> <span class="token string">"bar"</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">failure</span> <span class="token string">"bar"</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>The functions <span class="code"><code id="succeed-4">succeed</code></span> and <span class="code"><code id="string-2">string</code></span> could be regarded as basic &#8220;parser generators&#8221;: both create parsers on the basis of a given specification. The parsers they create are often called <em>terminal parsers</em>, because they match against a terminal expression in the grammar. All the terminal parsers in this article work on strings, but one could easily modify them to accept a stream of symbols or tokens.</p>
+
+<p>Now that we have some basic parsers, it is time to combine them. The first combinator is the <em>alternatives combinator</em>, which chooses between alternative parsers. It returns a combined parser that tries each alternative in turn until one of them matches.</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-alt-a-b-lambda-str-let-result-a-str-match-result-success-val-rest-result-failure-b-str">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token function">alt</span> a b<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span>str<span class="token punctuation">)</span>
+    <span class="token punctuation">(</span><span class="token keyword">let</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">result</span> <span class="token punctuation">(</span><span class="token function">a</span> str<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">(</span><span class="token function">match</span> result
+        [<span class="token punctuation">(</span><span class="token function">success</span> val rest<span class="token punctuation">)</span> result]
+        [failure <span class="token punctuation">(</span><span class="token function">b</span> str<span class="token punctuation">)</span>]<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>Here we see Racket&#8217;s pattern matching in action. We invoke the first parser with <span class="code"><code id="a-str">(a str)</code></span> and match against its result. If we get a successful parse result <span class="code"><code id="success-val-rest-2">(success val rest)</code></span>, we return that. Otherwise, we invoke the second parser with <span class="code"><code id="b-str">(b str)</code></span>.</p>
+
+<p>The next combinator is the <em>sequence combinator</em>, which chains parsers together. The output of one parser is taken as the input to another. Here is our first attempt at defining this combinator, using pattern matching:</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-seq-a-b-lambda-str-match-a-str-success-val1-rest1-match-b-rest1-success-val2-rest2-success-list-val1-val2-rest2-failure-failure-failure-failure">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token function">seq</span> a b<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span>str<span class="token punctuation">)</span>
+    <span class="token punctuation">(</span><span class="token function">match</span> <span class="token punctuation">(</span><span class="token function">a</span> str<span class="token punctuation">)</span>
+      [<span class="token punctuation">(</span><span class="token function">success</span> val1 rest1<span class="token punctuation">)</span>
+       <span class="token punctuation">(</span><span class="token function">match</span> <span class="token punctuation">(</span><span class="token function">b</span> rest1<span class="token punctuation">)</span>
+         [<span class="token punctuation">(</span><span class="token function">success</span> val2 rest2<span class="token punctuation">)</span>
+          <span class="token punctuation">(</span><span class="token function">success</span> <span class="token punctuation">(</span><span class="token builtin">list</span> val1 val2<span class="token punctuation">)</span> rest2<span class="token punctuation">)</span>]
+         [failure failure]<span class="token punctuation">)</span>]
+      [failure failure]<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>If we get a successful result <span class="code"><code id="success-val1-rest1">(success val1 rest1)</code></span> from the first parser, we pass its remainder to the next parser with <span class="code"><code id="b-rest1">(b rest1)</code></span>. If it also succeeds, we return a combined parse result. In all other cases, we return failure. (For simplicity, the <span class="code"><code id="alt">alt</code></span> and <span class="code"><code id="seq">seq</code></span> combinators take exactly two arguments; later we will write general versions accepting <a href="#final-improvements" title="Final improvements">any number of arguments</a>.)</p>
+
+<p>However, because we are going to rewrite the parsers several times, it will be beneficial to express this combinator in a more abstract way. We therefore define a low-level &#8220;plumbing&#8221; function, <span class="code"><code id="bind">bind</code></span>, for chaining things together:</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-bind-p-fn-lambda-str-match-p-str-success-val-rest-fn-val-rest-failure-failure">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token function">bind</span> p fn<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span>str<span class="token punctuation">)</span>
+    <span class="token punctuation">(</span><span class="token function">match</span> <span class="token punctuation">(</span><span class="token function">p</span> str<span class="token punctuation">)</span>
+      [<span class="token punctuation">(</span><span class="token function">success</span> val rest<span class="token punctuation">)</span>
+       <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">fn</span> val<span class="token punctuation">)</span> rest<span class="token punctuation">)</span>]
+      [failure failure]<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>The <span class="code"><code id="bind-2">bind</code></span> function takes two arguments, a parser <span class="code"><code id="p">p</code></span> and a function <span class="code"><code id="fn">fn</code></span>, and returns another parser. The <span class="code"><code id="fn-2">fn</code></span> function must be of the same kind as the &#8220;parser generators&#8221; we saw earlier: it must return a parser on the basis of an input value. Together, <span class="code"><code id="p-2">p</code></span> and <span class="code"><code id="fn-3">fn</code></span> become a parser which initially invokes <span class="code"><code id="p-3">p</code></span> on the input. If the result is successful, then its value-part is passed to <span class="code"><code id="fn-4">fn</code></span> to create another parser. That parser is then invoked on the rest of the input.</p>
+
+<p>We can now define <span class="code"><code id="seq-2">seq</code></span> in terms of <span class="code"><code id="bind-3">bind</code></span>:</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-seq-a-b-bind-a-lambda-x-bind-b-lambda-y-succeed-list-x-y">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token function">seq</span> a b<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token function">bind</span> a <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+            <span class="token punctuation">(</span><span class="token function">bind</span> b <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span>y<span class="token punctuation">)</span>
+                      <span class="token punctuation">(</span><span class="token function">succeed</span> <span class="token punctuation">(</span><span class="token builtin">list</span> x y<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>This terse definition can be read as: &#8220;Invoke the first parser <span class="code"><code id="a">a</code></span> and bind the value-part of the result to <span class="code"><code id="x-4">x</code></span>. Then invoke the second parser <span class="code"><code id="b-2">b</code></span> and bind the value-part of the result to <span class="code"><code id="y-4">y</code></span>. Finally, create a combined parse result from <span class="code"><code id="x-5">x</code></span> and <span class="code"><code id="y-5">y</code></span>.&#8221; If any of the parsers fail, then <span class="code"><code id="bind-4">bind</code></span> stops; only successful results are passed down the chain. Thus, <span class="code"><code id="bind-5">bind</code></span> frees us from the burden of repeatedly doing pattern matching and discarding failing results.</p>
+
+<p>Let us now look at a complete example. The following implements a simple linguistic grammar taken from <a href="#abelson96-sicp" title="Structure and Interpretation of Computer Programs (HTML), second edition, Harold Abelson and Gerald Jay Sussman, The Massachusetts Institute of Technology, 1996. The example grammar is from section 4.3.2, &#8220;Examples of Nondeterministic Programs: Parsing natural language&#8221;, while the memoization wrapper is outlined in exercise 3.27 from section 3.3.3, &#8220;Representing Tables&#8221;. Note that an updated and unofficial HTML5 version of the book offers a vastly improved reading experience on modern devices."><em>Structure and Interpretation of Computer Programs</em></a>:</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-article-alt-string-the-string-a-define-noun-alt-string-student-string-professor-define-verb-alt-string-studies-string-lectures-define-noun-phrase-seq-article-noun-define-verb-phrase-seq-verb-noun-phrase-define-sentence-seq-noun-phrase-verb-phrase">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define</span> article
+  <span class="token punctuation">(</span><span class="token function">alt</span> <span class="token punctuation">(</span><span class="token function">string</span> <span class="token string">"the "</span><span class="token punctuation">)</span>
+       <span class="token punctuation">(</span><span class="token function">string</span> <span class="token string">"a "</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">(</span><span class="token keyword">define</span> noun
+  <span class="token punctuation">(</span><span class="token function">alt</span> <span class="token punctuation">(</span><span class="token function">string</span> <span class="token string">"student "</span><span class="token punctuation">)</span>
+       <span class="token punctuation">(</span><span class="token function">string</span> <span class="token string">"professor "</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">(</span><span class="token keyword">define</span> verb
+  <span class="token punctuation">(</span><span class="token function">alt</span> <span class="token punctuation">(</span><span class="token function">string</span> <span class="token string">"studies "</span><span class="token punctuation">)</span>
+       <span class="token punctuation">(</span><span class="token function">string</span> <span class="token string">"lectures "</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">(</span><span class="token keyword">define</span> noun-phrase
+  <span class="token punctuation">(</span><span class="token function">seq</span> article noun<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">(</span><span class="token keyword">define</span> verb-phrase
+  <span class="token punctuation">(</span><span class="token function">seq</span> verb noun-phrase<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">(</span><span class="token keyword">define</span> sentence
+  <span class="token punctuation">(</span><span class="token function">seq</span> noun-phrase verb-phrase<span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>We can parse a sentence with:</p>
+
+<div class="pre">
+<pre class="language-scheme" id="sentence-the-professor-lectures-the-student-success-the-professor-lectures-the-student-sentence-not-a-sentence-failure-not-a-sentence">
+<code class="language-scheme">&gt; <span class="token punctuation">(</span><span class="token function">sentence</span> <span class="token string">"the professor lectures the student "</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">success</span> <span class="token string">'</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"the "</span> <span class="token string">"professor "</span><span class="token punctuation">)</span>
+           <span class="token punctuation">(</span><span class="token string">"lectures "</span> <span class="token punctuation">(</span><span class="token string">"the "</span> <span class="token string">"student "</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token string">""</span><span class="token punctuation">)</span>
+&gt; <span class="token punctuation">(</span><span class="token function">sentence</span> <span class="token string">"not a sentence "</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">failure</span> <span class="token string">"not a sentence "</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>For the time being, the parse result isn&#8217;t too informative; later we will define a <a href="#final-improvements" title="Final improvements">combinator for modifying it</a>. In any case, we can definitely see that there is parsing going on!</p>
+</div>
+</section>
+
+<section id="memoization">
+<h2><a aria-hidden="true" class="header-anchor" href="#memoization" title="Memoization"></a>Memoization<a aria-controls="memoization-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#memoization-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h2>
+
+<div class="collapse in" id="memoization-section">
+<p>We now turn to the issue of efficiency. Currently, none of the functions cache their results. That is wasteful because parsing is a such a repetitious task. If each function maintains a table over its input and output values, it can avoid calculating things twice by returning the cached value instead. This is called <em>memoization</em>.</p>
+
+<p>In Racket, it is easy to write a <span class="code"><code id="memo">memo</code></span> function that takes any function as input and wraps it in a memoization routine. The wrapper takes the input arguments and looks them up in a memoization table. If it finds an output value, it just returns that. If not, then it calls the original function, saves its output in the table, and returns the output. Future calls with the same arguments will return the memoized value. The following is loosely adapted from <a href="#abelson96-sicp" title="Structure and Interpretation of Computer Programs (HTML), second edition, Harold Abelson and Gerald Jay Sussman, The Massachusetts Institute of Technology, 1996. The example grammar is from section 4.3.2, &#8220;Examples of Nondeterministic Programs: Parsing natural language&#8221;, while the memoization wrapper is outlined in exercise 3.27 from section 3.3.3, &#8220;Representing Tables&#8221;. Note that an updated and unofficial HTML5 version of the book offers a vastly improved reading experience on modern devices."><em><abbr class="acronym" title="Structure and Interpretation of Computer Programs"><span class="caps">SICP</span></abbr></em></a>:</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-memo-fn-let-alist-mlist-lambda-args-match-massoc-args-alist-mcons-args-result-result-let-result-apply-fn-args-entry-mcons-args-result-set-alist-mcons-entry-alist-result">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token function">memo</span> fn<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token keyword">let</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">alist</span> <span class="token punctuation">(</span>mlist<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">(</span><span class="token keyword">lambda</span> args
+      <span class="token punctuation">(</span><span class="token function">match</span> <span class="token punctuation">(</span><span class="token function">massoc</span> args alist<span class="token punctuation">)</span>
+        [<span class="token punctuation">(</span><span class="token function">mcons</span> args result<span class="token punctuation">)</span> result]
+        [_ <span class="token punctuation">(</span><span class="token keyword">let*</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">result</span> <span class="token punctuation">(</span><span class="token builtin">apply</span> fn args<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                  <span class="token punctuation">(</span><span class="token function">entry</span> <span class="token punctuation">(</span><span class="token function">mcons</span> args result<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+             <span class="token punctuation">(</span><span class="token keyword">set!</span> alist <span class="token punctuation">(</span><span class="token function">mcons</span> entry alist<span class="token punctuation">)</span><span class="token punctuation">)</span>
+             result<span class="token punctuation">)</span>]<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>We implement the memoization table as a mutable <em>association list</em>, using the Racket function <span class="code"><code id="massoc">massoc</code></span> to access it. It is actually a list of mutable cons cells <span class="code"><code id="args-result">(args . result)</code></span>. If <span class="code"><code id="massoc-2">massoc</code></span> returns a cons cell, we match against it and return the result. Otherwise (the wildcard pattern is denoted by <span class="code"><code id="n-14">_</code></span>), we call the original function with <span class="code"><code id="apply-fn-args">(apply fn args)</code></span>, store the result in a cons cell, insert it into the table, and then return the result.</p>
+
+<p>Now we can easily memoize our definitions. For example, here is a memoized version of <span class="code"><code id="alt-2">alt</code></span>:</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-alt-a-b-memo-lambda-str-let-result-a-str-match-result-success-val-rest-result-failure-b-str">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token function">alt</span> a b<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token function">memo</span>
+   <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span>str<span class="token punctuation">)</span>
+     <span class="token punctuation">(</span><span class="token keyword">let</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">result</span> <span class="token punctuation">(</span><span class="token function">a</span> str<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+       <span class="token punctuation">(</span><span class="token function">match</span> result
+         [<span class="token punctuation">(</span><span class="token function">success</span> val rest<span class="token punctuation">)</span> result]
+         [failure <span class="token punctuation">(</span><span class="token function">b</span> str<span class="token punctuation">)</span>]<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>This combinator returns a memoized parser. We can memoize all the functions in this way.</p>
+
+<p>There is one more wrinkle to sort out. Because Racket evaluates expressions eagerly, we run into a &#8220;tying the knot&#8221; problem when defining self-referential parsers:</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-r-alt-seq-string-a-r-string-a">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define</span> r
+  <span class="token punctuation">(</span><span class="token function">alt</span> <span class="token punctuation">(</span><span class="token function">seq</span> <span class="token punctuation">(</span><span class="token function">string</span> <span class="token string">"a"</span><span class="token punctuation">)</span> r<span class="token punctuation">)</span>
+       <span class="token punctuation">(</span><span class="token function">string</span> <span class="token string">"a"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>This will give an error because <span class="code"><code id="r-2">r</code></span> is evaluated as an argument to <span class="code"><code id="seq-3">seq</code></span> before <span class="code"><code id="r-3">r</code></span> is defined. We need to delay the evaluation somehow. One solution is to wrap the code in a function:</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-r-lambda-arg-alt-seq-string-a-r-string-a-arg">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define</span> r
+  <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span>arg<span class="token punctuation">)</span>
+    <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">alt</span> <span class="token punctuation">(</span><span class="token function">seq</span> <span class="token punctuation">(</span><span class="token function">string</span> <span class="token string">"a"</span><span class="token punctuation">)</span> r<span class="token punctuation">)</span>
+          <span class="token punctuation">(</span><span class="token function">string</span> <span class="token string">"a"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+     arg<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>Now the code is evaluated not when the parser is defined, but when it is invoked. To make things more convenient, we can create a <span class="code"><code id="delay-parser">delay-parser</code></span> macro which automatically delays the code for us, as well as a <span class="code"><code id="define-parser">define-parser</code></span> macro for delayed parser definitions.</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-syntax-rule-delay-parser-parser-lambda-args-apply-parser-args-define-syntax-rule-define-parser-parser-body-define-parser-delay-parser-body">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define-syntax</span>-rule <span class="token punctuation">(</span><span class="token keyword">delay</span>-parser parser<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token keyword">lambda</span> args
+    <span class="token punctuation">(</span><span class="token builtin">apply</span> parser args<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">(</span><span class="token keyword">define-syntax</span>-rule <span class="token punctuation">(</span><span class="token keyword">define</span>-parser parser body<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token keyword">define</span> parser
+    <span class="token punctuation">(</span><span class="token keyword">delay</span>-parser body<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>Now we can write:</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-parser-r-alt-seq-string-a-r-string-a">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define</span>-parser r
+  <span class="token punctuation">(</span><span class="token function">alt</span> <span class="token punctuation">(</span><span class="token function">seq</span> <span class="token punctuation">(</span><span class="token function">string</span> <span class="token string">"a"</span><span class="token punctuation">)</span> r<span class="token punctuation">)</span>
+       <span class="token punctuation">(</span><span class="token function">string</span> <span class="token string">"a"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>However, because the evaluation is delayed, a new parser instance is created each time the parser is used! This is solved by memoizing the combinators too: each combinator will only create a given parser once. Recall that <span class="code"><code id="define-alt-a-b">(define (alt a b) ...)</code></span> is syntactic sugar for <span class="code"><code id="define-alt-lambda-a-b">(define alt (lambda (a b) ...))</code></span>:</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-alt-lambda-a-b-memo-lambda-str">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define</span> alt
+  <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span><span class="token function">a</span> b<span class="token punctuation">)</span>
+    <span class="token punctuation">(</span><span class="token function">memo</span>
+     <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span>str<span class="token punctuation">)</span> ...<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>This is the same combinator as before, just written in a slightly different way that emphasizes the function that is bound to <span class="code"><code id="alt-3">alt</code></span>. Now we can memoize the combinator itself:</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-alt-memo-lambda-a-b-memo-lambda-str">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define</span> alt
+  <span class="token punctuation">(</span><span class="token function">memo</span>
+   <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span><span class="token function">a</span> b<span class="token punctuation">)</span>
+     <span class="token punctuation">(</span><span class="token function">memo</span>
+      <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span>str<span class="token punctuation">)</span> ...<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>When we memoize both the parsers and the parser combinators, parsing is efficient and the delayed execution only creates a single parser instance.</p>
+
+<p>The current parser combinators support recursion to a limited degree. The <span class="code"><code id="r-4">r</code></span> parser is right-recursive because the self-reference is &#8220;to the right&#8221; in the sequence. Therefore, <span class="code"><code id="r-5">r</code></span> will always consume some part of the input string (an <span class="code"><code id="a-2">"a"</code></span>) before recursing. In a left-recursive grammar, on the other hand, the self-reference comes first:</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-parser-s-alt-seq-s-string-a-string-a">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define</span>-parser s
+  <span class="token punctuation">(</span><span class="token function">alt</span> <span class="token punctuation">(</span><span class="token function">seq</span> s <span class="token punctuation">(</span><span class="token function">string</span> <span class="token string">"a"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+       <span class="token punctuation">(</span><span class="token function">string</span> <span class="token string">"a"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>This parser will enter an infinite regress because it repeatedly calls itself before consuming any input. To handle left-recursive grammars, we need to reimagine the parser combinators.</p>
+</div>
+</section>
+
+<section id="continuation-passing-style">
+<h2><a aria-hidden="true" class="header-anchor" href="#continuation-passing-style" title="Continuation-passing style"></a>Continuation-passing style<a aria-controls="continuation-passing-style-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#continuation-passing-style-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h2>
+
+<div class="collapse in" id="continuation-passing-style-section">
+<p>So far, we have taken advantage of the fact that many grammars can be translated directly into a program. Such a program will have a straightforward, hierarchical structure, with functions calling functions all the way down to the level of string matching. It will either return a single result or no result at all.</p>
+
+<p>Not all grammars are this simple, however. Once we introduce recursion, there is no guarantee that the grammar will translate into a terminating program, even if the grammar is well-defined. Furthermore, grammars can be ambiguous: with several matching alternatives, a string can parsed in multiple, equally valid ways. For simplicity, our <span class="code"><code id="alt-4">alt</code></span> combinator only returned a single result (the first that matched). A more complete implementation would return the <em>set</em> of results.</p>
+
+<p>To address these issues, we will rewrite and express our parsers in a more flexible way: <em>continuation-passing style</em>. Instead of having our parsers return their results to the caller, they will pass them to a continuation. The continuation then carries on the parsing. All the parsers will have an additional argument for the continuation they are to pass their results to. The continuation itself is a function of one argument. (Racket actually has native continuations, but we will use functions as continuations to make the implementation more portable.)</p>
+
+<p>Let us start by rewriting the <span class="code"><code id="succeed-5">succeed</code></span> function. Recall the original definition:</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-succeed-val-lambda-str-success-val-str-2">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token function">succeed</span> val<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span>str<span class="token punctuation">)</span>
+    <span class="token punctuation">(</span><span class="token function">success</span> val str<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>To transform the returned parser to continuation-passing style, we add a second argument, <span class="code"><code id="cont">cont</code></span>. Instead of returning the parse result, we pass it to <span class="code"><code id="cont-2">cont</code></span>:</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-succeed-val-lambda-str-cont-cont-success-val-str">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token function">succeed</span> val<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span><span class="token function">str</span> cont<span class="token punctuation">)</span>
+    <span class="token punctuation">(</span><span class="token function">cont</span> <span class="token punctuation">(</span><span class="token function">success</span> val str<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>To use the parser, we need to supply it with a continuation. Any function of one argument will do. For example, we can use <span class="code"><code id="print">print</code></span>, which will cause the result to be printed to standard output:</p>
+
+<div class="pre">
+<pre class="language-scheme" id="succeed-foo-print-success-foo">
+<code class="language-scheme">&gt; <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">succeed</span> <span class="token string">'</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token string">"foo"</span> print<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">success</span> <span class="token string">'</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token string">"foo"</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>Of course, this is a bit cumbersome, so in the final version we will provide a simpler interface for invoking parsers. For now, we proceed with <span class="code"><code id="string-3">string</code></span>:</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-string-match-lambda-str-cont-let-if-equal-head-match-cont-success-head-tail-cont-failure-tail">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token function">string</span> match<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span><span class="token function">str</span> cont<span class="token punctuation">)</span>
+    <span class="token punctuation">(</span><span class="token keyword">let*</span> <span class="token punctuation">(</span>...<span class="token punctuation">)</span>
+      <span class="token punctuation">(</span><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">equal?</span> head match<span class="token punctuation">)</span>
+          <span class="token punctuation">(</span><span class="token function">cont</span> <span class="token punctuation">(</span><span class="token function">success</span> head tail<span class="token punctuation">)</span><span class="token punctuation">)</span>
+          <span class="token punctuation">(</span><span class="token function">cont</span> <span class="token punctuation">(</span><span class="token function">failure</span> tail<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>The definitions so far are quite similar to the original. For the <span class="code"><code id="seq-4">seq</code></span> combinator, however, we need to change the definition of <span class="code"><code id="bind-6">bind</code></span>:</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-bind-p-fn-lambda-str-cont-p-str-lambda-result-match-result-success-val-rest-fn-val-rest-cont-failure-cont-failure-define-seq-a-b-bind-a-lambda-x">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token function">bind</span> p fn<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span><span class="token function">str</span> cont<span class="token punctuation">)</span>
+    <span class="token punctuation">(</span><span class="token function">p</span> str <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span>result<span class="token punctuation">)</span>
+             <span class="token punctuation">(</span><span class="token function">match</span> result
+               [<span class="token punctuation">(</span><span class="token function">success</span> val rest<span class="token punctuation">)</span>
+                <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">fn</span> val<span class="token punctuation">)</span> rest cont<span class="token punctuation">)</span>]
+               [failure
+                <span class="token punctuation">(</span><span class="token function">cont</span> failure<span class="token punctuation">)</span>]<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token function">seq</span> a b<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token function">bind</span> a <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> ...<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>Here we use continuations to chain things together. The parser <span class="code"><code id="p-4">p</code></span> is called with a continuation <span class="code"><code id="lambda-result">(lambda (result) ...)</code></span> that receives the result and matches against it. If it is successful, then the continuation carries on and invokes <span class="code"><code id="fn-5">fn</code></span>. The final result is passed to <span class="code"><code id="cont-3">cont</code></span>, the continuation for the combined parser. Conveniently, we only need to modify <span class="code"><code id="bind-7">bind</code></span>; the definition of <span class="code"><code id="seq-5">seq</code></span> is unchanged.</p>
+
+<p>While expressed in a different style, all the code so far functions the same as before. For the <span class="code"><code id="alt-5">alt</code></span> combinator, however, we will change the semantics. It will now try <em>all</em> alternatives, branching out in parallel:</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-alt-a-b-lambda-str-cont-a-str-cont-b-str-cont">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token function">alt</span> a b<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span><span class="token function">str</span> cont<span class="token punctuation">)</span>
+    <span class="token punctuation">(</span><span class="token function">a</span> str cont<span class="token punctuation">)</span>
+    <span class="token punctuation">(</span><span class="token function">b</span> str cont<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>The continuation will be invoked twice, once for the first parser and once for the second. If the first parser succeeds and the second fails, then the continuation will first receive a successful result, and then a failing result.</p>
+
+<p>We have now rewritten our parsers to continuation-passing style. In itself, this doesn&#8217;t solve the problems we had with recursive grammars, but it sets the stage for the solution. Observe that while the <span class="code"><code id="alt-6">alt</code></span> combinator produces two results, it doesn&#8217;t pass them at the same time. The execution is more fine-grained: the combinator creates a separate <em>branch</em> for the calculation of each result.</p>
+
+<p>In other words, there is a kind of concurrency here (even if the current implementation is sequential). The key insight is that in a recursive grammar, one branch may depend on another: the recursive branch cannot continue before the base branch has produced a result. Is there a way we can make the branches cooperate, regardless of their order of execution?</p>
+
+<p>As it turns out, the answer is memoization! That is because when we memoize a continuation-passing style function, not only do we keep track of input values and output values, but also the continuations that are interested in those values. Each table entry will contain a list of results (since the function may output more than one value), and a list of continuations (since the same function may be called in different places).</p>
+
+<p>Thus, we can broadcast results from one branch of the grammar to another, &#8220;reawakening&#8221; the interested branch. How do we awaken a branch? By calling its continuation! In fact, the same continuation may be called several times in a recursive grammar, which we will see below. Like in a video game, each continuation is a &#8220;save point&#8221; in our program, and we can reload any part of it as our knowledge progresses.</p>
+
+<p>To memoize functions written in continuation-passing style, we define a <span class="code"><code id="memo-cps">memo-cps</code></span> wrapper. For clarity, we define a few local functions: <span class="code"><code id="push-continuation">push-continuation!</code></span> adds a continuation to an entry, <span class="code"><code id="push-result">push-result!</code></span> adds a result to the entry, <span class="code"><code id="result-subsumed">result-subsumed?</code></span> checks if the entry already contains a given result, <span class="code"><code id="make-entry">make-entry</code></span> creates an empty entry, and <span class="code"><code id="table-ref">table-ref</code></span> looks up an memoization entry, creating an empty entry if one does not exist.</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-memo-cps-fn-let-table-mlist-define-entry-continuations-mcar-define-entry-results-mcdr-define-push-continuation-entry-cont-set-mcar-entry-mcons-cont-entry-continuations-entry-define-push-result-entry-result-set-mcdr-entry-mcons-result-entry-results-entry-define-result-subsumed-entry-result-mmember-result-entry-results-entry-define-make-entry-mcons-mlist-mlist-define-table-ref-str-match-massoc-str-table-mcons-str-entry-entry-let-entry-make-entry-set-table-mcons-mcons-str-entry-table-entry-lambda-str-cont-let-entry-table-ref-str-match-entry-first-time-memoized-procedure-has-been-called-with-str-mcons-mlist-mlist-push-continuation-entry-cont-fn-str-lambda-result-unless-result-subsumed-entry-result-push-result-entry-result-for-cont-entry-continuations-entry-cont-result-memoized-procedure-has-been-called-with-str-before-push-continuation-entry-cont-for-result-entry-results-entry-cont-result">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token function">memo-cps</span> fn<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token keyword">let</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">table</span> <span class="token punctuation">(</span>mlist<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">(</span><span class="token keyword">define</span> entry-continuations mcar<span class="token punctuation">)</span>
+    <span class="token punctuation">(</span><span class="token keyword">define</span> entry-results mcdr<span class="token punctuation">)</span>
+    <span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token function">push-continuation!</span> entry cont<span class="token punctuation">)</span>
+      <span class="token punctuation">(</span><span class="token function">set-mcar!</span> entry <span class="token punctuation">(</span><span class="token function">mcons</span> cont <span class="token punctuation">(</span><span class="token function">entry-continuations</span> entry<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token function">push-result!</span> entry result<span class="token punctuation">)</span>
+      <span class="token punctuation">(</span><span class="token function">set-mcdr!</span> entry <span class="token punctuation">(</span><span class="token function">mcons</span> result <span class="token punctuation">(</span><span class="token function">entry-results</span> entry<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token function">result-subsumed?</span> entry result<span class="token punctuation">)</span>
+      <span class="token punctuation">(</span><span class="token function">mmember</span> result <span class="token punctuation">(</span><span class="token function">entry-results</span> entry<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span>make-entry<span class="token punctuation">)</span>
+      <span class="token punctuation">(</span><span class="token function">mcons</span> <span class="token punctuation">(</span>mlist<span class="token punctuation">)</span> <span class="token punctuation">(</span>mlist<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token function">table-ref</span> str<span class="token punctuation">)</span>
+      <span class="token punctuation">(</span><span class="token function">match</span> <span class="token punctuation">(</span><span class="token function">massoc</span> str table<span class="token punctuation">)</span>
+        [<span class="token punctuation">(</span><span class="token function">mcons</span> str entry<span class="token punctuation">)</span> entry]
+        [_ <span class="token punctuation">(</span><span class="token keyword">let</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">entry</span> <span class="token punctuation">(</span>make-entry<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+             <span class="token punctuation">(</span><span class="token keyword">set!</span> table <span class="token punctuation">(</span><span class="token function">mcons</span> <span class="token punctuation">(</span><span class="token function">mcons</span> str entry<span class="token punctuation">)</span> table<span class="token punctuation">)</span><span class="token punctuation">)</span>
+             entry<span class="token punctuation">)</span>]<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span><span class="token function">str</span> cont<span class="token punctuation">)</span>
+      <span class="token punctuation">(</span><span class="token keyword">let</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">entry</span> <span class="token punctuation">(</span><span class="token function">table-ref</span> str<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">(</span><span class="token function">match</span> entry
+          <span class="token comment">;; first time memoized procedure has been called with str</span>
+          [<span class="token punctuation">(</span><span class="token function">mcons</span> <span class="token punctuation">(</span>mlist<span class="token punctuation">)</span> <span class="token punctuation">(</span>mlist<span class="token punctuation">)</span><span class="token punctuation">)</span>
+           <span class="token punctuation">(</span><span class="token function">push-continuation!</span> entry cont<span class="token punctuation">)</span>
+           <span class="token punctuation">(</span><span class="token function">fn</span> str <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span>result<span class="token punctuation">)</span>
+                     <span class="token punctuation">(</span><span class="token function">unless</span> <span class="token punctuation">(</span><span class="token function">result-subsumed?</span> entry result<span class="token punctuation">)</span>
+                       <span class="token punctuation">(</span><span class="token function">push-result!</span> entry result<span class="token punctuation">)</span>
+                       <span class="token punctuation">(</span><span class="token function">for</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">cont</span> <span class="token punctuation">(</span><span class="token function">entry-continuations</span> entry<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                            <span class="token punctuation">(</span><span class="token function">cont</span> result<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>]
+          <span class="token comment">;; memoized procedure has been called with str before</span>
+          [_
+           <span class="token punctuation">(</span><span class="token function">push-continuation!</span> entry cont<span class="token punctuation">)</span>
+           <span class="token punctuation">(</span><span class="token function">for</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">result</span> <span class="token punctuation">(</span><span class="token function">entry-results</span> entry<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token punctuation">(</span><span class="token function">cont</span> result<span class="token punctuation">)</span><span class="token punctuation">)</span>]<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>There are two cases to consider: when the memoized function is called for the first time, and when it has been called before. When the function is called for the first time, we insert the original continuation, <span class="code"><code id="cont-4">cont</code></span>, into the table. Then we invoke the function with a custom continuation <span class="code"><code id="lambda-result-2">(lambda (result) ...)</code></span> which in turn will invoke <span class="code"><code id="cont-5">cont</code></span>, as well as any other continuations which may have been inserted into the table in the meantime. We can think of the continuation <span class="code"><code id="lambda-result-3">(lambda (result) ...)</code></span> as our &#8220;man on the inside&#8221;: it alone will do the work of being passed into the function and receive its results. Then it broadcasts those results to the continuations on the outside.</p>
+
+<p>Thus, in the second case when the function has been called before, we just insert the continuation into the list of continuations. Our &#8220;inside man&#8221; will then notify the continuation of new results as they are produced. Meanwhile, the continuation goes through the results that have already been memoized, and then it &#8220;goes to sleep&#8221;.</p>
+
+<p>Now we are ready to memoize the definitions. We use <span class="code"><code id="memo-cps-2">memo-cps</code></span> for the returned parsers and <span class="code"><code id="memo-2">memo</code></span> for the parser combinators, which are regular functions. As before, the use of <span class="code"><code id="memo-3">memo</code></span> is necessary because <span class="code"><code id="delay-parser-2">delay-parser</code></span> delays the combinators to being called at runtime.</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-succeed-memo-lambda-val-memo-cps-lambda-str-cont-define-string-memo-lambda-match-memo-cps-lambda-str-cont-define-seq-memo-lambda-a-b-memo-cps-bind-a-lambda-x-define-alt-memo-lambda-a-b-memo-cps-lambda-str-cont">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define</span> succeed
+  <span class="token punctuation">(</span><span class="token function">memo</span>
+   <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span>val<span class="token punctuation">)</span>
+     <span class="token punctuation">(</span><span class="token function">memo-cps</span>
+      <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span><span class="token function">str</span> cont<span class="token punctuation">)</span> ...<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">(</span><span class="token keyword">define</span> string
+  <span class="token punctuation">(</span><span class="token function">memo</span>
+   <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span>match<span class="token punctuation">)</span>
+     <span class="token punctuation">(</span><span class="token function">memo-cps</span>
+      <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span><span class="token function">str</span> cont<span class="token punctuation">)</span> ...<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">(</span><span class="token keyword">define</span> seq
+  <span class="token punctuation">(</span><span class="token function">memo</span>
+   <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span><span class="token function">a</span> b<span class="token punctuation">)</span>
+     <span class="token punctuation">(</span><span class="token function">memo-cps</span>
+      <span class="token punctuation">(</span><span class="token function">bind</span> a <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> ...<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">(</span><span class="token keyword">define</span> alt
+  <span class="token punctuation">(</span><span class="token function">memo</span>
+   <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span><span class="token function">a</span> b<span class="token punctuation">)</span>
+     <span class="token punctuation">(</span><span class="token function">memo-cps</span>
+      <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span><span class="token function">str</span> cont<span class="token punctuation">)</span> ...<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>Now we can define our left-recursive grammar:</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-parser-s-alt-seq-s-string-a-string-a-2">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define</span>-parser s
+  <span class="token punctuation">(</span><span class="token function">alt</span> <span class="token punctuation">(</span><span class="token function">seq</span> s <span class="token punctuation">(</span><span class="token function">string</span> <span class="token string">"a"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+       <span class="token punctuation">(</span><span class="token function">string</span> <span class="token string">"a"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>Let&#8217;s parse the string <span class="code"><code id="aaa">"aaa"</code></span>:</p>
+
+<div class="pre">
+<pre class="language-scheme" id="s-aaa-print-success-a-aa-success-a-a-a-success-a-a-a-failure">
+<code class="language-scheme">&gt; <span class="token punctuation">(</span><span class="token function">s</span> <span class="token string">"aaa"</span> print<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">success</span> <span class="token string">"a"</span> <span class="token string">"aa"</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">success</span> <span class="token string">'</span><span class="token punctuation">(</span><span class="token string">"a"</span> <span class="token string">"a"</span><span class="token punctuation">)</span> <span class="token string">"a"</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">success</span> <span class="token string">'</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"a"</span> <span class="token string">"a"</span><span class="token punctuation">)</span> <span class="token string">"a"</span><span class="token punctuation">)</span> <span class="token string">""</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">failure</span> <span class="token string">""</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>We get three results before the parser reaches the end of the string and terminates with a failure. This lets us see how the continuations are repeated: when the self-reference in <span class="code"><code id="seq-s">(seq s ...)</code></span> is encountered, the branch &#8220;goes to sleep&#8221; since <span class="code"><code id="s">s</code></span> has been called before. Then the second branch matches a single <span class="code"><code id="a-3">"a"</code></span>. Since this is one of the results of <span class="code"><code id="s-2">s</code></span>, it is printed to standard output, but it is also broadcast to the first branch. That branch matches another <span class="code"><code id="a-4">"a"</code></span>, and the combined sequence becomes another result for <span class="code"><code id="s-3">s</code></span>. The result is again printed and broadcast to the first branch, and so on, until we reach the end of the string.</p>
+
+<p>Let us now define a more convenient interface for invoking parsers. The <span class="code"><code id="run-parser">run-parser</code></span> function runs a parser with a continuation that collects all successful results in a list, which is then returned. Only results that consume the whole string (with a remainder of <span class="code"><code id="n-15">""</code></span>) are collected.</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-run-parser-parser-str-let-results-parser-str-lambda-result-match-result-success-val-set-results-cons-result-results-failure-failure-results">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token function">run-parser</span> parser str<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token keyword">let</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">results</span> <span class="token string">'</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">(</span><span class="token function">parser</span> str <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span>result<span class="token punctuation">)</span>
+                  <span class="token punctuation">(</span><span class="token function">match</span> result
+                    [<span class="token punctuation">(</span><span class="token function">success</span> val <span class="token string">""</span><span class="token punctuation">)</span>
+                     <span class="token punctuation">(</span><span class="token keyword">set!</span> results <span class="token punctuation">(</span><span class="token builtin">cons</span> result results<span class="token punctuation">)</span><span class="token punctuation">)</span>]
+                    [failure failure]<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    results<span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>We can implement an even simpler interface by exploiting the fact that Racket allows functions to have <em>optional arguments</em>. Thus, we can make the continuation argument optional! If the parser is invoked without a continuation, then the default is to use the continuation of <span class="code"><code id="run-parser-2">run-parser</code></span>. A wrapper for this interface can be defined as follows:</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-make-parser-parser-lambda-str-cont-f-if-cont-parser-str-cont-run-parser-parser-str">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token function">make-parser</span> parser<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span><span class="token function">str</span> <span class="token punctuation">(</span><span class="token function">cont</span> <span class="token boolean">#f</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">(</span><span class="token keyword">if</span> cont
+        <span class="token punctuation">(</span><span class="token function">parser</span> str cont<span class="token punctuation">)</span>
+        <span class="token punctuation">(</span><span class="token function">run-parser</span> parser str<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>Then we can incorporate this wrapper into <span class="code"><code id="define-parser-2">define-parser</code></span>:</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-syntax-rule-define-parser-parser-body-define-parser-make-parser-delay-parser-body">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define-syntax</span>-rule <span class="token punctuation">(</span><span class="token keyword">define</span>-parser parser body<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token keyword">define</span> parser
+    <span class="token punctuation">(</span><span class="token function">make-parser</span>
+     <span class="token punctuation">(</span><span class="token keyword">delay</span>-parser body<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>Our parsers can now be invoked in two ways: as a <abbr class="acronym" title="Continuation-Passing Style"><span class="caps">CPS</span></abbr> function passing the results to a continuation, or as a regular function returning the results to the caller. Here is an example of the latter:</p>
+
+<div class="pre">
+<pre class="language-scheme" id="s-aaa-list-success-a-a-a">
+<code class="language-scheme">&gt; <span class="token punctuation">(</span><span class="token function">s</span> <span class="token string">"aaa"</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token builtin">list</span> <span class="token punctuation">(</span><span class="token function">success</span> <span class="token string">'</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"a"</span> <span class="token string">"a"</span><span class="token punctuation">)</span> <span class="token string">"a"</span><span class="token punctuation">)</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>The parser returns a list containing a single result matching the whole input.</p>
+</div>
+</section>
+
+<section id="trampoline">
+<h2><a aria-hidden="true" class="header-anchor" href="#trampoline" title="Trampoline"></a>Trampoline<a aria-controls="trampoline-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#trampoline-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h2>
+
+<div class="collapse in" id="trampoline-section">
+<p>A weakness of the current implementation is that the memoized parser results are scattered all over the place. Each parser has its own memoization table, storing the accumulated results from both the current parsing and from previous parsings. This is difficult to maintain and optimize.</p>
+
+<p>Another issue is that when dealing with ambiguous grammars, all the results are produced at once. For such grammars, it would be more flexible to return a lazy stream of results, producing results one at a time. (An infinitely ambiguous grammar may produce infinitely many results!)</p>
+
+<p>To achieve this, we will encapsulate parser results and parser calls in a shared data structure called a <em>trampoline</em>. The trampoline contains a loop that iterates through parser calls and dispatches parsers. Each parser will have an extra <span class="code"><code id="tramp">tramp</code></span> argument for the trampoline.</p>
+
+<p>We will define the trampoline as a Racket class, with fields and methods. This is just for convenience; we could also piece together a mutable list structure from scratch, like we did with the memoization tables. In the end, the trampoline is just a stateful object passed down from one parser to another.</p>
+
+<p>Here is an outline of our <span class="code"><code id="trampoline-2">trampoline%</code></span> class (by convention, class names end with <span class="code"><code id="n-16">%</code></span>):</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-trampoline-class-object-super-new-define-stack-mlist-define-table-mlist-define-public-has-next-define-public-step-define-public-push-stack-fn-args-define-public-push-fn-arg-continuation-define-public-run">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define</span> trampoline%
+  <span class="token punctuation">(</span><span class="token function">class</span> object% <span class="token punctuation">(</span>super-new<span class="token punctuation">)</span>
+    <span class="token punctuation">(</span><span class="token keyword">define</span> stack <span class="token punctuation">(</span>mlist<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">(</span><span class="token keyword">define</span> table <span class="token punctuation">(</span>mlist<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    <span class="token punctuation">(</span><span class="token keyword">define</span>/public <span class="token punctuation">(</span>has-next?<span class="token punctuation">)</span> ...<span class="token punctuation">)</span>
+    <span class="token punctuation">(</span><span class="token keyword">define</span>/public <span class="token punctuation">(</span>step<span class="token punctuation">)</span> ...<span class="token punctuation">)</span>
+    <span class="token punctuation">(</span><span class="token keyword">define</span>/public <span class="token punctuation">(</span><span class="token function">push-stack</span> fn . args<span class="token punctuation">)</span> ...<span class="token punctuation">)</span>
+    <span class="token punctuation">(</span><span class="token keyword">define</span>/public <span class="token punctuation">(</span><span class="token function">push</span> fn arg continuation<span class="token punctuation">)</span> ...<span class="token punctuation">)</span>
+    <span class="token punctuation">(</span><span class="token keyword">define</span>/public <span class="token punctuation">(</span>run<span class="token punctuation">)</span> ...<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>The trampoline contains two fields, the <em>stack</em> and the <em>table</em>. The stack contains function calls, while the table contains memoized values. Both are mutable lists, modified by the public methods <span class="code"><code id="has-next">has-next?</code></span>, <span class="code"><code id="step">step</code></span>, <span class="code"><code id="push-stack">push-stack</code></span>, <span class="code"><code id="push">push</code></span> and <span class="code"><code id="run">run</code></span>.</p>
+
+<p>The parsers will be modified to save their execution on the call stack. That is, instead of calling a parser directly, the parser call is pushed onto the stack. The trampoline loop then iterates through the stack until it is exhausted, checking with the <span class="code"><code id="has-next-2">has-next?</code></span> method. This method returns true if the stack is nonempty and false if it is empty.</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-public-has-next-not-empty-stack">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define</span>/public <span class="token punctuation">(</span>has-next?<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token function">not</span> <span class="token punctuation">(</span><span class="token function">empty?</span> stack<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>The <span class="code"><code id="push-stack-2">push-stack</code></span> method pushes a function call onto the stack. The call is a cons cell <span class="code"><code id="fn-args">(fn . args)</code></span>, containing a function and its arguments.</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-public-push-stack-fn-args-let-call-mcons-fn-args-set-stack-mcons-call-stack">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define</span>/public <span class="token punctuation">(</span><span class="token function">push-stack</span> fn . args<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token keyword">let</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">call</span> <span class="token punctuation">(</span><span class="token function">mcons</span> fn args<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">(</span><span class="token keyword">set!</span> stack <span class="token punctuation">(</span><span class="token function">mcons</span> call stack<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>The <span class="code"><code id="step-2">step</code></span> method pops a parser call off the stack and invokes it. We obtain the first element with <span class="code"><code id="mcar-stack">(mcar stack)</code></span>, matching against it to obtain the function and its arguments. We advance the stack pointer to the next element, and then apply the function to its arguments with <span class="code"><code id="apply">apply</code></span>.</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-public-step-when-has-next-match-mcar-stack-mcons-fn-args-set-stack-mcdr-stack-apply-fn-args">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define</span>/public <span class="token punctuation">(</span>step<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token function">when</span> <span class="token punctuation">(</span>has-next?<span class="token punctuation">)</span>
+    <span class="token punctuation">(</span><span class="token function">match</span> <span class="token punctuation">(</span><span class="token function">mcar</span> stack<span class="token punctuation">)</span>
+      [<span class="token punctuation">(</span><span class="token function">mcons</span> fn args<span class="token punctuation">)</span>
+       <span class="token punctuation">(</span><span class="token keyword">set!</span> stack <span class="token punctuation">(</span><span class="token function">mcdr</span> stack<span class="token punctuation">)</span><span class="token punctuation">)</span>
+       <span class="token punctuation">(</span><span class="token builtin">apply</span> fn args<span class="token punctuation">)</span>]<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>The <span class="code"><code id="run-2">run</code></span> method repeatedly invokes <span class="code"><code id="step-3">step</code></span> until the stack is exhausted.</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-public-run-do-not-has-next-step">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define</span>/public <span class="token punctuation">(</span>run<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token function">do</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">not</span> <span class="token punctuation">(</span>has-next?<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">(</span>step<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>The other part of the trampoline is the memoization table, where every parser caches its results. The memoization logic is contained in the <span class="code"><code id="push-2">push</code></span> method, which works as a memoizing front-end for <span class="code"><code id="push-stack-3">push-stack</code></span>. It is similar to the <span class="code"><code id="memo-cps-3">memo-cps</code></span> function from earlier, except that it operates on a two-level table. Note that instead of invoking the function directly when called for the first time, the function is passed to <span class="code"><code id="push-stack-4">push-stack</code></span>.</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-public-push-fn-str-cont-define-entry-continuations-define-entry-results-define-push-continuation-entry-cont-define-push-result-entry-result-define-result-subsumed-entry-result-define-make-entry-define-table-ref-fn-str-let-entry-table-ref-fn-str-match-entry-mcons-mlist-mlist-push-continuation-entry-cont-push-the-parser-on-the-stack-push-stack-fn-str-this-lambda-result-unless-result-subsumed-entry-result-push-result-entry-result-for-cont-entry-continuations-entry-cont-result-push-continuation-entry-cont-for-result-entry-results-entry-cont-result">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define</span>/public <span class="token punctuation">(</span><span class="token function">push</span> fn str cont<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token keyword">define</span> entry-continuations ...<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token keyword">define</span> entry-results ...<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token function">push-continuation!</span> entry cont<span class="token punctuation">)</span> ...<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token function">push-result!</span> entry result<span class="token punctuation">)</span> ...<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token function">result-subsumed?</span> entry result<span class="token punctuation">)</span> ...<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span>make-entry<span class="token punctuation">)</span> ...<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token function">table-ref</span> fn str<span class="token punctuation">)</span> ...<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token keyword">let</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">entry</span> <span class="token punctuation">(</span><span class="token function">table-ref</span> fn str<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">(</span><span class="token function">match</span> entry
+      [<span class="token punctuation">(</span><span class="token function">mcons</span> <span class="token punctuation">(</span>mlist<span class="token punctuation">)</span> <span class="token punctuation">(</span>mlist<span class="token punctuation">)</span><span class="token punctuation">)</span>
+       <span class="token punctuation">(</span><span class="token function">push-continuation!</span> entry cont<span class="token punctuation">)</span>
+       <span class="token comment">;; push the parser on the stack</span>
+       <span class="token punctuation">(</span><span class="token function">push-stack</span> fn str this
+                   <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span>result<span class="token punctuation">)</span>
+                     <span class="token punctuation">(</span><span class="token function">unless</span> <span class="token punctuation">(</span><span class="token function">result-subsumed?</span> entry result<span class="token punctuation">)</span>
+                       <span class="token punctuation">(</span><span class="token function">push-result!</span> entry result<span class="token punctuation">)</span>
+                       <span class="token punctuation">(</span><span class="token function">for</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">cont</span> <span class="token punctuation">(</span><span class="token function">entry-continuations</span> entry<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                            <span class="token punctuation">(</span><span class="token function">cont</span> result<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>]
+      [_
+       <span class="token punctuation">(</span><span class="token function">push-continuation!</span> entry cont<span class="token punctuation">)</span>
+       <span class="token punctuation">(</span><span class="token function">for</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">result</span> <span class="token punctuation">(</span><span class="token function">entry-results</span> entry<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">(</span><span class="token function">cont</span> result<span class="token punctuation">)</span><span class="token punctuation">)</span>]<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>As mentioned, the table has two levels (it is a nested association list). The first level maps parsers to memoization records, and the second level maps input to output. This is all handled by the local <span class="code"><code id="table-ref-2">table-ref</code></span> function, which automatically creates an empty entry when a function or its input is referenced for the first time.</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-table-ref-fn-str-let-pair-massoc-fn-table-match-pair-mcons-fn-memo-match-massoc-str-memo-parser-has-been-called-with-str-before-mcons-str-entry-entry-first-time-parser-has-been-called-with-str-let-entry-make-entry-set-mcdr-pair-mcons-mcons-str-entry-memo-entry-first-time-parser-has-been-called-let-entry-make-entry-memo-mlist-mcons-str-entry-set-table-mcons-mcons-fn-memo-table-entry">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token function">table-ref</span> fn str<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token keyword">let</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">pair</span> <span class="token punctuation">(</span><span class="token function">massoc</span> fn table<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">(</span><span class="token function">match</span> pair
+      [<span class="token punctuation">(</span><span class="token function">mcons</span> fn memo<span class="token punctuation">)</span>
+       <span class="token punctuation">(</span><span class="token function">match</span> <span class="token punctuation">(</span><span class="token function">massoc</span> str memo<span class="token punctuation">)</span>
+         <span class="token comment">;; parser has been called with str before</span>
+         [<span class="token punctuation">(</span><span class="token function">mcons</span> str entry<span class="token punctuation">)</span> entry]
+         <span class="token comment">;; first time parser has been called with str</span>
+         [_ <span class="token punctuation">(</span><span class="token keyword">let</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">entry</span> <span class="token punctuation">(</span>make-entry<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+              <span class="token punctuation">(</span><span class="token function">set-mcdr!</span> pair <span class="token punctuation">(</span><span class="token function">mcons</span> <span class="token punctuation">(</span><span class="token function">mcons</span> str entry<span class="token punctuation">)</span> memo<span class="token punctuation">)</span><span class="token punctuation">)</span>
+              entry<span class="token punctuation">)</span>]<span class="token punctuation">)</span>]
+      <span class="token comment">;; first time parser has been called</span>
+      [_ <span class="token punctuation">(</span><span class="token keyword">let*</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">entry</span> <span class="token punctuation">(</span>make-entry<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token punctuation">(</span><span class="token function">memo</span> <span class="token punctuation">(</span><span class="token function">mlist</span> <span class="token punctuation">(</span><span class="token function">mcons</span> str entry<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+           <span class="token punctuation">(</span><span class="token keyword">set!</span> table <span class="token punctuation">(</span><span class="token function">mcons</span> <span class="token punctuation">(</span><span class="token function">mcons</span> fn memo<span class="token punctuation">)</span> table<span class="token punctuation">)</span><span class="token punctuation">)</span>
+           entry<span class="token punctuation">)</span>]<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>We are now ready to rewrite the parsers. For the most part, this is just a matter of adding an extra argument, <span class="code"><code id="tramp-2">tramp</code></span>, for the trampoline. The <span class="code"><code id="succeed-6">succeed</code></span> and <span class="code"><code id="string-4">string</code></span> parsers don&#8217;t use the trampoline at all:</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-succeed-memo-lambda-val-lambda-str-tramp-cont-cont-success-val-str-define-string-memo-lambda-match-lambda-str-tramp-cont-let-if-equal-head-match-cont-success-head-tail-cont-failure-tail">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define</span> succeed
+  <span class="token punctuation">(</span><span class="token function">memo</span>
+   <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span>val<span class="token punctuation">)</span>
+     <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span><span class="token function">str</span> tramp cont<span class="token punctuation">)</span>
+       <span class="token punctuation">(</span><span class="token function">cont</span> <span class="token punctuation">(</span><span class="token function">success</span> val str<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">(</span><span class="token keyword">define</span> string
+  <span class="token punctuation">(</span><span class="token function">memo</span>
+   <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span>match<span class="token punctuation">)</span>
+     <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span><span class="token function">str</span> tramp cont<span class="token punctuation">)</span>
+       <span class="token punctuation">(</span><span class="token keyword">let*</span> <span class="token punctuation">(</span>...<span class="token punctuation">)</span>
+         <span class="token punctuation">(</span><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">equal?</span> head match<span class="token punctuation">)</span>
+             <span class="token punctuation">(</span><span class="token function">cont</span> <span class="token punctuation">(</span><span class="token function">success</span> head tail<span class="token punctuation">)</span><span class="token punctuation">)</span>
+             <span class="token punctuation">(</span><span class="token function">cont</span> <span class="token punctuation">(</span><span class="token function">failure</span> tail<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>Note the absence of <span class="code"><code id="memo-cps-4">memo-cps</code></span>, since parser memoization is handled by the trampoline. The <span class="code"><code id="seq-6">seq</code></span> combinator just passes the <span class="code"><code id="tramp-3">tramp</code></span> argument down from one parser to another:</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-bind-p-fn-lambda-str-tramp-cont-p-str-tramp-lambda-result-match-result-success-val-rest-fn-val-rest-tramp-cont-failure-cont-failure-define-seq-memo-lambda-a-b-bind-a-lambda-x">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token function">bind</span> p fn<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span><span class="token function">str</span> tramp cont<span class="token punctuation">)</span>
+    <span class="token punctuation">(</span><span class="token function">p</span> str tramp
+       <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span>result<span class="token punctuation">)</span>
+         <span class="token punctuation">(</span><span class="token function">match</span> result
+           [<span class="token punctuation">(</span><span class="token function">success</span> val rest<span class="token punctuation">)</span>
+            <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">fn</span> val<span class="token punctuation">)</span> rest tramp cont<span class="token punctuation">)</span>]
+           [failure
+            <span class="token punctuation">(</span><span class="token function">cont</span> failure<span class="token punctuation">)</span>]<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">(</span><span class="token keyword">define</span> seq
+  <span class="token punctuation">(</span><span class="token function">memo</span>
+   <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span><span class="token function">a</span> b<span class="token punctuation">)</span>
+     <span class="token punctuation">(</span><span class="token function">bind</span> a <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> ...<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>As before, the changes are in <span class="code"><code id="bind-8">bind</code></span>, which passes the trampoline around. The definition of <span class="code"><code id="seq-7">seq</code></span> stays the same, except that <span class="code"><code id="memo-cps-5">memo-cps</code></span> is gone.</p>
+
+<p>Only the <span class="code"><code id="alt-7">alt</code></span> combinator will use the trampoline directly. Instead of invoking the alternative parsers itself, it pushes them on the stack:</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-alt-memo-lambda-a-b-lambda-str-tramp-cont-send-tramp-push-a-str-cont-send-tramp-push-b-str-cont">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define</span> alt
+  <span class="token punctuation">(</span><span class="token function">memo</span>
+   <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span><span class="token function">a</span> b<span class="token punctuation">)</span>
+     <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span><span class="token function">str</span> tramp cont<span class="token punctuation">)</span>
+       <span class="token punctuation">(</span><span class="token function">send</span> tramp push a str cont<span class="token punctuation">)</span>
+       <span class="token punctuation">(</span><span class="token function">send</span> tramp push b str cont<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>The <span class="code"><code id="send">send</code></span> function is Racket&#8217;s way of accessing the methods of a object. To invoke the <span class="code"><code id="push-3">push</code></span> method of the <span class="code"><code id="tramp-4">tramp</code></span> object, we write <span class="code"><code id="send-tramp-push">(send tramp push ...)</code></span> and the method&#8217;s arguments.</p>
+
+<p>Now we can create a trampoline, pass it to a parser along with a continuation, and invoke the <span class="code"><code id="run-3">run</code></span> method:</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-tramp-new-trampoline-s-aaa-tramp-print-send-tramp-run-success-a-aa-success-a-a-a-success-a-a-a-failure">
+<code class="language-scheme">&gt; <span class="token punctuation">(</span><span class="token keyword">define</span> tramp <span class="token punctuation">(</span><span class="token function">new</span> trampoline%<span class="token punctuation">)</span><span class="token punctuation">)</span>
+&gt; <span class="token punctuation">(</span><span class="token function">s</span> <span class="token string">"aaa"</span> tramp print<span class="token punctuation">)</span>
+&gt; <span class="token punctuation">(</span><span class="token function">send</span> tramp run<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">success</span> <span class="token string">"a"</span> <span class="token string">"aa"</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">success</span> <span class="token string">'</span><span class="token punctuation">(</span><span class="token string">"a"</span> <span class="token string">"a"</span><span class="token punctuation">)</span> <span class="token string">"a"</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">success</span> <span class="token string">'</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"a"</span> <span class="token string">"a"</span><span class="token punctuation">)</span> <span class="token string">"a"</span><span class="token punctuation">)</span> <span class="token string">""</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">failure</span> <span class="token string">""</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>Of course, this is not the most convenient interface, so we will redefine the <span class="code"><code id="run-parser-3">run-parser</code></span> function to return the successful results as a lazy stream. To that end, we first define a <span class="code"><code id="make-stream">make-stream</code></span> convenience macro, which lets us use the stream constructor <span class="code"><code id="stream-cons">stream-cons</code></span> in a simpler manner. The <span class="code"><code id="stream-cons-2">stream-cons</code></span> function takes two expressions, one for producing the first element and one for producing the rest of the stream. Our <span class="code"><code id="make-stream-2">make-stream</code></span> macro just takes a single expression for producing the stream, which is easier in case multiple results are produced.</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-syntax-rule-make-stream-body-stream-rest-stream-cons-begin-body">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define-syntax</span>-rule <span class="token punctuation">(</span><span class="token function">make-stream</span> body ...<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token function">stream-rest</span>
+   <span class="token punctuation">(</span><span class="token function">stream-cons</span> <span class="token string">'</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token keyword">begin</span> body ...<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>Now we can define <span class="code"><code id="run-parser-4">run-parser</code></span> as a call to <span class="code"><code id="make-stream-3">make-stream</code></span>:</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-run-parser-parser-str-let-tramp-new-trampoline-results-define-compute-when-send-tramp-has-next-do-not-and-empty-results-send-tramp-has-next-send-tramp-step-stream-define-stream-let-result-sequence-stream-results-set-results-mlist-if-send-tramp-has-next-stream-append-result-make-stream-compute-result-make-stream-parser-str-tramp-lambda-result-match-result-success-val-set-results-cons-result-results-failure-failure-compute">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token function">run-parser</span> parser str<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token keyword">let</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">tramp</span> <span class="token punctuation">(</span><span class="token function">new</span> trampoline%<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">(</span><span class="token function">results</span> <span class="token string">'</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span>compute<span class="token punctuation">)</span>
+      <span class="token punctuation">(</span><span class="token function">when</span> <span class="token punctuation">(</span><span class="token function">send</span> tramp has-next?<span class="token punctuation">)</span>
+        <span class="token punctuation">(</span><span class="token function">do</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">not</span> <span class="token punctuation">(</span><span class="token function">and</span> <span class="token punctuation">(</span><span class="token function">empty?</span> results<span class="token punctuation">)</span>
+                          <span class="token punctuation">(</span><span class="token function">send</span> tramp has-next?<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+          <span class="token punctuation">(</span><span class="token function">send</span> tramp step<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">(</span>stream<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span>stream<span class="token punctuation">)</span>
+      <span class="token punctuation">(</span><span class="token keyword">let</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">result</span> <span class="token punctuation">(</span><span class="token function">sequence-&gt;stream</span> results<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">(</span><span class="token keyword">set!</span> results <span class="token punctuation">(</span>mlist<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">(</span><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">send</span> tramp has-next?<span class="token punctuation">)</span>
+            <span class="token punctuation">(</span><span class="token function">stream-append</span> result <span class="token punctuation">(</span><span class="token function">make-stream</span> <span class="token punctuation">(</span>compute<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            result<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">(</span><span class="token function">make-stream</span>
+     <span class="token punctuation">(</span><span class="token function">parser</span> str tramp
+             <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span>result<span class="token punctuation">)</span>
+               <span class="token punctuation">(</span><span class="token function">match</span> result
+                 [<span class="token punctuation">(</span><span class="token function">success</span> val <span class="token string">""</span><span class="token punctuation">)</span>
+                  <span class="token punctuation">(</span><span class="token keyword">set!</span> results <span class="token punctuation">(</span><span class="token builtin">cons</span> result results<span class="token punctuation">)</span><span class="token punctuation">)</span>]
+                 [failure failure]<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+     <span class="token punctuation">(</span>compute<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>First, we create a new trampoline and an empty <span class="code"><code id="results">results</code></span> list. After defining a few local functions, we make a stream that invokes the parser with a continuation that will add successful results to <span class="code"><code id="results-2">results</code></span>. The local function <span class="code"><code id="compute">compute</code></span> is invoked to step through the trampoline&#8217;s stack until at least one result shows up in <span class="code"><code id="results-3">results</code></span> or the stack is exhausted. The results are returned lazily by calling the local <span class="code"><code id="stream">stream</code></span> function, which creates a stream where the first results are taken from <span class="code"><code id="results-4">results</code></span>, and the rest are produced by calling <span class="code"><code id="compute-2">compute</code></span> again.</p>
+
+<p>In other words, instead of stepping through the whole call stack at once with the <span class="code"><code id="run-4">run</code></span> method, <span class="code"><code id="run-parser-5">run-parser</code></span> performs a more fine-grained execution with <span class="code"><code id="step-4">step</code></span>. Whenever it obtains a result, it stops execution, unless forced to produce more (and the call stack is not exhausted).</p>
+
+<p>Finally, we can create a cleaner interface where the <span class="code"><code id="tramp-5">tramp</code></span> and <span class="code"><code id="cont-6">cont</code></span> arguments are optional:</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-syntax-rule-define-parser-parser-body-define-parser-make-parser-delay-parser-body-define-make-parser-parser-lambda-str-tramp-f-cont-f-if-and-tramp-cont-parser-str-tramp-cont-run-parser-parser-str">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define-syntax</span>-rule <span class="token punctuation">(</span><span class="token keyword">define</span>-parser parser body<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token keyword">define</span> parser
+    <span class="token punctuation">(</span><span class="token function">make-parser</span>
+     <span class="token punctuation">(</span><span class="token keyword">delay</span>-parser body<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token function">make-parser</span> parser<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span><span class="token function">str</span> <span class="token punctuation">(</span><span class="token function">tramp</span> <span class="token boolean">#f</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token function">cont</span> <span class="token boolean">#f</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">(</span><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">and</span> tramp cont<span class="token punctuation">)</span>
+        <span class="token punctuation">(</span><span class="token function">parser</span> str tramp cont<span class="token punctuation">)</span>
+        <span class="token punctuation">(</span><span class="token function">run-parser</span> parser str<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>When we now invoke our parsers in the regular way, we get a stream:</p>
+
+<div class="pre">
+<pre class="language-scheme" id="s-aaa-stream">
+<code class="language-scheme">&gt; <span class="token punctuation">(</span><span class="token function">s</span> <span class="token string">"aaa"</span><span class="token punctuation">)</span>
+#&lt;stream&gt;</code>
+</pre>
+</div>
+
+<p>We can force the stream by converting it to a list:</p>
+
+<div class="pre">
+<pre class="language-scheme" id="stream-list-s-aaa-list-success-a-a-a">
+<code class="language-scheme">&gt; <span class="token punctuation">(</span><span class="token function">stream-&gt;list</span> <span class="token punctuation">(</span><span class="token function">s</span> <span class="token string">"aaa"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token builtin">list</span> <span class="token punctuation">(</span><span class="token function">success</span> <span class="token string">'</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"a"</span> <span class="token string">"a"</span><span class="token punctuation">)</span> <span class="token string">"a"</span><span class="token punctuation">)</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+</div>
+</section>
+
+<section id="final-improvements">
+<h2><a aria-hidden="true" class="header-anchor" href="#final-improvements" title="Final improvements"></a>Final improvements<a aria-controls="final-improvements-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#final-improvements-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h2>
+
+<div class="collapse in" id="final-improvements-section">
+<p>As defined, the <span class="code"><code id="alt-8">alt</code></span> and <span class="code"><code id="seq-8">seq</code></span> combinators only take two arguments: we can write <span class="code"><code id="alt-a-b">(alt a b)</code></span>, but not <span class="code"><code id="alt-a-b-c">(alt a b c)</code></span>. We can generalize <span class="code"><code id="alt-9">alt</code></span> by iterating over a rest argument <span class="code"><code id="parsers">parsers</code></span>:</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-alt-memo-lambda-parsers-lambda-str-tramp-cont-for-fn-parsers-send-tramp-push-fn-str-cont">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define</span> alt
+  <span class="token punctuation">(</span><span class="token function">memo</span>
+   <span class="token punctuation">(</span><span class="token keyword">lambda</span> parsers
+     <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span><span class="token function">str</span> tramp cont<span class="token punctuation">)</span>
+       <span class="token punctuation">(</span><span class="token function">for</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">fn</span> parsers<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">(</span><span class="token function">send</span> tramp push fn str cont<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>Generalizing <span class="code"><code id="seq-9">seq</code></span> is most easily done with a fold. In essence, we take the binary definition and rename it to a local function <span class="code"><code id="seq2">seq2</code></span>, swap the arguments around, and then use it to reduce the list of parsers to a single value. We also adjust the way the combined result is created so that we get a flat list <span class="code"><code id="val1-val2-val3">(val1 val2 val3)</code></span> instead of <span class="code"><code id="val1-val2-val3-2">((val1 val2) val3)</code></span>.</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-seq-memo-lambda-parsers-define-seq2-b-a-bind-a-lambda-x-bind-b-lambda-y-succeed-append-x-list-y-foldl-seq2-succeed-parsers">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define</span> seq
+  <span class="token punctuation">(</span><span class="token function">memo</span>
+   <span class="token punctuation">(</span><span class="token keyword">lambda</span> parsers
+     <span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token function">seq2</span> b a<span class="token punctuation">)</span>
+       <span class="token punctuation">(</span><span class="token function">bind</span> a <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+                 <span class="token punctuation">(</span><span class="token function">bind</span> b <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span>y<span class="token punctuation">)</span>
+                           <span class="token punctuation">(</span><span class="token function">succeed</span> <span class="token punctuation">(</span><span class="token builtin">append</span> x <span class="token punctuation">(</span><span class="token builtin">list</span> y<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+     <span class="token punctuation">(</span><span class="token function">foldl</span> seq2 <span class="token punctuation">(</span><span class="token function">succeed</span> <span class="token string">'</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> parsers<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>Now we will add some new definitions. First we define the <span class="code"><code id="regexp">regexp</code></span> parser, which is similar to <span class="code"><code id="string-5">string</code></span> except that it matches against a regular expression:</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-regexp-memo-lambda-pattern-lambda-str-tramp-cont-match-regexp-match-positions-string-append-pattern-str-cons-cons-beg-end-let-len-string-length-str-head-substring-str-beg-end-tail-substring-str-end-len-cont-success-head-tail-cont-failure-str">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define</span> regexp
+  <span class="token punctuation">(</span><span class="token function">memo</span>
+   <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span>pattern<span class="token punctuation">)</span>
+     <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span><span class="token function">str</span> tramp cont<span class="token punctuation">)</span>
+       <span class="token punctuation">(</span><span class="token function">match</span> <span class="token punctuation">(</span><span class="token function">regexp-match-positions</span> <span class="token punctuation">(</span><span class="token function">string-append</span> <span class="token string">"^"</span> pattern<span class="token punctuation">)</span> str<span class="token punctuation">)</span>
+         [<span class="token punctuation">(</span><span class="token builtin">cons</span> <span class="token punctuation">(</span><span class="token builtin">cons</span> beg end<span class="token punctuation">)</span> _<span class="token punctuation">)</span>
+          <span class="token punctuation">(</span><span class="token keyword">let*</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">len</span> <span class="token punctuation">(</span><span class="token function">string-length</span> str<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                 <span class="token punctuation">(</span><span class="token function">head</span> <span class="token punctuation">(</span><span class="token function">substring</span> str beg end<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                 <span class="token punctuation">(</span><span class="token function">tail</span> <span class="token punctuation">(</span><span class="token function">substring</span> str end len<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">(</span><span class="token function">cont</span> <span class="token punctuation">(</span><span class="token function">success</span> head tail<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>]
+         [_ <span class="token punctuation">(</span><span class="token function">cont</span> <span class="token punctuation">(</span><span class="token function">failure</span> str<span class="token punctuation">)</span><span class="token punctuation">)</span>]<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>This lets us define terminal parsers in a simpler way: for example, <span class="code"><code id="regexp-0-9">(regexp "[0-9]+")</code></span> matches a whole number.</p>
+
+<p>Furthermore, we will provide semantic actions for our parsers by adding a new combinator, the <em>reduction combinator</em>. This combinator transforms the parse result using a given function.</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-red-memo-lambda-p-fn-bind-p-lambda-val-match-val-list-val-succeed-apply-fn-val-succeed-fn-val">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define</span> red
+  <span class="token punctuation">(</span><span class="token function">memo</span>
+   <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span><span class="token function">p</span> fn<span class="token punctuation">)</span>
+     <span class="token punctuation">(</span><span class="token function">bind</span> p <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span>val<span class="token punctuation">)</span>
+               <span class="token punctuation">(</span><span class="token function">match</span> val
+                 [<span class="token punctuation">(</span><span class="token builtin">list</span> val ...<span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token function">succeed</span> <span class="token punctuation">(</span><span class="token builtin">apply</span> fn val<span class="token punctuation">)</span><span class="token punctuation">)</span>]
+                 [_ <span class="token punctuation">(</span><span class="token function">succeed</span> <span class="token punctuation">(</span><span class="token function">fn</span> val<span class="token punctuation">)</span><span class="token punctuation">)</span>]<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>For example, we can write <span class="code"><code id="red-regexp-0-9-string-number">(red (regexp "[0-9]+") string-&gt;number)</code></span> to convert the match string to an actual number. The arity of the supplied function must match the value it is applied to.</p>
+
+<p>We can now define an interpreter for the following grammar for arithmetic expressions:</p>
+
+<div class="pre">
+<pre id="expr-expr-term-expr-term-term-term-term-factor-term-factor-factor-factor-expr-num-num-0-9">
+<code>  expr -&gt; expr "+" term
+        | expr "-" term
+        | term
+  term -&gt; term "*" factor
+        | term "/" factor
+        | factor
+factor -&gt; "(" expr ")"
+        | num
+   num -&gt; "[0-9]+"</code>
+</pre>
+</div>
+
+<p>Using anonymous functions for semantic actions, we can express the interpreter as follows:</p>
+
+<div class="pre">
+<pre class="language-scheme" id="define-parser-expr-alt-red-seq-expr-string-term-lambda-x-y-x-y-red-seq-expr-string-term-lambda-x-y-x-y-term-define-parser-term-alt-red-seq-term-string-factor-lambda-x-y-x-y-red-seq-term-string-factor-lambda-x-y-x-y-factor-define-parser-factor-alt-red-seq-string-expr-string-lambda-x-x-num-define-parser-num-red-regexp-0-9-string-number">
+<code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define</span>-parser expr
+  <span class="token punctuation">(</span><span class="token function">alt</span> <span class="token punctuation">(</span><span class="token function">red</span> <span class="token punctuation">(</span><span class="token function">seq</span> expr <span class="token punctuation">(</span><span class="token function">string</span> <span class="token string">"+"</span><span class="token punctuation">)</span> term<span class="token punctuation">)</span>
+            <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span><span class="token function">x</span> _ y<span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token operator">+</span> x y<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+       <span class="token punctuation">(</span><span class="token function">red</span> <span class="token punctuation">(</span><span class="token function">seq</span> expr <span class="token punctuation">(</span><span class="token function">string</span> <span class="token string">"-"</span><span class="token punctuation">)</span> term<span class="token punctuation">)</span>
+            <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span><span class="token function">x</span> _ y<span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token operator">-</span> x y<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+       term<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">(</span><span class="token keyword">define</span>-parser term
+  <span class="token punctuation">(</span><span class="token function">alt</span> <span class="token punctuation">(</span><span class="token function">red</span> <span class="token punctuation">(</span><span class="token function">seq</span> term <span class="token punctuation">(</span><span class="token function">string</span> <span class="token string">"*"</span><span class="token punctuation">)</span> factor<span class="token punctuation">)</span>
+            <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span><span class="token function">x</span> _ y<span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token operator">*</span> x y<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+       <span class="token punctuation">(</span><span class="token function">red</span> <span class="token punctuation">(</span><span class="token function">seq</span> term <span class="token punctuation">(</span><span class="token function">string</span> <span class="token string">"/"</span><span class="token punctuation">)</span> factor<span class="token punctuation">)</span>
+            <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span><span class="token function">x</span> _ y<span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token operator">/</span> x y<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+       factor<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">(</span><span class="token keyword">define</span>-parser factor
+  <span class="token punctuation">(</span><span class="token function">alt</span> <span class="token punctuation">(</span><span class="token function">red</span> <span class="token punctuation">(</span><span class="token function">seq</span> <span class="token punctuation">(</span><span class="token function">string</span> <span class="token string">"("</span><span class="token punctuation">)</span> expr <span class="token punctuation">(</span><span class="token function">string</span> <span class="token string">")"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span><span class="token function">_</span> x __<span class="token punctuation">)</span> x<span class="token punctuation">)</span><span class="token punctuation">)</span>
+       num<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">(</span><span class="token keyword">define</span>-parser num
+  <span class="token punctuation">(</span><span class="token function">red</span> <span class="token punctuation">(</span><span class="token function">regexp</span> <span class="token string">"[0-9]+"</span><span class="token punctuation">)</span>
+       string-&gt;number<span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>When we invoke the interpreter, the returned result contains the calculated value:</p>
+
+<div class="pre">
+<pre class="language-scheme" id="stream-list-expr-1234-list-success-14-stream-list-expr-9-52-list-success-2">
+<code class="language-scheme">&gt; <span class="token punctuation">(</span><span class="token function">stream-&gt;list</span> <span class="token punctuation">(</span><span class="token function">expr</span> <span class="token string">"1*2+3*4"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token builtin">list</span> <span class="token punctuation">(</span><span class="token function">success</span> <span class="token number">14</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+&gt; <span class="token punctuation">(</span><span class="token function">stream-&gt;list</span> <span class="token punctuation">(</span><span class="token function">expr</span> <span class="token string">"9-(5+2)"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token builtin">list</span> <span class="token punctuation">(</span><span class="token function">success</span> <span class="token number">2</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
+</pre>
+</div>
+
+<p>Since the grammar is unambiguous, each expression only has one value.</p>
+</div>
+</section>
+
+<section id="further-reading">
+<h2><a aria-hidden="true" class="header-anchor" href="#further-reading" title="Further reading"></a>Further reading<a aria-controls="further-reading-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#further-reading-section" role="button"></a><a aria-hidden="true" class="collapse-ellipsis" href="#"></a></h2>
+
+<div class="collapse in" id="further-reading-section">
+<p>This concludes the article. Several improvements are possible from here. For example, one could specify a monadic interface for composing parsers. Racket&#8217;s macro system could be used to define an even simpler <abbr class="acronym" title="Domain-Specific Language"><span class="caps">DSL</span></abbr>. Branches in the grammar could be parallelized by using a monitor for the trampoline. Finally, one can optimize the combinators by adorning the parsers with metadata for calculating the <span class="caps">FIRST</span> and <span class="caps">FOLLOW</span> sets (Spiewak).</p>
+
+<p>The code can be ported to an object-oriented language by creating a <span class="code"><code id="parser">Parser</code></span> interface and composing parser objects. Continuations can be implemented as functor objects if the language lacks first-order functions. The trampoline becomes another class. Some languages, like Ruby and Scala, offer facilities for creating a terse, <abbr class="acronym" title="Domain-Specific Language"><span class="caps">DSL</span></abbr>-like syntax.</p>
+
+<p>For more information, follow the references:</p>
+
+<ul class="collapse in">
+<li id="abelson96-sicp"><a aria-controls="abelson96-sicp-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#abelson96-sicp-section" role="button"></a><a href="https://mitpress.mit.edu/sicp/full-text/book/book.html" target="_blank" title="Open mitpress.mit.edu in a new window"><em>Structure and Interpretation of Computer Programs</em></a> (<abbr class="acronym" title="HyperText Markup Language"><span class="caps">HTML</span></abbr>), second edition, Harold Abelson and Gerald Jay Sussman, The Massachusetts Institute of Technology, 1996. The example grammar is from section 4.3.2, &#8220;<a href="http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-28.html#%25_sec_Temp_618" target="_blank" title="Open mitpress.mit.edu in a new window">Examples of Nondeterministic Programs: Parsing natural language</a>&#8221;, while the memoization wrapper is outlined in exercise 3.27 from section 3.3.3, &#8220;<a href="http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-22.html#%25_thm_3.27" target="_blank" title="Open mitpress.mit.edu in a new window">Representing Tables</a>&#8221;. Note that an updated and <a href="http://sarabander.github.io/sicp/" target="_blank" title="Open sarabander.github.io in a new window">unofficial <abbr class="acronym" title="HyperText Markup Language version 5"><span class="caps">HTML5</span></abbr> version</a> of the book offers a vastly improved reading experience on modern devices.<span class="collapse in" id="abelson96-sicp-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+
+<li id="johnson95-memoization"><a aria-controls="johnson95-memoization-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#johnson95-memoization-section" role="button"></a><span class="dquo">&#8220;</span><a href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.14.3000" target="_blank" title="Open citeseerx.ist.psu.edu in a new window">Memoization in Top-Down Parsing</a>&#8221; (<abbr class="acronym" title="Portable Document Format"><span class="caps">PDF</span></abbr>), Mark Johnson, Brown University, 1995. Published in <em>Computational Linguistics</em>, Volume 21, Number 3. Covers regular memoization, continuation-passing style, and memoization of continuation-passing style functions.<span class="collapse in" id="johnson95-memoization-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+
+<li id="spiewak10-generalized"><a aria-controls="spiewak10-generalized-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#spiewak10-generalized-section" role="button"></a>&#8220;<a href="http://www.cs.uwm.edu/~dspiewak/papers/generalized-parser-combinators.pdf" target="_blank" title="Open cs.uwm.edu in a new window">Generalized Parser Combinators</a>&#8221; (<abbr class="acronym" title="Portable Document Format"><span class="caps">PDF</span></abbr>), Daniel Spiewak, University of Wisconsin, 2010. Implemented as the <a href="https://github.com/djspiewak/gll-combinators" target="_blank" title="Open github.com in a new window">gll-combinators</a> Scala library, using continuation-passing style and trampolined dispatch. Offers an accessible introduction to the <abbr class="acronym" title="Generalized LL"><span class="caps">GLL</span></abbr> algorithm.<span class="collapse in" id="spiewak10-generalized-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+
+<li id="grune08-parsing"><a aria-controls="grune08-parsing-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#grune08-parsing-section" role="button"></a><a href="http://dickgrune.com/Books/PTAPG_2nd_Edition/" target="_blank" title="Open dickgrune.com in a new window"><em>Parsing Techniques: A Practical Guide</em></a>, second edition, Dick Grune and Ceriel <span class="caps">J. H.</span> Jacobs, Springer, 2008. Chapter 11 contains a richly illustrated description of generalized <abbr class="acronym" title="Left-to-right Left-most derivation"><span class="caps">LL</span></abbr> parsing.<span class="collapse in" id="grune08-parsing-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+
+<li id="johnstone09-gll"><a aria-controls="johnstone09-gll-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#johnstone09-gll-section" role="button"></a>&#8220;<a href="http://ldta.info/2009/ldta2009proceedings.pdf" target="_blank" title="Open ldta.info in a new window"><abbr class="acronym" title="Generalized LL"><span class="caps">GLL</span></abbr> Parsing</a>&#8221; (<abbr class="acronym" title="Portable Document Format"><span class="caps">PDF</span></abbr>), Adrian Johnstone and Elizabeth Scott, University of London, 2009. Published in <em>Proceedings of <abbr class="acronym" title="Language Descriptions, Tools and Applications"><span class="caps">LDTA</span></abbr></em>. Explains the <abbr class="acronym" title="Generalized LL"><span class="caps">GLL</span></abbr> algorithm in abstract terms.<span class="collapse in" id="johnstone09-gll-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+
+<li id="johnstone11-modelling"><a aria-controls="johnstone11-modelling-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#johnstone11-modelling-section" role="button"></a>&#8220;<a href="http://link.springer.com/chapter/10.1007%2F978-3-642-19440-5_4" target="_blank" title="Open link.springer.com in a new window">Modelling <abbr class="acronym" title="Generalized LL"><span class="caps">GLL</span></abbr> Parser Implementations</a>&#8221;, Adrian Johnstone and Elizabeth Scott, University of London, 2011. Lecture Notes in <em>Computer Science</em>, Volume 6563. Models an implementation of the <abbr class="acronym" title="Generalized LL"><span class="caps">GLL</span></abbr> algorithm in a theoretical language.<span class="collapse in" id="johnstone11-modelling-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+</ul>
+
+<p>Comments? Suggestions? Post them at the <a href="https://github.com/epsil/gll/issues" target="_blank" title="Open github.com in a new window">bug tracker</a>!</p>
+
+<figure><a class="image" href="LICENSE"><img alt="" src="shield.svg"></a>
+</figure>
+
+<p><i class="fa fa-github"></i> <a href="https://github.com/epsil" target="_blank" title="Open github.com in a new window">Vegard &#216;ye</a> | 2012</p>
+</div>
+</section>
+<!-- Abbreviations -->
+</section>
+</article>
+</body>
+</html>
