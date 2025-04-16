@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="no" prefix="og: http://ogp.me/ns#">
+<head>
+<title>Websikkerhet</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="no-referrer" name="referrer">
+<meta content="noindex" name="robots">
+<meta content="Sverre H. Huseby" name="author">
+<meta content="2001-06-12" name="date">
+<meta content="Publisert i Computerworld nr. 47, juni 2001" name="description">
+<meta content="fbb798cee642e151189a308f4a7eb25d" name="md5">
+<meta content="text/css" http-equiv="Content-Style-Type">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<meta content="Websikkerhet" name="DC.Title">
+<meta content="Sverre H. Huseby" name="DC.Creator">
+<meta content="2001-06-12" name="DC.Date">
+<meta content="Publisert i Computerworld nr. 47, juni 2001" name="DC.Description">
+<meta content="no" name="DC.Language">
+<meta content="text/html" name="DC.Format">
+<meta content="Websikkerhet" property="og:title">
+<meta content="Publisert i Computerworld nr. 47, juni 2001" property="og:description">
+<meta content="no" name="og:locale">
+<meta content="article" property="og:type">
+<meta content="http://www.computerworld.no/cwi.nsf/Alle/5D86305CE1B6BD4AC1256A7300275537" property="og:url">
+<meta content="Vegards blogg" property="og:site_name">
+<meta content="summary" name="twitter:card">
+<meta content="@github" name="twitter:site">
+<meta content="Websikkerhet" name="twitter:title">
+<meta content="Publisert i Computerworld nr. 47, juni 2001" name="twitter:description">
+<link href="../../favicon.ico" rel="icon" type="image/x-icon">
+<link href="../../apple-touch-icon.png" rel="apple-touch-icon">
+<link href="../../_assets/css/wiki.css" rel="stylesheet">
+<link href="index.md" rel="alternate" title="Markdown" type="text/markdown">
+<link href="../../_assets/css/medium.css" rel="stylesheet" type="text/css">
+<script src="../../_assets/js/wiki.js">
+</script>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+<div class="container-fluid topbar">
+<ul class="nav nav-pills navbar-left">
+<li role="presentation"><a href="../../" title="G&#229; hjem"><i class="fa fa-home"></i></a>
+</li>
+</ul>
+
+<ul class="nav nav-pills navbar-right">
+<li role="presentation"><a href="../clipboard/" target="_blank" title="Kopier til Markdown"><span class="clipboard-logo"></span></a>
+</li>
+
+<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/blob/master/tmp/websikkerhet/index.md" target="_blank" title="Vis p&#229; GitHub"><i class="fa fa-github"></i></a>
+</li>
+
+<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/edit/master/tmp/websikkerhet/index.md" target="_blank" title="Rediger p&#229; GitHub"><i class="fa fa-edit"></i></a>
+</li>
+
+<li role="presentation"><a href="https://github.com/epsil/epsil.github.io/raw/master/tmp/websikkerhet/index.md" target="_blank" title="Vis Markdown-kilde" type="text/plain"><span class="markdown-mark"></span></a>
+</li>
+
+<li role="presentation"><a data-toggle="collapse" href="#toc" id="toc-button" title="Innhold"><i class="fa fa-list"></i></a>
+</li>
+</ul>
+
+<form action="https://www.google.com/search" class="navbar-form" method="get" target="_blank">
+<div class="form-group" style="display: inline;">
+<div class="input-group" style="display: table;"><span class="input-group-addon" style="width: 1%;"><span class="glyphicon glyphicon-search"></span></span> <input accesskey="." autocomplete="off" class="form-control" name="q" title="S&#248;k" type="text"></div>
+</div>
+</form>
+</div>
+
+<div id="toc-placeholder">
+</div>
+</nav>
+
+<article class="h-entry" id="main">
+<header>
+<h1 class="p-name"><a class="u-uid u-url" href="http://www.computerworld.no/cwi.nsf/Alle/5D86305CE1B6BD4AC1256A7300275537" rel="bookmark" target="_blank" title="Permalink">Websikkerhet</a>
+</h1>
+
+<h2>Mer enn brannmur og kryptering</h2>
+
+<p class="author"><a class="p-author h-card mail" href="mailto:shh@thathost.com" title="E-mail shh@thathost.com">Sverre H. Huseby</a> &#8226; <time class="dt-published" datetime="2001-06-12">2001-06-12</time></p>
+
+<p class="p-summary">Publisert i <em>Computerworld</em> <abbr title="nummer">nr.</abbr> 47, juni 2001</p>
+</header>
+
+<section class="e-content indent sidenotes">
+<section>
+<p>Er du en av mange utviklere som tror at sikkerhet i en webl&#248;sning for det meste h&#229;ndteres av en god brannmur, gode driftsrutiner og kryptert kommunikasjon? Det som gjerne kalles infrastruktursikkerhet? I s&#229; fall er jeg redd du beg&#229;r en alvorlig feil.</p>
+
+<p>Kj&#230;re utviklerkollega, tenk over f&#248;lgende: En god brannmur stopper alle veier inn i datasystemet ditt <em>unntatt</em> veien gjennom l&#248;sningen du lager. Eksempel: Selv om brannmuren hindrer folk i &#229; f&#229; direkte tilgang til databaseserveren, hindrer den ikke programmet ditt i &#229; f&#229; tilgang. Selvsagt; hadde den gjort det, hadde jo ingenting virket. Problemet oppst&#229;r n&#229;r noen klarer &#229; lure programmet ditt til &#229; sende egenkomponerte <span class="caps">SQL</span>-uttrykk til databasen. &#171;Det er umulig,&#187; har jeg f&#229;tt h&#248;re av en del utviklere i det siste. N&#229;r jeg beviser det motsatte, er det en del som innser at det er noe de ikke vet.</p>
+
+<p><span class="caps">SQL</span> direkte til databasen er bare en av en lang rekke sikkerhetsfeil programmerere har lett for &#229; introdusere i skreddersydde webapplikasjoner. Felles for alle feilene jeg konsentrerer meg om er at tradisjonelle sikkerhetsfirma typisk overser dem med sine automatiske scannere. Noen velplasserte tester <em>kan</em> gi indikasjoner p&#229; at noe er galt, men man kan ikke v&#230;re sikker f&#248;r man har gjennomg&#229;tt kildekoden. Jeg velger &#229; kalle dette for applikasjonssikkerhet. Applikasjonssikkerheten er utviklernes ansvar, mens infrastruktursikkerheten ivaretas av drifterne. Vi snakker om to ganske forskjellige verdener.</p>
+
+<p>La oss n&#229; kose oss litt med disse &#171;umulige&#187; <span class="caps">SQL</span>-uttrykkene, siden de gjerne &#229;pner &#248;ynene til folk. Og munnene ogs&#229;, for den saks skyld; hakeslepp er ikke uvanlig. Spesielt blant folk som har laget en del webl&#248;sninger uten &#229; kjenne til problemene.</p>
+
+<p>Lureriet vi skal se p&#229; baserer seg p&#229; at utvikleren glemmer, eller oftere dropper &#229; validere input fra verden der ute. En enkel test kan gi indikasjoner p&#229; om webl&#248;sninger er mottakelig for den slags. Testen kaller jeg &#171;fnutt-testen&#187;. Det morsomme er at hvert tredje sted jeg tester har symptomene p&#229; en eller flere websider. Inkludert store aviser, offisielle statssider, nettbutikker av alle st&#248;rrelser, tjenestesidene til ulike nettleverand&#248;rer, og andre. Det som er enda morsommere, er at de f&#230;rreste bryr seg om &#229; svare p&#229; mine henvendelser, de lar like godt hullene forbli &#229;pne. Weben er et stort sikkerhetshull som ligger i dvale.</p>
+
+<p>Som f&#248;rste eksempel trekker jeg fram websidene til firmaet Svart Arbeid <abbr class="acronym" title="aksjeselskap"><span class="caps">AS</span></abbr> (for anledningen anonymisert), som tilbyr en handelsplass hvor medlemmer kan selge og kj&#248;pe tjenester av hverandre. Medlemmene deles inn i flere kategorier, avhengig av hva de kan. Hvis jeg klikker p&#229; linken for &#171;Fris&#248;rer&#187;, tas jeg til f&#248;lgende <abbr class="acronym" title="Uniform Resource Locator"><span class="caps">URL</span></abbr>:</p>
+
+<div class="pre">
+<pre id="http-svartarbeidno-kategoriaspid1">
+<code>http://svartarbeid.no/Kategori.asp?ID=1</code>
+</pre>
+</div>
+
+<p>Jeg f&#229;r opp en liste med 15 navn. La meg n&#229; se om denne webl&#248;sningen mangler vasking av inputdata, og dermed er mottakelig for det som kalles &#171;data driven attacks&#187;. Jeg dytter inn en fnutt til slutt i <abbr class="acronym" title="Uniform Resource Locator"><span class="caps">URL</span></abbr>-en, i h&#229;p om &#229; provosere fram en feilmelding:</p>
+
+<div class="pre">
+<pre id="http-svartarbeidno-kategoriaspid1-2">
+<code>http://svartarbeid.no/Kategori.asp?ID=1'</code>
+</pre>
+</div>
+
+<p>Aha! En trivelig liten melding fra <span class="caps">ODBC</span>-driveren inneholder blant annet f&#248;lgende verdifulle informasjon:</p>
+
+<div class="pre">
+<pre id="incorrect-syntax-near-select-id-title-from-tree-where-catid1">
+<code>Incorrect syntax near 'SELECT ID, Title FROM Tree WHERE CatID=1'.</code>
+</pre>
+</div>
+
+<p>Fint. N&#229; vet jeg at inputdata sendes rett til databasen, at det er en tabell som heter <span class="code"><code id="tree">Tree</code></span>, og et felt som heter <span class="code"><code id="catid">CatID</code></span>. Feilmeldingen ga oss uvanlig mye hjelp, vi fikk jo se hele <span class="caps">SQL</span>-uttrykket som ble fors&#248;kt kj&#248;rt i databasen. Vanligvis f&#229;r man ikke fullt s&#229; mye informasjon, og i noen tilfeller f&#229;r man ikke noen feilmelding i det hele tatt selv om feilen er til stede (typisk for applikasjoner med mer enn to lag).</p>
+
+<p>F&#248;r jeg g&#229;r videre, m&#229; jeg advare deg mot &#229; teste disse tingene p&#229; websteder du ikke har utviklet selv. Jeg n&#248;yer meg gjerne med &#229; kj&#248;re fnutt-testen og se om jeg f&#229;r en feilmelding fra underliggende database. Eksperimentering utover det kan lett oppfattes som fors&#248;k p&#229; innbrudd, noe som kan gi ubehagelige bivirkninger.</p>
+
+<p>Utviklerne av svartarbeid.no nekter &#229; godta at feilmeldingen indikerer at noe er galt. La oss trikse og mikse litt, og se om vi klarer &#229; lure databasen, i h&#229;p om at det vil overbevise dem om at de har et problem. Vi utvider uttrykket en smule:</p>
+
+<div class="pre">
+<pre id="http-svartarbeidno-kategoriaspid1orcatid3e1">
+<code>http://svartarbeid.no/Kategori.asp?ID=1+OR+CatID+%3E+1</code>
+</pre>
+</div>
+
+<p><span class="code"><code id="n3e">%3E</code></span> er koden for et st&#248;rre-enn-tegn (<span class="code"><code id="n-22">&gt;</code></span>), mens plussene koder mellomrom. Begge if&#248;lge reglene for <abbr class="acronym" title="Uniform Resource Locator"><span class="caps">URL</span></abbr>-koding, som b&#248;r v&#230;re kjent for enhver webutvikler.</p>
+
+<p>Det morsomme er at denne gangen f&#229;r jeg ut over 200 navn, hvorav langt de fleste ikke h&#248;rer hjemme i kategorien &#171;Fris&#248;rer&#187;. Tilsynelatende f&#229;r jeg ut alle medlemmene, og jeg er temmelig sikker p&#229; at jeg har klart &#229; lure databasen til &#229; kj&#248;re f&#248;lgende:</p>
+
+<div class="pre">
+<pre id="select-id-title-from-tree-where-catid1-or-catid-1-">
+<code>SELECT ID, Title FROM Tree WHERE CatID=1 OR CatID &gt; 1
+                                       --------------</code>
+</pre>
+</div>
+
+<p>Jeg kunne trolig ogs&#229; f&#229;tt databasen til &#229; kj&#248;re &#171;<span class="code"><code id="delete-from-tree">DELETE FROM Tree</code></span>&#187;, eller &#171;<span class="code"><code id="update-tree-set-titleet-eller-annet-upassende">UPDATE Tree SET Title='et-eller-annet-upassende'</code></span>&#187;, og det skulle ikke forundre meg om resultatet hadde v&#230;rt akkurat s&#229; kjedelig som vi frykter. Jeg fors&#248;kte ikke.</p>
+
+<hr>
+
+<p>Og s&#229; et annet eksempel. Jeg ba en gang p&#229; mine kn&#230;r om &#229; f&#229; se litt p&#229; en webl&#248;sning som snart skulle g&#229; i produksjon. Tusenvis av brukere med tilh&#248;rende passord, kontoinformasjon, og ikke minst: penger. Nettopp slikt media liker &#229; skrive om.</p>
+
+<p>&#171;Nei, vi har allerede hatt et sikkerhetsfirma til &#229; se p&#229; denne l&#248;sningen. Super Safe <abbr class="acronym" title="aksjeselskap"><span class="caps">AS</span></abbr>, et av landets eldste og st&#248;rste sikkerhetsfirma.&#187; Ja s&#229;, tenkte jeg. Et av disse firmaene som vet alt som er &#229; vite om brannmurer, kryptering og datavirus, men som ikke har filla peiling p&#229; programmering. Nu vel. Jeg tilb&#248;d meg &#229; bruke noen timer gratis, for s&#229; eventuelt &#229; f&#229; betalt for det jeg fant. Gr&#248;nt lys!</p>
+
+<p>Fant nok feil til at Dagbladet ville kunne boltre seg i flere dager hvis jeg hadde snakket med dem. Jeg gjorde ikke det.</p>
+
+<p>Jeg velger &#229; fortelle dere om det morsomste hullet (som for &#248;vrig finnes en rekke andre steder ogs&#229;): &#171;Hvordan logge seg inn uten &#229; kjenne et eneste passord.&#187; La meg f&#248;rst understreke: Programmererne i dette temmelig store konsulentfirmaet er ikke dumme. De fleste av dem er trolig godt over en gjennomsnitts webutvikler. Problemet er at sin lange utdannelse til tross, er det ingen som har fortalt dem hvilke farer som lurer. Hvordan enkelte leter etter feil med en iver som er ukjent for de fleste av oss. Vel, jeg prater meg bort. Til saken!</p>
+
+<p>Hvordan programmerer man logikken som sjekker at en bruker logger seg riktig inn p&#229; en tjeneste? Det er temmelig mange m&#229;ter &#229; gj&#248;re det p&#229;, hvorav de fleste er riv, ruskende gale. Selv om de tilsynelatende virker. Man starter gjerne innloggingen med &#229; hente inn brukernavn og passord fra et skjema p&#229; en webside. La oss v&#230;re kreative og si at brukernavnet havner i en variabel <span class="code"><code id="username">$username</code></span>, mens passordet havner i variabelen <span class="code"><code id="password">$password</code></span>. Mange velger da &#229; gj&#248;re f&#248;lgende <span class="caps">SQL</span>-sp&#248;rring mot brukerdatabasen:</p>
+
+<div class="pre">
+<pre id="select-from-user-where-username-username-and-password-password">
+<code>"SELECT * FROM User "
+. "WHERE Username='" . $username . "' "
+. "AND Password='" . $password . "'";</code>
+</pre>
+</div>
+
+<p>En dot (<span class="code"><code id="n-23">.</code></span>) angir her strengkonkatenering. Tanken er at denne sp&#248;rringen skal plukke ut brukeren med matchende brukernavn og passord, og at ingen brukere vil returneres hvis brukernavnet eller passordet er feil.</p>
+
+<p>Et f&#229;tall av leserne vil n&#229; humre litt. Kun et f&#229;tall, if&#248;lge min erfaring. Jeg vet om en mengde folk med alt fra selvl&#230;rt til doktorgrad i informatikk som ikke ville le av dette. Hva er problemet (hvis vi ser bort fra klartekstpassordene, som er fy-fy i seg selv)? Jo, la meg n&#229; starte med &#229; gjette p&#229; et brukernavn. Vi snakker om tusenvis av norske brukere. Sannsynligheten er stor for at noen velger &#229; kalle seg &#171;ole&#187;. Eller &#171;per&#187;. Eller &#171;sverre&#187;, for den saks skyld. Men vi holder oss til &#171;ole&#187;. P&#229; innloggingsbildet taster jeg:</p>
+
+<div class="pre">
+<pre id="brukernavn-ole-passord-foo">
+<code>Brukernavn:   ole' --
+Passord:      foo</code>
+</pre>
+</div>
+
+<p>Passordet er uvesentlig, jeg taster noe bare for &#229; komme meg forbi det dumme JavaScript&#8217;et som sjekker at jeg har tastet inn et passord. Et merkelig brukernavn, forresten. Sa jeg ikke &#171;ole&#187;? Vel, la oss se hva som skjer n&#229;r disse verdiene dyttes inn i <span class="caps">SQL</span>-uttrykket over:</p>
+
+<div class="pre">
+<pre id="select-from-user-where-usernameole-and-passwordfoo-">
+<code>SELECT * FROM User WHERE Username='ole' --' AND Password='foo'
+                                   -------</code>
+</pre>
+</div>
+
+<p>Den &#229;rv&#229;kne leser vil n&#229; umiddelbart se hva de merkelige tegnene etter &#171;ole&#187; skulle bety: F&#248;rst en fnutt som avslutter strengen f&#248;r den egentlig skulle avsluttes, og dermed &#229;pner for et par bindestreker som if&#248;lge <span class="caps">SQL92</span> kommenterer bort resten av linja. Vi har lurt innloggingsrutinen til &#229; droppe passordtesten. &#171;Velkommen, Ole Martin Pedersen.&#187; Wow! Suksess!</p>
+
+<p>Sett med en inntrengers &#248;yne er dette selvsagt flott, fantastisk og halleluja. Neste post p&#229; programmet er &#229; stjele penger, opptre p&#229; vegne av Ole Martin, eller ringe 1000-tipset i Dagbladet. Eller var det <span class="caps">VG</span>? Og glem for all del ikke at det tradisjonelle og velrenommerte sikkerhetsfirmaet &#171;Super Safe <abbr class="acronym" title="aksjeselskap"><span class="caps">AS</span></abbr>&#187; overs&#229; denne og liknende feil.</p>
+
+<hr>
+
+<p>Hvorfor i all verden lager vi s&#229;nne opplagte feil i programmene v&#229;re? Jeg velger &#229; skylde p&#229; utdannelsen v&#229;r. Enhver datautdannelse i Norge l&#230;rer oss &#229; lage programmer som gj&#248;r det snille mennesker vil at de skal gj&#248;re. Vi l&#230;rer &#229; lage programmer som l&#248;ser problemer. H&#229;ndtering av brukere som vil at programmet <em>ikke</em> skal gj&#248;re jobben sin, er alltid &#171;beyond the scope of&#187; ethvert kurs. Vel og bra den gangen datamaskiner sto i l&#229;ste rom og Internett var en v&#229;t dr&#248;m hos utvalgte science fiction-forfattere, men i v&#229;re dager duger det ikke.</p>
+
+<p>Jeg har skummet igjennom hyllemetervis med &#171;building E-commerce solutions&#187; p&#229; Akademika (Universitetsbokhandelen). En haug med b&#248;ker av ulik vanskelighetsgrad. Ingen av dem sier noe om sikkerhet. Noen av dem inneholder endog like grove feil som dem vi har sett over. Er det rart vi ikke vet bedre?</p>
+
+<hr>
+
+<p>Man kommer ikke s&#230;rlig langt hvis man tror at sikkerhet kun er et tema p&#229; nettverks- og webserverniv&#229;. Det hjelper lite &#229; engasjere et firma for &#229; sette opp brannmur og &#229; sjekke at alt er patchet til siste versjon s&#229; lenge man selv introduserer hull p&#229; st&#248;rrelse med Arizona-krateret p&#229; toppen av det hele.</p>
+
+<p>Dagens r&#229;d blir derfor omtrent som f&#248;lger:</p>
+
+<ul class="collapse in">
+<li id="la-sikkerhet-bli-en-del-av-hele-utviklingsprosessen-lager-man-applikasjoner-for-nettet-bor-sikkerhet-ha-samme-fokus-som-feks-brukervennlighet-og-eleganse-applikasjonen-din-er-tilgjengelig-for-hele-verden-sannsynligheten-er-trolig-stor-for-at-flertallet-vil-synes-det-er-kulere-a-odelegge-den-enn-a-se-den-gjore-jobben-sin-item"><a aria-controls="la-sikkerhet-bli-en-del-av-hele-utviklingsprosessen-lager-man-applikasjoner-for-nettet-bor-sikkerhet-ha-samme-fokus-som-feks-brukervennlighet-og-eleganse-applikasjonen-din-er-tilgjengelig-for-hele-verden-sannsynligheten-er-trolig-stor-for-at-flertallet-vil-synes-det-er-kulere-a-odelegge-den-enn-a-se-den-gjore-jobben-sin-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#la-sikkerhet-bli-en-del-av-hele-utviklingsprosessen-lager-man-applikasjoner-for-nettet-bor-sikkerhet-ha-samme-fokus-som-feks-brukervennlighet-og-eleganse-applikasjonen-din-er-tilgjengelig-for-hele-verden-sannsynligheten-er-trolig-stor-for-at-flertallet-vil-synes-det-er-kulere-a-odelegge-den-enn-a-se-den-gjore-jobben-sin-item-section" role="button"></a>La sikkerhet bli en del av hele utviklingsprosessen. Lager man applikasjoner for Nettet, b&#248;r sikkerhet ha samme fokus som <abbr title="for eksempel">f.eks.</abbr> brukervennlighet og eleganse. Applikasjonen din er tilgjengelig for hele verden: Sannsynligheten er trolig stor for at flertallet vil synes det er kulere &#229; &#248;delegge den enn &#229; se den gj&#248;re jobben sin.<span class="collapse in" id="la-sikkerhet-bli-en-del-av-hele-utviklingsprosessen-lager-man-applikasjoner-for-nettet-bor-sikkerhet-ha-samme-fokus-som-feks-brukervennlighet-og-eleganse-applikasjonen-din-er-tilgjengelig-for-hele-verden-sannsynligheten-er-trolig-stor-for-at-flertallet-vil-synes-det-er-kulere-a-odelegge-den-enn-a-se-den-gjore-jobben-sin-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+
+<li id="innse-at-du-og-dine-venner-lager-sikkerhetshull-uansett-hvor-intelligente-velutdannede-erfarne-suverene-eller-hva-det-na-matte-vaere-dere-er-jeg-gjor-det-selv-til-tross-for-at-jeg-jobber-med-applikasjonssikkerhet-til-daglig-item"><a aria-controls="innse-at-du-og-dine-venner-lager-sikkerhetshull-uansett-hvor-intelligente-velutdannede-erfarne-suverene-eller-hva-det-na-matte-vaere-dere-er-jeg-gjor-det-selv-til-tross-for-at-jeg-jobber-med-applikasjonssikkerhet-til-daglig-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#innse-at-du-og-dine-venner-lager-sikkerhetshull-uansett-hvor-intelligente-velutdannede-erfarne-suverene-eller-hva-det-na-matte-vaere-dere-er-jeg-gjor-det-selv-til-tross-for-at-jeg-jobber-med-applikasjonssikkerhet-til-daglig-item-section" role="button"></a>Innse at du og dine venner lager sikkerhetshull. Uansett hvor intelligente, velutdannede, erfarne, suverene eller hva det n&#229; m&#229;tte v&#230;re, dere er. Jeg gj&#248;r det selv, til tross for at jeg jobber med applikasjonssikkerhet til daglig.<span class="collapse in" id="innse-at-du-og-dine-venner-lager-sikkerhetshull-uansett-hvor-intelligente-velutdannede-erfarne-suverene-eller-hva-det-na-matte-vaere-dere-er-jeg-gjor-det-selv-til-tross-for-at-jeg-jobber-med-applikasjonssikkerhet-til-daglig-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+
+<li id="hjelp-hverandre-a-finne-hullene-for-andre-gjor-det-uten-at-det-skal-fa-dere-til-a-fole-dere-som-annenrangs-utviklere-har-dere-forst-innsett-at-alle-lager-hull-bor-dere-ikke-bli-veldig-flaue-om-kollegaen-oppdager-dem-for-dere-i-neste-runde-er-rollene-snudd-item"><a aria-controls="hjelp-hverandre-a-finne-hullene-for-andre-gjor-det-uten-at-det-skal-fa-dere-til-a-fole-dere-som-annenrangs-utviklere-har-dere-forst-innsett-at-alle-lager-hull-bor-dere-ikke-bli-veldig-flaue-om-kollegaen-oppdager-dem-for-dere-i-neste-runde-er-rollene-snudd-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#hjelp-hverandre-a-finne-hullene-for-andre-gjor-det-uten-at-det-skal-fa-dere-til-a-fole-dere-som-annenrangs-utviklere-har-dere-forst-innsett-at-alle-lager-hull-bor-dere-ikke-bli-veldig-flaue-om-kollegaen-oppdager-dem-for-dere-i-neste-runde-er-rollene-snudd-item-section" role="button"></a>Hjelp hverandre &#229; finne hullene f&#248;r andre gj&#248;r det, uten at det skal f&#229; dere til &#229; f&#248;le dere som annenrangs utviklere. Har dere f&#248;rst innsett at alle lager hull, b&#248;r dere ikke bli veldig flaue om kollegaen oppdager dem for dere. I neste runde er rollene snudd.<span class="collapse in" id="hjelp-hverandre-a-finne-hullene-for-andre-gjor-det-uten-at-det-skal-fa-dere-til-a-fole-dere-som-annenrangs-utviklere-har-dere-forst-innsett-at-alle-lager-hull-bor-dere-ikke-bli-veldig-flaue-om-kollegaen-oppdager-dem-for-dere-i-neste-runde-er-rollene-snudd-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+
+<li id="pek-ut-en-ansvarlig-for-sikkerhetskunnskapen-blant-dere-la-denne-ildsjelen-bruke-noen-timer-hver-uke-til-a-holde-seg-oppdatert-og-hor-pa-det-hun-har-a-fortelle-nar-hun-siler-ut-noe-som-er-relevant-for-resten-item"><a aria-controls="pek-ut-en-ansvarlig-for-sikkerhetskunnskapen-blant-dere-la-denne-ildsjelen-bruke-noen-timer-hver-uke-til-a-holde-seg-oppdatert-og-hor-pa-det-hun-har-a-fortelle-nar-hun-siler-ut-noe-som-er-relevant-for-resten-item-section" aria-expanded="true" aria-hidden="true" class="collapse-button" data-toggle="collapse" href="#pek-ut-en-ansvarlig-for-sikkerhetskunnskapen-blant-dere-la-denne-ildsjelen-bruke-noen-timer-hver-uke-til-a-holde-seg-oppdatert-og-hor-pa-det-hun-har-a-fortelle-nar-hun-siler-ut-noe-som-er-relevant-for-resten-item-section" role="button"></a>Pek ut en ansvarlig for sikkerhetskunnskapen blant dere. La denne ildsjelen bruke noen timer hver uke til &#229; holde seg oppdatert, og h&#248;r p&#229; det hun har &#229; fortelle n&#229;r hun siler ut noe som er relevant for resten.<span class="collapse in" id="pek-ut-en-ansvarlig-for-sikkerhetskunnskapen-blant-dere-la-denne-ildsjelen-bruke-noen-timer-hver-uke-til-a-holde-seg-oppdatert-og-hor-pa-det-hun-har-a-fortelle-nar-hun-siler-ut-noe-som-er-relevant-for-resten-item-section"></span> <a aria-hidden="true" class="collapse-ellipsis" href="#"></a></li>
+</ul>
+
+<p>La meg for ordens skyld f&#248;ye til at jeg ikke p&#229; noen m&#229;te sier at infrastruktursikkerhet er uviktig. Tvert imot, hvis ikke den er p&#229; plass, er det heller ingen vits i &#229; tenke p&#229; applikasjonssikkerhet.</p>
+
+<p>N&#229; h&#229;per jeg for all del ikke jeg har sagt s&#229; mye at jeg tar bort hele arbeidsgrunnlaget mitt &#8230; ;-)</p>
+</section>
+</section>
+</article>
+</body>
+</html>

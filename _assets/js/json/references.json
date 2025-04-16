@@ -172,7 +172,7 @@
     "title": "Closures i Lisp"
   },
   "CUBANSK SALSA": {
-    "href": "/salsa/",
+    "href": "/tmp/salsa/",
     "title": "Cubansk salsa"
   },
   "DELBR\u00d8KSOPPSPALTNING": {
@@ -232,7 +232,7 @@
     "title": "General Parser Combinators in Racket"
   },
   "GITAR": {
-    "href": "/gitar/",
+    "href": "/tmp/gitar/",
     "title": "Gitar"
   },
   "GLL": {
@@ -440,7 +440,7 @@
     "title": "Vegard \u00d8ye\u2019s Resume"
   },
   "ROCK STEP SWING": {
-    "href": "/swing/",
+    "href": "/tmp/swing/",
     "title": "Rock Step Swing"
   },
   "ROSELISP": {
@@ -452,7 +452,7 @@
     "title": "Running Bash scripts on Windows"
   },
   "SALSA": {
-    "href": "/salsa/",
+    "href": "/tmp/salsa/",
     "title": "Cubansk salsa"
   },
   "SELENIUM": {
@@ -492,7 +492,7 @@
     "title": "Starte Gollum med launchd"
   },
   "SWING": {
-    "href": "/swing/",
+    "href": "/tmp/swing/",
     "title": "Rock Step Swing"
   },
   "SYNKRONISERE IBOOKS OG IPAD": {
@@ -540,7 +540,7 @@
     "title": "Vegard \u00d8ye\u2019s Resume"
   },
   "VEGARDS JULE\u00d8NSKER 2017": {
-    "href": "/wishlist/",
+    "href": "/tmp/wishlist/",
     "title": "Vegards jule\u00f8nsker 2017"
   },
   "VIRTUELL ARM FOR FUNKSJONSHEMMEDE": {
@@ -560,7 +560,7 @@
     "title": "Why Functional Programming Matters: Haskell Translation"
   },
   "WISHLIST": {
-    "href": "/wishlist/",
+    "href": "/tmp/wishlist/",
     "title": "Vegards jule\u00f8nsker 2017"
   },
   "XML OG XHTML": {

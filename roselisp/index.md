@@ -56,3 +56,9 @@ For more on the MPL, see the [MPL 2.0 FAQ](https://www.mozilla.org/en-US/MPL/2.0
 ## Credits
 
 Roselisp is written by Vegard Øye.
+
+## External links
+
+-   [NPM package](https://www.npmjs.com/package/roselisp)
+-   [GitHub repository](https://github.com/epsil/roselisp)
+-   [Documentation](https://epsil.github.io/roselisp/doc/)
