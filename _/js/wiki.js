@@ -2531,8 +2531,8 @@ var URI = require('urijs');
 
 var page = {};
 
-page.jsPath = '/_assets/js/wiki.js';
-page.cssPath = '/_assets/css/wiki.css';
+page.jsPath = '/_/js/wiki.js';
+page.cssPath = '/_/css/wiki.css';
 
 page.root = function() {
   var href = window.location.href;
@@ -4880,7 +4880,7 @@ var document =
   '{{/if}}' +
   '{{/if}}' +
   '{{/if}}' +
-  '<link href="{{urlRelative path "/_assets/css/wiki.css"}}" rel="stylesheet">\n' +
+  '<link href="{{urlRelative path "/_/css/wiki.css"}}" rel="stylesheet">\n' +
   // '<link href="{{url}}" rel="canonical">\n' +
   '<link href="{{file}}" rel="alternate" title="Markdown" type="text/markdown">\n' +
   '{{#if css}}' +
@@ -4918,7 +4918,7 @@ var document =
   '</script>\n' +
   '<script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>\n' +
   '{{/if}}' +
-  '<script src="{{urlRelative path "/_assets/js/wiki.js"}}"></script>\n' +
+  '<script src="{{urlRelative path "/_/js/wiki.js"}}"></script>\n' +
   '</head>\n' +
   '<body>\n' +
   '{{{content}}}' +
@@ -4951,8 +4951,8 @@ var index =
   '<meta content="text/css" http-equiv="Content-Style-Type">\n' +
   '<meta content="width=device-width, initial-scale=1" name="viewport">\n' +
   '<link href="{{urlRelative path "/favicon.ico"}}" rel="icon" type="image/x-icon">\n' +
-  '<link href="{{urlRelative path "/_assets/css/wiki.css"}}" rel="stylesheet">\n' +
-  '<script src="{{urlRelative path "/_assets/js/wiki.js"}}"></script>\n' +
+  '<link href="{{urlRelative path "/_/css/wiki.css"}}" rel="stylesheet">\n' +
+  '<script src="{{urlRelative path "/_/js/wiki.js"}}"></script>\n' +
   '</head>\n' +
   '<body>\n' +
   '</body>\n' +

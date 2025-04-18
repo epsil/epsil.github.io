@@ -330,7 +330,7 @@ function fileNameWithoutDashes(file) {
 function writeReferences(files) {
   return new Promise(function(resolve, reject) {
     var refs = makeReferences(files);
-    fs.writeFile('_assets/js/json/references.json', refs, function(err) {
+    fs.writeFile('_/js/json/references.json', refs, function(err) {
       if (err) {
         reject(err);
       } else {

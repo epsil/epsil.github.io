@@ -1191,8 +1191,8 @@ var URI = require('urijs');
 
 var page = {};
 
-page.jsPath = '/_assets/js/wiki.js';
-page.cssPath = '/_assets/css/wiki.css';
+page.jsPath = '/_/js/wiki.js';
+page.cssPath = '/_/css/wiki.css';
 
 page.root = function() {
   var href = window.location.href;

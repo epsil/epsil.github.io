@@ -20,8 +20,8 @@ var index =
   '<meta content="text/css" http-equiv="Content-Style-Type">\n' +
   '<meta content="width=device-width, initial-scale=1" name="viewport">\n' +
   '<link href="{{urlRelative path "/favicon.ico"}}" rel="icon" type="image/x-icon">\n' +
-  '<link href="{{urlRelative path "/_assets/css/wiki.css"}}" rel="stylesheet">\n' +
-  '<script src="{{urlRelative path "/_assets/js/wiki.js"}}"></script>\n' +
+  '<link href="{{urlRelative path "/_/css/wiki.css"}}" rel="stylesheet">\n' +
+  '<script src="{{urlRelative path "/_/js/wiki.js"}}"></script>\n' +
   '</head>\n' +
   '<body>\n' +
   '</body>\n' +
