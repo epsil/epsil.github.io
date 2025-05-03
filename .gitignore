@@ -3,4 +3,5 @@
 *.bin
 *.log
 test.html
+package-lock.json
 node_modules
