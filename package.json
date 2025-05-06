@@ -13,6 +13,10 @@
     "sitegen": "node _/js/script/sitegen.js"
   },
   "dependencies": {
+    "fast-glob": "^3.3.3",
+    "gray-matter": "^4.0.3",
+    "markdown-it": "^14.1.0",
+    "minimist-options": "^4.1.0",
     "prettier": "^3.5.3"
   }
 }
