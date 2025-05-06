@@ -9,6 +9,7 @@
 
 const minimist = require('minimist');
 const buildOptions = require('minimist-options');
+const fg = require('fast-glob');
 
 /**
  * Command line options. Passed to
@@ -32,12 +33,20 @@ function main() {
   // If you set an option multiple times, it will indeed yield
   // an array of values. However, if you only set it once, it will
   // simply give the value as is, without wrapping it in an array.
-  if (typeof exclude !== 'array') {
+  if (!exclude) {
+    exclude = [];
+  } else if (typeof exclude === 'string') {
     exclude = [exclude];
   }
 
   console.log('flags: ', flags);
   console.log('exclude: ', exclude);
+
+  const entries = fg.sync(['**/*.md'], {
+    dot: false,
+    ignore: ['node_modules'],
+  });
+  console.log(entries);
 }
 
 main();
