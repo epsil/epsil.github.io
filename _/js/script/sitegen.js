@@ -25,6 +25,9 @@ const cliOptions = {
   },
 };
 
+/**
+ * `main` function.
+ */
 function main() {
   const flags = minimist(process.argv.slice(2), buildOptions(cliOptions));
   let exclude = flags['exclude'];
@@ -46,7 +49,9 @@ function main() {
     dot: false,
     ignore: ['node_modules'],
   });
+
   console.log(entries);
 }
 
+// Run `main` function.
 main();
