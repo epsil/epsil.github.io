@@ -7,12 +7,51 @@
  * and converts them to HTML.
  */
 
+const { matter } = require('gray-matter');
 const minimist = require('minimist');
 const buildOptions = require('minimist-options');
 const fg = require('fast-glob');
+const { readFileSync, writeFileSync } = require('fs');
+const MarkdownIt = require('markdown-it');
 
 // import {basename, dirname, extname, isAbsolute, join, relative} from 'path';
 const { basename, dirname, extname, join } = require('path');
+
+const md = new MarkdownIt({});
+
+/**
+ * Parse a Markdown string, returning an HTML string.
+ */
+function parseMarkdown(input) {
+  let result = '';
+  try {
+    result = md.render(input).trim();
+  } catch (err) {}
+  return result;
+}
+
+/**
+ * Parse a Markdown string, returning a page object.
+ */
+function parsePage(input) {
+  const grayMatterObject = matter(input);
+  const markdown = grayMatterObject.content.trim();
+  const html = parseMarkdown(markdown);
+  const result = {
+    content: { markdown: markdown, html: html },
+    metadata: { ...grayMatterObject.data, yaml: grayMatterObject.data },
+  };
+  return result;
+}
+
+/**
+ * *Very* simple HTML template (will need to do
+ * a whole lot more than this). Takes a page object
+ * and returns a string.
+ */
+function template(obj) {
+  return obj.content.html;
+}
 
 /**
  * Command line options. Passed to
@@ -65,6 +104,23 @@ function MDPathToHTMLPath_v3(path) {
   }
 }
 
+function MDPathToHTMLPath_v4(path) {
+  const dirpath = dirname(path);
+  const file = basename(path);
+  if (file === 'index.md') {
+    return join(dirpath, 'index.html');
+  } else {
+    const dir = basename(dirpath);
+    const ext = extname(path);
+    const stem = basename(file, ext);
+    if (dir === stem) {
+      return join(dirpath, 'index.html');
+    } else {
+      return join(dirpath, stem, 'index.html');
+    }
+  }
+}
+
 /**
  * `main` function.
  */
@@ -96,7 +152,13 @@ function main() {
     console.log(entry);
     // console.log(MDPathToHTMLPath(entry));
     // console.log(MDPathToHTMLPath_v2(entry));
-    console.log(MDPathToHTMLPath_v3(entry));
+    // console.log(MDPathToHTMLPath_v3(entry));
+    const mdPath = MDPathToHTMLPath_v4(entry);
+    console.log(mdPath);
+    // TODO: Create directory if necessary...
+    const markdown = readFileSync(entry, { encoding: 'utf8' });
+    // writeFileSync(mdPath, markdown, { encoding: 'utf8' });
+    console.log(markdown);
     console.log();
   }
 }
