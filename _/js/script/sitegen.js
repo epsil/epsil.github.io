@@ -41,7 +41,7 @@ function parsePage(input) {
     content: { markdown: markdown, html: html },
     metadata: { ...grayMatterObject.data, yaml: grayMatterObject.data },
   };
-  // TODO: Extract initial h1 element if there is 
+  // TODO: Extract initial h1 element if there is
   // no YAML title.
   return result;
 }
@@ -80,44 +80,11 @@ const cliOptions = {
   },
 };
 
+/**
+ * Convert Markdown path to HTML path---i.e., convert
+ * `path/to/markdown.md` to `path/to/hypertext.html`.
+ */
 function MDPathToHTMLPath(path) {
-  if (path === 'index.md') {
-    return 'index.html';
-  } else {
-    return path.replace(/\.md$/, '.html');
-  }
-}
-
-function MDPathToHTMLPath_v2(path) {
-  if (path === 'index.md') {
-    return 'index.html';
-  } else {
-    const dir = dirname(path);
-    const file = basename(path);
-    const ext = extname(path);
-    const stem = basename(file, ext);
-    return join(dir, stem, 'index.html');
-  }
-}
-
-function MDPathToHTMLPath_v3(path) {
-  if (path === 'index.md') {
-    return 'index.html';
-  } else {
-    const dirpath = dirname(path);
-    const dir = basename(dirpath);
-    const file = basename(path);
-    const ext = extname(path);
-    const stem = basename(file, ext);
-    if (dir === stem) {
-      return join(dirpath, 'index.html');
-    } else {
-      return join(dirpath, stem, 'index.html');
-    }
-  }
-}
-
-function MDPathToHTMLPath_v4(path) {
   const dirpath = dirname(path);
   const file = basename(path);
   if (file === 'index.md') {
@@ -163,10 +130,7 @@ function main() {
 
   for (entry of entries) {
     console.log(entry);
-    // console.log(MDPathToHTMLPath(entry));
-    // console.log(MDPathToHTMLPath_v2(entry));
-    // console.log(MDPathToHTMLPath_v3(entry));
-    const mdPath = MDPathToHTMLPath_v4(entry);
+    const mdPath = MDPathToHTMLPath(entry);
     console.log(mdPath);
     console.log();
 
