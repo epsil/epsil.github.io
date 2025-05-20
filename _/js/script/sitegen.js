@@ -7,7 +7,7 @@
  * and converts them to HTML.
  */
 
-const { matter } = require('gray-matter');
+const matter = require('gray-matter');
 const minimist = require('minimist');
 const buildOptions = require('minimist-options');
 const fg = require('fast-glob');
@@ -159,6 +159,13 @@ function main() {
     const markdown = readFileSync(entry, { encoding: 'utf8' });
     // writeFileSync(mdPath, markdown, { encoding: 'utf8' });
     console.log(markdown);
+    console.log();
+
+    const page = parsePage(markdown);
+    // console.log(page);
+
+    const html = page.content.html;
+    console.log(html);
     console.log();
   }
 }
