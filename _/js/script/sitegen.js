@@ -41,6 +41,8 @@ function parsePage(input) {
     content: { markdown: markdown, html: html },
     metadata: { ...grayMatterObject.data, yaml: grayMatterObject.data },
   };
+  // TODO: Extract initial h1 element if there is 
+  // no YAML title.
   return result;
 }
 
@@ -50,7 +52,18 @@ function parsePage(input) {
  * and returns a string.
  */
 function template(obj) {
-  return obj.content.html;
+  return `<!DOCTYPE html>
+<html>
+<head>
+<title>${obj.metadata.title || ''}</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="text/css" http-equiv="Content-Style-Type">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+</head>
+<body>
+${obj.content.html}
+</body>
+</html>`;
 }
 
 /**
@@ -155,6 +168,8 @@ function main() {
     // console.log(MDPathToHTMLPath_v3(entry));
     const mdPath = MDPathToHTMLPath_v4(entry);
     console.log(mdPath);
+    console.log();
+
     // TODO: Create directory if necessary...
     const markdown = readFileSync(entry, { encoding: 'utf8' });
     // writeFileSync(mdPath, markdown, { encoding: 'utf8' });
@@ -164,7 +179,7 @@ function main() {
     const page = parsePage(markdown);
     // console.log(page);
 
-    const html = page.content.html;
+    const html = template(page);
     console.log(html);
     console.log();
   }
