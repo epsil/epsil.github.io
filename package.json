@@ -17,6 +17,7 @@
     "gray-matter": "^4.0.3",
     "markdown-it": "^14.1.0",
     "minimist-options": "^4.1.0",
-    "prettier": "^3.5.3"
+    "prettier": "^3.5.3",
+    "tidy-html5": "^0.1.1"
   }
 }
