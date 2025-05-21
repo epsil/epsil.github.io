@@ -34,13 +34,17 @@ function parseMarkdown(input) {
 /**
  * Parse a Markdown string, returning a page object.
  */
-function parsePage(input) {
+function parsePage(input, path) {
   const grayMatterObject = matter(input);
   const markdown = grayMatterObject.content.trim();
   const html = parseMarkdown(markdown);
   const result = {
     content: { markdown: markdown, html: html },
-    metadata: { ...grayMatterObject.data, yaml: grayMatterObject.data },
+    metadata: {
+      ...grayMatterObject.data,
+      path: path,
+      yaml: grayMatterObject.data,
+    },
   };
   // TODO: Extract initial h1 element if there is
   // no YAML title.
@@ -121,7 +125,7 @@ function main() {
     console.log(markdown);
     console.log();
 
-    const page = parsePage(markdown);
+    const page = parsePage(markdown, entry);
     // console.log(page);
 
     const html = template(page);
