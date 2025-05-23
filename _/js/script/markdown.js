@@ -10,7 +10,38 @@
 const matter = require('gray-matter');
 const MarkdownIt = require('markdown-it');
 
-const md = new MarkdownIt({});
+// import MarkdownIt from 'markdown-it';
+const mathjax = require('markdown-it-mathjax');
+// const wikilinks = require('markdown-it-wikilinks');
+const footnote = require('markdown-it-footnote');
+const sub = require('markdown-it-sub');
+const sup = require('markdown-it-sup');
+const attrs = require('markdown-it-attrs');
+
+// const md = new MarkdownIt({});
+const md = new MarkdownIt({
+  html: true, // Enable HTML tags in source
+  breaks: true, // Convert '\n' in paragraphs into <br>
+  linkify: false, // Autoconvert URL-like text to links
+  // Enable some language-neutral replacement + quotes beautification
+  // For the full list of replacements, see
+  // <https://github.com/markdown-it/markdown-it/blob/master/lib/rules_core/replacements.js>
+  typographer: true,
+})
+  // .use(
+  //   wikilinks({
+  //     postProcessLabel: parseMarkdownInline,
+  //     postProcessPageName: (name: string): string =>
+  //       defaultPostProcessPageName(name),
+  //     relativeBaseURL: '',
+  //     uriSuffix: '',
+  //   })
+  // )
+  .use(footnote)
+  .use(sub)
+  .use(sup)
+  .use(mathjax())
+  .use(attrs);
 
 /**
  * Parse a Markdown string, returning an HTML string.
