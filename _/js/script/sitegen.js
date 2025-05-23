@@ -7,49 +7,13 @@
  * and converts them to HTML.
  */
 
-const matter = require('gray-matter');
-const minimist = require('minimist');
-const buildOptions = require('minimist-options');
 const fg = require('fast-glob');
 const { readFileSync, writeFileSync } = require('fs');
-const MarkdownIt = require('markdown-it');
-const { template } = require('./template');
-
-// import {basename, dirname, extname, isAbsolute, join, relative} from 'path';
+const minimist = require('minimist');
+const buildOptions = require('minimist-options');
 const { basename, dirname, extname, join } = require('path');
-
-const md = new MarkdownIt({});
-
-/**
- * Parse a Markdown string, returning an HTML string.
- */
-function parseMarkdown(input) {
-  let result = '';
-  try {
-    result = md.render(input).trim();
-  } catch (err) {}
-  return result;
-}
-
-/**
- * Parse a Markdown string, returning a page object.
- */
-function parsePage(input, path) {
-  const grayMatterObject = matter(input);
-  const markdown = grayMatterObject.content.trim();
-  const html = parseMarkdown(markdown);
-  const result = {
-    content: { markdown: markdown, html: html },
-    metadata: {
-      ...grayMatterObject.data,
-      path: path,
-      yaml: grayMatterObject.data,
-    },
-  };
-  // TODO: Extract initial h1 element if there is
-  // no YAML title.
-  return result;
-}
+const { parsePage } = require('./markdown');
+const { template } = require('./template');
 
 /**
  * Command line options. Passed to
