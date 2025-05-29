@@ -78,14 +78,15 @@ function main() {
   // console.log(entries);
 
   for (entry of entries) {
-    console.log(entry);
-    const mdPath = MDPathToHTMLPath(entry);
+    const mdPath = entry;
     console.log(mdPath);
+    const htmlPath = MDPathToHTMLPath(entry);
+    console.log(htmlPath);
     console.log();
 
     // TODO: Create directory if necessary...
     const markdown = readFileSync(entry, { encoding: 'utf8' });
-    // writeFileSync(mdPath, markdown, { encoding: 'utf8' });
+    // writeFileSync(htmlPath, markdown, { encoding: 'utf8' });
     console.log(markdown);
     console.log();
 
