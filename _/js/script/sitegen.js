@@ -67,33 +67,26 @@ function main() {
     exclude = [exclude];
   }
 
-  // console.log('flags: ', flags);
-  // console.log('exclude: ', exclude);
-
   const entries = fg.sync(['**/*.md'], {
     dot: false,
     ignore: ['node_modules'],
   });
 
-  // console.log(entries);
-
   for (entry of entries) {
     const mdPath = entry;
     console.log(mdPath);
     const htmlPath = MDPathToHTMLPath(entry);
+    const htmlDir = dirname(htmlPath);
     console.log(htmlPath);
     console.log();
 
-    // TODO: Create directory if necessary...
     const markdown = readFileSync(entry, { encoding: 'utf8' });
     console.log(markdown);
     console.log();
 
     const page = parsePage(markdown, entry);
-    // console.log(page);
 
     const html = template(page);
-    const htmlDir = dirname(htmlPath);
     mkdirSync(htmlDir, { recursive: true });
     writeFileSync(htmlPath, html, { encoding: 'utf8' });
     console.log(html);
