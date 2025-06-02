@@ -84,7 +84,7 @@ function main() {
     console.log(markdown);
     console.log();
 
-    const page = parsePage(markdown, entry);
+    const page = parsePage(markdown, mdPath, htmlPath);
 
     const html = template(page);
     mkdirSync(htmlDir, { recursive: true });

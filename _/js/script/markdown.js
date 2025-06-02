@@ -57,7 +57,7 @@ function parseMarkdown(input) {
 /**
  * Parse a Markdown string, returning a page object.
  */
-function parsePage(input, path) {
+function parsePage(input, mdPath, htmlPath) {
   const grayMatterObject = matter(input);
   const markdown = grayMatterObject.content.trim();
   const html = parseMarkdown(markdown);
@@ -65,7 +65,8 @@ function parsePage(input, path) {
     content: { markdown: markdown, html: html },
     metadata: {
       ...grayMatterObject.data,
-      path: path,
+      htmlPath: htmlPath,
+      mdPath: mdPath,
       yaml: grayMatterObject.data,
     },
   };
