@@ -8,7 +8,7 @@
  */
 
 const fg = require('fast-glob');
-const { readFileSync, writeFileSync } = require('fs');
+const { mkdirSync, readFileSync, writeFileSync } = require('fs');
 const minimist = require('minimist');
 const buildOptions = require('minimist-options');
 const { basename, dirname, extname, join } = require('path');
@@ -86,7 +86,6 @@ function main() {
 
     // TODO: Create directory if necessary...
     const markdown = readFileSync(entry, { encoding: 'utf8' });
-    // writeFileSync(htmlPath, markdown, { encoding: 'utf8' });
     console.log(markdown);
     console.log();
 
@@ -94,6 +93,9 @@ function main() {
     // console.log(page);
 
     const html = template(page);
+    const htmlDir = dirname(htmlPath);
+    mkdirSync(htmlDir, { recursive: true });
+    writeFileSync(htmlPath, html, { encoding: 'utf8' });
     console.log(html);
     console.log();
   }
