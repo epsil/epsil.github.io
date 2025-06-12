@@ -1,0 +1,107 @@
+body {
+    margin-bottom: 5em;
+}
+
+header {
+    /* padding-top: 2em; */
+    padding-bottom: 0.5em;
+}
+
+.h-entry li {
+    background-color: inherit;
+    padding: 0.5em 0 0.5em 0;
+    transition: all 0.3s;
+}
+
+.h-entry li:nth-child(2n) {
+    background-color: #f8f8f8;
+    transition: all 0.3s;
+}
+
+.h-entry li:before {
+    content: normal !important;
+}
+
+.h-entry ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.p-summary {
+    display: none;
+}
+
+#blogg h2:before,
+#arkiver h3:before,
+#arkiver h4:before,
+#kontakt h2:before,
+#linkedin:before,
+#github:before,
+#email:before {
+  color: rgba(0, 0, 0, 0.5);
+  font-family: FontAwesome;
+  font-style: normal;
+  font-size: 0.9em;
+  margin-right: 0.3em;
+}
+
+#blogg h2:before {
+  content: "\f09e"; /* fa-feed */
+}
+
+#arkiver h3:before {
+  content: "\f07c"; /* fa-folder-open */
+}
+
+#arkiver h4:before {
+  content: "\f133"; /* fa-calendar-o */
+}
+
+#kontakt h2:before {
+  content: "\f007"; /* fa-user */
+}
+
+#kontakt {
+    background-color: #ffffff;
+    bottom: 0;
+    box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.15);
+    font-size: 0.8em;
+    left: 0;
+    max-width: 100%;
+    padding: 0 20px 0 20px;
+    position: fixed;
+    text-align: right;
+    width: 100%;
+}
+
+#kontakt h2 {
+    float: left;
+    font-size: 1em;
+    margin-top: 10px;
+}
+
+#kontakt h2 a {
+    display: none;
+}
+
+#kontakt p {
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+#linkedin, #github {
+    margin-right: 1em;
+}
+
+#linkedin:before {
+    content: "\f08c"; /* fa-linkedin-square */
+}
+
+#github:before {
+    content: "\f09b"; /* fa-github */
+}
+
+#email:before {
+    content: "\f1fa"; /* fa-at */
+}

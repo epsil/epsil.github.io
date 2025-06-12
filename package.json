@@ -10,7 +10,7 @@
     "prettier": "npm run prettier-js && npm run prettier-json",
     "prettier-js": "prettier --single-quote --write \"_/js/**/*.js\"",
     "prettier-json": "prettier --single-quote --write \"*.json\"",
-    "sitegen": "node _/js/script/sitegen.js"
+    "sitegen": "node _/js/script/sitegen.js --exclude about --exclude articles"
   },
   "dependencies": {
     "fast-glob": "^3.3.3",
