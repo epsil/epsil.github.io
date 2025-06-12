@@ -55,26 +55,21 @@ function MDPathToHTMLPath(path) {
  */
 function main() {
   const flags = minimist(process.argv.slice(2), buildOptions(cliOptions));
-  let exclude = flags['exclude'];
-
-  // minimist does *not* explicitly support array type options.
-  // If you set an option multiple times, it will indeed yield
-  // an array of values. However, if you only set it once, it will
-  // simply give the value as is, without wrapping it in an array.
-  if (!exclude) {
-    exclude = [];
-  } else if (typeof exclude === 'string') {
-    exclude = [exclude];
-  }
+  let exclude = flags['exclude'] || [];
+  // Handle minimist quirk: a single value is not represented as an array.
+  exclude = Array.isArray(exclude) ? exclude : [exclude];
+  const ignore = ['node_modules', ...exclude];
 
   const entries = fg.sync(['**/*.md'], {
     dot: false,
-    ignore: ['node_modules'],
+    ignore: ignore,
   });
 
   for (entry of entries) {
     const mdPath = entry;
+    const mdDir = dirname(mdPath);
     console.log(mdPath);
+
     const htmlPath = MDPathToHTMLPath(entry);
     const htmlDir = dirname(htmlPath);
     console.log(htmlPath);
