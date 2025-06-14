@@ -2,6 +2,15 @@ const { basename, dirname, extname, join, relative } = require('path');
 
 const { tidy_html5 } = require('tidy-html5');
 
+/**
+ * Simplify `pre` elements.
+ */
+function fixPreElements(html) {
+  return html
+    .replace(/^<pre><code>/gm, '<pre>')
+    .replace(/\n<\/code><\/pre>/gm, '</pre>');
+}
+
 function formatHTML(html) {
   return tidy_html5(html, {
     'drop-empty-elements': false,
@@ -64,6 +73,7 @@ function template(page) {
 ${page.content.html}
 </body>
 </html>`;
+  result = fixPreElements(result);
   result = formatHTML(result);
   return result;
 }
