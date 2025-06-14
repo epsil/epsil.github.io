@@ -1,12 +1,3 @@
-/**
- * # Site generator
- *
- * Simple site generator implementation.
- *
- * Scans the current directory tree for `.md` files
- * and converts them to HTML.
- */
-
 const matter = require('gray-matter');
 const MarkdownIt = require('markdown-it');
 
