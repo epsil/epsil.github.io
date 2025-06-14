@@ -4,11 +4,11 @@ Roselisp is a Scheme-like Lisp implementation that compiles to JavaScript. Rosel
 
 Roselisp is named after the [*rose tree*](https://en.wikipedia.org/wiki/Rose_tree) data structure, which plays a core part in Roselisp's design.
 
-Roselisp is free software and is licensed under the MPL license. The MPL is a library license that permits Roselisp to be linked with both free code and proprietary code.
+Roselisp is free software and is licensed under the <small class="caps">MPL</small> license. The <small class="caps">MPL</small> is a library license that permits Roselisp to be linked with both free code and proprietary code.
 
 ## Usage
 
-Roselisp is most easily [installed](#installation) through NPM. Once Roselisp is installed, one can start an interactive session with:
+Roselisp is most easily [installed](#installation) through <small class="caps">NPM</small>. Once Roselisp is installed, one can start an interactive session with:
 
     roselisp
 
@@ -46,9 +46,9 @@ Roselisp aims to be a classical Scheme implementation, reusing established Lisp 
 
 ## License
 
-Roselisp is licensed under the Mozilla Public License 2.0 (MPL 2.0).
+Roselisp is licensed under the Mozilla Public License 2.0 (<small class="caps">MPL</small> 2.0).
 
-For more on the MPL, see the [MPL 2.0 FAQ](https://www.mozilla.org/en-US/MPL/2.0/FAQ/#copyleft-scope).
+For more on the <small class="caps">MPL</small>, see the [<small class="caps">MPL</small> 2.0 <small class="caps">FAQ</small>](https://www.mozilla.org/en-US/MPL/2.0/FAQ/#copyleft-scope).
 
 ## Credits
 
@@ -56,6 +56,6 @@ Roselisp is written by Vegard Øye.
 
 ## External links
 
--   [NPM package](https://www.npmjs.com/package/roselisp)
+-   [<small class="caps">NPM</small> package](https://www.npmjs.com/package/roselisp)
 -   [GitHub repository](https://github.com/epsil/roselisp)
 -   [Documentation](https://epsil.github.io/roselisp/doc/)
