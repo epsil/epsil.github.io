@@ -7,7 +7,8 @@
   "scripts": {
     "build": "npm run sitegen",
     "format": "npm run prettier",
-    "prettier": "npm run prettier-js && npm run prettier-json",
+    "prettier": "npm run prettier-css && npm run prettier-js && npm run prettier-json",
+    "prettier-css": "prettier --tab-width 4 --write \"_/{css,fonts}/**/*.css\"",
     "prettier-js": "prettier --single-quote --write \"_/js/**/*.js\"",
     "prettier-json": "prettier --single-quote --write \"*.json\"",
     "sitegen": "node _/js/script/sitegen.js --exclude about --exclude articles --exclude blog --exclude clipboard --exclude diftong --exclude donate --exclude fisheye --exclude gll --exclude p3a --exclude projects --exclude resume --exclude roselisp --exclude spotgen --exclude tmp --exclude tunge"
