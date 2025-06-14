@@ -2,10 +2,26 @@
 
 body {
     color: #444 !important;
-    font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "Myriad Web",
-        "Myriad Pro", "Myriad Std", Myriad, "Helvetica Neue", Helvetica, Arial,
-        "Arial Unicode", Avenir, "Avenir Next", "Gill Sans MT", "Gill Sans",
-        "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva,
+    font-family:
+        "Segoe UI",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Myriad Web",
+        "Myriad Pro",
+        "Myriad Std",
+        Myriad,
+        "Helvetica Neue",
+        Helvetica,
+        Arial,
+        "Arial Unicode",
+        Avenir,
+        "Avenir Next",
+        "Gill Sans MT",
+        "Gill Sans",
+        "Lucida Grande",
+        "Lucida Sans Unicode",
+        "Lucida Sans",
+        Geneva,
         sans-serif !important;
     font-size: 13px !important;
     font-variant: normal;
@@ -19,11 +35,28 @@ h4,
 h5,
 h6 {
     color: #0072c6;
-    font-family: "Segoe UI Light", "Segoe UI", -apple-system, BlinkMacSystemFont,
-        "Myriad Web", "Myriad Pro", "Myriad Std", Myriad, "Helvetica Neue",
-        Helvetica, Arial, "Arial Unicode", Avenir, "Avenir Next", "Gill Sans MT",
-        "Gill Sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans",
-        Geneva, sans-serif !important;
+    font-family:
+        "Segoe UI Light",
+        "Segoe UI",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Myriad Web",
+        "Myriad Pro",
+        "Myriad Std",
+        Myriad,
+        "Helvetica Neue",
+        Helvetica,
+        Arial,
+        "Arial Unicode",
+        Avenir,
+        "Avenir Next",
+        "Gill Sans MT",
+        "Gill Sans",
+        "Lucida Grande",
+        "Lucida Sans Unicode",
+        "Lucida Sans",
+        Geneva,
+        sans-serif !important;
 }
 
 a,

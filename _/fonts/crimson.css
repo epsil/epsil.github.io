@@ -3,7 +3,8 @@
 @font-face {
     font-family: "Crimson Text";
     src: url("crimson-roman-webfont.eot");
-    src: url("crimson-roman-webfont.eot?#iefix") format("embedded-opentype"),
+    src:
+        url("crimson-roman-webfont.eot?#iefix") format("embedded-opentype"),
         url("crimson-roman-webfont.woff2") format("woff2"),
         url("crimson-roman-webfont.woff") format("woff"),
         url("crimson-roman-webfont.ttf") format("truetype");
@@ -14,7 +15,8 @@
 @font-face {
     font-family: "Crimson Text";
     src: url("crimson-italic-webfont.eot");
-    src: url("crimson-italic-webfont.eot?#iefix") format("embedded-opentype"),
+    src:
+        url("crimson-italic-webfont.eot?#iefix") format("embedded-opentype"),
         url("crimson-italic-webfont.woff2") format("woff2"),
         url("crimson-italic-webfont.woff") format("woff"),
         url("crimson-italic-webfont.ttf") format("truetype");
@@ -25,7 +27,8 @@
 @font-face {
     font-family: "Crimson Text";
     src: url("crimson-semibold-webfont.eot");
-    src: url("crimson-semibold-webfont.eot?#iefix") format("embedded-opentype"),
+    src:
+        url("crimson-semibold-webfont.eot?#iefix") format("embedded-opentype"),
         url("crimson-semibold-webfont.woff2") format("woff2"),
         url("crimson-semibold-webfont.woff") format("woff"),
         url("crimson-semibold-webfont.ttf") format("truetype");
@@ -36,7 +39,8 @@
 @font-face {
     font-family: "Crimson Text";
     src: url("crimson-semibolditalic-webfont.eot");
-    src: url("crimson-semibolditalic-webfont.eot?#iefix")
+    src:
+        url("crimson-semibolditalic-webfont.eot?#iefix")
             format("embedded-opentype"),
         url("crimson-semibolditalic-webfont.woff2") format("woff2"),
         url("crimson-semibolditalic-webfont.woff") format("woff"),
@@ -48,7 +52,8 @@
 @font-face {
     font-family: "Crimson Text";
     src: url("crimson-bold-webfont.eot");
-    src: url("crimson-bold-webfont.eot?#iefix") format("embedded-opentype"),
+    src:
+        url("crimson-bold-webfont.eot?#iefix") format("embedded-opentype"),
         url("crimson-bold-webfont.woff2") format("woff2"),
         url("crimson-bold-webfont.woff") format("woff"),
         url("crimson-bold-webfont.ttf") format("truetype");
@@ -59,8 +64,8 @@
 @font-face {
     font-family: "Crimson Text";
     src: url("crimson-bolditalic-webfont.eot");
-    src: url("crimson-bolditalic-webfont.eot?#iefix")
-            format("embedded-opentype"),
+    src:
+        url("crimson-bolditalic-webfont.eot?#iefix") format("embedded-opentype"),
         url("crimson-bolditalic-webfont.woff2") format("woff2"),
         url("crimson-bolditalic-webfont.woff") format("woff"),
         url("crimson-bolditalic-webfont.ttf") format("truetype");

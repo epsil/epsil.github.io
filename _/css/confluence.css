@@ -1,9 +1,29 @@
 body {
-    font-family: "Segoe UI", "Myriad Web", "Myriad Pro", "Myriad Std", Myriad,
-        -apple-system, BlinkMacSystemFont, Seravek, "League Spartan",
-        "Noto Sans", "PT Sans", "Droid Sans", "Open Sans", Arial, Lato, Avenir,
-        "Avenir Next", "Gill Sans MT", "Gill Sans", "Lucida Grande",
-        "Lucida Sans Unicode", "Lucida Sans", Geneva, sans-serif !important;
+    font-family:
+        "Segoe UI",
+        "Myriad Web",
+        "Myriad Pro",
+        "Myriad Std",
+        Myriad,
+        -apple-system,
+        BlinkMacSystemFont,
+        Seravek,
+        "League Spartan",
+        "Noto Sans",
+        "PT Sans",
+        "Droid Sans",
+        "Open Sans",
+        Arial,
+        Lato,
+        Avenir,
+        "Avenir Next",
+        "Gill Sans MT",
+        "Gill Sans",
+        "Lucida Grande",
+        "Lucida Sans Unicode",
+        "Lucida Sans",
+        Geneva,
+        sans-serif !important;
     font-size: 88% !important;
     font-variant-numeric: normal;
     line-height: 1.5;

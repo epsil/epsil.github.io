@@ -3,7 +3,8 @@
 @import url("../fonts/ubuntu.css");
 
 body {
-    font-family: "Crimson Text", Crimson, "Minion Pro", Minion, serif !important;
+    font-family:
+        "Crimson Text", Crimson, "Minion Pro", Minion, serif !important;
     font-size: 150% !important;
     line-height: 1.3;
 }
@@ -13,9 +14,10 @@ kbd,
 samp,
 tt,
 pre {
-    font-family: "Ubuntu Mono", "Consolas Web", Consolas, Inconsolata,
-        "Noto Mono", "Liberation Mono", "DejaVu Sans Mono", "Andale Mono", Menlo,
-        Monaco, Courier, monospace !important;
+    font-family:
+        "Ubuntu Mono", "Consolas Web", Consolas, Inconsolata, "Noto Mono",
+        "Liberation Mono", "DejaVu Sans Mono", "Andale Mono", Menlo, Monaco,
+        Courier, monospace !important;
     font-size: 0.75em !important;
 }
 
@@ -31,11 +33,31 @@ input,
 kbd,
 textarea,
 .modal {
-    font-family: "Myriad Web", "Myriad Pro", "Myriad Std", Myriad, -apple-system,
-        BlinkMacSystemFont, "Segoe UI", "Noto Sans", "PT Sans", "Droid Sans",
-        "Open Sans", Arial, Helvetica, Lato, Avenir, "Avenir Next", Futura,
-        "Gill Sans MT", "Gill Sans", "Lucida Grande", "Lucida Sans Unicode",
-        "Lucida Sans", Geneva, sans-serif !important;
+    font-family:
+        "Myriad Web",
+        "Myriad Pro",
+        "Myriad Std",
+        Myriad,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "Noto Sans",
+        "PT Sans",
+        "Droid Sans",
+        "Open Sans",
+        Arial,
+        Helvetica,
+        Lato,
+        Avenir,
+        "Avenir Next",
+        Futura,
+        "Gill Sans MT",
+        "Gill Sans",
+        "Lucida Grande",
+        "Lucida Sans Unicode",
+        "Lucida Sans",
+        Geneva,
+        sans-serif !important;
 }
 
 @media (max-width: 767px) {

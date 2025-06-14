@@ -3,7 +3,8 @@
     font-weight: 200;
     font-style: normal;
     font-stretch: normal;
-    src: url("SourceSansPro-ExtraLight.eot") format("embedded-opentype"),
+    src:
+        url("SourceSansPro-ExtraLight.eot") format("embedded-opentype"),
         url("SourceSansPro-ExtraLight.ttf.woff2") format("woff2"),
         url("SourceSansPro-ExtraLight.otf.woff") format("woff"),
         url("SourceSansPro-ExtraLight.otf") format("opentype"),
@@ -15,7 +16,8 @@
     font-weight: 200;
     font-style: italic;
     font-stretch: normal;
-    src: url("SourceSansPro-ExtraLightIt.eot") format("embedded-opentype"),
+    src:
+        url("SourceSansPro-ExtraLightIt.eot") format("embedded-opentype"),
         url("SourceSansPro-ExtraLightIt.ttf.woff2") format("woff2"),
         url("SourceSansPro-ExtraLightIt.otf.woff") format("woff"),
         url("SourceSansPro-ExtraLightIt.otf") format("opentype"),
@@ -27,7 +29,8 @@
     font-weight: 300;
     font-style: normal;
     font-stretch: normal;
-    src: url("SourceSansPro-Light.eot") format("embedded-opentype"),
+    src:
+        url("SourceSansPro-Light.eot") format("embedded-opentype"),
         url("SourceSansPro-Light.ttf.woff2") format("woff2"),
         url("SourceSansPro-Light.otf.woff") format("woff"),
         url("SourceSansPro-Light.otf") format("opentype"),
@@ -39,7 +42,8 @@
     font-weight: 300;
     font-style: italic;
     font-stretch: normal;
-    src: url("SourceSansPro-LightIt.eot") format("embedded-opentype"),
+    src:
+        url("SourceSansPro-LightIt.eot") format("embedded-opentype"),
         url("SourceSansPro-LightIt.ttf.woff2") format("woff2"),
         url("SourceSansPro-LightIt.otf.woff") format("woff"),
         url("SourceSansPro-LightIt.otf") format("opentype"),
@@ -51,7 +55,8 @@
     font-weight: 400;
     font-style: normal;
     font-stretch: normal;
-    src: url("SourceSansPro-Regular.eot") format("embedded-opentype"),
+    src:
+        url("SourceSansPro-Regular.eot") format("embedded-opentype"),
         url("SourceSansPro-Regular.ttf.woff2") format("woff2"),
         url("SourceSansPro-Regular.otf.woff") format("woff"),
         url("SourceSansPro-Regular.otf") format("opentype"),
@@ -63,7 +68,8 @@
     font-weight: 400;
     font-style: italic;
     font-stretch: normal;
-    src: url("SourceSansPro-It.eot") format("embedded-opentype"),
+    src:
+        url("SourceSansPro-It.eot") format("embedded-opentype"),
         url("SourceSansPro-It.ttf.woff2") format("woff2"),
         url("SourceSansPro-It.otf.woff") format("woff"),
         url("SourceSansPro-It.otf") format("opentype"),
@@ -75,7 +81,8 @@
     font-weight: 600;
     font-style: normal;
     font-stretch: normal;
-    src: url("SourceSansPro-Semibold.eot") format("embedded-opentype"),
+    src:
+        url("SourceSansPro-Semibold.eot") format("embedded-opentype"),
         url("SourceSansPro-Semibold.ttf.woff2") format("woff2"),
         url("SourceSansPro-Semibold.otf.woff") format("woff"),
         url("SourceSansPro-Semibold.otf") format("opentype"),
@@ -87,7 +94,8 @@
     font-weight: 600;
     font-style: italic;
     font-stretch: normal;
-    src: url("SourceSansPro-SemiboldIt.eot") format("embedded-opentype"),
+    src:
+        url("SourceSansPro-SemiboldIt.eot") format("embedded-opentype"),
         url("SourceSansPro-SemiboldIt.ttf.woff2") format("woff2"),
         url("SourceSansPro-SemiboldIt.otf.woff") format("woff"),
         url("SourceSansPro-SemiboldIt.otf") format("opentype"),
@@ -99,7 +107,8 @@
     font-weight: 700;
     font-style: normal;
     font-stretch: normal;
-    src: url("SourceSansPro-Bold.eot") format("embedded-opentype"),
+    src:
+        url("SourceSansPro-Bold.eot") format("embedded-opentype"),
         url("SourceSansPro-Bold.ttf.woff2") format("woff2"),
         url("SourceSansPro-Bold.otf.woff") format("woff"),
         url("SourceSansPro-Bold.otf") format("opentype"),
@@ -111,7 +120,8 @@
     font-weight: 700;
     font-style: italic;
     font-stretch: normal;
-    src: url("SourceSansPro-BoldIt.eot") format("embedded-opentype"),
+    src:
+        url("SourceSansPro-BoldIt.eot") format("embedded-opentype"),
         url("SourceSansPro-BoldIt.ttf.woff2") format("woff2"),
         url("SourceSansPro-BoldIt.otf.woff") format("woff"),
         url("SourceSansPro-BoldIt.otf") format("opentype"),
@@ -123,7 +133,8 @@
     font-weight: 900;
     font-style: normal;
     font-stretch: normal;
-    src: url("SourceSansPro-Black.eot") format("embedded-opentype"),
+    src:
+        url("SourceSansPro-Black.eot") format("embedded-opentype"),
         url("SourceSansPro-Black.ttf.woff2") format("woff2"),
         url("SourceSansPro-Black.otf.woff") format("woff"),
         url("SourceSansPro-Black.otf") format("opentype"),
@@ -135,7 +146,8 @@
     font-weight: 900;
     font-style: italic;
     font-stretch: normal;
-    src: url("SourceSansPro-BlackIt.eot") format("embedded-opentype"),
+    src:
+        url("SourceSansPro-BlackIt.eot") format("embedded-opentype"),
         url("SourceSansPro-BlackIt.ttf.woff2") format("woff2"),
         url("SourceSansPro-BlackIt.otf.woff") format("woff"),
         url("SourceSansPro-BlackIt.otf") format("opentype"),

@@ -1,8 +1,9 @@
 body {
-    font-family: Cambria, Baskerville, "Baskerville Old Face", "Crimson Text",
-        Crimson, "Iowan Old Style", Iowan, "Iowan Web", Georgia, Charter,
-        "Hoefler Text", "Calisto MT", Andalus, Centaur, Constantia, Utopia,
-        Marion, Cochin, "Palatino Linotype", Palatino, Baskerville, serif !important;
+    font-family:
+        Cambria, Baskerville, "Baskerville Old Face", "Crimson Text", Crimson,
+        "Iowan Old Style", Iowan, "Iowan Web", Georgia, Charter, "Hoefler Text",
+        "Calisto MT", Andalus, Centaur, Constantia, Utopia, Marion, Cochin,
+        "Palatino Linotype", Palatino, Baskerville, serif !important;
     font-size: 120% !important;
     line-height: 1.3;
 }

@@ -5,12 +5,13 @@ body {
     /* margin-left: auto; */
     /* margin-right: auto; */
     /* padding-left: 12.5%; */
-    font-family: "Minion Web", "Minion Pro", "Minion Std", Minion,
-        "Crimson Text", "ETBembo", "ETBembo LF", "STIX Two Web", "STIX Two Text",
-        Charter, "PT Serif", Georgia, "Iowan Old Style", Iowan, "Iowan Web",
+    font-family:
+        "Minion Web", "Minion Pro", "Minion Std", Minion, "Crimson Text",
+        "ETBembo", "ETBembo LF", "STIX Two Web", "STIX Two Text", Charter,
+        "PT Serif", Georgia, "Iowan Old Style", Iowan, "Iowan Web",
         "Hoefler Text", "Libre Baskerville", Baskerville, Cambria, Constantia,
-        Utopia, Marion, Cochin, Palatino, "Palatino Linotype", "Palatino LT STD",
-        "Book Antiqua", Georgia, serif;
+        Utopia, Marion, Cochin, Palatino, "Palatino Linotype",
+        "Palatino LT STD", "Book Antiqua", Georgia, serif;
     /* max-width: 1400px; */
 }
 

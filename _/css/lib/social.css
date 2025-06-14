@@ -27,7 +27,8 @@
     content: "\f095"; /* fa-phone */
 }
 
-.e-content a[href*="://localhost"]:before {
+.e-content a[href*="://localhost"]:before
+{
     content: "\f109"; /* fa-laptop */
 }
 
@@ -35,7 +36,8 @@
 .e-content a[href*="?C=M"]:before,
 .e-content a[href*="?C=S"]:before,
 .e-content a[href*="?C=D"]:before,
-.e-content a[href^="file://"]:before {
+.e-content a[href^="file://"]:before
+{
     content: "\f114"; /* fa-folder-o */
 }
 

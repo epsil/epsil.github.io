@@ -10,7 +10,8 @@ a:hover {
 }
 
 body {
-    font-family: "Latin Modern", "Latin Modern Roman", "LM Roman",
+    font-family:
+        "Latin Modern", "Latin Modern Roman", "LM Roman",
         "Latin Modern Roman 12", "LM Roman 12", "Computer Modern", "CMU Serif",
         Merriweather, "Charis SIL", Lora, "Crimson Text", Crimson, "PT Serif",
         "Iowan Old Style", Iowan, "Iowan Web", Georgia, Constantia, Cambria,
@@ -32,10 +33,11 @@ kbd,
 samp,
 tt,
 pre {
-    font-family: "Latin Modern Mono", "LM Mono", "Latin Modern Mono 12",
-        "LM Mono 12", "CMU Typewriter Text", "Compter Modern Mono",
-        "Concrete Roman", "Consolas Web", Consolas, Menlo, Monaco,
-        "Liberation Mono", Courier, monospace !important;
+    font-family:
+        "Latin Modern Mono", "LM Mono", "Latin Modern Mono 12", "LM Mono 12",
+        "CMU Typewriter Text", "Compter Modern Mono", "Concrete Roman",
+        "Consolas Web", Consolas, Menlo, Monaco, "Liberation Mono", Courier,
+        monospace !important;
     font-size: 0.85em !important;
 }
 

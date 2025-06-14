@@ -1,12 +1,13 @@
 @import url("https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700");
 
 body {
-    font-family: "Libre Baskerville", Baskerville, "Baskerville Old Face",
+    font-family:
+        "Libre Baskerville", Baskerville, "Baskerville Old Face",
         "Adobe Garamond Pro", "Garamond Premier Pro", "ITC Garamond Std",
-        Garamond, "Crimson Text", Crimson, "Iowan Old Style", Iowan, "Iowan Web",
-        Georgia, Charter, "Hoefler Text", "Calisto MT", Constantia, Andalus,
-        Centaur, Cambria, Utopia, Marion, Cochin, "Palatino Linotype", Palatino,
-        serif !important;
+        Garamond, "Crimson Text", Crimson, "Iowan Old Style", Iowan,
+        "Iowan Web", Georgia, Charter, "Hoefler Text", "Calisto MT", Constantia,
+        Andalus, Centaur, Cambria, Utopia, Marion, Cochin, "Palatino Linotype",
+        Palatino, serif !important;
     font-size: 105% !important;
     line-height: 1.6;
 }

@@ -25,11 +25,12 @@ blockquote em {
 
 body {
     color: #222 !important;
-    font-family: "ITC Charter", Charter, "Bitstream Charter", "Minion Web",
-        "Minion Pro", "Minion Std", Minion, "Charis SIL", "PT Serif",
-        "STIX Two Web", "STIX Two Text", Georgia, "Iowan Old Style", Iowan,
-        "Iowan Web", "Crimson Text", "Hoefler Text", Cambria, Constantia, Utopia,
-        Marion, Cochin, "Palatino Linotype", Palatino, Baskerville, serif !important;
+    font-family:
+        "ITC Charter", Charter, "Bitstream Charter", "Minion Web", "Minion Pro",
+        "Minion Std", Minion, "Charis SIL", "PT Serif", "STIX Two Web",
+        "STIX Two Text", Georgia, "Iowan Old Style", Iowan, "Iowan Web",
+        "Crimson Text", "Hoefler Text", Cambria, Constantia, Utopia, Marion,
+        Cochin, "Palatino Linotype", Palatino, Baskerville, serif !important;
     font-size: 131% !important;
     line-height: 1.5;
 }
@@ -42,9 +43,21 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
-        Avenir, "Avenir Next", "Gill Sans MT", "Gill Sans", "Lucida Grande",
-        "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif !important;
+    font-family:
+        "IBM Plex Sans",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Avenir,
+        "Avenir Next",
+        "Gill Sans MT",
+        "Gill Sans",
+        "Lucida Grande",
+        "Lucida Sans Unicode",
+        "Lucida Sans",
+        Geneva,
+        Arial,
+        sans-serif !important;
 }
 
 header,
@@ -117,7 +130,8 @@ article ul {
     /* margin-top: 1em; */
 }
 
-.author, .p-summary {
+.author,
+.p-summary {
     font-size: 0.9em;
 }
 

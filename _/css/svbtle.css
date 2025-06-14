@@ -9,10 +9,24 @@ abbr.acronym,
 
 body {
     color: #4d4d4d !important;
-    font-family: "Helvetica Neue", Helvetica, Arial, "Arial Unicode",
-        "Arial Unicode MS", "Segoe UI", Avenir, "Avenir Next", -apple-system,
-        BlinkMacSystemFont, "IBM Plex Sans", "Gill Sans MT", "Gill Sans",
-        "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva,
+    font-family:
+        "Helvetica Neue",
+        Helvetica,
+        Arial,
+        "Arial Unicode",
+        "Arial Unicode MS",
+        "Segoe UI",
+        Avenir,
+        "Avenir Next",
+        -apple-system,
+        BlinkMacSystemFont,
+        "IBM Plex Sans",
+        "Gill Sans MT",
+        "Gill Sans",
+        "Lucida Grande",
+        "Lucida Sans Unicode",
+        "Lucida Sans",
+        Geneva,
         sans-serif !important;
     font-size: 113% !important;
     line-height: 1.4;

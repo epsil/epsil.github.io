@@ -2,11 +2,12 @@
 @import url("../fonts/ubuntu.css");
 
 body {
-    font-family: "STIX Two Web", "STIX Two Text", Times, "Times Roman",
-        "Times New Roman", "Lora Web", Lora, "Crimson Text", Crimson, "PT Serif",
-        "Iowan Old Style", Iowan, "Iowan Web", Georgia, Constantia, Cambria,
-        Charter, "Hoefler Text", Utopia, Marion, Cochin, "Palatino Linotype",
-        Palatino, Baskerville, serif !important;
+    font-family:
+        "STIX Two Web", "STIX Two Text", Times, "Times Roman",
+        "Times New Roman", "Lora Web", Lora, "Crimson Text", Crimson,
+        "PT Serif", "Iowan Old Style", Iowan, "Iowan Web", Georgia, Constantia,
+        Cambria, Charter, "Hoefler Text", Utopia, Marion, Cochin,
+        "Palatino Linotype", Palatino, Baskerville, serif !important;
     font-size: 132% !important;
     font-variant: common-ligatures oldstyle-nums;
     line-height: 1.55;
@@ -24,9 +25,10 @@ input,
 kbd,
 textarea,
 .modal {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Avenir,
-        "Avenir Next", "Gill Sans MT", "Gill Sans", "Lucida Grande",
-        "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif !important;
+    font-family:
+        -apple-system, BlinkMacSystemFont, "Segoe UI", Avenir, "Avenir Next",
+        "Gill Sans MT", "Gill Sans", "Lucida Grande", "Lucida Sans Unicode",
+        "Lucida Sans", Geneva, Arial, sans-serif !important;
 }
 
 code,
@@ -34,9 +36,10 @@ kbd,
 samp,
 tt,
 pre {
-    font-family: "Ubuntu Mono", "Consolas Web", Consolas, Inconsolata,
-        "Noto Mono", "Liberation Mono", "DejaVu Sans Mono", "Andale Mono", Menlo,
-        Monaco, "Fira Mono", Courier, monospace !important;
+    font-family:
+        "Ubuntu Mono", "Consolas Web", Consolas, Inconsolata, "Noto Mono",
+        "Liberation Mono", "DejaVu Sans Mono", "Andale Mono", Menlo, Monaco,
+        "Fira Mono", Courier, monospace !important;
     font-size: 0.85em !important;
 }
 
