@@ -1,0 +1,44 @@
+const { tidy_html5 } = require('tidy-html5');
+
+function formatHTML(html) {
+  return tidy_html5(html, {
+    'drop-empty-elements': false,
+    indent: false, // true
+    'indent-attributes': false,
+    'input-encoding': 'utf8',
+    'numeric-entities': true,
+    'new-inline-tags':
+      'math ' +
+      'annotation ' +
+      'merror ' +
+      'mfrac ' +
+      'mi ' +
+      'mn ' +
+      'mo ' +
+      'mover ' +
+      'mphantom ' +
+      'mrow ' +
+      'mspace ' +
+      'msqrt ' +
+      'mstyle ' +
+      'msub ' +
+      'msubsup ' +
+      'msup ' +
+      'mtable ' +
+      'mtd ' +
+      'mtext ' +
+      'mtr ' +
+      'munder ' +
+      'semantics',
+    'output-encoding': 'ascii',
+    quiet: true,
+    'show-info': false,
+    'show-warnings': false,
+    'sort-attributes': 'alpha',
+    'tidy-mark': false,
+    'vertical-space': true,
+    wrap: 0,
+  });
+}
+
+module.exports = { formatHTML };

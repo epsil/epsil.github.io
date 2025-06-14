@@ -1,56 +1,5 @@
-const { basename, dirname, extname, join, relative } = require('path');
-
-const { tidy_html5 } = require('tidy-html5');
-
-/**
- * Simplify `pre` elements.
- */
-function fixPreElements(html) {
-  return html
-    .replace(/^<pre><code>/gm, '<pre>')
-    .replace(/\n<\/code><\/pre>/gm, '</pre>');
-}
-
-function formatHTML(html) {
-  return tidy_html5(html, {
-    'drop-empty-elements': false,
-    indent: false, // true
-    'indent-attributes': false,
-    'input-encoding': 'utf8',
-    'numeric-entities': true,
-    'new-inline-tags':
-      'math ' +
-      'annotation ' +
-      'merror ' +
-      'mfrac ' +
-      'mi ' +
-      'mn ' +
-      'mo ' +
-      'mover ' +
-      'mphantom ' +
-      'mrow ' +
-      'mspace ' +
-      'msqrt ' +
-      'mstyle ' +
-      'msub ' +
-      'msubsup ' +
-      'msup ' +
-      'mtable ' +
-      'mtd ' +
-      'mtext ' +
-      'mtr ' +
-      'munder ' +
-      'semantics',
-    'output-encoding': 'ascii',
-    quiet: true,
-    'show-info': false,
-    'show-warnings': false,
-    'sort-attributes': 'alpha',
-    'tidy-mark': false,
-    'vertical-space': true,
-    wrap: 0,
-  });
-}
+const { dirname, relative } = require('path');
+const { formatHTML } = require('./tidy');
 
 /**
  * *Very* simple HTML template (will need to do
@@ -73,7 +22,7 @@ function template(page) {
 ${page.content.html}
 </body>
 </html>`;
-  result = fixPreElements(result);
+  // result = fixPreElements(result);
   result = formatHTML(result);
   return result;
 }

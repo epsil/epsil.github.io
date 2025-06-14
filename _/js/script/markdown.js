@@ -44,13 +44,24 @@ const md = new MarkdownIt({
   .use(attrs);
 
 /**
+ * Simplify `pre` elements.
+ */
+function fixPreElements(html) {
+  return html
+    .replace(/^<pre><code>/gm, '<pre>')
+    .replace(/\n<\/code><\/pre>/gm, '</pre>');
+}
+
+/**
  * Parse a Markdown string, returning an HTML string.
  */
 function parseMarkdown(input) {
   let result = '';
   try {
-    result = md.render(input).trim();
+    result = md.render(input);
   } catch (err) {}
+  result = result.trim();
+  result = fixPreElements(result);
   return result;
 }
 
