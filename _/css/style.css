@@ -10,6 +10,7 @@ body {
         "Libre Baskerville", Baskerville, Cambria, Constantia, Utopia, Marion,
         Cochin, "Palatino Linotype", Palatino, serif !important;
     font-size: 142% !important;
+    font-variant: common-ligatures oldstyle-nums;
     line-height: 1.35;
 }
 
