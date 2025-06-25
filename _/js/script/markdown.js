@@ -72,8 +72,15 @@ function parsePage(input, mdPath, htmlPath) {
       yaml: grayMatterObject.data,
     },
   };
-  // TODO: Extract initial h1 element if there is
-  // no YAML title.
+  if (!result?.metadata?.title) {
+    // If there is no YAML frontmatter, attempt to
+    // extract the title from the Markdown instead.
+    const match = markdown.match(/^# (.*)/);
+    if (match) {
+      const [, title] = match;
+      result.metadata.title = title;
+    }
+  }
   return result;
 }
 
